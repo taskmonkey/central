@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import Dashboard from './Components/Dashboard/Dashboard.jsx'
 
 class Main extends Component {
   constructor(props) {
