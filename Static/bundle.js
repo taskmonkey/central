@@ -28684,6 +28684,7 @@ var Login = function (_Component) {
       auth: new _Auth2.default()
     };
     _this.checkAuth = _this.checkAuth.bind(_this);
+    _this.goToDashboard = _this.goToDashboard.bind(_this);
     return _this;
   }
 
@@ -28691,7 +28692,17 @@ var Login = function (_Component) {
     key: 'checkAuth',
     value: function checkAuth() {
       this.state.auth.handleAuthentication();
-      console.log(this.state.auth.isAuthenticated());
+      alert(this.state.auth.isAuthenticated());
+    }
+  }, {
+    key: 'goToDashboard',
+    value: function goToDashboard() {
+      this.state.auth.handleAuthentication();
+      if (this.state.auth.isAuthenticated()) {
+        this.props.history.push('/dashboard');
+      } else {
+        return;
+      }
     }
   }, {
     key: 'render',
@@ -28709,6 +28720,11 @@ var Login = function (_Component) {
           'button',
           { onClick: this.checkAuth },
           'Check Auth'
+        ),
+        _react2.default.createElement(
+          'button',
+          { onClick: this.goToDashboard },
+          'Go to Dashboard'
         ),
         _react2.default.createElement(
           _reactRouterDom.Link,

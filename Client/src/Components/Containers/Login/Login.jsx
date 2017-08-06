@@ -10,11 +10,21 @@ class Login extends Component {
       auth: new Auth(),
     }
     this.checkAuth = this.checkAuth.bind(this);
+    this.goToDashboard = this.goToDashboard.bind(this);
   }
 
   checkAuth() {
     this.state.auth.handleAuthentication();
-    console.log(this.state.auth.isAuthenticated());
+    alert(this.state.auth.isAuthenticated());
+  }
+
+  goToDashboard() {
+    this.state.auth.handleAuthentication();
+    if (this.state.auth.isAuthenticated()) {
+      this.props.history.push('/dashboard')
+    } else {
+      return;
+    }
   }
 
   render(){
@@ -23,6 +33,7 @@ class Login extends Component {
       <div>
         <button onClick={this.state.auth.login}>Login Auth</button>
         <button onClick={this.checkAuth}>Check Auth</button>
+        <button onClick={this.goToDashboard}>Go to Dashboard</button>
         <Link to="/dashboard"><button>Login Without Password</button></Link>
       </div>
     )
