@@ -29,11 +29,6 @@ class Main extends Component {
           <Route exact path="/tasksDetails" component={TasksDetails}/>
         </Switch>
       </BrowserRouter>
-      <div>
-        <h1> TaskMonkey 1</h1>
-        <Dashboard />
-      </div>
-        
     )
   }
 }
