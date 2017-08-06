@@ -28732,7 +28732,7 @@ var Login = function (_Component) {
           _react2.default.createElement(
             'button',
             null,
-            'Login Without Password'
+            'Bypass Authentication to Dashboard'
           )
         )
       );
