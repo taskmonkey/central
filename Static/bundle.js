@@ -28727,6 +28727,11 @@ var Login = function (_Component) {
           'Go to Dashboard'
         ),
         _react2.default.createElement(
+          'button',
+          { onClick: this.state.auth.logout },
+          'Logout'
+        ),
+        _react2.default.createElement(
           _reactRouterDom.Link,
           { to: '/dashboard' },
           _react2.default.createElement(
@@ -28895,7 +28900,7 @@ var Auth = function () {
       localStorage.setItem('id_token', authResult.idToken);
       localStorage.setItem('expires_at', expiresAt);
       // navigate to the home route
-      _history2.default.replace('/home');
+      _history2.default.replace('/');
     }
   }, {
     key: 'logout',
@@ -28905,7 +28910,7 @@ var Auth = function () {
       localStorage.removeItem('id_token');
       localStorage.removeItem('expires_at');
       // navigate to the home route
-      _history2.default.replace('/home');
+      _history2.default.replace('/');
     }
   }, {
     key: 'isAuthenticated',

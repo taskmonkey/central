@@ -34,6 +34,7 @@ class Login extends Component {
         <button onClick={this.state.auth.login}>Login Auth</button>
         <button onClick={this.checkAuth}>Check Auth</button>
         <button onClick={this.goToDashboard}>Go to Dashboard</button>
+        <button onClick={this.state.auth.logout}>Logout</button>
         <Link to="/dashboard"><button>Bypass Authentication to Dashboard</button></Link>
       </div>
     )
