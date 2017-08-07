@@ -23,5 +23,52 @@ svg.custom .node {
 svg.custom path.link {
 	fill: none;
 	stroke: #2593B8;
+<<<<<<< HEAD
 	stroke-width: 5px;
+=======
+	stroke-width: 1.5px;
+}
+
+.col-sm-2 {
+background: hotpink;
+width: 100px;
+-ms-flex: 0 100px;
+-webkit-box-flex:  0;
+-moz-box-flex:  0;
+-ms-box-flex:  0;
+box-flex:  0;  
+
+}
+
+
+.container {
+  margin-left: 0px;
+  padding-left: 0px;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+>>>>>>> working on CSS for dashboard
+}
+
+.sc-EHOje DyqdV{
+  padding-right: 0px;
+}
+.col-md-2{
+  height:100%;
+  padding-left: 0px;
+  position: static; 
+  background-color: #003E58;
+}
+.col-md-9{
+  height:100%;
+  padding-left: 0px;
+  position: static; 
+}
+#app{
+  height: 100%; 
+}
+.sideBar{
+  padding-left: -15px;
 }

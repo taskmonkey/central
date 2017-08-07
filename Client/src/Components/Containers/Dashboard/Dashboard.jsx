@@ -10,19 +10,22 @@ class Dashboard extends Component{
     return(
       <div className = "container">
         <h1>Task Mon Dashboard</h1>
-        <div className="row">
-          <div className="col-sm-2">
-            <NavTask />
-          </div>
-          <div className ="col-sm-5">
-            <PieGraph />
-          </div>
-          <div className ="col-sm-5">
-            <BarGraph />
-          </div>
+          <div className="row">
+            <div className="col-md-2">
+              <NavTask />
+            </div>
+            
+            {/* <div className ="col-sm-">
+              <PieGraph />
+            </div> */}
+            
+            
+            <div className ="col-md-9">
+              <BarGraph />
+            </div>
+        
         </div>
           <Link to="/tasksList"><button>Tasks List</button></Link>
-        
       </div>
     )
   }
