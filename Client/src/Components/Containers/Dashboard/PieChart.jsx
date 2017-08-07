@@ -15,13 +15,21 @@ const sectors = [
   { cx: 250, cy: 250, startAngle: 300, endAngle: 360, innerRadius: 100, outerRadius: 200 },
 ];
 
+<<<<<<< HEAD
 export default class PieGraph extends React.Component {
+=======
+export default class PieDemo extends React.Component {
+>>>>>>> 3ac5ff0791d9de05d4e36aad4e69a754d91e62cd
   // static displayName = 'PieDemo';
 
   render () {
     return (
       <PieChart width={800} height={400}>
+<<<<<<< HEAD
         <Pie isAnimationActive={true} data={data} cx={200} cy={200} outerRadius={80} fill="#8884d8" label/>
+=======
+        <Pie isAnimationActive={false} data={data} cx={200} cy={200} outerRadius={80} fill="#8884d8" label/>
+>>>>>>> 3ac5ff0791d9de05d4e36aad4e69a754d91e62cd
         {/* <Pie data={data02} cx={500} cy={200} innerRadius={40} outerRadius={80} fill="#82ca9d"/> */}
         <Tooltip/>
       </PieChart>

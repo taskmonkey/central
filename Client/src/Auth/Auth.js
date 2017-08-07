@@ -16,6 +16,7 @@ export default class Auth {
     });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     this.login = this.login.bind(this);
     this.logout = this.logout.bind(this);
     this.handleAuthentication = this.handleAuthentication.bind(this);
@@ -23,6 +24,9 @@ export default class Auth {
 =======
   this.login = this.login.bind(this);
 >>>>>>> for rebase on austens commit
+=======
+  this.login = this.login.bind(this);
+>>>>>>> 3ac5ff0791d9de05d4e36aad4e69a754d91e62cd
   }
 
   login() {
