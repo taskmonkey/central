@@ -3,7 +3,8 @@ import {render} from 'react-dom'
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import promise from 'redux-promise';
-import Main from './main.jsx'
+import Main from './main.jsx';
+import reducers from './Reducers';
 
 // const store = createStore();
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
