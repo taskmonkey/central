@@ -5,7 +5,6 @@ import PieGraph from './PieChart.jsx'
 import BarGraph from './BarChart.jsx'
 
 class Dashboard extends Component{
-
   render() {
     return(
       <div>
