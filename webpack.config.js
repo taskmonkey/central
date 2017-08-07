@@ -24,9 +24,4 @@ const config = {
   },
 }
 
-config.module.loaders.push({
-  test: /\.(scss|css)$/,
-  loaders: ['style-loader', 'css-loader', 'sass-loader'],
-});
-
 module.exports = config;
