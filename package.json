@@ -10,6 +10,7 @@
   },
   "devDependencies": {},
   "dependencies": {
+    "auth0-js": "^8.8.0",
     "axios": "^0.16.2",
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
@@ -30,6 +31,7 @@
     "react-router-dom": "^4.1.2",
     "recharts": "^1.0.0-alpha.2",
     "react-tree-graph": "^2.0.0",
+    "redux": "^3.7.2",
     "sequelize": "^4.4.2",
     "webpack": "^3.4.1"
   }
