@@ -1,3 +1,4 @@
 node_modules/
 Client/config.js
 .env
+static/bundle.js
