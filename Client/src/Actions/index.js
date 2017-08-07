@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import TEST_API_KEY from '../../config';
+import {TEST_API_KEY} from '../../config';
 
 const API_KEY = TEST_API_KEY;
 const ROOT_URL = `http://reduxblog.herokuapp.com/api`;
