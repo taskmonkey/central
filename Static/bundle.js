@@ -60,7 +60,19 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
+<<<<<<< HEAD
 /******/ 	return __webpack_require__(__webpack_require__.s = 118);
+=======
+<<<<<<< HEAD
+/******/ 	return __webpack_require__(__webpack_require__.s = 117);
+=======
+<<<<<<< HEAD
+/******/ 	return __webpack_require__(__webpack_require__.s = 97);
+=======
+/******/ 	return __webpack_require__(__webpack_require__.s = 83);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -1165,6 +1177,39 @@ module.exports = ReactComponentTreeHook;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
+=======
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright 2016-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ * 
+ */
+
+
+
+// Trust the developer to only use ReactInstrumentation with a __DEV__ check
+
+var debugTool = null;
+
+if (process.env.NODE_ENV !== 'production') {
+  var ReactDebugTool = __webpack_require__(110);
+  debugTool = ReactDebugTool;
+}
+
+module.exports = { debugTool: debugTool };
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+>>>>>>> Working on Piecharts
 /* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2928,6 +2973,7 @@ module.exports = warning;
 
 var _assign = __webpack_require__(4);
 
+<<<<<<< HEAD
 var ReactBaseClasses = __webpack_require__(72);
 var ReactChildren = __webpack_require__(119);
 var ReactDOMFactories = __webpack_require__(123);
@@ -2935,17 +2981,57 @@ var ReactElement = __webpack_require__(21);
 var ReactPropTypes = __webpack_require__(127);
 var ReactVersion = __webpack_require__(129);
 
+<<<<<<< HEAD
 var createReactClass = __webpack_require__(130);
 var onlyChild = __webpack_require__(132);
+=======
+var createReactClass = __webpack_require__(129);
+var onlyChild = __webpack_require__(131);
+=======
+<<<<<<< HEAD
+var ReactBaseClasses = __webpack_require__(62);
+var ReactChildren = __webpack_require__(98);
+var ReactDOMFactories = __webpack_require__(102);
+var ReactElement = __webpack_require__(17);
+var ReactPropTypes = __webpack_require__(106);
+var ReactVersion = __webpack_require__(108);
+
+var createReactClass = __webpack_require__(109);
+var onlyChild = __webpack_require__(111);
+=======
+var ReactBaseClasses = __webpack_require__(50);
+var ReactChildren = __webpack_require__(84);
+var ReactDOMFactories = __webpack_require__(88);
+var ReactElement = __webpack_require__(14);
+var ReactPropTypes = __webpack_require__(92);
+var ReactVersion = __webpack_require__(95);
+
+var createReactClass = __webpack_require__(96);
+var onlyChild = __webpack_require__(98);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 var createElement = ReactElement.createElement;
 var createFactory = ReactElement.createFactory;
 var cloneElement = ReactElement.cloneElement;
 
 if (process.env.NODE_ENV !== 'production') {
+<<<<<<< HEAD
   var lowPriorityWarning = __webpack_require__(48);
   var canDefineProperty = __webpack_require__(36);
   var ReactElementValidator = __webpack_require__(76);
+=======
+<<<<<<< HEAD
+  var lowPriorityWarning = __webpack_require__(40);
+  var canDefineProperty = __webpack_require__(31);
+  var ReactElementValidator = __webpack_require__(66);
+=======
+  var lowPriorityWarning = __webpack_require__(33);
+  var canDefineProperty = __webpack_require__(24);
+  var ReactElementValidator = __webpack_require__(54);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
   var didWarnPropTypesDeprecated = false;
   createElement = ReactElementValidator.createElement;
   createFactory = ReactElementValidator.createFactory;
@@ -3118,8 +3204,21 @@ module.exports = __webpack_require__(133);
 
 
 
+<<<<<<< HEAD
 var ReactRef = __webpack_require__(141);
+=======
+<<<<<<< HEAD
+var ReactRef = __webpack_require__(140);
+=======
+<<<<<<< HEAD
+var ReactRef = __webpack_require__(120);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 var ReactInstrumentation = __webpack_require__(10);
+=======
+var ReactRef = __webpack_require__(108);
+var ReactInstrumentation = __webpack_require__(8);
+>>>>>>> Working on Piecharts
 
 var warning = __webpack_require__(2);
 
@@ -3290,11 +3389,27 @@ module.exports = ReactReconciler;
 
 
 
+<<<<<<< HEAD
 var DOMNamespaces = __webpack_require__(56);
 var setInnerHTML = __webpack_require__(41);
 
 var createMicrosoftUnsafeLocalFunction = __webpack_require__(57);
 var setTextContent = __webpack_require__(88);
+=======
+<<<<<<< HEAD
+var DOMNamespaces = __webpack_require__(48);
+var setInnerHTML = __webpack_require__(36);
+
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(49);
+var setTextContent = __webpack_require__(78);
+=======
+var DOMNamespaces = __webpack_require__(40);
+var setInnerHTML = __webpack_require__(29);
+
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(41);
+var setTextContent = __webpack_require__(66);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 var ELEMENT_NODE_TYPE = 1;
 var DOCUMENT_FRAGMENT_NODE_TYPE = 11;
@@ -3498,8 +3613,18 @@ module.exports = wrapCallback;
 
 
 
+<<<<<<< HEAD
 var EventPluginHub = __webpack_require__(31);
 var EventPluginUtils = __webpack_require__(50);
+=======
+<<<<<<< HEAD
+var EventPluginHub = __webpack_require__(26);
+var EventPluginUtils = __webpack_require__(42);
+=======
+var EventPluginHub = __webpack_require__(21);
+var EventPluginUtils = __webpack_require__(34);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 var accumulateInto = __webpack_require__(80);
 var forEachAccumulated = __webpack_require__(81);
@@ -3640,9 +3765,21 @@ module.exports = EventPropagators;
 
 var _prodInvariant = __webpack_require__(3);
 
+<<<<<<< HEAD
 var EventPluginRegistry = __webpack_require__(38);
 var EventPluginUtils = __webpack_require__(50);
 var ReactErrorUtils = __webpack_require__(51);
+=======
+<<<<<<< HEAD
+var EventPluginRegistry = __webpack_require__(33);
+var EventPluginUtils = __webpack_require__(42);
+var ReactErrorUtils = __webpack_require__(43);
+=======
+var EventPluginRegistry = __webpack_require__(26);
+var EventPluginUtils = __webpack_require__(34);
+var ReactErrorUtils = __webpack_require__(35);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 var accumulateInto = __webpack_require__(80);
 var forEachAccumulated = __webpack_require__(81);
@@ -3920,7 +4057,15 @@ module.exports = EventPluginHub;
 
 var SyntheticEvent = __webpack_require__(16);
 
+<<<<<<< HEAD
 var getEventTarget = __webpack_require__(52);
+=======
+<<<<<<< HEAD
+var getEventTarget = __webpack_require__(44);
+=======
+var getEventTarget = __webpack_require__(36);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 /**
  * @interface UIEvent
@@ -4713,7 +4858,15 @@ module.exports = TransactionImpl;
 var SyntheticUIEvent = __webpack_require__(32);
 var ViewportMetrics = __webpack_require__(87);
 
+<<<<<<< HEAD
 var getEventModifierState = __webpack_require__(54);
+=======
+<<<<<<< HEAD
+var getEventModifierState = __webpack_require__(46);
+=======
+var getEventModifierState = __webpack_require__(38);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 /**
  * @interface MouseEvent
@@ -4787,13 +4940,30 @@ module.exports = SyntheticMouseEvent;
 
 
 
+<<<<<<< HEAD
 var ExecutionEnvironment = __webpack_require__(7);
+<<<<<<< HEAD
 var DOMNamespaces = __webpack_require__(56);
+=======
+var DOMNamespaces = __webpack_require__(48);
+=======
+var ExecutionEnvironment = __webpack_require__(6);
+var DOMNamespaces = __webpack_require__(40);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 var WHITESPACE_TEST = /^[ \r\n\t\f]/;
 var NONVISIBLE_TEST = /<(!--|link|noscript|meta|script|style)[ \r\n\t\f\/>]/;
 
+<<<<<<< HEAD
 var createMicrosoftUnsafeLocalFunction = __webpack_require__(57);
+=======
+<<<<<<< HEAD
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(49);
+=======
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(41);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 // SVG temp container for IE lacking innerHTML
 var reusableSVGContainer;
@@ -5019,12 +5189,30 @@ module.exports = escapeTextContentForBrowser;
 
 var _assign = __webpack_require__(4);
 
+<<<<<<< HEAD
 var EventPluginRegistry = __webpack_require__(38);
 var ReactEventEmitterMixin = __webpack_require__(167);
 var ViewportMetrics = __webpack_require__(87);
 
 var getVendorPrefixedEventName = __webpack_require__(168);
 var isEventSupported = __webpack_require__(53);
+=======
+<<<<<<< HEAD
+var EventPluginRegistry = __webpack_require__(33);
+var ReactEventEmitterMixin = __webpack_require__(146);
+var ViewportMetrics = __webpack_require__(77);
+
+var getVendorPrefixedEventName = __webpack_require__(147);
+var isEventSupported = __webpack_require__(45);
+=======
+var EventPluginRegistry = __webpack_require__(26);
+var ReactEventEmitterMixin = __webpack_require__(134);
+var ViewportMetrics = __webpack_require__(65);
+
+var getVendorPrefixedEventName = __webpack_require__(135);
+var isEventSupported = __webpack_require__(37);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 /**
  * Summary of `ReactBrowserEventEmitter` event handling:
@@ -5392,10 +5580,33 @@ module.exports = invariant;
 /* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 /* eslint-disable no-param-reassign */
 var request = __webpack_require__(109);
 var base64Url = __webpack_require__(110);
 var version = __webpack_require__(71);
+=======
+"use strict";
+
+
+module.exports = __webpack_require__(16);
+
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright 2014-2015, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ */
+>>>>>>> Working on Piecharts
 
 // ------------------------------------------------ RequestWrapper
 
@@ -5615,7 +5826,12 @@ module.exports = lowPriorityWarning;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 49 */
+=======
+<<<<<<< HEAD
+/* 41 */
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5636,7 +5852,14 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 50 */
+=======
+/* 42 */
+=======
+/* 34 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5654,7 +5877,15 @@ module.exports = ReactPropTypesSecret;
 
 var _prodInvariant = __webpack_require__(3);
 
+<<<<<<< HEAD
 var ReactErrorUtils = __webpack_require__(51);
+=======
+<<<<<<< HEAD
+var ReactErrorUtils = __webpack_require__(43);
+=======
+var ReactErrorUtils = __webpack_require__(35);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
@@ -5868,7 +6099,15 @@ module.exports = EventPluginUtils;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 51 */
+=======
+<<<<<<< HEAD
+/* 43 */
+=======
+/* 35 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5950,7 +6189,15 @@ module.exports = ReactErrorUtils;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 52 */
+=======
+<<<<<<< HEAD
+/* 44 */
+=======
+/* 36 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5990,7 +6237,15 @@ function getEventTarget(nativeEvent) {
 module.exports = getEventTarget;
 
 /***/ }),
+<<<<<<< HEAD
 /* 53 */
+=======
+<<<<<<< HEAD
+/* 45 */
+=======
+/* 37 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6055,7 +6310,15 @@ function isEventSupported(eventNameSuffix, capture) {
 module.exports = isEventSupported;
 
 /***/ }),
+<<<<<<< HEAD
 /* 54 */
+=======
+<<<<<<< HEAD
+/* 46 */
+=======
+/* 38 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6103,7 +6366,15 @@ function getEventModifierState(nativeEvent) {
 module.exports = getEventModifierState;
 
 /***/ }),
+<<<<<<< HEAD
 /* 55 */
+=======
+<<<<<<< HEAD
+/* 47 */
+=======
+/* 39 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6119,6 +6390,7 @@ module.exports = getEventModifierState;
 
 
 
+<<<<<<< HEAD
 var DOMLazyTree = __webpack_require__(28);
 var Danger = __webpack_require__(152);
 var ReactDOMComponentTree = __webpack_require__(5);
@@ -6127,6 +6399,27 @@ var ReactInstrumentation = __webpack_require__(10);
 var createMicrosoftUnsafeLocalFunction = __webpack_require__(57);
 var setInnerHTML = __webpack_require__(41);
 var setTextContent = __webpack_require__(88);
+=======
+<<<<<<< HEAD
+var DOMLazyTree = __webpack_require__(24);
+var Danger = __webpack_require__(131);
+=======
+var DOMLazyTree = __webpack_require__(19);
+var Danger = __webpack_require__(119);
+>>>>>>> Working on Piecharts
+var ReactDOMComponentTree = __webpack_require__(5);
+var ReactInstrumentation = __webpack_require__(10);
+
+<<<<<<< HEAD
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(49);
+var setInnerHTML = __webpack_require__(36);
+var setTextContent = __webpack_require__(78);
+=======
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(41);
+var setInnerHTML = __webpack_require__(29);
+var setTextContent = __webpack_require__(66);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 function getNodeAfter(parentNode, node) {
   // Special case for text components, which return [open, close] comments
@@ -6335,7 +6628,15 @@ module.exports = DOMChildrenOperations;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 56 */
+=======
+<<<<<<< HEAD
+/* 48 */
+=======
+/* 40 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6360,7 +6661,15 @@ var DOMNamespaces = {
 module.exports = DOMNamespaces;
 
 /***/ }),
+<<<<<<< HEAD
 /* 57 */
+=======
+<<<<<<< HEAD
+/* 49 */
+=======
+/* 41 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6397,7 +6706,15 @@ var createMicrosoftUnsafeLocalFunction = function (func) {
 module.exports = createMicrosoftUnsafeLocalFunction;
 
 /***/ }),
+<<<<<<< HEAD
 /* 58 */
+=======
+<<<<<<< HEAD
+/* 50 */
+=======
+/* 42 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6541,7 +6858,15 @@ module.exports = LinkedValueUtils;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 59 */
+=======
+<<<<<<< HEAD
+/* 51 */
+=======
+/* 43 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6591,7 +6916,15 @@ module.exports = ReactComponentEnvironment;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 60 */
+=======
+<<<<<<< HEAD
+/* 52 */
+=======
+/* 44 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6664,7 +6997,15 @@ function shallowEqual(objA, objB) {
 module.exports = shallowEqual;
 
 /***/ }),
+<<<<<<< HEAD
 /* 61 */
+=======
+<<<<<<< HEAD
+/* 53 */
+=======
+/* 45 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6711,7 +7052,15 @@ function shouldUpdateReactComponent(prevElement, nextElement) {
 module.exports = shouldUpdateReactComponent;
 
 /***/ }),
+<<<<<<< HEAD
 /* 62 */
+=======
+<<<<<<< HEAD
+/* 54 */
+=======
+/* 46 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6775,7 +7124,15 @@ var KeyEscapeUtils = {
 module.exports = KeyEscapeUtils;
 
 /***/ }),
+<<<<<<< HEAD
 /* 63 */
+=======
+<<<<<<< HEAD
+/* 55 */
+=======
+/* 47 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7015,7 +7372,15 @@ module.exports = ReactUpdateQueue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 64 */
+=======
+<<<<<<< HEAD
+/* 56 */
+=======
+/* 48 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7392,7 +7757,15 @@ module.exports = validateDOMNesting;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 65 */
+=======
+<<<<<<< HEAD
+/* 57 */
+=======
+/* 49 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7447,7 +7820,12 @@ function getEventCharCode(nativeEvent) {
 module.exports = getEventCharCode;
 
 /***/ }),
+<<<<<<< HEAD
 /* 66 */
+=======
+<<<<<<< HEAD
+/* 58 */
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7458,7 +7836,15 @@ exports.locationsAreEqual = exports.createLocation = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+<<<<<<< HEAD
 var _resolvePathname = __webpack_require__(221);
+=======
+var _resolvePathname = __webpack_require__(201);
+=======
+/* 50 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 var _resolvePathname2 = _interopRequireDefault(_resolvePathname);
 
@@ -7866,7 +8252,15 @@ var ReactNoopUpdateQueue = __webpack_require__(73);
 var canDefineProperty = __webpack_require__(36);
 var emptyObject = __webpack_require__(37);
 var invariant = __webpack_require__(1);
+<<<<<<< HEAD
 var lowPriorityWarning = __webpack_require__(48);
+=======
+<<<<<<< HEAD
+var lowPriorityWarning = __webpack_require__(40);
+=======
+var lowPriorityWarning = __webpack_require__(33);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 /**
  * Base class helpers for the updating state of a component.
@@ -8190,12 +8584,32 @@ var ReactCurrentOwner = __webpack_require__(14);
 var ReactComponentTreeHook = __webpack_require__(8);
 var ReactElement = __webpack_require__(21);
 
+<<<<<<< HEAD
 var checkReactTypeSpec = __webpack_require__(124);
+=======
+<<<<<<< HEAD
+var checkReactTypeSpec = __webpack_require__(123);
+=======
+<<<<<<< HEAD
+var checkReactTypeSpec = __webpack_require__(103);
+=======
+var checkReactTypeSpec = __webpack_require__(89);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 var canDefineProperty = __webpack_require__(36);
 var getIteratorFn = __webpack_require__(75);
 var warning = __webpack_require__(2);
+<<<<<<< HEAD
 var lowPriorityWarning = __webpack_require__(48);
+=======
+<<<<<<< HEAD
+var lowPriorityWarning = __webpack_require__(40);
+=======
+var lowPriorityWarning = __webpack_require__(33);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 function getDeclarationErrorAddendum() {
   if (ReactCurrentOwner.current) {
@@ -8443,7 +8857,15 @@ module.exports = ReactElementValidator;
 // Therefore we re-export development-only version with all the PropTypes checks here.
 // However if one is migrating to the `prop-types` npm library, they will go through the
 // `index.js` entry point, and it will branch depending on the environment.
+<<<<<<< HEAD
 var factory = __webpack_require__(78);
+=======
+<<<<<<< HEAD
+var factory = __webpack_require__(68);
+=======
+var factory = __webpack_require__(93);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 module.exports = function(isValidElement) {
   // It is still allowed in 15.5.
   var throwOnDirectAccess = false;
@@ -9303,11 +9725,16 @@ module.exports = ReactFeatureFlags;
 
 var ReactDOMComponentTree = __webpack_require__(5);
 
+<<<<<<< HEAD
 function isCheckable(elem) {
   var type = elem.type;
   var nodeName = elem.nodeName;
   return nodeName && nodeName.toLowerCase() === 'input' && (type === 'checkbox' || type === 'radio');
 }
+=======
+var quoteAttributeValueForBrowser = __webpack_require__(133);
+var warning = __webpack_require__(2);
+>>>>>>> Working on Piecharts
 
 function getTracker(inst) {
   return inst._wrapperState.valueTracker;
@@ -9488,7 +9915,13 @@ module.exports = isTextInputElement;
 var ViewportMetrics = {
   currentScrollLeft: 0,
 
+<<<<<<< HEAD
   currentScrollTop: 0,
+=======
+var LinkedValueUtils = __webpack_require__(42);
+var ReactDOMComponentTree = __webpack_require__(5);
+var ReactUpdates = __webpack_require__(11);
+>>>>>>> Working on Piecharts
 
   refreshScrollValues: function (scrollPosition) {
     ViewportMetrics.currentScrollLeft = scrollPosition.x;
@@ -9604,6 +10037,7 @@ module.exports = focusNode;
 
 
 
+<<<<<<< HEAD
 /**
  * CSS properties which accept numbers but are not in units of "px".
  */
@@ -9641,6 +10075,18 @@ var isUnitlessNumber = {
   widows: true,
   zIndex: true,
   zoom: true,
+=======
+var _prodInvariant = __webpack_require__(3),
+    _assign = __webpack_require__(4);
+
+var ReactCompositeComponent = __webpack_require__(141);
+var ReactEmptyComponent = __webpack_require__(74);
+var ReactHostComponent = __webpack_require__(75);
+
+var getNextDebugID = __webpack_require__(144);
+var invariant = __webpack_require__(1);
+var warning = __webpack_require__(2);
+>>>>>>> Working on Piecharts
 
   // SVG-related properties
   fillOpacity: true,
@@ -10028,10 +10474,23 @@ module.exports = ReactPropTypesSecret;
 
 var _assign = __webpack_require__(4);
 
+<<<<<<< HEAD
 var LinkedValueUtils = __webpack_require__(58);
+=======
+<<<<<<< HEAD
+var LinkedValueUtils = __webpack_require__(50);
+>>>>>>> Working on Piecharts
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactUpdates = __webpack_require__(15);
 
+=======
+var ReactCurrentOwner = __webpack_require__(10);
+var REACT_ELEMENT_TYPE = __webpack_require__(145);
+
+var getIteratorFn = __webpack_require__(146);
+var invariant = __webpack_require__(1);
+var KeyEscapeUtils = __webpack_require__(46);
+>>>>>>> Working on Piecharts
 var warning = __webpack_require__(2);
 
 var didWarnValueLink = false;
@@ -10265,8 +10724,22 @@ function getDeclarationErrorAddendum(owner) {
  * @param {function} type
  * @return {boolean} Returns true if this is a valid internal type.
  */
+<<<<<<< HEAD
 function isInternalComponentType(type) {
   return typeof type === 'function' && typeof type.prototype !== 'undefined' && typeof type.prototype.mountComponent === 'function' && typeof type.prototype.receiveComponent === 'function';
+=======
+
+
+
+var ReactDOMSelection = __webpack_require__(158);
+
+var containsNode = __webpack_require__(160);
+var focusNode = __webpack_require__(67);
+var getActiveElement = __webpack_require__(79);
+
+function isInDocument(node) {
+  return containsNode(document.documentElement, node);
+>>>>>>> Working on Piecharts
 }
 
 /**
@@ -10450,7 +10923,32 @@ module.exports = ReactEmptyComponent;
 
 var _prodInvariant = __webpack_require__(3);
 
+<<<<<<< HEAD
 var invariant = __webpack_require__(1);
+=======
+var DOMLazyTree = __webpack_require__(19);
+var DOMProperty = __webpack_require__(13);
+var React = __webpack_require__(16);
+var ReactBrowserEventEmitter = __webpack_require__(31);
+var ReactCurrentOwner = __webpack_require__(10);
+var ReactDOMComponentTree = __webpack_require__(5);
+var ReactDOMContainerInfo = __webpack_require__(175);
+var ReactDOMFeatureFlags = __webpack_require__(176);
+var ReactFeatureFlags = __webpack_require__(62);
+var ReactInstanceMap = __webpack_require__(23);
+var ReactInstrumentation = __webpack_require__(8);
+var ReactMarkupChecksum = __webpack_require__(177);
+var ReactReconciler = __webpack_require__(18);
+var ReactUpdateQueue = __webpack_require__(47);
+var ReactUpdates = __webpack_require__(11);
+
+var emptyObject = __webpack_require__(25);
+var instantiateReactComponent = __webpack_require__(72);
+var invariant = __webpack_require__(1);
+var setInnerHTML = __webpack_require__(29);
+var shouldUpdateReactComponent = __webpack_require__(45);
+var warning = __webpack_require__(2);
+>>>>>>> Working on Piecharts
 
 var genericComponentClass = null;
 var textComponentClass = null;
@@ -10868,6 +11366,7 @@ var ReactInputSelection = {
     return selection || { start: 0, end: 0 };
   },
 
+<<<<<<< HEAD
   /**
    * @setSelection: Sets the selection bounds of a textarea or input and focuses
    * the input.
@@ -10880,6 +11379,68 @@ var ReactInputSelection = {
     if (end === undefined) {
       end = start;
     }
+=======
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(32);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Dashboard = __webpack_require__(82);
+
+var _Dashboard2 = _interopRequireDefault(_Dashboard);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Dashboard = function (_Component) {
+  _inherits(Dashboard, _Component);
+
+  function Dashboard(props) {
+    _classCallCheck(this, Dashboard);
+
+    var _this = _possibleConstructorReturn(this, (Dashboard.__proto__ || Object.getPrototypeOf(Dashboard)).call(this, props));
+
+    _this.state = {
+      data: [{ 1: 1, 2: 3 }]
+    };
+    return _this;
+  }
+
+  _createClass(Dashboard, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        '/Dashboard'
+      );
+    }
+  }]);
+
+  return Dashboard;
+}(_react.Component);
+
+exports.default = Dashboard;
+
+/***/ }),
+/* 83 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _react = __webpack_require__(32);
+>>>>>>> Working on Piecharts
 
     if ('selectionStart' in input) {
       input.selectionStart = start;
@@ -10896,11 +11457,17 @@ var ReactInputSelection = {
   }
 };
 
+<<<<<<< HEAD
 module.exports = ReactInputSelection;
 
 /***/ }),
 /* 101 */
 /***/ (function(module, exports, __webpack_require__) {
+=======
+var _reactDom = __webpack_require__(99);
+
+var _main = __webpack_require__(185);
+>>>>>>> Working on Piecharts
 
 "use strict";
 
@@ -10943,7 +11510,15 @@ function getActiveElement(doc) /*?DOMElement*/{
 module.exports = getActiveElement;
 
 /***/ }),
+<<<<<<< HEAD
 /* 102 */
+=======
+<<<<<<< HEAD
+/* 92 */
+=======
+/* 84 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10959,6 +11534,7 @@ module.exports = getActiveElement;
 
 
 
+<<<<<<< HEAD
 var _prodInvariant = __webpack_require__(3);
 
 var DOMLazyTree = __webpack_require__(28);
@@ -10983,6 +11559,13 @@ var invariant = __webpack_require__(1);
 var setInnerHTML = __webpack_require__(41);
 var shouldUpdateReactComponent = __webpack_require__(61);
 var warning = __webpack_require__(2);
+=======
+var PooledClass = __webpack_require__(85);
+var ReactElement = __webpack_require__(14);
+
+var emptyFunction = __webpack_require__(9);
+var traverseAllChildren = __webpack_require__(86);
+>>>>>>> Working on Piecharts
 
 var ATTR_NAME = DOMProperty.ID_ATTRIBUTE_NAME;
 var ROOT_ATTR_NAME = DOMProperty.ROOT_ATTRIBUTE_NAME;
@@ -11168,6 +11751,7 @@ function getTopLevelWrapperInContainer(container) {
   return root ? root._hostContainerInfo._topLevelWrapper : null;
 }
 
+<<<<<<< HEAD
 /**
  * Temporary (?) hack so that we can store all top-level pending updates on
  * composites instead of having to worry about different types of components
@@ -11185,6 +11769,11 @@ TopLevelWrapper.prototype.render = function () {
   return this.props.child;
 };
 TopLevelWrapper.isReactTopLevelWrapper = true;
+=======
+/***/ }),
+/* 85 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
 
 /**
  * Mounting is the process of initializing a React component by creating its
@@ -11291,10 +11880,16 @@ var ReactMount = {
     return ReactMount._renderSubtreeIntoContainer(parentComponent, nextElement, container, callback);
   },
 
+<<<<<<< HEAD
   _renderSubtreeIntoContainer: function (parentComponent, nextElement, container, callback) {
     ReactUpdateQueue.validateCallback(callback, 'ReactDOM.render');
     !React.isValidElement(nextElement) ? process.env.NODE_ENV !== 'production' ? invariant(false, 'ReactDOM.render(): Invalid component element.%s', typeof nextElement === 'string' ? " Instead of passing a string like 'div', pass " + "React.createElement('div') or <div />." : typeof nextElement === 'function' ? ' Instead of passing a class like Foo, pass ' + 'React.createElement(Foo) or <Foo />.' : // Check if it quacks like an element
     nextElement != null && nextElement.props !== undefined ? ' This may be caused by unintentionally loading two independent ' + 'copies of React.' : '') : _prodInvariant('39', typeof nextElement === 'string' ? " Instead of passing a string like 'div', pass " + "React.createElement('div') or <div />." : typeof nextElement === 'function' ? ' Instead of passing a class like Foo, pass ' + 'React.createElement(Foo) or <Foo />.' : nextElement != null && nextElement.props !== undefined ? ' This may be caused by unintentionally loading two independent ' + 'copies of React.' : '') : void 0;
+=======
+/***/ }),
+/* 86 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
 
     process.env.NODE_ENV !== 'production' ? warning(!container || !container.tagName || container.tagName.toUpperCase() !== 'BODY', 'render(): Rendering components directly into document.body is ' + 'discouraged, since its children are often manipulated by third-party ' + 'scripts and browser extensions. This may lead to subtle ' + 'reconciliation issues. Try rendering into a container element created ' + 'for your app.') : void 0;
 
@@ -11327,9 +11922,16 @@ var ReactMount = {
       }
     }
 
+<<<<<<< HEAD
     var reactRootElement = getReactRootElementInContainer(container);
     var containerHasReactMarkup = reactRootElement && !!internalGetID(reactRootElement);
     var containerHasNonRootReactChild = hasNonRootReactChild(container);
+=======
+var getIteratorFn = __webpack_require__(53);
+var invariant = __webpack_require__(1);
+var KeyEscapeUtils = __webpack_require__(87);
+var warning = __webpack_require__(2);
+>>>>>>> Working on Piecharts
 
     if (process.env.NODE_ENV !== 'production') {
       process.env.NODE_ENV !== 'production' ? warning(!containerHasNonRootReactChild, 'render(...): Replacing React-rendered children with a new root ' + 'component. If you intended to update the children of this node, ' + 'you should instead have the existing children update their state ' + 'and render the new components instead of calling ReactDOM.render.') : void 0;
@@ -11487,7 +12089,15 @@ module.exports = ReactMount;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 103 */
+=======
+<<<<<<< HEAD
+/* 93 */
+=======
+/* 87 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11522,7 +12132,15 @@ function getHostComponentFromComposite(inst) {
 module.exports = getHostComponentFromComposite;
 
 /***/ }),
+<<<<<<< HEAD
 /* 104 */
+=======
+<<<<<<< HEAD
+/* 94 */
+=======
+/* 88 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11896,8 +12514,21 @@ var isExtraneousPopstateEvent = exports.isExtraneousPopstateEvent = function isE
 };
 
 /***/ }),
+<<<<<<< HEAD
 /* 106 */
+=======
+<<<<<<< HEAD
+/* 105 */
+=======
+<<<<<<< HEAD
+/* 95 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
+=======
+/* 89 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning__ = __webpack_require__(23);
@@ -11915,6 +12546,11 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+<<<<<<< HEAD
+=======
+var ReactPropTypeLocationNames = __webpack_require__(90);
+var ReactPropTypesSecret = __webpack_require__(91);
+>>>>>>> Working on Piecharts
 
 
 
@@ -11952,6 +12588,7 @@ var Route = function (_React$Component) {
     };
   };
 
+<<<<<<< HEAD
   Route.prototype.computeMatch = function computeMatch(_ref, _ref2) {
     var computedMatch = _ref.computedMatch,
         location = _ref.location,
@@ -11959,6 +12596,11 @@ var Route = function (_React$Component) {
         strict = _ref.strict,
         exact = _ref.exact;
     var route = _ref2.route;
+=======
+/***/ }),
+/* 90 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
 
     if (computedMatch) return computedMatch; // <Switch> already computed the match for us
 
@@ -11976,7 +12618,13 @@ var Route = function (_React$Component) {
 
     __WEBPACK_IMPORTED_MODULE_0_warning___default()(!(component && render), 'You should not use <Route component> and <Route render> in the same route; <Route render> will be ignored');
 
+<<<<<<< HEAD
     __WEBPACK_IMPORTED_MODULE_0_warning___default()(!(component && children), 'You should not use <Route component> and <Route children> in the same route; <Route children> will be ignored');
+=======
+/***/ }),
+/* 91 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
 
     __WEBPACK_IMPORTED_MODULE_0_warning___default()(!(render && children), 'You should not use <Route render> and <Route children> in the same route; <Route children> will be ignored');
   };
@@ -12012,6 +12660,7 @@ var Route = function (_React$Component) {
     __WEBPACK_IMPORTED_MODULE_1_react___default.a.Children.only(children) : null : null;
   };
 
+<<<<<<< HEAD
   return Route;
 }(__WEBPACK_IMPORTED_MODULE_1_react___default.a.Component);
 
@@ -12277,6 +12926,7 @@ Authentication.prototype.buildAuthorizeUrl = function(options) {
   );
   /* eslint-enable */
 
+<<<<<<< HEAD
   // eslint-disable-next-line
   if (this.baseOptions._sendTelemetry) {
     params.auth0Client = this.request.getTelemetryData();
@@ -12293,6 +12943,15 @@ Authentication.prototype.buildAuthorizeUrl = function(options) {
 
   return urljoin(this.baseOptions.rootUrl, 'authorize', '?' + qString);
 };
+=======
+/***/ }),
+/* 98 */
+=======
+/***/ }),
+/* 92 */
+>>>>>>> Working on Piecharts
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
 
 /**
  * Builds and returns the Logout url in order to initialize a new authN/authZ transaction
@@ -12622,7 +13281,19 @@ module.exports = Authentication;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 109 */
+=======
+<<<<<<< HEAD
+/* 108 */
+=======
+<<<<<<< HEAD
+/* 99 */
+=======
+/* 93 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -12650,7 +13321,16 @@ var shouldRetry = __webpack_require__(253);
  * Noop.
  */
 
+<<<<<<< HEAD
 function noop(){};
+=======
+<<<<<<< HEAD
+var invariant = __webpack_require__(1);
+=======
+var ReactPropTypesSecret = __webpack_require__(56);
+var checkPropTypes = __webpack_require__(94);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 /**
  * Expose `request`.
@@ -13000,7 +13680,17 @@ Response.prototype.toError = function(){
  * Expose `Response`.
  */
 
+<<<<<<< HEAD
 request.Response = Response;
+=======
+/***/ }),
+<<<<<<< HEAD
+/* 102 */
+=======
+/* 94 */
+>>>>>>> Working on Piecharts
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
 
 /**
  * Initialize a new `Request` with the given `method` and `url`.
@@ -13099,8 +13789,26 @@ Request.prototype.type = function(type){
   return this;
 };
 
+<<<<<<< HEAD
 /**
  * Set Accept to `type`, mapping values from `request.types`.
+=======
+module.exports = ReactDOMFactories;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+<<<<<<< HEAD
+/* 103 */
+=======
+/* 95 */
+>>>>>>> Working on Piecharts
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
+>>>>>>> Working on Piecharts
  *
  * Examples:
  *
@@ -13119,10 +13827,41 @@ Request.prototype.type = function(type){
  * @api public
  */
 
+<<<<<<< HEAD
 Request.prototype.accept = function(type){
   this.set('Accept', request.types[type] || type);
   return this;
 };
+=======
+
+
+var _prodInvariant = __webpack_require__(21);
+
+<<<<<<< HEAD
+var ReactPropTypeLocationNames = __webpack_require__(104);
+var ReactPropTypesSecret = __webpack_require__(105);
+
+var invariant = __webpack_require__(1);
+var warning = __webpack_require__(2);
+
+var ReactComponentTreeHook;
+
+if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 'test') {
+  // Temporary hack.
+  // Inline requires don't work well with Jest:
+  // https://github.com/facebook/react/issues/7240
+  // Remove the inline requires when we don't need them anymore:
+  // https://github.com/facebook/react/pull/7178
+  ReactComponentTreeHook = __webpack_require__(8);
+}
+
+var loggedTypeFailures = {};
+=======
+/***/ }),
+/* 96 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 /**
  * Set Authorization field value with `user` and `pass`.
@@ -13134,6 +13873,7 @@ Request.prototype.accept = function(type){
  * @api public
  */
 
+<<<<<<< HEAD
 Request.prototype.auth = function(user, pass, options){
   if (typeof pass === 'object' && pass !== null) { // pass is optional and can substitute for options
     options = pass;
@@ -13143,12 +13883,31 @@ Request.prototype.auth = function(user, pass, options){
       type: 'function' === typeof btoa ? 'basic' : 'auto',
     }
   }
+=======
+<<<<<<< HEAD
+        process.env.NODE_ENV !== 'production' ? warning(false, 'Failed %s type: %s%s', location, error.message, componentStackInfo) : void 0;
+      }
+    }
+  }
+}
+=======
+var _require = __webpack_require__(50),
+    Component = _require.Component;
+
+var _require2 = __webpack_require__(14),
+    isValidElement = _require2.isValidElement;
+
+var ReactNoopUpdateQueue = __webpack_require__(51);
+var factory = __webpack_require__(97);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
   switch (options.type) {
     case 'basic':
       this.set('Authorization', 'Basic ' + btoa(user + ':' + pass));
     break;
 
+<<<<<<< HEAD
     case 'auto':
       this.username = user;
       this.password = pass;
@@ -13160,6 +13919,15 @@ Request.prototype.auth = function(user, pass, options){
   }
   return this;
 };
+=======
+/***/ }),
+<<<<<<< HEAD
+/* 104 */
+=======
+/* 97 */
+>>>>>>> Working on Piecharts
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
 
 /**
  * Add query-string `val`.
@@ -14003,8 +14771,18 @@ function stringToByteArray(str) {
   return arr;
 }
 
+<<<<<<< HEAD
 function byteArrayToHex(raw) {
   var HEX = '';
+=======
+/***/ }),
+<<<<<<< HEAD
+/* 111 */
+=======
+/* 98 */
+>>>>>>> Working on Piecharts
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
 
   for (var i = 0; i < raw.length; i++) {
     var _hex = raw[i].toString(16);
@@ -14048,7 +14826,29 @@ module.exports = {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 116 */
+=======
+<<<<<<< HEAD
+/* 115 */
+=======
+<<<<<<< HEAD
+/* 112 */
+=======
+/* 99 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = __webpack_require__(100);
+
+
+/***/ }),
+/* 100 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 var random = __webpack_require__(272);
@@ -14069,9 +14869,35 @@ TransactionManager.prototype.process = function(options) {
     return options;
   }
 
+<<<<<<< HEAD
   if (options.responseType.indexOf('id_token') !== -1 && !!options.nonce) {
     return options;
   }
+=======
+var ReactDOMComponentTree = __webpack_require__(5);
+<<<<<<< HEAD
+var ReactDefaultInjection = __webpack_require__(113);
+var ReactMount = __webpack_require__(92);
+var ReactReconciler = __webpack_require__(23);
+var ReactUpdates = __webpack_require__(14);
+var ReactVersion = __webpack_require__(191);
+
+var findDOMNode = __webpack_require__(192);
+var getHostComponentFromComposite = __webpack_require__(93);
+var renderSubtreeIntoContainer = __webpack_require__(193);
+=======
+var ReactDefaultInjection = __webpack_require__(101);
+var ReactMount = __webpack_require__(80);
+var ReactReconciler = __webpack_require__(18);
+var ReactUpdates = __webpack_require__(11);
+var ReactVersion = __webpack_require__(179);
+
+var findDOMNode = __webpack_require__(180);
+var getHostComponentFromComposite = __webpack_require__(81);
+var renderSubtreeIntoContainer = __webpack_require__(181);
+>>>>>>> Working on Piecharts
+var warning = __webpack_require__(2);
+>>>>>>> Working on Piecharts
 
   transaction = this.generateTransaction(options.appState, options.state, options.nonce);
 
@@ -14155,6 +14981,7 @@ var WinChan = (function() {
     return rv >= 8;
   }
 
+<<<<<<< HEAD
   // checking Mobile Firefox (Fennec)
   function isFennec() {
     try {
@@ -14166,6 +14993,20 @@ var WinChan = (function() {
     } catch(e) {}
     return false;
   }
+=======
+if (process.env.NODE_ENV !== 'production') {
+<<<<<<< HEAD
+  var ReactInstrumentation = __webpack_require__(10);
+  var ReactDOMUnknownPropertyHook = __webpack_require__(194);
+  var ReactDOMNullInputValuePropHook = __webpack_require__(195);
+  var ReactDOMInvalidARIAHook = __webpack_require__(196);
+=======
+  var ReactInstrumentation = __webpack_require__(8);
+  var ReactDOMUnknownPropertyHook = __webpack_require__(182);
+  var ReactDOMNullInputValuePropHook = __webpack_require__(183);
+  var ReactDOMInvalidARIAHook = __webpack_require__(184);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
   // feature checking to see if this platform is supported at all
   function isSupported() {
@@ -14181,6 +15022,7 @@ var WinChan = (function() {
     return url;
   }
 
+<<<<<<< HEAD
   // find the relay iframe in the opener
   function findRelay() {
     var loc = window.location;
@@ -14197,6 +15039,15 @@ var WinChan = (function() {
     }
     return;
   }
+=======
+/***/ }),
+<<<<<<< HEAD
+/* 113 */
+=======
+/* 101 */
+>>>>>>> Working on Piecharts
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
 
   var isIE = isInternetExplorer();
 
@@ -14227,7 +15078,51 @@ var WinChan = (function() {
         if (!opts.window_name) opts.window_name = null;
         if (!opts.window_features || isFennec()) opts.window_features = undefined;
 
+<<<<<<< HEAD
         // opts.params may be undefined
+=======
+<<<<<<< HEAD
+var ARIADOMPropertyConfig = __webpack_require__(114);
+var BeforeInputEventPlugin = __webpack_require__(115);
+var ChangeEventPlugin = __webpack_require__(119);
+var DefaultEventPluginOrder = __webpack_require__(127);
+var EnterLeaveEventPlugin = __webpack_require__(128);
+var HTMLDOMPropertyConfig = __webpack_require__(129);
+var ReactComponentBrowserEnvironment = __webpack_require__(130);
+var ReactDOMComponent = __webpack_require__(136);
+var ReactDOMComponentTree = __webpack_require__(5);
+var ReactDOMEmptyComponent = __webpack_require__(162);
+var ReactDOMTreeTraversal = __webpack_require__(163);
+var ReactDOMTextComponent = __webpack_require__(164);
+var ReactDefaultBatchingStrategy = __webpack_require__(165);
+var ReactEventListener = __webpack_require__(166);
+var ReactInjection = __webpack_require__(168);
+var ReactReconcileTransaction = __webpack_require__(169);
+var SVGDOMPropertyConfig = __webpack_require__(175);
+var SelectEventPlugin = __webpack_require__(176);
+var SimpleEventPlugin = __webpack_require__(177);
+=======
+var ARIADOMPropertyConfig = __webpack_require__(102);
+var BeforeInputEventPlugin = __webpack_require__(103);
+var ChangeEventPlugin = __webpack_require__(107);
+var DefaultEventPluginOrder = __webpack_require__(115);
+var EnterLeaveEventPlugin = __webpack_require__(116);
+var HTMLDOMPropertyConfig = __webpack_require__(117);
+var ReactComponentBrowserEnvironment = __webpack_require__(118);
+var ReactDOMComponent = __webpack_require__(124);
+var ReactDOMComponentTree = __webpack_require__(5);
+var ReactDOMEmptyComponent = __webpack_require__(150);
+var ReactDOMTreeTraversal = __webpack_require__(151);
+var ReactDOMTextComponent = __webpack_require__(152);
+var ReactDefaultBatchingStrategy = __webpack_require__(153);
+var ReactEventListener = __webpack_require__(154);
+var ReactInjection = __webpack_require__(156);
+var ReactReconcileTransaction = __webpack_require__(157);
+var SVGDOMPropertyConfig = __webpack_require__(163);
+var SelectEventPlugin = __webpack_require__(164);
+var SimpleEventPlugin = __webpack_require__(165);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
         var iframe;
 
@@ -14430,7 +15325,19 @@ if (typeof module !== 'undefined' && module.exports) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 118 */
+=======
+<<<<<<< HEAD
+/* 117 */
+=======
+<<<<<<< HEAD
+/* 114 */
+=======
+/* 102 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14451,7 +15358,19 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 (0, _reactDom.render)(_react2.default.createElement(_main2.default, null), document.getElementById('app'));
 
 /***/ }),
+<<<<<<< HEAD
 /* 119 */
+=======
+<<<<<<< HEAD
+/* 118 */
+=======
+<<<<<<< HEAD
+/* 115 */
+=======
+/* 103 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14467,8 +15386,28 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 
 
+<<<<<<< HEAD
 var PooledClass = __webpack_require__(120);
+=======
+<<<<<<< HEAD
+var PooledClass = __webpack_require__(119);
+>>>>>>> Working on Piecharts
 var ReactElement = __webpack_require__(21);
+=======
+<<<<<<< HEAD
+var EventPropagators = __webpack_require__(25);
+var ExecutionEnvironment = __webpack_require__(7);
+var FallbackCompositionState = __webpack_require__(116);
+var SyntheticCompositionEvent = __webpack_require__(117);
+var SyntheticInputEvent = __webpack_require__(118);
+=======
+var EventPropagators = __webpack_require__(20);
+var ExecutionEnvironment = __webpack_require__(6);
+var FallbackCompositionState = __webpack_require__(104);
+var SyntheticCompositionEvent = __webpack_require__(105);
+var SyntheticInputEvent = __webpack_require__(106);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 var emptyFunction = __webpack_require__(9);
 var traverseAllChildren = __webpack_require__(121);
@@ -14765,7 +15704,19 @@ module.exports = PooledClass;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 121 */
+=======
+<<<<<<< HEAD
+/* 120 */
+=======
+<<<<<<< HEAD
+/* 116 */
+=======
+/* 104 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14947,7 +15898,19 @@ module.exports = traverseAllChildren;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 122 */
+=======
+<<<<<<< HEAD
+/* 121 */
+=======
+<<<<<<< HEAD
+/* 117 */
+=======
+/* 105 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15011,7 +15974,19 @@ var KeyEscapeUtils = {
 module.exports = KeyEscapeUtils;
 
 /***/ }),
+<<<<<<< HEAD
 /* 123 */
+=======
+<<<<<<< HEAD
+/* 122 */
+=======
+<<<<<<< HEAD
+/* 118 */
+=======
+/* 106 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15186,7 +16161,19 @@ module.exports = ReactDOMFactories;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 124 */
+=======
+<<<<<<< HEAD
+/* 123 */
+=======
+<<<<<<< HEAD
+/* 119 */
+=======
+/* 107 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15204,8 +16191,27 @@ module.exports = ReactDOMFactories;
 
 var _prodInvariant = __webpack_require__(25);
 
+<<<<<<< HEAD
 var ReactPropTypeLocationNames = __webpack_require__(125);
 var ReactPropTypesSecret = __webpack_require__(126);
+=======
+<<<<<<< HEAD
+var ReactPropTypeLocationNames = __webpack_require__(124);
+var ReactPropTypesSecret = __webpack_require__(125);
+=======
+<<<<<<< HEAD
+var inputValueTracking = __webpack_require__(75);
+var getEventTarget = __webpack_require__(44);
+var isEventSupported = __webpack_require__(45);
+var isTextInputElement = __webpack_require__(76);
+=======
+var inputValueTracking = __webpack_require__(63);
+var getEventTarget = __webpack_require__(36);
+var isEventSupported = __webpack_require__(37);
+var isTextInputElement = __webpack_require__(64);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
@@ -15425,7 +16431,19 @@ module.exports = checkPropTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 129 */
+=======
+<<<<<<< HEAD
+/* 128 */
+=======
+<<<<<<< HEAD
+/* 120 */
+=======
+/* 108 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15441,10 +16459,103 @@ module.exports = checkPropTypes;
 
 
 
+<<<<<<< HEAD
 module.exports = '15.6.1';
 
 /***/ }),
+<<<<<<< HEAD
 /* 130 */
+=======
+/* 129 */
+=======
+<<<<<<< HEAD
+var ReactOwner = __webpack_require__(121);
+=======
+var ReactOwner = __webpack_require__(109);
+>>>>>>> Working on Piecharts
+
+var ReactRef = {};
+
+function attachRef(ref, component, owner) {
+  if (typeof ref === 'function') {
+    ref(component.getPublicInstance());
+  } else {
+    // Legacy ref
+    ReactOwner.addComponentAsRefTo(component, ref, owner);
+  }
+}
+
+function detachRef(ref, component, owner) {
+  if (typeof ref === 'function') {
+    ref(null);
+  } else {
+    // Legacy ref
+    ReactOwner.removeComponentAsRefFrom(component, ref, owner);
+  }
+}
+
+ReactRef.attachRefs = function (instance, element) {
+  if (element === null || typeof element !== 'object') {
+    return;
+  }
+  var ref = element.ref;
+  if (ref != null) {
+    attachRef(ref, instance, element._owner);
+  }
+};
+
+ReactRef.shouldUpdateRefs = function (prevElement, nextElement) {
+  // If either the owner or a `ref` has changed, make sure the newest owner
+  // has stored a reference to `this`, and the previous owner (if different)
+  // has forgotten the reference to `this`. We use the element instead
+  // of the public this.props because the post processing cannot determine
+  // a ref. The ref conceptually lives on the element.
+
+  // TODO: Should this even be possible? The owner cannot change because
+  // it's forbidden by shouldUpdateReactComponent. The ref can change
+  // if you swap the keys of but not the refs. Reconsider where this check
+  // is made. It probably belongs where the key checking and
+  // instantiateReactComponent is done.
+
+  var prevRef = null;
+  var prevOwner = null;
+  if (prevElement !== null && typeof prevElement === 'object') {
+    prevRef = prevElement.ref;
+    prevOwner = prevElement._owner;
+  }
+
+  var nextRef = null;
+  var nextOwner = null;
+  if (nextElement !== null && typeof nextElement === 'object') {
+    nextRef = nextElement.ref;
+    nextOwner = nextElement._owner;
+  }
+
+  return prevRef !== nextRef ||
+  // If owner changes but we have an unchanged function ref, don't update refs
+  typeof nextRef === 'string' && nextOwner !== prevOwner;
+};
+
+ReactRef.detachRefs = function (instance, element) {
+  if (element === null || typeof element !== 'object') {
+    return;
+  }
+  var ref = element.ref;
+  if (ref != null) {
+    detachRef(ref, instance, element._owner);
+  }
+};
+
+module.exports = ReactRef;
+
+/***/ }),
+<<<<<<< HEAD
+/* 121 */
+=======
+/* 109 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15472,7 +16583,19 @@ var factory = __webpack_require__(131);
 module.exports = factory(Component, isValidElement, ReactNoopUpdateQueue);
 
 /***/ }),
+<<<<<<< HEAD
 /* 131 */
+=======
+<<<<<<< HEAD
+/* 130 */
+=======
+<<<<<<< HEAD
+/* 122 */
+=======
+/* 110 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15488,7 +16611,26 @@ module.exports = factory(Component, isValidElement, ReactNoopUpdateQueue);
 
 
 
+<<<<<<< HEAD
 var _assign = __webpack_require__(4);
+=======
+<<<<<<< HEAD
+var ReactInvalidSetStateWarningHook = __webpack_require__(123);
+var ReactHostOperationHistoryHook = __webpack_require__(124);
+var ReactComponentTreeHook = __webpack_require__(8);
+var ExecutionEnvironment = __webpack_require__(7);
+
+var performanceNow = __webpack_require__(125);
+=======
+var ReactInvalidSetStateWarningHook = __webpack_require__(111);
+var ReactHostOperationHistoryHook = __webpack_require__(112);
+var ReactComponentTreeHook = __webpack_require__(7);
+var ExecutionEnvironment = __webpack_require__(6);
+
+var performanceNow = __webpack_require__(113);
+>>>>>>> Working on Piecharts
+var warning = __webpack_require__(2);
+>>>>>>> Working on Piecharts
 
 var emptyObject = __webpack_require__(37);
 var _invariant = __webpack_require__(1);
@@ -15878,6 +17020,7 @@ function factory(ReactComponent, isValidElement, ReactNoopUpdateQueue) {
     }
   }
 
+<<<<<<< HEAD
   /**
    * Mixin helper which handles policy validation and reserved
    * specification keys when building React classes.
@@ -15887,6 +17030,30 @@ function factory(ReactComponent, isValidElement, ReactNoopUpdateQueue) {
       if (process.env.NODE_ENV !== 'production') {
         var typeofSpec = typeof spec;
         var isMixinValid = typeofSpec === 'object' && spec !== null;
+=======
+module.exports = ReactDebugTool;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+<<<<<<< HEAD
+/* 123 */
+=======
+/* 111 */
+>>>>>>> Working on Piecharts
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright 2016-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ * 
+ */
+>>>>>>> Working on Piecharts
 
         if (process.env.NODE_ENV !== 'production') {
           warning(
@@ -15936,9 +17103,19 @@ function factory(ReactComponent, isValidElement, ReactNoopUpdateQueue) {
         continue;
       }
 
+<<<<<<< HEAD
       var property = spec[name];
       var isAlreadyDefined = proto.hasOwnProperty(name);
       validateMethodOverride(isAlreadyDefined, name);
+=======
+/***/ }),
+<<<<<<< HEAD
+/* 124 */
+=======
+/* 112 */
+>>>>>>> Working on Piecharts
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
 
       if (RESERVED_SPEC_KEYS.hasOwnProperty(name)) {
         RESERVED_SPEC_KEYS[name](Constructor, property);
@@ -16040,6 +17217,7 @@ function factory(ReactComponent, isValidElement, ReactNoopUpdateQueue) {
       'mergeIntoWithNoDuplicateKeys(): Cannot merge non-objects.'
     );
 
+<<<<<<< HEAD
     for (var key in two) {
       if (two.hasOwnProperty(key)) {
         _invariant(
@@ -16056,6 +17234,15 @@ function factory(ReactComponent, isValidElement, ReactNoopUpdateQueue) {
     }
     return one;
   }
+=======
+/***/ }),
+<<<<<<< HEAD
+/* 125 */
+=======
+/* 113 */
+>>>>>>> Working on Piecharts
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
 
   /**
    * Creates a function that invokes two functions and merges their return values.
@@ -16122,6 +17309,7 @@ function factory(ReactComponent, isValidElement, ReactNoopUpdateQueue) {
           args[_key - 1] = arguments[_key];
         }
 
+<<<<<<< HEAD
         // User is trying to bind() an autobound method; we effectively will
         // ignore the value of "this" that the user is trying to use, so
         // let's warn.
@@ -16155,6 +17343,13 @@ function factory(ReactComponent, isValidElement, ReactNoopUpdateQueue) {
     }
     return boundMethod;
   }
+=======
+<<<<<<< HEAD
+var performance = __webpack_require__(126);
+=======
+var performance = __webpack_require__(114);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
   /**
    * Binds all auto-bound methods in a component.
@@ -16182,6 +17377,7 @@ function factory(ReactComponent, isValidElement, ReactNoopUpdateQueue) {
     }
   };
 
+<<<<<<< HEAD
   /**
    * Add more to the ReactClass base class. These are all legacy features and
    * therefore not already part of the modern ReactComponent.
@@ -16194,6 +17390,15 @@ function factory(ReactComponent, isValidElement, ReactNoopUpdateQueue) {
     replaceState: function(newState, callback) {
       this.updater.enqueueReplaceState(this, newState, callback);
     },
+=======
+/***/ }),
+<<<<<<< HEAD
+/* 126 */
+=======
+/* 114 */
+>>>>>>> Working on Piecharts
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
 
     /**
      * Checks whether or not this composite component is mounted.
@@ -16352,7 +17557,19 @@ module.exports = factory;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 132 */
+=======
+<<<<<<< HEAD
+/* 131 */
+=======
+<<<<<<< HEAD
+/* 127 */
+=======
+/* 115 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16396,7 +17613,19 @@ module.exports = onlyChild;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 133 */
+=======
+<<<<<<< HEAD
+/* 132 */
+=======
+<<<<<<< HEAD
+/* 128 */
+=======
+/* 116 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16513,7 +17742,19 @@ module.exports = ReactDOM;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 134 */
+=======
+<<<<<<< HEAD
+/* 133 */
+=======
+<<<<<<< HEAD
+/* 129 */
+=======
+/* 117 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16581,7 +17822,17 @@ function inject() {
     BeforeInputEventPlugin: BeforeInputEventPlugin
   });
 
+<<<<<<< HEAD
   ReactInjection.HostComponent.injectGenericComponentClass(ReactDOMComponent);
+=======
+/***/ }),
+<<<<<<< HEAD
+/* 130 */
+=======
+/* 118 */
+>>>>>>> Working on Piecharts
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
 
   ReactInjection.HostComponent.injectTextComponentClass(ReactDOMTextComponent);
 
@@ -16593,8 +17844,18 @@ function inject() {
     return new ReactDOMEmptyComponent(instantiate);
   });
 
+<<<<<<< HEAD
   ReactInjection.Updates.injectReconcileTransaction(ReactReconcileTransaction);
   ReactInjection.Updates.injectBatchingStrategy(ReactDefaultBatchingStrategy);
+=======
+<<<<<<< HEAD
+var DOMChildrenOperations = __webpack_require__(47);
+var ReactDOMIDOperations = __webpack_require__(135);
+=======
+var DOMChildrenOperations = __webpack_require__(39);
+var ReactDOMIDOperations = __webpack_require__(123);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
   ReactInjection.Component.injectEnvironment(ReactComponentBrowserEnvironment);
 }
@@ -16604,7 +17865,19 @@ module.exports = {
 };
 
 /***/ }),
+<<<<<<< HEAD
 /* 135 */
+=======
+<<<<<<< HEAD
+/* 134 */
+=======
+<<<<<<< HEAD
+/* 131 */
+=======
+/* 119 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16620,6 +17893,7 @@ module.exports = {
 
 
 
+<<<<<<< HEAD
 var ARIADOMPropertyConfig = {
   Properties: {
     // Global States and Properties
@@ -16678,12 +17952,60 @@ var ARIADOMPropertyConfig = {
   },
   DOMAttributeNames: {},
   DOMPropertyNames: {}
+=======
+var _prodInvariant = __webpack_require__(3);
+
+var DOMLazyTree = __webpack_require__(24);
+var ExecutionEnvironment = __webpack_require__(7);
+
+<<<<<<< HEAD
+var createNodesFromMarkup = __webpack_require__(132);
+=======
+var createNodesFromMarkup = __webpack_require__(120);
+>>>>>>> Working on Piecharts
+var emptyFunction = __webpack_require__(9);
+var invariant = __webpack_require__(1);
+
+var Danger = {
+  /**
+   * Replaces a node with a string of markup at its current position within its
+   * parent. The markup must render into a single root node.
+   *
+   * @param {DOMElement} oldChild Child node to replace.
+   * @param {string} markup Markup to render in place of the child node.
+   * @internal
+   */
+  dangerouslyReplaceNodeWithMarkup: function (oldChild, markup) {
+    !ExecutionEnvironment.canUseDOM ? process.env.NODE_ENV !== 'production' ? invariant(false, 'dangerouslyReplaceNodeWithMarkup(...): Cannot render markup in a worker thread. Make sure `window` and `document` are available globally before requiring React when unit testing or use ReactDOMServer.renderToString() for server rendering.') : _prodInvariant('56') : void 0;
+    !markup ? process.env.NODE_ENV !== 'production' ? invariant(false, 'dangerouslyReplaceNodeWithMarkup(...): Missing markup.') : _prodInvariant('57') : void 0;
+    !(oldChild.nodeName !== 'HTML') ? process.env.NODE_ENV !== 'production' ? invariant(false, 'dangerouslyReplaceNodeWithMarkup(...): Cannot replace markup of the <html> node. This is because browser quirks make this unreliable and/or slow. If you want to render to the root you must use server rendering. See ReactDOMServer.renderToString().') : _prodInvariant('58') : void 0;
+
+    if (typeof markup === 'string') {
+      var newChild = createNodesFromMarkup(markup, emptyFunction)[0];
+      oldChild.parentNode.replaceChild(newChild, oldChild);
+    } else {
+      DOMLazyTree.replaceChildWithTree(oldChild, markup);
+    }
+  }
+>>>>>>> Working on Piecharts
 };
 
 module.exports = ARIADOMPropertyConfig;
 
 /***/ }),
+<<<<<<< HEAD
 /* 136 */
+=======
+<<<<<<< HEAD
+/* 135 */
+=======
+<<<<<<< HEAD
+/* 132 */
+=======
+/* 120 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16705,8 +18027,19 @@ var FallbackCompositionState = __webpack_require__(137);
 var SyntheticCompositionEvent = __webpack_require__(138);
 var SyntheticInputEvent = __webpack_require__(139);
 
+<<<<<<< HEAD
 var END_KEYCODES = [9, 13, 27, 32]; // Tab, Return, Esc, Space
 var START_KEYCODE = 229;
+=======
+<<<<<<< HEAD
+var createArrayFromMixed = __webpack_require__(133);
+var getMarkupWrap = __webpack_require__(134);
+=======
+var createArrayFromMixed = __webpack_require__(121);
+var getMarkupWrap = __webpack_require__(122);
+>>>>>>> Working on Piecharts
+var invariant = __webpack_require__(1);
+>>>>>>> Working on Piecharts
 
 var canUseCompositionEvent = ExecutionEnvironment.canUseDOM && 'CompositionEvent' in window;
 
@@ -16767,7 +18100,23 @@ var eventTypes = {
     },
     dependencies: ['topBlur', 'topCompositionUpdate', 'topKeyDown', 'topKeyPress', 'topKeyUp', 'topMouseDown']
   }
+<<<<<<< HEAD
 };
+=======
+  return nodes;
+}
+
+module.exports = createNodesFromMarkup;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+<<<<<<< HEAD
+/* 133 */
+=======
+/* 121 */
+>>>>>>> Working on Piecharts
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
 
 // Track whether we've ever handled a keypress on the space key.
 var hasSpaceKeypress = false;
@@ -16838,6 +18187,23 @@ function isFallbackCompositionEnd(topLevelType, nativeEvent) {
   }
 }
 
+<<<<<<< HEAD
+=======
+module.exports = createArrayFromMixed;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+<<<<<<< HEAD
+/* 134 */
+=======
+/* 122 */
+>>>>>>> Working on Piecharts
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+>>>>>>> Working on Piecharts
 /**
  * Google Input Tools provides composition data via a CustomEvent,
  * with the `data` property populated in the `detail` object. If this
@@ -17072,7 +18438,19 @@ var BeforeInputEventPlugin = {
 module.exports = BeforeInputEventPlugin;
 
 /***/ }),
+<<<<<<< HEAD
 /* 137 */
+=======
+<<<<<<< HEAD
+/* 136 */
+=======
+<<<<<<< HEAD
+/* 135 */
+=======
+/* 123 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17088,11 +18466,20 @@ module.exports = BeforeInputEventPlugin;
 
 
 
+<<<<<<< HEAD
 var _assign = __webpack_require__(4);
 
 var PooledClass = __webpack_require__(22);
 
 var getTextContentAccessor = __webpack_require__(82);
+=======
+<<<<<<< HEAD
+var DOMChildrenOperations = __webpack_require__(47);
+=======
+var DOMChildrenOperations = __webpack_require__(39);
+>>>>>>> Working on Piecharts
+var ReactDOMComponentTree = __webpack_require__(5);
+>>>>>>> Working on Piecharts
 
 /**
  * This helper class stores information about text content of a target node,
@@ -17172,7 +18559,19 @@ PooledClass.addPoolingTo(FallbackCompositionState);
 module.exports = FallbackCompositionState;
 
 /***/ }),
+<<<<<<< HEAD
 /* 138 */
+=======
+<<<<<<< HEAD
+/* 137 */
+=======
+<<<<<<< HEAD
+/* 136 */
+=======
+/* 124 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17198,6 +18597,7 @@ var CompositionEventInterface = {
   data: null
 };
 
+<<<<<<< HEAD
 /**
  * @param {object} dispatchConfig Configuration used to dispatch this event.
  * @param {string} dispatchMarker Marker identifying the event target.
@@ -17209,6 +18609,63 @@ function SyntheticCompositionEvent(dispatchConfig, dispatchMarker, nativeEvent, 
 }
 
 SyntheticEvent.augmentClass(SyntheticCompositionEvent, CompositionEventInterface);
+=======
+<<<<<<< HEAD
+var AutoFocusUtils = __webpack_require__(137);
+var CSSPropertyOperations = __webpack_require__(138);
+var DOMLazyTree = __webpack_require__(24);
+var DOMNamespaces = __webpack_require__(48);
+var DOMProperty = __webpack_require__(16);
+var DOMPropertyOperations = __webpack_require__(81);
+var EventPluginHub = __webpack_require__(26);
+var EventPluginRegistry = __webpack_require__(33);
+var ReactBrowserEventEmitter = __webpack_require__(38);
+var ReactDOMComponentFlags = __webpack_require__(69);
+var ReactDOMComponentTree = __webpack_require__(5);
+var ReactDOMInput = __webpack_require__(148);
+var ReactDOMOption = __webpack_require__(149);
+var ReactDOMSelect = __webpack_require__(83);
+var ReactDOMTextarea = __webpack_require__(150);
+var ReactInstrumentation = __webpack_require__(10);
+var ReactMultiChild = __webpack_require__(151);
+var ReactServerRenderingTransaction = __webpack_require__(160);
+=======
+var AutoFocusUtils = __webpack_require__(125);
+var CSSPropertyOperations = __webpack_require__(126);
+var DOMLazyTree = __webpack_require__(19);
+var DOMNamespaces = __webpack_require__(40);
+var DOMProperty = __webpack_require__(13);
+var DOMPropertyOperations = __webpack_require__(69);
+var EventPluginHub = __webpack_require__(21);
+var EventPluginRegistry = __webpack_require__(26);
+var ReactBrowserEventEmitter = __webpack_require__(31);
+var ReactDOMComponentFlags = __webpack_require__(57);
+var ReactDOMComponentTree = __webpack_require__(5);
+var ReactDOMInput = __webpack_require__(136);
+var ReactDOMOption = __webpack_require__(137);
+var ReactDOMSelect = __webpack_require__(71);
+var ReactDOMTextarea = __webpack_require__(138);
+var ReactInstrumentation = __webpack_require__(8);
+var ReactMultiChild = __webpack_require__(139);
+var ReactServerRenderingTransaction = __webpack_require__(148);
+>>>>>>> Working on Piecharts
+
+var emptyFunction = __webpack_require__(9);
+var escapeTextContentForBrowser = __webpack_require__(37);
+var invariant = __webpack_require__(1);
+<<<<<<< HEAD
+var isEventSupported = __webpack_require__(45);
+var shallowEqual = __webpack_require__(52);
+var inputValueTracking = __webpack_require__(75);
+var validateDOMNesting = __webpack_require__(56);
+=======
+var isEventSupported = __webpack_require__(37);
+var shallowEqual = __webpack_require__(44);
+var inputValueTracking = __webpack_require__(63);
+var validateDOMNesting = __webpack_require__(48);
+>>>>>>> Working on Piecharts
+var warning = __webpack_require__(2);
+>>>>>>> Working on Piecharts
 
 module.exports = SyntheticCompositionEvent;
 
@@ -17665,8 +19122,110 @@ ReactRef.detachRefs = function (instance, element) {
 
 module.exports = ReactRef;
 
+<<<<<<< HEAD
 /***/ }),
+<<<<<<< HEAD
 /* 142 */
+=======
+/* 141 */
+=======
+    if (nextContent != null) {
+      if (lastContent !== nextContent) {
+        this.updateTextContent('' + nextContent);
+        if (process.env.NODE_ENV !== 'production') {
+          setAndValidateContentChildDev.call(this, nextContent);
+        }
+      }
+    } else if (nextHtml != null) {
+      if (lastHtml !== nextHtml) {
+        this.updateMarkup('' + nextHtml);
+      }
+      if (process.env.NODE_ENV !== 'production') {
+        ReactInstrumentation.debugTool.onSetChildren(this._debugID, []);
+      }
+    } else if (nextChildren != null) {
+      if (process.env.NODE_ENV !== 'production') {
+        setAndValidateContentChildDev.call(this, null);
+      }
+
+      this.updateChildren(nextChildren, transaction, context);
+    }
+  },
+
+  getHostNode: function () {
+    return getNode(this);
+  },
+
+  /**
+   * Destroys all event registrations for this instance. Does not remove from
+   * the DOM. That must be done by the parent.
+   *
+   * @internal
+   */
+  unmountComponent: function (safely) {
+    switch (this._tag) {
+      case 'audio':
+      case 'form':
+      case 'iframe':
+      case 'img':
+      case 'link':
+      case 'object':
+      case 'source':
+      case 'video':
+        var listeners = this._wrapperState.listeners;
+        if (listeners) {
+          for (var i = 0; i < listeners.length; i++) {
+            listeners[i].remove();
+          }
+        }
+        break;
+      case 'input':
+      case 'textarea':
+        inputValueTracking.stopTracking(this);
+        break;
+      case 'html':
+      case 'head':
+      case 'body':
+        /**
+         * Components like <html> <head> and <body> can't be removed or added
+         * easily in a cross-browser way, however it's valuable to be able to
+         * take advantage of React's reconciliation for styling and <title>
+         * management. So we just document it and throw in dangerous cases.
+         */
+         true ? process.env.NODE_ENV !== 'production' ? invariant(false, '<%s> tried to unmount. Because of cross-browser quirks it is impossible to unmount some top-level components (eg <html>, <head>, and <body>) reliably and efficiently. To fix this, have a single top-level component that never unmounts render these elements.', this._tag) : _prodInvariant('66', this._tag) : void 0;
+        break;
+    }
+
+    this.unmountChildren(safely);
+    ReactDOMComponentTree.uncacheNode(this);
+    EventPluginHub.deleteAllListeners(this);
+    this._rootNodeID = 0;
+    this._domID = 0;
+    this._wrapperState = null;
+
+    if (process.env.NODE_ENV !== 'production') {
+      setAndValidateContentChildDev.call(this, null);
+    }
+  },
+
+  getPublicInstance: function () {
+    return getNode(this);
+  }
+};
+
+_assign(ReactDOMComponent.prototype, ReactDOMComponent.Mixin, ReactMultiChild.Mixin);
+
+module.exports = ReactDOMComponent;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+<<<<<<< HEAD
+/* 137 */
+=======
+/* 125 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17765,7 +19324,19 @@ module.exports = ReactOwner;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 143 */
+=======
+<<<<<<< HEAD
+/* 142 */
+=======
+<<<<<<< HEAD
+/* 138 */
+=======
+/* 126 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17787,7 +19358,25 @@ var ReactHostOperationHistoryHook = __webpack_require__(145);
 var ReactComponentTreeHook = __webpack_require__(8);
 var ExecutionEnvironment = __webpack_require__(7);
 
+<<<<<<< HEAD
 var performanceNow = __webpack_require__(146);
+=======
+<<<<<<< HEAD
+var performanceNow = __webpack_require__(145);
+=======
+<<<<<<< HEAD
+var camelizeStyleName = __webpack_require__(139);
+var dangerousStyleValue = __webpack_require__(141);
+var hyphenateStyleName = __webpack_require__(142);
+var memoizeStringOnly = __webpack_require__(144);
+=======
+var camelizeStyleName = __webpack_require__(127);
+var dangerousStyleValue = __webpack_require__(129);
+var hyphenateStyleName = __webpack_require__(130);
+var memoizeStringOnly = __webpack_require__(132);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 var warning = __webpack_require__(2);
 
 var hooks = [];
@@ -17934,12 +19523,22 @@ function pauseCurrentLifeCycleTimer() {
   currentTimerType = null;
 }
 
+<<<<<<< HEAD
 function resumeCurrentLifeCycleTimer() {
   var _lifeCycleTimerStack$ = lifeCycleTimerStack.pop(),
       startTime = _lifeCycleTimerStack$.startTime,
       nestedFlushStartTime = _lifeCycleTimerStack$.nestedFlushStartTime,
       debugID = _lifeCycleTimerStack$.debugID,
       timerType = _lifeCycleTimerStack$.timerType;
+=======
+/***/ }),
+<<<<<<< HEAD
+/* 139 */
+=======
+/* 127 */
+>>>>>>> Working on Piecharts
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
 
   var nestedFlushDuration = performanceNow() - nestedFlushStartTime;
   currentTimerStartTime = startTime;
@@ -17966,10 +19565,18 @@ function shouldMark(debugID) {
   return true;
 }
 
+<<<<<<< HEAD
 function markBegin(debugID, markType) {
   if (!shouldMark(debugID)) {
     return;
   }
+=======
+<<<<<<< HEAD
+var camelize = __webpack_require__(140);
+=======
+var camelize = __webpack_require__(128);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
   var markName = debugID + '::' + markType;
   lastMarkTimeStamp = performanceNow();
@@ -18132,7 +19739,19 @@ module.exports = ReactDebugTool;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 144 */
+=======
+<<<<<<< HEAD
+/* 143 */
+=======
+<<<<<<< HEAD
+/* 140 */
+=======
+/* 128 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18175,7 +19794,19 @@ module.exports = ReactInvalidSetStateWarningHook;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 145 */
+=======
+<<<<<<< HEAD
+/* 144 */
+=======
+<<<<<<< HEAD
+/* 141 */
+=======
+/* 129 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18253,7 +19884,19 @@ if (performance.now) {
 module.exports = performanceNow;
 
 /***/ }),
+<<<<<<< HEAD
 /* 147 */
+=======
+<<<<<<< HEAD
+/* 146 */
+=======
+<<<<<<< HEAD
+/* 142 */
+=======
+/* 130 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18270,7 +19913,15 @@ module.exports = performanceNow;
 
 
 
+<<<<<<< HEAD
 var ExecutionEnvironment = __webpack_require__(7);
+=======
+<<<<<<< HEAD
+var hyphenate = __webpack_require__(143);
+=======
+var hyphenate = __webpack_require__(131);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 var performance;
 
@@ -18281,7 +19932,19 @@ if (ExecutionEnvironment.canUseDOM) {
 module.exports = performance || {};
 
 /***/ }),
+<<<<<<< HEAD
 /* 148 */
+=======
+<<<<<<< HEAD
+/* 147 */
+=======
+<<<<<<< HEAD
+/* 143 */
+=======
+/* 131 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18312,7 +19975,19 @@ var DefaultEventPluginOrder = ['ResponderEventPlugin', 'SimpleEventPlugin', 'Tap
 module.exports = DefaultEventPluginOrder;
 
 /***/ }),
+<<<<<<< HEAD
 /* 149 */
+=======
+<<<<<<< HEAD
+/* 148 */
+=======
+<<<<<<< HEAD
+/* 144 */
+=======
+/* 132 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18376,6 +20051,7 @@ var EnterLeaveEventPlugin = {
       }
     }
 
+<<<<<<< HEAD
     var from;
     var to;
     if (topLevelType === 'topMouseOut') {
@@ -18387,6 +20063,15 @@ var EnterLeaveEventPlugin = {
       from = null;
       to = targetInst;
     }
+=======
+/***/ }),
+<<<<<<< HEAD
+/* 145 */
+=======
+/* 133 */
+>>>>>>> Working on Piecharts
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
 
     if (from === to) {
       // Nothing pertains to our managed components.
@@ -18415,7 +20100,19 @@ var EnterLeaveEventPlugin = {
 module.exports = EnterLeaveEventPlugin;
 
 /***/ }),
+<<<<<<< HEAD
 /* 150 */
+=======
+<<<<<<< HEAD
+/* 149 */
+=======
+<<<<<<< HEAD
+/* 146 */
+=======
+/* 134 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18656,7 +20353,19 @@ var HTMLDOMPropertyConfig = {
 module.exports = HTMLDOMPropertyConfig;
 
 /***/ }),
+<<<<<<< HEAD
 /* 151 */
+=======
+<<<<<<< HEAD
+/* 150 */
+=======
+<<<<<<< HEAD
+/* 147 */
+=======
+/* 135 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18831,7 +20540,19 @@ module.exports = createNodesFromMarkup;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 154 */
+=======
+<<<<<<< HEAD
+/* 153 */
+=======
+<<<<<<< HEAD
+/* 148 */
+=======
+/* 136 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18866,7 +20587,19 @@ function toArray(obj) {
   // in old versions of Safari).
   !(!Array.isArray(obj) && (typeof obj === 'object' || typeof obj === 'function')) ? process.env.NODE_ENV !== 'production' ? invariant(false, 'toArray: Array-like object expected') : invariant(false) : void 0;
 
+<<<<<<< HEAD
   !(typeof length === 'number') ? process.env.NODE_ENV !== 'production' ? invariant(false, 'toArray: Object needs a length property') : invariant(false) : void 0;
+=======
+<<<<<<< HEAD
+var DOMPropertyOperations = __webpack_require__(81);
+var LinkedValueUtils = __webpack_require__(50);
+=======
+var DOMPropertyOperations = __webpack_require__(69);
+var LinkedValueUtils = __webpack_require__(42);
+>>>>>>> Working on Piecharts
+var ReactDOMComponentTree = __webpack_require__(5);
+var ReactUpdates = __webpack_require__(14);
+>>>>>>> Working on Piecharts
 
   !(length === 0 || length - 1 in obj) ? process.env.NODE_ENV !== 'production' ? invariant(false, 'toArray: Object should have keys for indices') : invariant(false) : void 0;
 
@@ -19065,7 +20798,19 @@ module.exports = getMarkupWrap;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 156 */
+=======
+<<<<<<< HEAD
+/* 155 */
+=======
+<<<<<<< HEAD
+/* 149 */
+=======
+/* 137 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19103,7 +20848,19 @@ var ReactDOMIDOperations = {
 module.exports = ReactDOMIDOperations;
 
 /***/ }),
+<<<<<<< HEAD
 /* 157 */
+=======
+<<<<<<< HEAD
+/* 156 */
+=======
+<<<<<<< HEAD
+/* 150 */
+=======
+/* 138 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19124,8 +20881,14 @@ module.exports = ReactDOMIDOperations;
 var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(4);
 
+<<<<<<< HEAD
 var AutoFocusUtils = __webpack_require__(158);
 var CSSPropertyOperations = __webpack_require__(159);
+=======
+<<<<<<< HEAD
+var AutoFocusUtils = __webpack_require__(157);
+var CSSPropertyOperations = __webpack_require__(158);
+>>>>>>> Working on Piecharts
 var DOMLazyTree = __webpack_require__(28);
 var DOMNamespaces = __webpack_require__(56);
 var DOMProperty = __webpack_require__(17);
@@ -19134,6 +20897,13 @@ var EventPluginHub = __webpack_require__(31);
 var EventPluginRegistry = __webpack_require__(38);
 var ReactBrowserEventEmitter = __webpack_require__(43);
 var ReactDOMComponentFlags = __webpack_require__(79);
+=======
+<<<<<<< HEAD
+var LinkedValueUtils = __webpack_require__(50);
+=======
+var LinkedValueUtils = __webpack_require__(42);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactDOMInput = __webpack_require__(169);
 var ReactDOMOption = __webpack_require__(170);
@@ -19209,7 +20979,32 @@ function friendlyStringify(obj) {
   return String(obj);
 }
 
+<<<<<<< HEAD
 var styleMutationWarning = {};
+=======
+module.exports = ReactDOMTextarea;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+<<<<<<< HEAD
+/* 151 */
+=======
+/* 139 */
+>>>>>>> Working on Piecharts
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ */
+
+>>>>>>> Working on Piecharts
 
 function checkAndWarnForMutatedStyle(style1, style2, component) {
   if (style1 == null || style2 == null) {
@@ -19226,13 +21021,38 @@ function checkAndWarnForMutatedStyle(style1, style2, component) {
     ownerName = owner.getName();
   }
 
+<<<<<<< HEAD
   var hash = ownerName + '|' + componentName;
+=======
+<<<<<<< HEAD
+var ReactComponentEnvironment = __webpack_require__(51);
+var ReactInstanceMap = __webpack_require__(28);
+var ReactInstrumentation = __webpack_require__(10);
+>>>>>>> Working on Piecharts
 
   if (styleMutationWarning.hasOwnProperty(hash)) {
     return;
   }
 
+<<<<<<< HEAD
   styleMutationWarning[hash] = true;
+=======
+var emptyFunction = __webpack_require__(9);
+var flattenChildren = __webpack_require__(159);
+=======
+var ReactComponentEnvironment = __webpack_require__(43);
+var ReactInstanceMap = __webpack_require__(23);
+var ReactInstrumentation = __webpack_require__(8);
+
+var ReactCurrentOwner = __webpack_require__(10);
+var ReactReconciler = __webpack_require__(18);
+var ReactChildReconciler = __webpack_require__(140);
+
+var emptyFunction = __webpack_require__(9);
+var flattenChildren = __webpack_require__(147);
+>>>>>>> Working on Piecharts
+var invariant = __webpack_require__(1);
+>>>>>>> Working on Piecharts
 
   process.env.NODE_ENV !== 'production' ? warning(false, '`%s` was passed a style object that has previously been mutated. ' + 'Mutating `style` is deprecated. Consider cloning it beforehand. Check ' + 'the `render` %s. Previous style: %s. Mutated style: %s.', componentName, owner ? 'of `' + ownerName + '`' : 'using <' + componentName + '>', friendlyStringify(style1), friendlyStringify(style2)) : void 0;
 }
@@ -19460,7 +21280,17 @@ function isCustomComponent(tagName, props) {
   return tagName.indexOf('-') >= 0 || props.is != null;
 }
 
+<<<<<<< HEAD
 var globalIdCounter = 1;
+=======
+/***/ }),
+<<<<<<< HEAD
+/* 152 */
+=======
+/* 140 */
+>>>>>>> Working on Piecharts
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
 
 /**
  * Creates a new React class that is idempotent and capable of containing other
@@ -19476,6 +21306,7 @@ var globalIdCounter = 1;
  * @constructor ReactDOMComponent
  * @extends ReactMultiChild
  */
+<<<<<<< HEAD
 function ReactDOMComponent(element) {
   var tag = element.type;
   validateDangerousTag(tag);
@@ -19493,6 +21324,40 @@ function ReactDOMComponent(element) {
   this._wrapperState = null;
   this._topLevelWrapper = null;
   this._flags = 0;
+=======
+
+
+
+var ReactReconciler = __webpack_require__(23);
+
+<<<<<<< HEAD
+var instantiateReactComponent = __webpack_require__(84);
+var KeyEscapeUtils = __webpack_require__(54);
+var shouldUpdateReactComponent = __webpack_require__(53);
+var traverseAllChildren = __webpack_require__(88);
+=======
+var instantiateReactComponent = __webpack_require__(72);
+var KeyEscapeUtils = __webpack_require__(46);
+var shouldUpdateReactComponent = __webpack_require__(45);
+var traverseAllChildren = __webpack_require__(76);
+>>>>>>> Working on Piecharts
+var warning = __webpack_require__(2);
+
+var ReactComponentTreeHook;
+
+if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 'test') {
+  // Temporary hack.
+  // Inline requires don't work well with Jest:
+  // https://github.com/facebook/react/issues/7240
+  // Remove the inline requires when we don't need them anymore:
+  // https://github.com/facebook/react/pull/7178
+  ReactComponentTreeHook = __webpack_require__(8);
+}
+
+function instantiateChild(childInstances, child, name, selfDebugID) {
+  // We found a component instance.
+  var keyUnique = childInstances[name] === undefined;
+>>>>>>> Working on Piecharts
   if (process.env.NODE_ENV !== 'production') {
     this._ancestorInfo = null;
     setAndValidateContentChildDev.call(this, null);
@@ -19687,6 +21552,7 @@ ReactDOMComponent.Mixin = {
   _createOpenTagMarkupAndPutListeners: function (transaction, props) {
     var ret = '<' + this._currentElement.type;
 
+<<<<<<< HEAD
     for (var propKey in props) {
       if (!props.hasOwnProperty(propKey)) {
         continue;
@@ -19723,6 +21589,185 @@ ReactDOMComponent.Mixin = {
         }
       }
     }
+=======
+/***/ }),
+<<<<<<< HEAD
+/* 153 */
+=======
+/* 141 */
+>>>>>>> Working on Piecharts
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ */
+
+
+
+var _prodInvariant = __webpack_require__(3),
+    _assign = __webpack_require__(4);
+
+<<<<<<< HEAD
+var React = __webpack_require__(20);
+var ReactComponentEnvironment = __webpack_require__(51);
+var ReactCurrentOwner = __webpack_require__(13);
+var ReactErrorUtils = __webpack_require__(43);
+var ReactInstanceMap = __webpack_require__(28);
+var ReactInstrumentation = __webpack_require__(10);
+var ReactNodeTypes = __webpack_require__(85);
+var ReactReconciler = __webpack_require__(23);
+
+if (process.env.NODE_ENV !== 'production') {
+  var checkReactTypeSpec = __webpack_require__(154);
+=======
+var React = __webpack_require__(16);
+var ReactComponentEnvironment = __webpack_require__(43);
+var ReactCurrentOwner = __webpack_require__(10);
+var ReactErrorUtils = __webpack_require__(35);
+var ReactInstanceMap = __webpack_require__(23);
+var ReactInstrumentation = __webpack_require__(8);
+var ReactNodeTypes = __webpack_require__(73);
+var ReactReconciler = __webpack_require__(18);
+
+if (process.env.NODE_ENV !== 'production') {
+  var checkReactTypeSpec = __webpack_require__(142);
+>>>>>>> Working on Piecharts
+}
+
+var emptyObject = __webpack_require__(32);
+var invariant = __webpack_require__(1);
+<<<<<<< HEAD
+var shallowEqual = __webpack_require__(52);
+var shouldUpdateReactComponent = __webpack_require__(53);
+=======
+var shallowEqual = __webpack_require__(44);
+var shouldUpdateReactComponent = __webpack_require__(45);
+>>>>>>> Working on Piecharts
+var warning = __webpack_require__(2);
+
+var CompositeTypes = {
+  ImpureClass: 0,
+  PureClass: 1,
+  StatelessFunctional: 2
+};
+
+function StatelessComponent(Component) {}
+StatelessComponent.prototype.render = function () {
+  var Component = ReactInstanceMap.get(this)._currentElement.type;
+  var element = Component(this.props, this.context, this.updater);
+  warnIfInvalidElement(Component, element);
+  return element;
+};
+
+function warnIfInvalidElement(Component, element) {
+  if (process.env.NODE_ENV !== 'production') {
+    process.env.NODE_ENV !== 'production' ? warning(element === null || element === false || React.isValidElement(element), '%s(...): A valid React element (or null) must be returned. You may have ' + 'returned undefined, an array or some other invalid object.', Component.displayName || Component.name || 'Component') : void 0;
+    process.env.NODE_ENV !== 'production' ? warning(!Component.childContextTypes, '%s(...): childContextTypes cannot be defined on a functional component.', Component.displayName || Component.name || 'Component') : void 0;
+  }
+}
+
+function shouldConstruct(Component) {
+  return !!(Component.prototype && Component.prototype.isReactComponent);
+}
+
+function isPureComponent(Component) {
+  return !!(Component.prototype && Component.prototype.isPureReactComponent);
+}
+
+// Separated into a function to contain deoptimizations caused by try/finally.
+function measureLifeCyclePerf(fn, debugID, timerType) {
+  if (debugID === 0) {
+    // Top-level wrappers (see ReactMount) and empty components (see
+    // ReactDOMEmptyComponent) are invisible to hooks and devtools.
+    // Both are implementation details that should go away in the future.
+    return fn();
+  }
+
+  ReactInstrumentation.debugTool.onBeginLifeCycleTimer(debugID, timerType);
+  try {
+    return fn();
+  } finally {
+    ReactInstrumentation.debugTool.onEndLifeCycleTimer(debugID, timerType);
+  }
+}
+
+/**
+ * ------------------ The Life-Cycle of a Composite Component ------------------
+ *
+ * - constructor: Initialization of state. The instance is now retained.
+ *   - componentWillMount
+ *   - render
+ *   - [children's constructors]
+ *     - [children's componentWillMount and render]
+ *     - [children's componentDidMount]
+ *     - componentDidMount
+ *
+ *       Update Phases:
+ *       - componentWillReceiveProps (only called if parent updated)
+ *       - shouldComponentUpdate
+ *         - componentWillUpdate
+ *           - render
+ *           - [children's constructors or receive props phases]
+ *         - componentDidUpdate
+ *
+ *     - componentWillUnmount
+ *     - [children's componentWillUnmount]
+ *   - [children destroyed]
+ * - (destroyed): The instance is now blank, released by React and ready for GC.
+ *
+ * -----------------------------------------------------------------------------
+ */
+
+/**
+ * An incrementing ID assigned to each component when it is mounted. This is
+ * used to enforce the order in which `ReactUpdates` updates dirty components.
+ *
+ * @private
+ */
+var nextMountID = 1;
+
+/**
+ * @lends {ReactCompositeComponent.prototype}
+ */
+var ReactCompositeComponent = {
+  /**
+   * Base constructor for all composite component.
+   *
+   * @param {ReactElement} element
+   * @final
+   * @internal
+   */
+  construct: function (element) {
+    this._currentElement = element;
+    this._rootNodeID = 0;
+    this._compositeType = null;
+    this._instance = null;
+    this._hostParent = null;
+    this._hostContainerInfo = null;
+
+    // See ReactUpdateQueue
+    this._updateBatchNumber = null;
+    this._pendingElement = null;
+    this._pendingStateQueue = null;
+    this._pendingReplaceState = false;
+    this._pendingForceUpdate = false;
+
+    this._renderedNodeType = null;
+    this._renderedComponent = null;
+    this._context = null;
+    this._mountOrder = 0;
+    this._topLevelWrapper = null;
+
+    // See ReactUpdates and ReactUpdateQueue.
+    this._pendingCallbacks = null;
+>>>>>>> Working on Piecharts
 
     // For static pages, no need to put React ID and checksum. Saves lots of
     // bytes.
@@ -20369,7 +22414,19 @@ module.exports = CSSPropertyOperations;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 160 */
+=======
+<<<<<<< HEAD
+/* 159 */
+=======
+<<<<<<< HEAD
+/* 154 */
+=======
+/* 142 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20386,7 +22443,37 @@ module.exports = CSSPropertyOperations;
 
 
 
+<<<<<<< HEAD
 var camelize = __webpack_require__(161);
+=======
+<<<<<<< HEAD
+var camelize = __webpack_require__(160);
+=======
+var _prodInvariant = __webpack_require__(3);
+
+<<<<<<< HEAD
+var ReactPropTypeLocationNames = __webpack_require__(155);
+var ReactPropTypesSecret = __webpack_require__(82);
+=======
+var ReactPropTypeLocationNames = __webpack_require__(143);
+var ReactPropTypesSecret = __webpack_require__(70);
+>>>>>>> Working on Piecharts
+
+var invariant = __webpack_require__(1);
+var warning = __webpack_require__(2);
+
+var ReactComponentTreeHook;
+
+if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 'test') {
+  // Temporary hack.
+  // Inline requires don't work well with Jest:
+  // https://github.com/facebook/react/issues/7240
+  // Remove the inline requires when we don't need them anymore:
+  // https://github.com/facebook/react/pull/7178
+  ReactComponentTreeHook = __webpack_require__(8);
+}
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 var msPattern = /^-ms-/;
 
@@ -20414,7 +22501,19 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
+<<<<<<< HEAD
 /* 161 */
+=======
+<<<<<<< HEAD
+/* 160 */
+=======
+<<<<<<< HEAD
+/* 155 */
+=======
+/* 143 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20451,7 +22550,19 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
+<<<<<<< HEAD
 /* 162 */
+=======
+<<<<<<< HEAD
+/* 161 */
+=======
+<<<<<<< HEAD
+/* 156 */
+=======
+/* 144 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20536,7 +22647,19 @@ module.exports = dangerousStyleValue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 163 */
+=======
+<<<<<<< HEAD
+/* 162 */
+=======
+<<<<<<< HEAD
+/* 157 */
+=======
+/* 145 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20555,7 +22678,17 @@ module.exports = dangerousStyleValue;
 
 var hyphenate = __webpack_require__(164);
 
+<<<<<<< HEAD
 var msPattern = /^ms-/;
+=======
+/***/ }),
+<<<<<<< HEAD
+/* 158 */
+=======
+/* 146 */
+>>>>>>> Working on Piecharts
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
 
 /**
  * Hyphenates a camelcased CSS property name, for example:
@@ -20618,7 +22751,19 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
+<<<<<<< HEAD
 /* 165 */
+=======
+<<<<<<< HEAD
+/* 164 */
+=======
+<<<<<<< HEAD
+/* 159 */
+=======
+/* 147 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20636,6 +22781,54 @@ module.exports = hyphenate;
 
 
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+var KeyEscapeUtils = __webpack_require__(54);
+var traverseAllChildren = __webpack_require__(88);
+=======
+var KeyEscapeUtils = __webpack_require__(46);
+var traverseAllChildren = __webpack_require__(76);
+>>>>>>> Working on Piecharts
+var warning = __webpack_require__(2);
+
+var ReactComponentTreeHook;
+
+if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 'test') {
+  // Temporary hack.
+  // Inline requires don't work well with Jest:
+  // https://github.com/facebook/react/issues/7240
+  // Remove the inline requires when we don't need them anymore:
+  // https://github.com/facebook/react/pull/7178
+  ReactComponentTreeHook = __webpack_require__(8);
+}
+
+/**
+ * @param {function} traverseContext Context passed through traversal.
+ * @param {?ReactComponent} child React child component.
+ * @param {!string} name String name of key path to child.
+ * @param {number=} selfDebugID Optional debugID of the current internal instance.
+ */
+function flattenSingleChildIntoContext(traverseContext, child, name, selfDebugID) {
+  // We found a component instance.
+  if (traverseContext && typeof traverseContext === 'object') {
+    var result = traverseContext;
+    var keyUnique = result[name] === undefined;
+    if (process.env.NODE_ENV !== 'production') {
+      if (!ReactComponentTreeHook) {
+        ReactComponentTreeHook = __webpack_require__(8);
+      }
+      if (!keyUnique) {
+        process.env.NODE_ENV !== 'production' ? warning(false, 'flattenChildren(...): Encountered two children with the same key, ' + '`%s`. Child keys must be unique; when two children share a key, only ' + 'the first child will be used.%s', KeyEscapeUtils.unescape(name), ReactComponentTreeHook.getStackAddendumByID(selfDebugID)) : void 0;
+      }
+    }
+    if (keyUnique && child != null) {
+      result[name] = child;
+    }
+  }
+}
+
+>>>>>>> Working on Piecharts
 /**
  * Memoizes the return value of a function that accepts one string argument.
  */
@@ -20653,7 +22846,19 @@ function memoizeStringOnly(callback) {
 module.exports = memoizeStringOnly;
 
 /***/ }),
+<<<<<<< HEAD
 /* 166 */
+=======
+<<<<<<< HEAD
+/* 165 */
+=======
+<<<<<<< HEAD
+/* 160 */
+=======
+/* 148 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20669,7 +22874,23 @@ module.exports = memoizeStringOnly;
 
 
 
+<<<<<<< HEAD
 var escapeTextContentForBrowser = __webpack_require__(42);
+=======
+var _assign = __webpack_require__(4);
+
+<<<<<<< HEAD
+var PooledClass = __webpack_require__(18);
+var Transaction = __webpack_require__(34);
+var ReactInstrumentation = __webpack_require__(10);
+var ReactServerUpdateQueue = __webpack_require__(161);
+=======
+var PooledClass = __webpack_require__(15);
+var Transaction = __webpack_require__(27);
+var ReactInstrumentation = __webpack_require__(8);
+var ReactServerUpdateQueue = __webpack_require__(149);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 /**
  * Escapes attribute value to prevent scripting attacks.
@@ -20721,7 +22942,19 @@ var ReactEventEmitterMixin = {
 module.exports = ReactEventEmitterMixin;
 
 /***/ }),
+<<<<<<< HEAD
 /* 168 */
+=======
+<<<<<<< HEAD
+/* 167 */
+=======
+<<<<<<< HEAD
+/* 161 */
+=======
+/* 149 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20737,7 +22970,26 @@ module.exports = ReactEventEmitterMixin;
 
 
 
+<<<<<<< HEAD
 var ExecutionEnvironment = __webpack_require__(7);
+=======
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+<<<<<<< HEAD
+var ReactUpdateQueue = __webpack_require__(55);
+=======
+var ReactUpdateQueue = __webpack_require__(47);
+>>>>>>> Working on Piecharts
+
+var warning = __webpack_require__(2);
+
+function warnNoop(publicInstance, callerName) {
+  if (process.env.NODE_ENV !== 'production') {
+    var constructor = publicInstance.constructor;
+    process.env.NODE_ENV !== 'production' ? warning(false, '%s(...): Can only update a mounting component. ' + 'This usually means you called %s() outside componentWillMount() on the server. ' + 'This is a no-op. Please check the code for the %s component.', callerName, callerName, constructor && (constructor.displayName || constructor.name) || 'ReactClass') : void 0;
+  }
+}
+>>>>>>> Working on Piecharts
 
 /**
  * Generate a mapping of standard vendor prefixes using the defined style property and event name.
@@ -20827,7 +23079,19 @@ function getVendorPrefixedEventName(eventName) {
 module.exports = getVendorPrefixedEventName;
 
 /***/ }),
+<<<<<<< HEAD
 /* 169 */
+=======
+<<<<<<< HEAD
+/* 168 */
+=======
+<<<<<<< HEAD
+/* 162 */
+=======
+/* 150 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20868,10 +23132,20 @@ function forceUpdateIfMounted() {
   }
 }
 
+<<<<<<< HEAD
 function isControlled(props) {
   var usesChecked = props.type === 'checkbox' || props.type === 'radio';
   return usesChecked ? props.checked != null : props.value != null;
 }
+=======
+/***/ }),
+<<<<<<< HEAD
+/* 163 */
+=======
+/* 151 */
+>>>>>>> Working on Piecharts
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
 
 /**
  * Implements an <input> host component that allows setting these optional
@@ -20967,11 +23241,21 @@ var ReactDOMInput = {
       }
     }
 
+<<<<<<< HEAD
     // TODO: Shouldn't this be getChecked(props)?
     var checked = props.checked;
     if (checked != null) {
       DOMPropertyOperations.setValueForProperty(ReactDOMComponentTree.getNodeFromInstance(inst), 'checked', checked || false);
     }
+=======
+/***/ }),
+<<<<<<< HEAD
+/* 164 */
+=======
+/* 152 */
+>>>>>>> Working on Piecharts
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
 
     var node = ReactDOMComponentTree.getNodeFromInstance(inst);
     var value = LinkedValueUtils.getValue(props);
@@ -21024,6 +23308,7 @@ var ReactDOMInput = {
     // available until after the component has mounted.
     var node = ReactDOMComponentTree.getNodeFromInstance(inst);
 
+<<<<<<< HEAD
     // Detach value from defaultValue. We won't do anything if we're working on
     // submit or reset inputs as those values & defaultValues are linked. They
     // are not resetable nodes so this operation doesn't matter and actually
@@ -21050,6 +23335,47 @@ var ReactDOMInput = {
         node.value = node.value;
         break;
     }
+=======
+<<<<<<< HEAD
+var DOMChildrenOperations = __webpack_require__(47);
+var DOMLazyTree = __webpack_require__(24);
+=======
+var DOMChildrenOperations = __webpack_require__(39);
+var DOMLazyTree = __webpack_require__(19);
+>>>>>>> Working on Piecharts
+var ReactDOMComponentTree = __webpack_require__(5);
+
+var escapeTextContentForBrowser = __webpack_require__(37);
+var invariant = __webpack_require__(1);
+<<<<<<< HEAD
+var validateDOMNesting = __webpack_require__(56);
+=======
+var validateDOMNesting = __webpack_require__(48);
+>>>>>>> Working on Piecharts
+
+/**
+ * Text nodes violate a couple assumptions that React makes about components:
+ *
+ *  - When mounting text into the DOM, adjacent text nodes are merged.
+ *  - Text nodes cannot be assigned a React root ID.
+ *
+ * This component is used to wrap strings between comment nodes so that they
+ * can undergo the same reconciliation that is applied to elements.
+ *
+ * TODO: Investigate representing React components in the DOM with text nodes.
+ *
+ * @class ReactDOMTextComponent
+ * @extends ReactComponent
+ * @internal
+ */
+var ReactDOMTextComponent = function (text) {
+  // TODO: This is really a ReactText (ReactNode), not a ReactElement
+  this._currentElement = text;
+  this._stringText = '' + text;
+  // ReactDOMComponentTree uses these:
+  this._hostNode = null;
+  this._hostParent = null;
+>>>>>>> Working on Piecharts
 
     // Normally, we'd just do `node.checked = node.checked` upon initial mount, less this bug
     // this is needed to work around a chrome bug where setting defaultChecked
@@ -21120,7 +23446,19 @@ module.exports = ReactDOMInput;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 170 */
+=======
+<<<<<<< HEAD
+/* 169 */
+=======
+<<<<<<< HEAD
+/* 165 */
+=======
+/* 153 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21248,7 +23586,19 @@ module.exports = ReactDOMOption;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 171 */
+=======
+<<<<<<< HEAD
+/* 170 */
+=======
+<<<<<<< HEAD
+/* 166 */
+=======
+/* 154 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21271,8 +23621,18 @@ var LinkedValueUtils = __webpack_require__(58);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactUpdates = __webpack_require__(15);
 
+<<<<<<< HEAD
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
+=======
+<<<<<<< HEAD
+var getEventTarget = __webpack_require__(44);
+var getUnboundedScrollPosition = __webpack_require__(167);
+=======
+var getEventTarget = __webpack_require__(36);
+var getUnboundedScrollPosition = __webpack_require__(155);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 var didWarnValueLink = false;
 var didWarnValDefaultVal = false;
@@ -21414,7 +23774,19 @@ module.exports = ReactDOMTextarea;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 172 */
+=======
+<<<<<<< HEAD
+/* 171 */
+=======
+<<<<<<< HEAD
+/* 167 */
+=======
+/* 155 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21463,6 +23835,20 @@ function makeInsertMarkup(markup, afterNode, toIndex) {
   };
 }
 
+<<<<<<< HEAD
+=======
+module.exports = getUnboundedScrollPosition;
+
+/***/ }),
+<<<<<<< HEAD
+/* 168 */
+=======
+/* 156 */
+>>>>>>> Working on Piecharts
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+>>>>>>> Working on Piecharts
 /**
  * Make an update for moving an existing element to another index.
  *
@@ -21482,12 +23868,67 @@ function makeMove(child, afterNode, toIndex) {
   };
 }
 
+<<<<<<< HEAD
 /**
  * Make an update for removing an element at an index.
+=======
+
+
+<<<<<<< HEAD
+var DOMProperty = __webpack_require__(16);
+var EventPluginHub = __webpack_require__(26);
+var EventPluginUtils = __webpack_require__(42);
+var ReactComponentEnvironment = __webpack_require__(51);
+var ReactEmptyComponent = __webpack_require__(86);
+var ReactBrowserEventEmitter = __webpack_require__(38);
+var ReactHostComponent = __webpack_require__(87);
+var ReactUpdates = __webpack_require__(14);
+=======
+var DOMProperty = __webpack_require__(13);
+var EventPluginHub = __webpack_require__(21);
+var EventPluginUtils = __webpack_require__(34);
+var ReactComponentEnvironment = __webpack_require__(43);
+var ReactEmptyComponent = __webpack_require__(74);
+var ReactBrowserEventEmitter = __webpack_require__(31);
+var ReactHostComponent = __webpack_require__(75);
+var ReactUpdates = __webpack_require__(11);
+>>>>>>> Working on Piecharts
+
+var ReactInjection = {
+  Component: ReactComponentEnvironment.injection,
+  DOMProperty: DOMProperty.injection,
+  EmptyComponent: ReactEmptyComponent.injection,
+  EventPluginHub: EventPluginHub.injection,
+  EventPluginUtils: EventPluginUtils.injection,
+  EventEmitter: ReactBrowserEventEmitter.injection,
+  HostComponent: ReactHostComponent.injection,
+  Updates: ReactUpdates.injection
+};
+
+module.exports = ReactInjection;
+
+/***/ }),
+<<<<<<< HEAD
+/* 169 */
+=======
+/* 157 */
+>>>>>>> Working on Piecharts
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+>>>>>>> Working on Piecharts
  *
  * @param {number} fromIndex Index of the element to remove.
  * @private
  */
+<<<<<<< HEAD
 function makeRemove(child, node) {
   // NOTE: Null values reduce hidden classes.
   return {
@@ -21499,6 +23940,30 @@ function makeRemove(child, node) {
     afterNode: null
   };
 }
+=======
+
+
+
+var _assign = __webpack_require__(4);
+
+<<<<<<< HEAD
+var CallbackQueue = __webpack_require__(73);
+var PooledClass = __webpack_require__(18);
+var ReactBrowserEventEmitter = __webpack_require__(38);
+var ReactInputSelection = __webpack_require__(90);
+var ReactInstrumentation = __webpack_require__(10);
+var Transaction = __webpack_require__(34);
+var ReactUpdateQueue = __webpack_require__(55);
+=======
+var CallbackQueue = __webpack_require__(61);
+var PooledClass = __webpack_require__(15);
+var ReactBrowserEventEmitter = __webpack_require__(31);
+var ReactInputSelection = __webpack_require__(78);
+var ReactInstrumentation = __webpack_require__(8);
+var Transaction = __webpack_require__(27);
+var ReactUpdateQueue = __webpack_require__(47);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 /**
  * Make an update for setting the markup of a node.
@@ -21663,8 +24128,18 @@ var ReactMultiChild = {
         setChildrenForInstrumentation.call(this, children);
       }
 
+<<<<<<< HEAD
       return mountImages;
     },
+=======
+/***/ }),
+<<<<<<< HEAD
+/* 170 */
+=======
+/* 158 */
+>>>>>>> Working on Piecharts
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
 
     /**
      * Replaces any rendered children with a text content string.
@@ -21717,6 +24192,7 @@ var ReactMultiChild = {
       this._updateChildren(nextNestedChildrenElements, transaction, context);
     },
 
+<<<<<<< HEAD
     /**
      * @param {?object} nextNestedChildrenElements Nested child element maps.
      * @param {ReactReconcileTransaction} transaction
@@ -21773,6 +24249,17 @@ var ReactMultiChild = {
         processQueue(this, updates);
       }
       this._renderedChildren = nextChildren;
+=======
+var ExecutionEnvironment = __webpack_require__(7);
+
+<<<<<<< HEAD
+var getNodeForCharacterOffset = __webpack_require__(171);
+var getTextContentAccessor = __webpack_require__(72);
+=======
+var getNodeForCharacterOffset = __webpack_require__(159);
+var getTextContentAccessor = __webpack_require__(60);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
       if (process.env.NODE_ENV !== 'production') {
         setChildrenForInstrumentation.call(this, nextChildren);
@@ -22025,7 +24512,19 @@ module.exports = ReactChildReconciler;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 174 */
+=======
+<<<<<<< HEAD
+/* 173 */
+=======
+<<<<<<< HEAD
+/* 171 */
+=======
+/* 159 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22084,9 +24583,21 @@ function warnIfInvalidElement(Component, element) {
   }
 }
 
+<<<<<<< HEAD
 function shouldConstruct(Component) {
   return !!(Component.prototype && Component.prototype.isReactComponent);
 }
+=======
+module.exports = getNodeForCharacterOffset;
+
+/***/ }),
+<<<<<<< HEAD
+/* 172 */
+=======
+/* 160 */
+>>>>>>> Working on Piecharts
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
 
 function isPureComponent(Component) {
   return !!(Component.prototype && Component.prototype.isPureReactComponent);
@@ -22136,6 +24647,7 @@ function measureLifeCyclePerf(fn, debugID, timerType) {
  * -----------------------------------------------------------------------------
  */
 
+<<<<<<< HEAD
 /**
  * An incrementing ID assigned to each component when it is mounted. This is
  * used to enforce the order in which `ReactUpdates` updates dirty components.
@@ -22143,6 +24655,15 @@ function measureLifeCyclePerf(fn, debugID, timerType) {
  * @private
  */
 var nextMountID = 1;
+=======
+<<<<<<< HEAD
+var isTextNode = __webpack_require__(173);
+=======
+var isTextNode = __webpack_require__(161);
+>>>>>>> Working on Piecharts
+
+/*eslint-disable no-bitwise */
+>>>>>>> Working on Piecharts
 
 /**
  * @lends {ReactCompositeComponent.prototype}
@@ -22170,11 +24691,21 @@ var ReactCompositeComponent = {
     this._pendingReplaceState = false;
     this._pendingForceUpdate = false;
 
+<<<<<<< HEAD
     this._renderedNodeType = null;
     this._renderedComponent = null;
     this._context = null;
     this._mountOrder = 0;
     this._topLevelWrapper = null;
+=======
+/***/ }),
+<<<<<<< HEAD
+/* 173 */
+=======
+/* 161 */
+>>>>>>> Working on Piecharts
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
 
     // See ReactUpdates and ReactUpdateQueue.
     this._pendingCallbacks = null;
@@ -22187,6 +24718,7 @@ var ReactCompositeComponent = {
     }
   },
 
+<<<<<<< HEAD
   /**
    * Initializes the component, renders markup, and registers event listeners.
    *
@@ -22200,6 +24732,13 @@ var ReactCompositeComponent = {
    */
   mountComponent: function (transaction, hostParent, hostContainerInfo, context) {
     var _this = this;
+=======
+<<<<<<< HEAD
+var isNode = __webpack_require__(174);
+=======
+var isNode = __webpack_require__(162);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
     this._context = context;
     this._mountOrder = nextMountID++;
@@ -22209,7 +24748,17 @@ var ReactCompositeComponent = {
     var publicProps = this._currentElement.props;
     var publicContext = this._processContext(context);
 
+<<<<<<< HEAD
     var Component = this._currentElement.type;
+=======
+/***/ }),
+<<<<<<< HEAD
+/* 174 */
+=======
+/* 162 */
+>>>>>>> Working on Piecharts
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
 
     var updateQueue = transaction.getUpdateQueue();
 
@@ -22243,8 +24792,18 @@ var ReactCompositeComponent = {
       var propsMutated = inst.props !== publicProps;
       var componentName = Component.displayName || Component.name || 'Component';
 
+<<<<<<< HEAD
       process.env.NODE_ENV !== 'production' ? warning(inst.props === undefined || !propsMutated, '%s(...): When calling super() in `%s`, make sure to pass ' + "up the same props that your component's constructor was passed.", componentName, componentName) : void 0;
     }
+=======
+/***/ }),
+<<<<<<< HEAD
+/* 175 */
+=======
+/* 163 */
+>>>>>>> Working on Piecharts
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
 
     // These should be set up in the constructor, but as a convenience for
     // simpler class abstractions, we set them up after the fact.
@@ -31308,10 +33867,22 @@ WebAuth.prototype.authorize = function(options) {
     }
   );
 
+<<<<<<< HEAD
   params = this.transactionManager.process(params);
 
   windowHelper.redirect(this.client.buildAuthorizeUrl(params));
 };
+=======
+<<<<<<< HEAD
+    return path
+  }
+}
+=======
+/***/ }),
+/* 164 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 /**
  * Signs up a new user, automatically logs the user in after the signup and returns the user token.
@@ -31405,11 +33976,31 @@ WebAuth.prototype.logout = function(options) {
  * @param {String} options.verificationCode the TOTP code
  * @param {Function} cb
  */
+<<<<<<< HEAD
 WebAuth.prototype.passwordlessVerify = function(options, cb) {
   var _this = this;
   return this.client.passwordless.verify(options, function(err) {
     if (err) {
       return cb(err);
+=======
+function regexpToRegexp (path, keys) {
+  // Use a negative lookahead to match only capturing groups.
+  var groups = path.source.match(/\((?!\?)/g)
+
+<<<<<<< HEAD
+  if (groups) {
+    for (var i = 0; i < groups.length; i++) {
+      keys.push({
+        name: i,
+        prefix: null,
+        delimiter: null,
+        optional: false,
+        repeat: false,
+        partial: false,
+        asterisk: false,
+        pattern: null
+      })
+>>>>>>> Working on Piecharts
     }
     return windowHelper.redirect(_this.client.passwordless.buildVerifyUrl(options));
   });
@@ -31456,6 +34047,11 @@ function IdTokenVerifier(parameters) {
   if (this.leeway < 0 || this.leeway > 60) {
     throw new error.ConfigurationError('The leeway should be positive and lower than a minute.');
   }
+=======
+var getActiveElement = __webpack_require__(79);
+var isTextInputElement = __webpack_require__(64);
+var shallowEqual = __webpack_require__(44);
+>>>>>>> Working on Piecharts
 
   if (supportedAlgs.indexOf(this.expectedAlg) === -1) {
     throw new error.ConfigurationError('Algorithm ' + this.expectedAlg +
@@ -34138,8 +36734,30 @@ module.exports = {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 268 */
 /***/ (function(module, exports) {
+=======
+<<<<<<< HEAD
+/* 211 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+=======
+/* 165 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_hoist_non_react_statics__ = __webpack_require__(212);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_hoist_non_react_statics___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_hoist_non_react_statics__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Route__ = __webpack_require__(95);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+>>>>>>> Working on Piecharts
 
 function ConfigurationError(message) {
   this.name = 'ConfigurationError';
@@ -34158,10 +36776,34 @@ module.exports = {
   TokenValidationError: TokenValidationError
 };
 
+<<<<<<< HEAD
 
+<<<<<<< HEAD
 /***/ }),
 /* 269 */
 /***/ (function(module, exports) {
+=======
+=======
+var EventListener = __webpack_require__(77);
+var EventPropagators = __webpack_require__(20);
+var ReactDOMComponentTree = __webpack_require__(5);
+var SyntheticAnimationEvent = __webpack_require__(166);
+var SyntheticClipboardEvent = __webpack_require__(167);
+var SyntheticEvent = __webpack_require__(12);
+var SyntheticFocusEvent = __webpack_require__(168);
+var SyntheticKeyboardEvent = __webpack_require__(169);
+var SyntheticMouseEvent = __webpack_require__(28);
+var SyntheticDragEvent = __webpack_require__(171);
+var SyntheticTouchEvent = __webpack_require__(172);
+var SyntheticTransitionEvent = __webpack_require__(173);
+var SyntheticUIEvent = __webpack_require__(22);
+var SyntheticWheelEvent = __webpack_require__(174);
+
+var emptyFunction = __webpack_require__(9);
+var getEventCharCode = __webpack_require__(49);
+var invariant = __webpack_require__(1);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 function DummyCache() {}
 
@@ -34226,8 +36868,18 @@ module.exports = PluginHandler;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 271 */
 /***/ (function(module, exports) {
+=======
+<<<<<<< HEAD
+/* 213 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+=======
+/* 166 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 var g;
 
@@ -34271,9 +36923,18 @@ function randomString(length) {
 
   var random = cryptoObj.getRandomValues(bytes);
 
+<<<<<<< HEAD
   for (var a = 0; a < random.length; a++) {
     result.push(charset[random[a] % charset.length]);
   }
+=======
+<<<<<<< HEAD
+=======
+/***/ }),
+/* 167 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
   return result.join('');
 }
@@ -34316,7 +36977,15 @@ module.exports = {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 274 */
+=======
+<<<<<<< HEAD
+/* 214 */
+=======
+/* 168 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 var windowHandler = __webpack_require__(20);
@@ -34375,9 +37044,19 @@ StorageHandler.prototype.setItem = function(key, value) {
 module.exports = StorageHandler;
 
 
+<<<<<<< HEAD
 /***/ }),
 /* 275 */
 /***/ (function(module, exports) {
+=======
+<<<<<<< HEAD
+var _LocationUtils = __webpack_require__(58);
+=======
+/***/ }),
+/* 169 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 function DummyStorage() {}
 
@@ -34389,7 +37068,17 @@ DummyStorage.prototype.removeItem = function() {};
 
 DummyStorage.prototype.setItem = function() {};
 
+<<<<<<< HEAD
 module.exports = DummyStorage;
+=======
+<<<<<<< HEAD
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+=======
+var getEventCharCode = __webpack_require__(49);
+var getEventKey = __webpack_require__(170);
+var getEventModifierState = __webpack_require__(38);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 
 /***/ }),
@@ -34408,9 +37097,19 @@ CookieStorage.prototype.removeItem = function(key) {
   cookies.erase(key);
 };
 
+<<<<<<< HEAD
 CookieStorage.prototype.setItem = function(key, value) {
   cookies.create(key, value, 1);
+=======
+<<<<<<< HEAD
+  window.location.replace(window.location.href.slice(0, hashIndex >= 0 ? hashIndex : 0) + '#' + path);
+>>>>>>> Working on Piecharts
 };
+=======
+/***/ }),
+/* 170 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
 
 module.exports = CookieStorage;
 
@@ -34419,8 +37118,23 @@ module.exports = CookieStorage;
 /* 277 */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 var windowHandler = __webpack_require__(20);
+<<<<<<< HEAD
 var base64Url = __webpack_require__(110);
+=======
+var base64Url = __webpack_require__(109);
+=======
+<<<<<<< HEAD
+  var _props$getUserConfirm = props.getUserConfirmation,
+      getUserConfirmation = _props$getUserConfirm === undefined ? _DOMUtils.getConfirmation : _props$getUserConfirm,
+      _props$hashType = props.hashType,
+      hashType = _props$hashType === undefined ? 'slash' : _props$hashType;
+=======
+var getEventCharCode = __webpack_require__(49);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 function create(name, value, days) {
   var date;
@@ -34484,9 +37198,21 @@ module.exports = {
 };
 
 
+<<<<<<< HEAD
 /***/ }),
 /* 278 */
 /***/ (function(module, exports, __webpack_require__) {
+=======
+<<<<<<< HEAD
+  var handleHashChange = function handleHashChange() {
+    var path = getHashPath();
+    var encodedPath = encodePath(path);
+=======
+/***/ }),
+/* 171 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 var UsernamePassword = __webpack_require__(279);
 var objectHelper = __webpack_require__(13);
@@ -34583,6 +37309,18 @@ Redirect.prototype.signupAndLogin = function(options, cb) {
 
 module.exports = Redirect;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    // TODO: We could probably make this more reliable by
+    // keeping a list of paths we've seen in sessionStorage.
+    // Instead, we just default to 0 for paths we don't know.
+=======
+/***/ }),
+/* 172 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 /***/ }),
 /* 279 */
@@ -34600,9 +37338,17 @@ function UsernamePassword(options) {
   this.request = new RequestBuilder(options);
 }
 
+<<<<<<< HEAD
 UsernamePassword.prototype.login = function(options, cb) {
   var url;
   var body;
+=======
+<<<<<<< HEAD
+    var delta = toIndex - fromIndex;
+=======
+var getEventModifierState = __webpack_require__(38);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
   url = urljoin(this.baseOptions.rootUrl, 'usernamepassword', 'login');
 
@@ -34622,7 +37368,17 @@ UsernamePassword.prototype.login = function(options, cb) {
     ])
     .with(options);
 
+<<<<<<< HEAD
   body = objectHelper.toSnakeCase(body, ['auth0Client']);
+=======
+<<<<<<< HEAD
+  // Public interface
+=======
+/***/ }),
+/* 173 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
   return this.request.post(url).send(body).end(responseHandler(cb));
 };
@@ -34668,6 +37424,7 @@ function Popup(webAuth, options) {
   });
 }
 
+<<<<<<< HEAD
 /**
  * Returns a new instance of the popup handler
  *
@@ -34676,6 +37433,17 @@ function Popup(webAuth, options) {
  */
 Popup.prototype.buildPopupHandler = function() {
   var pluginHandler = this.baseOptions.plugins.get('popup.getPopupHandler');
+=======
+<<<<<<< HEAD
+        setState({ action: action, location: location });
+      } else {
+        (0, _warning2.default)(false, 'Hash history cannot PUSH the same path; a new entry will not be added to the history stack');
+=======
+/***/ }),
+/* 174 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
   if (pluginHandler) {
     return pluginHandler.getPopupHandler();
@@ -34737,6 +37505,7 @@ Popup.prototype.callback = function(options) {
   });
 };
 
+<<<<<<< HEAD
 /**
  * Shows inside a new window the hosted login page (`/authorize`) in order to start a new authN/authZ transaction and post its result using `postMessage`.
  *
@@ -34785,6 +37554,16 @@ Popup.prototype.authorize = function(options, cb) {
       responseType: { type: 'string', message: 'responseType option is required' }
     }
   );
+=======
+<<<<<<< HEAD
+  var go = function go(n) {
+    (0, _warning2.default)(canGoWithoutReload, 'Hash history go(n) causes a full page reload in this browser');
+=======
+/***/ }),
+/* 175 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
   // the relay page should not be necesary as long it happens in the same domain
   // (a redirectUri shoul be provided). It is necesary when using OWP
@@ -34804,9 +37583,17 @@ Popup.prototype.authorize = function(options, cb) {
     popOpts.popupOptions = objectHelper.pick(options.popupOptions, ['width', 'height']);
   }
 
+<<<<<<< HEAD
   if (pluginHandler) {
     params = pluginHandler.processParams(params);
   }
+=======
+<<<<<<< HEAD
+  var listenerCount = 0;
+=======
+var validateDOMNesting = __webpack_require__(48);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
   params = this.transactionManager.process(params);
 
@@ -34877,8 +37664,19 @@ Popup.prototype.loginWithCredentials = function(options, cb) {
   url = urljoin(this.baseOptions.rootUrl, 'sso_dbconnection_popup', options.clientID);
   relayUrl = urljoin(this.baseOptions.rootUrl, 'relay.html');
 
+<<<<<<< HEAD
   return popup.load(url, relayUrl, { params: params }, responseHandler(cb));
 };
+=======
+<<<<<<< HEAD
+  var block = function block() {
+    var prompt = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+=======
+/***/ }),
+/* 176 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 /**
  * Verifies the passwordless TOTP and redirects to finish the passwordless transaction
@@ -34969,8 +37767,18 @@ module.exports = {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 282 */
 /***/ (function(module, exports, __webpack_require__) {
+=======
+<<<<<<< HEAD
+/* 215 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+=======
+/* 177 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable guard-for-in */
@@ -34984,10 +37792,25 @@ function PopupHandler() {
   this._current_popup = null;
 }
 
+<<<<<<< HEAD
 PopupHandler.prototype.calculatePosition = function(options) {
   var width = options.width || 500;
   var height = options.height || 600;
   var _window = windowHandler.getWindow();
+=======
+<<<<<<< HEAD
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Link__ = __webpack_require__(96);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+=======
+var adler32 = __webpack_require__(178);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
   var screenX = typeof _window.screenX !== 'undefined' ? _window.screenX : _window.screenLeft;
   var screenY = typeof _window.screenY !== 'undefined' ? _window.screenY : _window.screenTop;
@@ -35017,9 +37840,18 @@ PopupHandler.prototype.preload = function(options) {
     delimiter: ','
   });
 
+<<<<<<< HEAD
   if (this._current_popup && !this._current_popup.closed) {
     return this._current_popup;
   }
+=======
+<<<<<<< HEAD
+=======
+/***/ }),
+/* 178 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
   this._current_popup = _window.open(url, 'auth0_signup_popup', windowFeatures);
 
@@ -35062,8 +37894,18 @@ module.exports = PopupHandler;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 283 */
 /***/ (function(module, exports, __webpack_require__) {
+=======
+<<<<<<< HEAD
+/* 217 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+=======
+/* 179 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 var IframeHandler = __webpack_require__(284);
 
@@ -35095,6 +37937,7 @@ SilentAuthenticationHandler.prototype.login = function(usePostMessage, callback)
   this.handler.init();
 };
 
+<<<<<<< HEAD
 SilentAuthenticationHandler.prototype.getEventValidator = function() {
   var _this = this;
   return {
@@ -35105,6 +37948,16 @@ SilentAuthenticationHandler.prototype.getEventValidator = function() {
           if (_this.postMessageDataType === false) {
             return true;
           }
+=======
+/***/ }),
+<<<<<<< HEAD
+/* 219 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+=======
+/* 180 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
           return (
             eventData.event.data.type && eventData.event.data.type === _this.postMessageDataType
@@ -35172,10 +38025,21 @@ IframeHandler.prototype.init = function() {
   this.iframe.style.display = 'none';
   this.iframe.src = this.url;
 
+<<<<<<< HEAD
   // Workaround to avoid using bind that does not work in IE8
   this.proxyEventListener = function(e) {
     _this.eventListener(e);
   };
+=======
+/***/ }),
+<<<<<<< HEAD
+/* 223 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+=======
+/* 181 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
   switch (this.eventListenerType) {
     case 'message':
@@ -35200,9 +38064,19 @@ IframeHandler.prototype.init = function() {
 IframeHandler.prototype.eventListener = function(event) {
   var eventData = { event: event, sourceObject: this.eventSourceObject };
 
+<<<<<<< HEAD
   if (!this.eventValidator.isValid(eventData)) {
     return;
   }
+=======
+/***/ }),
+<<<<<<< HEAD
+/* 225 */
+=======
+/* 182 */
+>>>>>>> Working on Piecharts
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Working on Piecharts
 
   this.destroy();
   this.callback(eventData);
@@ -35442,7 +38316,19 @@ var Dashboard = function (_Component) {
 exports.default = (0, _reactRouterDom.withRouter)(Dashboard);
 
 /***/ }),
+<<<<<<< HEAD
 /* 289 */
+=======
+<<<<<<< HEAD
+/* 287 */
+=======
+<<<<<<< HEAD
+/* 227 */
+=======
+/* 183 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35509,7 +38395,19 @@ var TasksList = function (_Component) {
 exports.default = (0, _reactRouterDom.withRouter)(TasksList);
 
 /***/ }),
+<<<<<<< HEAD
 /* 290 */
+=======
+<<<<<<< HEAD
+/* 288 */
+=======
+<<<<<<< HEAD
+/* 228 */
+=======
+/* 184 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35576,7 +38474,19 @@ var TasksTree = function (_Component) {
 exports.default = (0, _reactRouterDom.withRouter)(TasksTree);
 
 /***/ }),
+<<<<<<< HEAD
 /* 291 */
+=======
+<<<<<<< HEAD
+/* 289 */
+=======
+<<<<<<< HEAD
+/* 229 */
+=======
+/* 185 */
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35588,11 +38498,25 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+<<<<<<< HEAD
 var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
+<<<<<<< HEAD
 var _reactDom = __webpack_require__(26);
+=======
+var _reactDom = __webpack_require__(22);
+=======
+var _react = __webpack_require__(32);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Dashboard = __webpack_require__(82);
+
+var _Dashboard2 = _interopRequireDefault(_Dashboard);
+>>>>>>> Working on Piecharts
+>>>>>>> Working on Piecharts
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35620,8 +38544,14 @@ var TaskDetails = function (_Component) {
         _react2.default.createElement(
           'h1',
           null,
+<<<<<<< HEAD
           'Task Details'
         )
+=======
+          ' TaskMonkey 1'
+        ),
+        _react2.default.createElement(_Dashboard2.default, null)
+>>>>>>> Working on Piecharts
       );
     }
   }]);
