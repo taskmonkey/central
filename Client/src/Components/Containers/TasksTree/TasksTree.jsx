@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {render} from 'react-dom';
 import {Redirect, Link, withRouter} from 'react-router-dom';
 import Tree from 'react-tree-graph';
-import { easeElastic } from 'd3-ease';
 
 
 class TasksTree extends Component{
@@ -16,6 +15,9 @@ class TasksTree extends Component{
           name: 'Child Two'
       }]
     }
+    let style = {
+      color: 'red',
+    }
     return(
       <div>
         <h1>Task Tree</h1>
@@ -25,9 +27,9 @@ class TasksTree extends Component{
             height={600}
             width={800}
             animated
-            duration={1000}
-            easing={easeElastic}
-            treeClassName="custom"/>
+            duration={500}
+            treeClassName="custom"
+            />
           </div>
         <Link to="/tasksDetails"><button>Task Details</button></Link>
       </div>
