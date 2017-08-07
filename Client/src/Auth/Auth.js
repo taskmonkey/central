@@ -14,7 +14,7 @@ export default class Auth {
       scope: 'openid'
     });
 
-   this.login = this.login.bind(this);
+  this.login = this.login.bind(this);
   }
 
   login() {
