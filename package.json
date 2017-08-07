@@ -33,6 +33,7 @@
     "recharts": "^1.0.0-alpha.2",
     "redux": "^3.7.2",
     "redux-promise": "^0.5.3",
+    "react-tree-graph": "^2.0.0",
     "sequelize": "^4.4.2",
     "webpack": "^3.4.1"
   }

@@ -23,5 +23,8 @@ const config = {
     }]
   },
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> Head
 module.exports = config;
