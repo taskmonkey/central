@@ -15,10 +15,14 @@ export default class Auth {
       scope: 'openid'
     });
 
+<<<<<<< HEAD
     this.login = this.login.bind(this);
     this.logout = this.logout.bind(this);
     this.handleAuthentication = this.handleAuthentication.bind(this);
     this.isAuthenticated = this.isAuthenticated.bind(this);
+=======
+  this.login = this.login.bind(this);
+>>>>>>> for rebase on austens commit
   }
 
   login() {
