@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 
-const SRC_DIR = path.resolve(__dirname, 'client/src')
+const SRC_DIR = path.resolve(__dirname, 'Client/src')
 const BUILD_DIR = path.resolve(__dirname, 'static')
 
 const config = {
