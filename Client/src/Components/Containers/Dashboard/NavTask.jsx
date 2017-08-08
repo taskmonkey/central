@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
+import {Redirect, Link, withRouter} from 'react-router-dom';
 
 import styled from 'styled-components';
 
@@ -63,7 +64,7 @@ const SideNavWithAlerts = () =>
         defaultSelected="products"
         highlightColor="#FFF"
         fontFamily="Lato"
-        
+
     >
         <div />
         <Nav id="dashboard">
@@ -78,7 +79,7 @@ const SideNavWithAlerts = () =>
         <Nav id="orders">
             <NavIcon><Icon20 icon={pen} /></NavIcon>
             <NavText>
-                {' '}<span style={{ paddingRight: 6 }}>MyTasks</span>{' '}
+                <Link to="/tasksList">{' '}<span style={{ paddingRight: 6 }}>MyTasks</span>{' '}</Link>
                 <span
                     style={{
                         textAlign: 'center',
@@ -92,7 +93,7 @@ const SideNavWithAlerts = () =>
                         color: '#FFF',
                         background: '#ff5b57',
                         fontFamily: 'Lato'
-                        
+
                     }}
                 >
           10

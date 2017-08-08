@@ -2,9 +2,16 @@ import React, {Component} from 'react';
 import {render} from 'react-dom';
 import {Redirect, Link, withRouter} from 'react-router-dom';
 import Tree from 'react-tree-graph';
+import $ from 'jquery';
 
 
 class TasksTree extends Component{
+
+  componentDidMount() {
+    $('.node').mouseover(() => {
+      alert('HOVERING');
+    })
+  }
 
   render() {
     let data = {
@@ -12,7 +19,13 @@ class TasksTree extends Component{
       children: [{
           name: 'Child One'
       }, {
-          name: 'Child Two'
+          name: 'Child Two',
+          children: [{
+            name: 'Child Three'
+          },
+          {
+            name: 'Child Four'
+          }]
       }]
     }
     let style = {
