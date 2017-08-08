@@ -1,19 +1,23 @@
 
 div.custom-container {
-	background-color: #242424;
+	background-color: white;
+	border-right: solid;
+	border-color: #353942;
+	padding-left: 30px;
 }
 
 svg.custom .node circle {
-	fill: #F3F3FF;
-	stroke: white;
+	fill: white;
+	stroke: #2CC5C6;
 	stroke-width: 10px;
 }
 
 svg.custom .node text {
 	font-size: 20px;
 	background-color: #444;
-	fill: #F4F4F4;
+	fill: #353942;
 	text-shadow: 0 1px 4px black;
+	dominant-baseline: hanging;
 }
 
 svg.custom .node {
@@ -78,6 +82,7 @@ svg.custom path.link {
 	height: 60px;
 	right: 0px;
 	left: 0px;
+	width: 1500px;
 	position: absolute;
 }
 
@@ -169,4 +174,32 @@ svg.custom path.link {
 
 .tasksListContainer {
 	margin-left: 19%;
+}
+
+.taskTreeContainer {
+	margin-left: 18%;
+	position: absolute;
+}
+
+.userProfilePeek {
+	margin-left: 1383px;
+	margin-top: 58px;
+	height: 902px;
+	width: 299px;
+	border-style: solid;
+}
+
+.userProfilePeekCircle {
+	width: 250px;
+  height: 250px;
+  border-style: solid;
+	border-radius: 125px;
+	margin: 0 auto;
+	margin-top: 50px;
+	overflow: hidden;
+}
+
+.userProfilePeekCirclePic {
+	max-width: 100%;
+  	max-height: 100%;
 }
