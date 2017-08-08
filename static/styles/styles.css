@@ -40,7 +40,6 @@ svg.custom path.link {
 
 .left-col {
   font-family: 'Lato', sans-serif;
-	width: 18%;
 	position: absolute;
 	left: 0px;
 	top: 0px;
@@ -54,7 +53,7 @@ svg.custom path.link {
 	top: 0px;
 	bottom: 0px;
 	right: 0px;
-	left: 300px;
+	left: 208px;
 }
 
 .app-title {
