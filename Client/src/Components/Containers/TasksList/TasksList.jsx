@@ -29,6 +29,7 @@ class TasksList extends Component{
               <div>{task.title + ': ' + task.content}</div>
             )
           }
+          <Link to="/taskForm"><button>create task</button></Link>
           <Link to="/tasksTree"><button>Tasks Tree</button></Link>
         </div>
       </div>
