@@ -29,39 +29,29 @@ class TaskForm extends Component {
 
   render() {
     return (
-      // <div className="row">
-      //   <h1>list a cat to lend</h1>
-        // <form className="form-group col-md-5 col-md-offset-1">
-        //   <div>
-        //     <label htmlFor="nameForm">Name</label>
-        //     <input type="text" className="form-control" name="name" id="nameForm" value={this.state.name} placeholder="please enter a name" onChange={this.handleChange}/>
-        //   </div>
-        // </form>
-      //   <form className="form-group col-md-5">
-      //     <div>
-      //       <label htmlFor="ownerForm">Owner's Email</label>
-      //       <input type="text" className="form-control" name="owner" id="ownerForm" value={this.state.owner} placeholder="please enter an owner email" onChange={this.handleChange}/>
-      //     </div>
-      //   </form>
-      //   <form className="form-group col-md-6 col-md-offset-3">
-      //     <label htmlFor="imageForm">Image url</label>        
-      //     <input className="form-control" id="imageForm" value={this.state.image} type="text" name="image" placeholder="please enter an image url" onChange={this.handleChange}/>
-      //     <span>A good image increases borrow chances by 500%</span>
-      //   </form>
-      //   <form className="form-group col-md-8 col-md-offset-2">
-      //       <label htmlFor="description">Adoption message</label>
-      //       <textarea className="form-control" id="description" rows="3" name="description" value={this.state.description} placeholder="please enter a description" onChange={this.handleChange}></textarea>
-      //       <button className="btn btn-primary col-md-offset-11" onClick={this.handleTaskForm}>Submit</button> 
-      //   </form>
-      // </div>
-      <div className="row">
-        <h1>create a task</h1>
-        <form className="form-group col-md-5 col-md-offset-1">
-          <div>
-            <label htmlFor="nameForm">Name</label>
-            <input type="text" className="form-control" name="name" id="nameForm" placeholder="please enter a name" />
-          </div>
-        </form>
+      <div className="container createTask">
+        <div className="row">
+          <h1>create a task</h1>
+          <form >
+            <div className="form-group col-md-5 col-md-offset-1">
+              <label htmlFor="nameForm">Task</label>
+              <input type="text" className="form-control" name="task" id="taskForm" placeholder="please enter a task" />
+            </div>
+            <div className="form-group col-md-5">
+              <label htmlFor="assignee">Assignee</label>
+              <input type="text" className="form-control" name="assignee" id="nameForm" placeholder="please enter a name" />
+            </div>
+            <div className="form-group col-md-6 col-md-offset-3">
+              <label htmlFor="budgetHours">Budget Hours</label>
+              <input type="text" className="form-control" name="budgetHours" id="budgetHours" placeholder="please enter expected hours" />
+            </div>
+            <div className="form-group col-md-8 col-md-6 col-md-offset-3">
+              <label htmlFor="description">Task description</label>
+              <textarea className="form-control" id="description" rows="3" name="description" id="description" placeholder="please enter a description"></textarea>
+              <button className="btn btn-primary">Submit</button> 
+            </div>
+          </form>
+        </div>
       </div>
     );
   }

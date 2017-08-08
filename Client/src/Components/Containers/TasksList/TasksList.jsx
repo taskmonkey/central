@@ -29,6 +29,7 @@ class TasksList extends Component{
               <div>{task.title + ': ' + task.content}</div>
             )
           }
+          <Link to="/taskForm"><button>create task</button></Link>
           <Link to="/tasksTree"><button>Tasks Tree</button></Link>
         </div>
       </div>
@@ -37,7 +38,7 @@ class TasksList extends Component{
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({fetchTasks, createTask}, dispatch);
+  return bindActionCreators({fetchTasks}, dispatch);
 }
 
 function mapStateToProps(state) {
