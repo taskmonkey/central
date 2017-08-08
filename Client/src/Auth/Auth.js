@@ -12,18 +12,27 @@ export default class Auth {
       redirectUri: 'http://localhost:3000',
       audience: 'https://austenwma.auth0.com/userinfo',
       responseType: 'token id_token',
-      scope: 'openid'
+      scope: 'openid profile'
     });
-    
+
     this.login = this.login.bind(this);
     this.logout = this.logout.bind(this);
     this.handleAuthentication = this.handleAuthentication.bind(this);
     this.isAuthenticated = this.isAuthenticated.bind(this);
-    
+    this.getProfile = this.getProfile.bind(this);
   }
 
   login() {
     this.auth0.authorize();
+  }
+
+  userProfile;
+
+  getProfile(cb) {
+    let accessToken = localStorage.getItem('access_token');
+    this.auth0.client.userInfo(accessToken, (err, profile) => {
+      cb(err, profile);
+    });
   }
 
   handleAuthentication() {

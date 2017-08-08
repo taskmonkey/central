@@ -16,7 +16,7 @@ class Dashboard extends Component{
           <NavTask />
         </div>
         {/* <div className ="col-sm-">
-          
+
         </div> */}
         <div className="right-col">
 					<div className="dashboard-title">
