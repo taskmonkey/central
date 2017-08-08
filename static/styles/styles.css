@@ -182,19 +182,24 @@ svg.custom path.link {
 }
 
 .userProfilePeek {
-	margin-left: 1385px;
-	margin-top: 60px;
-	height: 900px;
-	width: 295px;
+	margin-left: 1383px;
+	margin-top: 58px;
+	height: 902px;
+	width: 299px;
 	border-style: solid;
-	border-color: red;
 }
 
 .userProfilePeekCircle {
-	width: 100px;
-    height: 100px;
-    background: black;
-    -moz-border-radius: 50px;
-    -webkit-border-radius: 50px;
-    border-radius: 50px;
+	width: 250px;
+  height: 250px;
+  border-style: solid;
+	border-radius: 125px;
+	margin: 0 auto;
+	margin-top: 50px;
+	overflow: hidden;
+}
+
+.userProfilePeekCirclePic {
+	max-width: 100%;
+  	max-height: 100%;
 }

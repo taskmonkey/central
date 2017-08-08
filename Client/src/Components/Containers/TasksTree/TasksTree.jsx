@@ -7,11 +7,18 @@ import NavTask from '../Dashboard/NavTask.jsx';
 
 
 class TasksTree extends Component{
+  constructor() {
+    super()
+    this.state = {
+      userProfilePeekName: '',
+    }
+  }
 
   componentDidMount() {
-    // $('.node').mouseover(() => {
-    //   alert('HOVERING');
-    // })
+    $('.node').mouseover(() => {
+      let newName = $('.node').closest('text');
+      alert(string(newName));
+    })
   }
 
   render() {
@@ -37,9 +44,7 @@ class TasksTree extends Component{
           }]
       }]
     }
-    let style = {
-      color: 'red',
-    }
+
     return(
       <div>
         <div className="dashboard-container">
@@ -66,6 +71,10 @@ class TasksTree extends Component{
           </div>
           <div className="userProfilePeek">
             <div className="userProfilePeekCircle">
+              <img className="userProfilePeekCirclePic" src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"/>
+            </div>
+            <div className="userProfilePeekName">
+              <div>{this.state.userProfilePeekName}</div>
             </div>
           </div>
         </div>
