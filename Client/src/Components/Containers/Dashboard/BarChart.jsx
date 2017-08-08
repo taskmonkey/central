@@ -14,19 +14,21 @@ const data = [
       {name: 'Michael', Finished: 3490, Remaining: 4300, amt: 2100},
 ];
 
+
+
 export default class BarGraph extends Component{
   
   render(){
     return (
     <BarChart width={600} height={300} data={data}
-        >
+        margin={{top: 20, right: 30, left: 20, bottom: 5}}>
       <XAxis dataKey="name"/>
       <YAxis/>
       <CartesianGrid strokeDasharray="3 3"/>
       <Tooltip/>
       <Legend />
       <Bar dataKey="Remaining" stackId="a" fill="#8884d8" />
-      <Bar dataKey="Finished" stackId="a" fill="#82ca9d" />
+      <Bar dataKey="Finished" stackId="a" fill="#E2624B" />
     </BarChart>
     )
   }

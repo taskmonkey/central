@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import {PieChart, Pie, Legend, Tooltip} from 'recharts';
+import CircularProgressbar from 'react-circular-progressbar';
+
+
+
 
 const data = [
   { name: 'iphone4', value: 120, fill: '#ff7300' },
@@ -20,11 +24,33 @@ export default class PieGraph extends React.Component {
 
   render () {
     return (
-      <PieChart width={800} height={400}>
-        <Pie isAnimationActive={true} data={data} cx={200} cy={200} outerRadius={80} fill="#8884d8" label/>
-        {/* <Pie data={data02} cx={500} cy={200} innerRadius={40} outerRadius={80} fill="#82ca9d"/> */}
-        <Tooltip/>
-      </PieChart>
+      <div>
+        <div className ="row">
+          <div className ="col-sm-4">
+            <div className = "progressBar1">
+              <CircularProgressbar percentage={90} initialAnimation={true} classForPercentage = {(percent) => percent < 60 ? 'incomplete' : 'complete'}/>
+            </div>
+          </div>
+          <div className ="col-sm-4">
+            <div className = "progressBar2">
+              <CircularProgressbar percentage={40} initialAnimation={true} classForPercentage = {(percent) => percent < 60 ? 'incomplete' : 'complete'}/>
+            </div>
+          </div>
+          <div className ="col-sm-4">
+            <div className = "progressBar3">
+              <CircularProgressbar percentage={70} initialAnimation={true} classForPercentage = {(percent) => percent < 60 ? 'incomplete' : 'complete'}/>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      // <PieChart width={300} height={300}>
+      //   <Pie isAnimationActive={true} data={data} cx={200} cy={200} outerRadius={80} fill="#8884d8" label/>
+      //   {/* <Pie data={data02} cx={500} cy={200} innerRadius={40} outerRadius={80} fill="#82ca9d"/> */}
+      //   <Tooltip/>
+      // </PieChart>
       // <Surface width={500} height={500}>
       //   <Pie
       //     cx={250}
@@ -45,5 +71,3 @@ export default class PieGraph extends React.Component {
     );
   }
 }
-
-

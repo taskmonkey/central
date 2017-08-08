@@ -8,24 +8,35 @@ import NavTask from './NavTask.jsx'
 class Dashboard extends Component{
   render() {
     return(
-      <div className = "container">
-        <h1>Task Mon Dashboard</h1>
-          <div className="row">
-            <div className="col-md-2">
-              <NavTask />
-            </div>
-            
-            {/* <div className ="col-sm-">
-              <PieGraph />
-            </div> */}
-            
-            
-            <div className ="col-md-9">
-              <BarGraph />
-            </div>
-        
+      <div className="dashboard-container">
+        <div className="left-col">
+					<div className="app-title">
+						<h1>Task Mon</h1>
+					</div>
+          <NavTask />
         </div>
-          <Link to="/tasksList"><button>Tasks List</button></Link>
+        {/* <div className ="col-sm-">
+          
+        </div> */}
+        <div className="right-col">
+					<div className="dashboard-title">
+						<h1 className="pull-left">Dashboard</h1>
+						<div className="pull-right">Sample 1</div>
+						<span className="pull-right">Same 2</span>
+					</div>
+					<div className="graph-container">
+						<h3>HRLA16</h3>
+          	  <BarGraph />
+						<h3>Sprints</h3>
+						<div className="row">
+              <PieGraph />
+							{/* <div className="col-sm-4"><PieGraph /></div>
+							<div className="col-sm-4"><PieGraph /></div>
+							<div className="col-sm-4"><PieGraph /></div> */}
+						</div>
+					</div>
+        </div>
+        <Link to="/tasksList"><button>Tasks List</button></Link>
       </div>
     )
   }
