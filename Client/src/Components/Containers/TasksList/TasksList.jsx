@@ -37,7 +37,7 @@ class TasksList extends Component{
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({fetchTasks}, dispatch);
+  return bindActionCreators({fetchTasks, createTask}, dispatch);
 }
 
 function mapStateToProps(state) {

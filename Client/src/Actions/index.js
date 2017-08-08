@@ -6,6 +6,7 @@ const API_KEY = TEST_API_KEY;
 const ROOT_URL = `http://reduxblog.herokuapp.com/api`;
 
 export const FETCH_TASKS = 'FETCH_TASKS';
+export const CREATE_TASK = 'CREATE_TASK'
 
 export function fetchTasks() {
   const request = axios.get(`${ROOT_URL}/posts?${API_KEY}`);
@@ -14,4 +15,17 @@ export function fetchTasks() {
     type: FETCH_TASKS,
     payload: request
   };
+}
+
+export function createTask(name, categories, content) {
+  const request = axios.post(`${ROOT_URL}/posts?${API_KEY}`, {
+    title: name,
+    categories: categories,
+    content: content
+  })
+
+  return {
+    type: CREATE_TASK,
+    payload: request
+  }
 }
