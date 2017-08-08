@@ -17,7 +17,6 @@ class TasksTree extends Component{
   componentDidMount() {
     $('.node').mouseover(() => {
       let newName = $('.node').closest('text');
-      alert(string(newName));
     })
   }
 
