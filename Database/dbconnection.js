@@ -6,6 +6,12 @@ var db = mysql.createConnection({
     database: 'taskmon'
 });
 
-db.connect();
+db.connect((err, res) => {
+    if(err) {
+        console.log('cant connect');
+    } else {
+        console.log('connected to db');
+    }
+});
 
 module.exports = db;
