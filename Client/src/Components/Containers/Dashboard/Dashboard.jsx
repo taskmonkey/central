@@ -26,8 +26,10 @@ class Dashboard extends Component{
 					</div>
 					<div className="graph-container">
 						<h3>HRLA16</h3>
+            <hr></hr>
           	  <BarGraph />
 						<h3>Sprints</h3>
+            <hr></hr>
 						<div className="row">
               <PieGraph />
 							{/* <div className="col-sm-4"><PieGraph /></div>
