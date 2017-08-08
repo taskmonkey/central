@@ -28,7 +28,7 @@ export default class BarGraph extends Component{
       <Tooltip/>
       <Legend />
       <Bar dataKey="Remaining" stackId="a" fill="#8884d8" />
-      <Bar dataKey="Finished" stackId="a" fill="#82ca9d" />
+      <Bar dataKey="Finished" stackId="a" fill="#E2624B" />
     </BarChart>
     )
   }

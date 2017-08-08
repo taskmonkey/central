@@ -1,3 +1,4 @@
+
 div.custom-container {
 	background-color: #242424;
 }
@@ -23,4 +24,145 @@ svg.custom path.link {
 	fill: none;
 	stroke: #2593B8;
 	stroke-width: 5px;
+}
+
+.body{
+  font-family: 'Lato', sans-serif;
+}
+
+.dashboard-container {
+  font-family: 'Lato', sans-serif;
+	position: relative;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	height: calc(100vh);
+}
+
+.left-col {
+  font-family: 'Lato', sans-serif;
+	width: 300px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	bottom: 0px;
+	background: #353942;
+}
+
+.right-col {
+  font-family: 'Lato', sans-serif;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 300px;
+}
+
+.app-title {
+  font-family: 'Lato', sans-serif;
+	background: #2CC5C6;
+	height: 60px;
+}
+
+.app-title h1 {
+  font-family: 'Lato', sans-serif;
+	color: #fff;
+	font-size: 24px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding: 15px;
+}
+
+.dashboard-title {
+  font-family: 'Lato', sans-serif;
+	background: #2F2F2F;
+	height: 60px;
+	right: 0px;
+	left: 0px;
+	position: absolute;
+}
+
+.dashboard-title h1 {
+  font-family: 'Lato', sans-serif;
+	color: #fff;
+	font-size: 24px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	font-weight: 400;
+	padding: 15px;
+}
+
+.graph-container {
+	padding-left: 30px;
+	position: absolute;
+	top: 60px;
+	right: 0;
+	bottom: 0;
+  overflow-y: auto;
+  left: 0;
+}
+
+.graph-container h2 {
+	margin: 0px;
+	padding: 20px 0px 0;
+}
+
+.recharts-wrapper {
+	margin: 0 auto;
+}
+.CircularProgressbar {
+  /*
+   * This fixes an issue where the CircularProgressbar svg has
+   * 0 width inside a "display: flex" container, and thus not visible.
+   *
+   * If you're not using "display: flex", you can remove this style.
+   */
+  width: 100%;
+}
+
+.CircularProgressbar .CircularProgressbar-path {
+  stroke: #3e98c7;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s ease 0s;
+}
+
+.CircularProgressbar .CircularProgressbar-trail {
+  stroke: #d6d6d6;
+}
+
+.CircularProgressbar .CircularProgressbar-text {
+  fill: #3e98c7;
+  font-size: 20px;
+  dominant-baseline: middle;
+  text-anchor: middle;
+}
+
+.progressBar1 {
+  margin-top: 50px;
+  height: 200px;
+  width: 200px;
+  margin-left: 180px;
+}
+
+.progressBar2 {
+  margin-top: 50px;
+  height: 200px;
+  width: 200px;
+  margin-left: 100px
+}
+
+.progressBar3 {
+  margin-top: 50px;
+  height: 200px;
+  width: 200px;
+  margin-right: 300px
+}
+
+.complete .CircularProgressbar-path{
+  stroke: #79C879;
+}
+
+
+.incomplete .CircularProgressbar-path  {
+  stroke: #ff0202;
+
 }
