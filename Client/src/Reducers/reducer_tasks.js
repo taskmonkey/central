@@ -12,6 +12,7 @@ export default function(state = INITIAL_STATE, action) {
   case CREATE_TASK:
     return Object.assign({}, state, {allTasks: [...state.allTasks, action.payload]});
 
+    //return Object.assign({}, state, {allTasks: action.payload.data});
   case GET_TASKS:
     return Object.assign({},state, {allTasks: action.payload});
   default:

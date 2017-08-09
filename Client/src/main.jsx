@@ -60,8 +60,13 @@ class Main extends Component {
   }
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 export default Main;
+=======
+export default connect(mapStateToProps, mapDispathToProps)(Main)
+//export default Main;
+>>>>>>> working on main.jsx
 =======
 export default connect(mapStateToProps, mapDispathToProps)(Main)
 //export default Main;
