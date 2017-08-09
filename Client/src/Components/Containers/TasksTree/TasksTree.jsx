@@ -12,11 +12,12 @@ class TasksTree extends Component{
     this.state = {
       userProfilePeekName: '',
     }
+    this.onNodeClick = this.onNodeClick.bind(this);
   }
 
-  componentDidMount() {
-    $('.node').mouseover(() => {
-      let newName = $('.node').closest('text');
+  onNodeClick(nodeKey) {
+    this.setState({
+      userProfilePeekName: nodeKey,
     })
   }
 
@@ -25,20 +26,15 @@ class TasksTree extends Component{
       name: 'Parent',
       children: [{
           name: 'Child One',
-          onClick: () => this.props.history.push('/tasksDetails'),
       }, {
           name: 'Child Two',
-          onClick: () => this.props.history.push('/tasksDetails'),
           children: [{
             name: 'Child Three',
-            onClick: () => this.props.history.push('/tasksDetails'),
           },
           {
             name: 'Child Four',
-            onClick: () => this.props.history.push('/tasksDetails'),
             children: [{
               name: 'Child Six',
-              onClick: () => this.props.history.push('/tasksDetails'),
             }]
           }]
       }]
@@ -65,6 +61,7 @@ class TasksTree extends Component{
               animated
               duration={500}
               treeClassName="custom"
+              nodeClickHandler={this.onNodeClick}
               />
             </div>
           </div>
@@ -72,8 +69,8 @@ class TasksTree extends Component{
             <div className="userProfilePeekCircle">
               <img className="userProfilePeekCirclePic" src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"/>
             </div>
-            <div className="userProfilePeekName">
-              <div>{this.state.userProfilePeekName}</div>
+            <div className="userProfilePeekNameContainer">
+              <div className="userProfilePeekName">{this.state.userProfilePeekName}</div>
             </div>
           </div>
         </div>
