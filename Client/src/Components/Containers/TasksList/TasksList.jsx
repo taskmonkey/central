@@ -22,15 +22,19 @@ class TasksList extends Component{
 					</div>
           <NavTask />
         </div>
-        <div className="tasksListContainer">
-          <h1>Task List</h1>
-          {
-            this.props.tasks.map(task =>
-              <div>{task.title + ': ' + task.content}</div>
-            )
-          }
-          <Link to="/taskForm"><button>create task</button></Link>
-          <Link to="/tasksTree"><button>Tasks Tree</button></Link>
+        {/* <div className ="col-sm-">
+
+        </div> */}
+        <div className="right-col">
+					<div className="dashboard-title">
+						<h1 className="pull-left">Tasks List</h1>
+					</div>
+          <div className="tasksListContainer">
+            <div>
+              <Link to="/tasksTree"><button className="tasksTreeButton">Tasks Tree</button></Link>
+              <Link to="/taskForm"><button>Tasks Form</button></Link>
+            </div>
+          </div>
         </div>
       </div>
     )

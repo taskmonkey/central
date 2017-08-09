@@ -69,7 +69,7 @@ const SideNavWithAlerts = () =>
         <div />
         <Nav id="dashboard">
             <NavIcon><Icon20 icon={ic_aspect_ratio} /></NavIcon>
-            <NavText> Dashboard </NavText>
+            <NavText><Link to="/dashboard">{' '}<span style={{ paddingRight: 6 }}>Dashboard</span>{' '}</Link></NavText>
         </Nav>
 
         <Nav id="products">
@@ -79,7 +79,7 @@ const SideNavWithAlerts = () =>
         <Nav id="orders">
             <NavIcon><Icon20 icon={pen} /></NavIcon>
             <NavText>
-                <Link to="/tasksList">{' '}<span style={{ paddingRight: 6 }}>MyTasks</span>{' '}</Link>
+                <Link to="/tasksList">{' '}<span style={{ paddingRight: 6 }}>Projects</span>{' '}</Link>
                 <span
                     style={{
                         textAlign: 'center',
@@ -103,7 +103,7 @@ const SideNavWithAlerts = () =>
 
         <Nav id="customers">
             <NavIcon><Icon20 icon={stack} /></NavIcon>
-            <NavText> Projects </NavText>
+            <NavText> My Tasks </NavText>
             <Nav id="dashboard2">
                 <NavIcon><Icon20 size={16} icon={quill} /></NavIcon>
                 <NavText> Tasks </NavText>

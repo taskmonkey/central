@@ -44,7 +44,7 @@ svg.custom path.link {
 
 .left-col {
   font-family: 'Lato', sans-serif;
-  width: 18%;
+  width: 15%;
 	position: absolute;
 	left: 0px;
 	top: 0px;
@@ -58,7 +58,7 @@ svg.custom path.link {
 	top: 0px;
 	bottom: 0px;
 	right: 0px;
-	left: 18%;
+	left: 15%;
 }
 
 .app-title {
@@ -173,35 +173,52 @@ svg.custom path.link {
 }
 
 .tasksListContainer {
-	margin-left: 19%;
+	margin-left: 18%;
+	margin-top: 60px;
+	width: 82%;
+	height: 900px;
 }
 
 .taskTreeContainer {
-	margin-left: 18%;
+	margin-left: 15%;
 	position: absolute;
 }
 
+.tasksTreeButton {
+	margin-left: 500px;
+	margin-top: 500px;
+}
+
 .userProfilePeek {
-	margin-left: 1383px;
+	margin-left: 1332px;
 	margin-top: 58px;
 	height: 902px;
-	width: 299px;
+	width: 350px;
 	border-style: solid;
 }
 
 .userProfilePeekCircle {
-	width: 250px;
-  height: 250px;
+	width: 200px;
+  height: 200px;
   border-style: solid;
-	border-radius: 125px;
+	border-radius: 100px;
 	margin: 0 auto;
-	margin-top: 50px;
+	margin-top: 30px;
 	overflow: hidden;
 }
 
 .userProfilePeekCirclePic {
 	max-width: 100%;
-  	max-height: 100%;
+  max-height: 100%;
+}
+
+.userProfilePeekNameContainer {
+	text-align: center;
+	margin-top: 30px;
+}
+
+.userProfilePeekName {
+	font-size: 30px;
 }
 
 .createTask {
