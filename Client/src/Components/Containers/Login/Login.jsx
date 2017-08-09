@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
 import {Redirect,Link, withRouter} from 'react-router-dom'
+import { Sparklines, SparklinesLine, SparklinesReferenceLine } from 'react-sparklines';
 import Auth from '../../../Auth/Auth.js';
 
 class Login extends Component {
@@ -70,6 +71,11 @@ class Login extends Component {
         </nav>
         <div className="jumbotron">
           <h1>YOUR LAST TASK MANAGER</h1>
+          {/* <img src="http://under30ceo.com/wp-content/uploads/2013/06/Small-Business-Task-Management.jpg" /> */}
+           {/* <Sparklines data={[5, 10, 5, 20, 50, 30, 70]}>
+            <SparklinesLine />
+            <SparklinesReferenceLine type="mean" />
+          </Sparklines>     */}
         </div>
         <div className="landing-bottom">
           <div className="container">
