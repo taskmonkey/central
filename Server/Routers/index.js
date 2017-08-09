@@ -3,7 +3,7 @@ const router = express.Router();
 const path = require('path');
 const users = require('../../Database/users.js');
 const tasks = require('../../Database/tasks.js');
-const users_tasks = require('./../Datbase/users_tasks.js');
+const users_tasks = require('../../Datbase/users_tasks.js');
 
 
 router.get('/node_modules/auth0-js/build/auth0.js', (req, res) => {
@@ -62,7 +62,13 @@ router.get('/updateStatusComplete', (req, res) => {
   tasks.markTaskAsComplete(res, req.body.params);
 });
 
+router.get('/addUserToTask', (req, res) => {
+  users_tasks.giveUserNewTask(res, req.body.params);
+});
 
+router.get('/addTaskToUser', (req, res) => {
+  users_tasks.giveTaskNewUser(res, req.body.params);
+});
 
 
 
