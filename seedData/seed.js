@@ -23,98 +23,150 @@ let userData = [
 
 
 
-let rootTask = {
-    name: 'root task',
-    description: 'root task description',
+let rootTask = [{
+    name: 'Renovate house',
+    description: 'get on that LA real estate bubble',
     budget_hours: 30,
     owner: 1
-};
+}, 
+{
+    name: 'Upgrade from React to Backbone',
+    description: 'sometimes going backwards is going forward',
+    budget_hours: 100,
+    owner: 2
+}];
 
 let taskData = [
     {
-        name: "child of root",
-        description: 'description of child task',
+        name: "Fix Kitchen",
+        description: 'in need of thorough repairs',
         budget_hours: 20,
         owner: 1,
         parentid: 1,
 
     },
     {
-        name: 'child of root',
-        description: 'description of child task',
-        budget_hours: 10,
-        owner: 1,
-        parentid: 2,
-
-    },
-    {
-        name: "child of first child",
-        description: 'description of first child',
+        name: 'install marble coutertops',
+        description: 'marble rye, marble halvah, marble countertops',
         budget_hours: 10,
         owner: 1,
         parentid: 3,
 
     },
     {
-        name: 'child of second child',
-        description: 'description of child of child',
+        name: "properly seal new countertops",
+        description: 'i want to be able to gaze into my own eyes while making lunch',
+        budget_hours: 10,
+        owner: 1,
+        parentid: 4,
+
+    },
+    {
+        name: 'build new room',
+        description: 'to put all my swag',
         budget_hours: 4,
         owner: 1,
         parentid: 1,
 
     }, 
     {
-        name: 'third child in chain',
-        description: 'sometimes i thought we\'d never make it',
+        name: 'build swimming pool',
+        description: 'its gonna be a hot one',
         budget_hours: 2,
         owner: 1,
         parentid: 1
     },
     {
-        name: 'child of second',
-        description: 'last child',
+        name: 'buy new kitchen appliances',
+        description: 'refrigerator, stove, mixer',
         budget_hours: 2,
         owner: 1,
-        parentid: 2
+        parentid: 3
 
     },
     {
-        name: 'child of root',
-        desription: 'last child',
+        name: 'fresh coat of paint',
+        description: 'sherwin-williams, none of that cheap stuff',
         budget_hours: 3,
         owner: 1,
         parentid: 1
+    },
+     {
+         name: 'Build models',
+         description: 'backbone models',
+         budget_hours: 10,
+         owner: 2,
+         parentid: 2
+     },
+    {
+        name: 'Build Views',
+        description: 'sick views',
+        budget_hours: 5,
+        owner: 2,
+        parentid: 2
+    },
+    {
+        name: 'fight off naysayers',
+        description: 'have at thee',
+        budget_hours: 5,
+        owner: 2,
+        parentid: 2
     }
+    
 ];
 
 let users_tasks = [
+    {
+        userid: 2,
+        taskid: 5
+    },
     {
         userid: 2,
         taskid: 4
     },
     {
         userid: 2,
+        taskid: 2
+    },
+    {
+        userid: 3,
         taskid: 3
+    },
+    {
+        userid: 3,
+        taskid: 4
+    },
+    {
+        userid: 4,
+        taskid: 3
+    },
+    {
+        userid: 4,
+        taskid: 4
+    }, 
+    {
+        userid: 3,
+        taskid: 10
     },
     {
         userid: 2,
-        taskid: 2
+        taskid: 10
     },
     {
-        userid: 3,
-        taskid: 2
-    },
-    {
-        userid: 3,
-        taskid: 3
+        userid: 1,
+        taskid: 12
     },
     {
         userid: 4,
-        taskid: 2
+        taskid: 11
     },
     {
-        userid: 4,
-        taskid: 3
+        userid: 2,
+        taskid: 11
+    },
+    {
+        userid: 3,
+        taskid: 11
     }
 ]
 
@@ -123,6 +175,7 @@ createNewProject = (clientResponse, taskObj) => {
     let sql = `INSERT INTO tasks (name, description, budget_hours, owner) VALUES ("${taskObj.name}", "${taskObj.description}","${taskObj.budget_hours}", "${taskObj.owner}");`;
     db.query(sql, (err, resp) => {
         count++;
+        projCounter++;
         if (err) {
             console.log('something terrible happened');
             console.log(err);
@@ -132,9 +185,12 @@ createNewProject = (clientResponse, taskObj) => {
             process.exit();
         }
         console.log('created new Project');
-        taskData.forEach((task, i) => {
-            createNewTask(null, task);
-        });
+        if(projCounter === totalProjs){
+
+            taskData.forEach((task, i) => {
+                createNewTask(null, task);
+            });
+        }
         //clientResponse.send(resp.insertId);
     });
 };
@@ -178,7 +234,7 @@ createNewUser = (clientResponse, userObj) => {
             process.exit();
         }
         if(userCounter === totalUsers) {
-            createNewProject(null, rootTask);
+            rootTask.forEach(proj => createNewProject(null, proj));
         }
     });
 };
@@ -204,34 +260,23 @@ giveUserNewTask = (clientResponse, userTaskObj) => {
     });
 };
 
-var totalSeeds = users_tasks.length + userData.length + taskData.length;
 
 var count = 0;
 
 var totalUsers = userData.length;
 var userCounter = 0;
 
+var totalProjs = rootTask.length;
+var projCounter = 0;
+
 var totalTasks = taskData.length;
 var taskCounter = 0;
 
+var totalSeeds = users_tasks.length + userData.length + taskData.length + totalProjs;
+
 userData.forEach((user, i) => createNewUser(null, user));
 
-findAllTasksOfUser = (clientResponse, userObj) => {
-    let sql = `SELECT tasks.name, tasks.description, tasks.budget_hours, tasks.actual_hours, tasks.parentid, users_tasks.difficulty, tasks.owner, tasks.status FROM users 
-    INNER JOIN users_tasks ON users.id = users_tasks.user_id 
-    INNER JOIN tasks ON users_tasks.tasks_id = tasks.id
-    WHERE users.id = "${userObj.id}";`; 
 
-    db.query(sql, (err, resp) => {
-        console.log(err);
-        console.log(resp);
-        //clientResponse.send(resp);
-    });
-};
-
-
-
-//findAllTasksOfUser(null, {id: 2});
 
 
 
