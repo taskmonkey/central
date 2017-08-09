@@ -13,7 +13,7 @@ giveUserNewTask = (clientResponse, userTaskObj) => {
             clientResponse.end();
         }
 
-    })
+    });
 };
 
 ///////This should be chained when someone makes a new task ///////
@@ -27,8 +27,15 @@ giveTaskNewUser = (clientResponse, userTaskObj) => {
     })
 };
 
+getTable = (clientResponse) => {
+    db.query("SELECT * from users_tasks", (err, resp) => {
+        clientResponse.send(resp);
+    })
+}
+
 module.exports = {
     giveUserNewTask: giveUserNewTask,
-    giveTaskNewUser: giveTaskNewUser
+    giveTaskNewUser: giveTaskNewUser,
+    getTable: getTable
 }
 
