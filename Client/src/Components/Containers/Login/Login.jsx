@@ -13,6 +13,15 @@ class Login extends Component {
     this.goToDashboard = this.goToDashboard.bind(this);
   }
 
+  componentWillMount() {
+    this.state.auth.handleAuthentication();
+    setTimeout(() => {
+      if (this.state.auth.isAuthenticated()) {
+        this.props.history.push('/dashboard')
+      }
+    }, 100)
+  }
+
   checkAuth(e) {
     e.preventDefault();
     this.state.auth.handleAuthentication();
@@ -67,35 +76,35 @@ class Login extends Component {
             <div className="row">
               <div className="col-sm-5">
                 <h4 className="landing-header">Real time data</h4>
-                <p className="landing-blurbs">Lorem ipsum dolor sit amet, quo eu ceteros persecuti, unum omnis gubergren his id. 
-                  Ei sit graeco facilis, cum ei graece mandamus. Sea affert laboramus voluptatibus no, 
+                <p className="landing-blurbs">Lorem ipsum dolor sit amet, quo eu ceteros persecuti, unum omnis gubergren his id.
+                  Ei sit graeco facilis, cum ei graece mandamus. Sea affert laboramus voluptatibus no,
                   ad qui duis noster similique. Ad dolorem noluisse torquatos vim.</p>
-              </div> 
+              </div>
               <div className="col-sm-5 col-sm-offset-2">
                 <h4 className="landing-header">interactive</h4>
-                <p className="landing-blurbs">Lorem ipsum dolor sit amet, quo eu ceteros persecuti, unum omnis gubergren his id. 
-                  Ei sit graeco facilis, cum ei graece mandamus. Sea affert laboramus voluptatibus no, 
+                <p className="landing-blurbs">Lorem ipsum dolor sit amet, quo eu ceteros persecuti, unum omnis gubergren his id.
+                  Ei sit graeco facilis, cum ei graece mandamus. Sea affert laboramus voluptatibus no,
                   ad qui duis noster similique. Ad dolorem noluisse torquatos vim.</p>
-              </div> 
+              </div>
             </div>
             <div className="row">
               <div className="col-sm-5">
                 <h4 className="landing-header">multi-layered</h4>
-                <p className="landing-blurbs">Lorem ipsum dolor sit amet, quo eu ceteros persecuti, unum omnis gubergren his id. 
-                  Ei sit graeco facilis, cum ei graece mandamus. Sea affert laboramus voluptatibus no, 
+                <p className="landing-blurbs">Lorem ipsum dolor sit amet, quo eu ceteros persecuti, unum omnis gubergren his id.
+                  Ei sit graeco facilis, cum ei graece mandamus. Sea affert laboramus voluptatibus no,
                   ad qui duis noster similique. Ad dolorem noluisse torquatos vim.</p>
-              </div> 
+              </div>
               <div className="col-sm-5 col-sm-offset-2">
                 <h4 className="landing-header">flexible</h4>
-                <p className="landing-blurbs">Lorem ipsum dolor sit amet, quo eu ceteros persecuti, unum omnis gubergren his id. 
-                  Ei sit graeco facilis, cum ei graece mandamus. Sea affert laboramus voluptatibus no, 
+                <p className="landing-blurbs">Lorem ipsum dolor sit amet, quo eu ceteros persecuti, unum omnis gubergren his id.
+                  Ei sit graeco facilis, cum ei graece mandamus. Sea affert laboramus voluptatibus no,
                   ad qui duis noster similique. Ad dolorem noluisse torquatos vim.</p>
-              </div> 
+              </div>
             </div>
           </div>
         </div>
       </div>
-      
+
     )
   }
 }
