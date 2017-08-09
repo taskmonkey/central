@@ -47,7 +47,7 @@ router.get('/getUserInfo', (req, res) => {
 });
 
 
-//{id: ''}
+//{userid: ''}
 router.get('/allProjectsByUser', (req, res) => {
   
   users.allProjectsByUser(res, req.query);
