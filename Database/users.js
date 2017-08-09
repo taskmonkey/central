@@ -1,4 +1,4 @@
-const db = require('./database.js');
+const db = require('./dbconnection.js');
 
 createNewUser = (clientResponse, userObj) => {
     let sql = `INSERT INTO users (username, image) VALUES ("${userObj.username}", "${userObj.image}");`;
@@ -25,13 +25,22 @@ findAllTasksOfUser = (clientResponse, userObj) => {
     });
 };
 
-findAllProjectsOfUser = (clientResponse, userObj) => {
+findProjectOfUser = (clientResponse, userObj) => {
     // given a user id, find all their tasks, then from the list of tasks of a user go up the chain and find the root. group by root id to get rid of duplicates
-    let sql = ``;
+    let sql = `select MIN(id) as parent from (select 
+  @parent:=parentid as parentid, name, id
+from
+  (select @parent:="${userObj.id}") actual
+join 
+  (select * from tasks order by id desc) total
+where 
+  @parent=id) ours`;
     db.query(sql, (err, resp) => {
-        clientResponse.send(resp);
-    })
+        clientResponse.push(resp.parent);
+    });
 };
+
+
 
 //     let sql = `select  id, name, parentid
 // from    (select * from tasks

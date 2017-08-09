@@ -1,24 +1,27 @@
-const db = require('./database.js');
+const db = require('./dbconnection.js');
 
 createNewProject = (clientResponse, taskObj) => {
-    let sql = `INSERT INTO tasks (name, budget_hours, owner) VALUES ("${taskObj.name}", "${taskObj.budget_hours}", "${taskObj.owner}");`;
-    db.query(sql, (err, resp) => {
+    let temp = [taskObj.name, taskObj.budget_hours, taskObj.owner];
+    let sql = `INSERT INTO tasks (name, budget_hours, owner) VALUES (?, ?, ?);`;
+    db.query(sql, temp, (err, resp) => {
         
         clientResponse.send(resp.insertId);
     });
 };
 
 createNewTask = (clientResponse, taskObj) => {
-    let sql = `INSERT INTO tasks (name, budget_hours, owner, parentid) VALUES ("${taskObj.name}", "${taskObj.budget_hours}", "${taskObj.owner}", "${taskObj.parentid}");`;
-    db.query(sql, (err, resp) => {
+    let temp = [taskObj.name, taskObj.budget_hours, taskObj.owner, taskObj.parentid];
+    let sql = `INSERT INTO tasks (name, budget_hours, owner, parentid) VALUES (?, ?, ?, ?, ?);`;
+    db.query(sql, temp, (err, resp) => {
       
         clientResponse.send(resp);
     });
 };
 
 updateActualHours = (clientResponse, hoursObj) => {
-    let sql = `UPDATE tasks SET actual_hours = "${hoursObj.actual_hours}" WHERE id = "${hoursObj.id}"`;
-    db.query(sql, (err, resp) => {
+    let temp = [hoursObj.actual_hours, hoursObj.id];
+    let sql = `UPDATE tasks SET actual_hours = ? WHERE id = ?`;
+    db.query(sql, temp, (err, resp) => {
        
         clientResponse.end();
     });
@@ -64,7 +67,13 @@ deleteTask = (clientResponse, taskObj) => {
 };
 
 budgetVsActual = (clientResponse, taskObj) => {
-
+    //Should only be called when task complete
+     let sql = `select  id, name, parentid, budget_hours, actual_hours
+from    (select * from tasks
+         order by parentid, id) tasks_sorted,
+        (select @pv := '${taskObj.taskid}')temp
+where   find_in_set(parentid, @pv) > 0 
+and     @pv := concat(@pv, ',', id);`;
 };
 module.exports = {
     createNewProject: createNewProject,

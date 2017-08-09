@@ -22,7 +22,7 @@ CREATE TABLE tasks (
     description VARCHAR(255),
     parentid INT DEFAULT NULL,
     budget_hours int NOT NULL,
-    actual_hours int DEFAULT NULL,
+    actual_hours int DEFAULT 0,
     owner INT DEFAULT NULL,
     status INT DEFAULT -1,
     PRIMARY KEY (id),

@@ -3,7 +3,7 @@ const router = express.Router();
 const path = require('path');
 const users = require('../../Database/users.js');
 const tasks = require('../../Database/tasks.js');
-const users_tasks = require('../../Datbase/users_tasks.js');
+const users_tasks = require('../../Database/users_tasks.js');
 
 
 router.get('/node_modules/auth0-js/build/auth0.js', (req, res) => {
@@ -28,6 +28,13 @@ router.get('/allTasksByUser', (req, res)=> {
   //this should query for all tasks given a user id
   //all tasks by User
   users.findAllTasksOfUser(res, req.body.params);
+});
+
+router.get('/allProjectsByUser', (req, res) => {
+  //given an array of task ids, will find all unique ids of projects
+  
+  let tasks = req.body.params.tasks;
+
 });
 
 router.get('/allChildTasks', (req,res)=>{
