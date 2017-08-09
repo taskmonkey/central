@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
 import {Redirect,Link, withRouter} from 'react-router-dom'
-import { Sparklines, SparklinesLine, SparklinesReferenceLine } from 'react-sparklines';
 import Auth from '../../../Auth/Auth.js';
 
 class Login extends Component {

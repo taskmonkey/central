@@ -13,6 +13,7 @@ class Dashboard extends Component{
       auth: new Auth(),
     }
   }
+  
   render() {
     return(
       <div className="dashboard-container">
@@ -49,4 +50,5 @@ class Dashboard extends Component{
   }
 }
 
+//export default connect(mapStateToProps, mapDispathToProps)(Dashboard)
 export default withRouter(Dashboard);
