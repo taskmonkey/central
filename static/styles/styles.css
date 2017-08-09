@@ -251,8 +251,12 @@ svg.custom path.link {
 }
 
 .jumbotron {
+
+	/* background-image: url("http://www.techrds.org/gallery/four-tasks-to-outsource-to-freelancers-picture/Four-tasks-to-outsource-to-freelancers.jpg"); */
 	min-height:600px;
-	background: #FFF;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;;
+	background: #FFF; 
 	text-align: center;
 	font-family: 'Lato', sans-serif;
 	margin: 0;

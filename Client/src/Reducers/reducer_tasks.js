@@ -9,7 +9,7 @@ export default function(state = INITIAL_STATE, action) {
     // return {...state, allTasks: action.payload.data};
     return Object.assign({}, state, {allTasks: action.payload.data});
   case CREATE_TASK:
-    return Object.assign({}, state, {allTasks: action.payload.data});
+    return Object.assign({}, state, {allTasks: [...state.allTasks, action.payload]});
   default:
     return state;
   }

@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {createTask, fetchTasks} from '../../../Actions/index.js';
 
 class TaskForm extends Component {
   constructor(props) {
@@ -10,44 +14,43 @@ class TaskForm extends Component {
 
   handleChange(e) {
     e.preventDefault();
-    console.log(e.target.name, this.state[e.target.name]);
-    this.setState({[e.target.name]: e.target.value});
+    console.log(e.target.name, nameForm.value);
   }
-
-  // handleTaskForm(e) {
-  //   e.preventDefault();
-  //   axios.post('/api/cats/TaskForm', {name: this.state.name, owner: this.state.owner, image: this.state.image, description: this.state.description})
-  //     .then(res => {
-  //       console.log('handleTaskForm: ', res);
-  //       this.props.cats.push(res);
-  //     })
-  //     .catch(err => {
-  //       console.log('error in the post', err);
-  //     });
-  // }
+  
+  handleTaskForm(nameVal, categoryVal, contentVal) {
+    // e.preventDefault();
+    axios.post('http://reduxblog.herokuapp.com/api/posts?key=taskmon', {name: nameVal, categories: categoryVal, content: contentVal})
+      .then(res => {
+        console.log('here is the post res', res);
+        this.props.createTask(res);
+      })
+      .catch(err => {
+        console.log('error in the post', err);
+      });
+  }
 
   render() {
     return (
       <div className="container createTask">
         <div className="row">
           <h1>create a task</h1>
-          <form >
+          <form onSubmit={(e) => {e.preventDefault(); this.handleTaskForm(nameForm.value, taskForm.value, description.value);}}>
             <div className="form-group col-md-5 col-md-offset-1">
               <label htmlFor="nameForm">Task</label>
-              <input type="text" className="form-control" name="task" id="taskForm" placeholder="please enter a task" />
+              <input type="text" className="form-control" name="task" id="taskForm" placeholder="please enter a task" onChange={this.handleChange}/>
             </div>
             <div className="form-group col-md-5">
               <label htmlFor="assignee">Assignee</label>
-              <input type="text" className="form-control" name="assignee" id="nameForm" placeholder="please enter a name" />
+              <input type="text" className="form-control" name="assignee" id="nameForm" placeholder="please enter a name" onChange={this.handleChange}/>
             </div>
             <div className="form-group col-md-6 col-md-offset-3">
               <label htmlFor="budgetHours">Budget Hours</label>
-              <input type="text" className="form-control" name="budgetHours" id="budgetHours" placeholder="please enter expected hours" />
+              <input type="text" className="form-control" name="budgetHours" id="budgetHours" placeholder="please enter expected hours" onChange={this.handleChange}/>
             </div>
             <div className="form-group col-md-8 col-md-6 col-md-offset-3">
               <label htmlFor="description">Task description</label>
-              <textarea className="form-control" id="description" rows="3" name="description" id="description" placeholder="please enter a description"></textarea>
-              <button className="btn btn-primary">Submit</button> 
+              <textarea className="form-control" id="description" rows="3" name="description" id="description" placeholder="please enter a description" onChange={this.handleChange}></textarea>
+              <button className="btn btn-primary" type="submit">Submit</button> 
             </div>
           </form>
         </div>
@@ -56,4 +59,13 @@ class TaskForm extends Component {
   }
 }
 
-export default TaskForm;
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({createTask, fetchTasks}, dispatch);
+}
+
+function mapStateToProps(state) {
+  return { tasks: state.tasks.allTasks }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TaskForm);
