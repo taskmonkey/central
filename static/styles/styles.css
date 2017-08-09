@@ -60,6 +60,7 @@ svg.custom path.link {
 .right-col {
   font-family: 'Lato', sans-serif;
 	position: absolute;
+	overflow-y: scroll;
 	top: 0px;
 	bottom: 0px;
 	right: 0px;
@@ -178,10 +179,38 @@ svg.custom path.link {
 }
 
 .tasksListContainer {
-	margin-left: 18%;
-	margin-top: 60px;
+	margin-left: 3%;
+	margin-top: 75px;
 	width: 82%;
 	height: 900px;
+}
+
+.tasksListItemContainer {
+	width: 100%;
+	display: inline-block;
+}
+
+.tasksListItemCircle {
+	width: 150px;
+  height: 150px;
+  border-style: solid;
+	border-radius: 75px;
+	margin: 0 auto;
+	margin-top: 7%;
+	margin-left: 7%;
+	overflow: hidden;
+	float: left;
+}
+
+.tasksListItemCircleImage {
+	max-width: 100%;
+  max-height: 100%;
+}
+
+.tasksListItemTitle {
+	padding-top: 12%;
+	padding-left: 27.5%;
+	font-size: 30px;
 }
 
 .taskTreeContainer {

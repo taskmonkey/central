@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {fetchTasks} from '../../../Actions/index.js';
 import NavTask from '../Dashboard/NavTask.jsx';
+import TasksListItem from './TasksListItem.jsx';
 
 
 class TasksList extends Component{
@@ -31,6 +32,11 @@ class TasksList extends Component{
 					</div>
           <div className="tasksListContainer">
             <div>
+              {
+                this.props.tasks.map(task =>
+                  <TasksListItem tasksListItem={task}/>
+                )
+              }
               <Link to="/tasksTree"><button className="tasksTreeButton">Tasks Tree</button></Link>
               <Link to="/taskForm"><button>Tasks Form</button></Link>
             </div>

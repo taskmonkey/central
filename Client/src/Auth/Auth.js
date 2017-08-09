@@ -41,7 +41,7 @@ export default class Auth {
         this.setSession(authResult);
         history.replace('/dashboard');
       } else if (err) {
-        history.replace('/login');
+        history.replace('/');
         console.log(err);
       }
     });
