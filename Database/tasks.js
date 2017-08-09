@@ -2,16 +2,32 @@ const db = require('./dbconnection.js');
 const users_tasks = require('./users_tasks.js');
 
 createNewProject = (clientResponse, taskObj) => {
-    let temp = [taskObj.name, taskObj.budget_hours, taskObj.owner];
-    let sql = `INSERT INTO tasks (name, budget_hours, owner) VALUES (?, ?, ?);`;
+    let temp = [taskObj.name, taskObj.description, taskObj.budget_hours, taskObj.owner];
+    let sql = `INSERT INTO tasks (name, description, budget_hours, owner) VALUES (?, ?, ?, ?);`;
     db.query(sql, temp, (err, resp) => {
         if(taskObj.assignees.length > 0) {
-            taskObj.assignees.forEach(id => users_tasks.giveUserNewTask());
+            taskObj.assignees.forEach(id => {
+                id.taskid = resp.insertId;
+                //giveUserNewTask({username: hello);
+            });
+
+        } else {
+            clientResponse.send(resp.insertId);
 
         }
-        clientResponse.send(resp.insertId);
     });
 };
+
+giveUserNewTask = (userTaskObj) => {
+    db.query("select users.id from users WHERE users.username = ?", [userTaskObj.username], (err, resp) => {
+        if (resp) {
+            // db.query("insert into users_tasks (user_id, task_id) VALUES (?, ?)", [resp.id, ], (err, response) => {
+
+            // });
+
+        } 
+    });
+}
 
 // let sanitize = [userTaskObj.userid, userTaskObj.taskid];
 //     let sql = `INSERT INTO users_tasks (user_id, task_id) VALUES (?, ?)`;
@@ -86,7 +102,7 @@ deleteTask = (clientResponse, taskObj) => {
 totalBudget = (clientResponse, taskObj) => {
     let sql = ``;
     db.query(sql, (err, resp) => {
-        
+
     });
 };
 

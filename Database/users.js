@@ -44,7 +44,8 @@ join
 where 
   @parent=id) ours`;
     db.query(sql, (err, resp) => {
-        cb(resp.parent);
+        //console.log(resp, 'proj by task');
+        cb(resp[0].parent);
     });
 };
 
@@ -53,31 +54,59 @@ allProjectsByUser = (clientResponse, userObj) => {
     let sql = `SELECT tasks.id FROM users 
     INNER JOIN users_tasks ON users.id = users_tasks.user_id 
     INNER JOIN tasks ON users_tasks.tasks_id = tasks.id
-    WHERE users.id = "${userObj.id}";`; 
+    WHERE users.id = "${userObj.userid}";`; 
 
     db.query(sql, (err, resp) => {
-
+        //console.log(resp);
         var amountofTasks = resp.length;
         var count = 0;
         var projList = [];
 
-        userObj.tasks.forEach(task => {
+        resp.forEach(task => {
 
             findProjectOfTask(task, (parent) => {
                 count++;
+                //console.log(parent);
                 if (projList.indexOf(parent) === -1) {
                     projList.push(parent);
                 } 
-                if(count === amountofTasks) {
-                    // projList.forEach(proj => );
+                if (count === amountofTasks) {
+                    var amountOfProj = projList.length;
+                    var counter = 0;
+                    var projData = [];
+                    projList.forEach(proj => {
+                        db.query(`select * from tasks where id = "${proj}"`, (err, resp) => {
+                            counter++;
+                            if(resp) {
+                                projData.push(resp[0]);
+                            }
+                            if(counter === amountOfProj) {
+                                clientResponse.send(projData);
+                            }
+                        })
+                    });
+            
                 }
             });
         });
     });
 };
 
+findAllChildTasks = (taskObj, cb) => {
+    let sql = `select  id, name, parentid
+from    (select * from tasks
+         order by parentid, id) tasks_sorted,
+        (select @pv := '${taskObj.taskid}')temp
+where   find_in_set(parentid, @pv) > 0 
+and     @pv := concat(@pv, ',', id);`;
+
+    db.query(sql, (err, resp) => {
+        cb(resp);
+    });
+};
+
 findAllTasksOfOwner = (clientResponse, ownerObj) => {
-    let sql = `SELECT * FROM tasks WHERE tasks.owner = "${userObj.id}";`; 
+    let sql = `SELECT * FROM tasks WHERE tasks.owner = "${userObj.userid}";`; 
 
     db.query(sql, (err, resp) => {
         clientResponse.send(resp);
@@ -87,8 +116,13 @@ findAllTasksOfOwner = (clientResponse, ownerObj) => {
 
 getUserInfo = (clientResponse, userObj) => {
     let sql = `SELECT * from users WHERE users.username = ?`;
+    console.log(userObj, 'userobj');
     db.query(sql, [userObj.username], (err, resp) => {
-        clientResponse.send(resp);
+        if(resp){
+            clientResponse.send(resp[0]);
+        } else {
+            clientResponse.send(resp);
+        }
     })
 }
 
@@ -99,5 +133,6 @@ module.exports = {
     findAllTasksOfUser: findAllTasksOfUser,
     findAllTasksOfOwner: findAllTasksOfOwner,
     allProjectsByUser: allProjectsByUser,
-    allUsers: allUsers
+    allUsers: allUsers,
+    getUserInfo: getUserInfo
 }
