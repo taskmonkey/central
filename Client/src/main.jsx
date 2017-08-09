@@ -7,10 +7,18 @@ import TasksList from './Components/Containers/TasksList/TasksList.jsx';
 import TasksTree from './Components/Containers/TasksTree/TasksTree.jsx';
 import TasksDetails from './Components/Containers/TasksDetails/TasksDetails.jsx';
 import TaskForm from './Components/Containers/TasksList/TaskForm.jsx';
+import axios from 'axios';
+import {connect} from 'react-redux'
+import {getTasks} from './Actions/index.js'
+import {bindActionCreators} from 'redux'
 
-
-
-
+const mapStateToProps = (state) =>{
+  console.log('this is the state in main', state)
+  return {}
+}
+const mapDispathToProps = (dispatch) => {
+  return bindActionCreators({getTasks}, dispatch)  
+}
 
 class Main extends Component {
   constructor(props) {
@@ -19,6 +27,20 @@ class Main extends Component {
       todos: []
     }
   }
+  componentDidMount() {
+    console.log('this is the main props',this.props)
+    axios.get('http://localhost:3000/entireUsersTasks')
+      .then(result => {
+        console.log(result.data)
+        this.props.getTasks(result.data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
+
+
+
   render(){
     return (
       <BrowserRouter>
@@ -34,5 +56,5 @@ class Main extends Component {
     )
   }
 }
-
-export default Main;
+export default connect(mapStateToProps, mapDispathToProps)(Main)
+//export default Main;

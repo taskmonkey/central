@@ -68,9 +68,9 @@ allProjectsByUser = (clientResponse, userObj) => {
                 if (projList.indexOf(parent) === -1) {
                     projList.push(parent);
                 } 
-                if(count === amountofTasks) {
-                    projList.forEach(proj => );
-                }
+                // if(count === amountofTasks) {
+                //     projList.forEach(proj => );
+                // }
             });
         });
     });

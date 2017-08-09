@@ -1,6 +1,13 @@
 const db = require('./dbconnection.js');
 const users_tasks = require('./users_tasks.js');
 
+
+allTasks = (clientResponse) => {
+    db.query("SELECT * FROM tasks", (err, resp) => {
+        clientResponse.send(resp);
+    })
+}
+
 createNewProject = (clientResponse, taskObj) => {
     let temp = [taskObj.name, taskObj.budget_hours, taskObj.owner];
     let sql = `INSERT INTO tasks (name, budget_hours, owner) VALUES (?, ?, ?);`;
@@ -106,5 +113,7 @@ module.exports = {
     findAllChildTasks: findAllChildTasks,
     markTaskAsComplete: markTaskAsComplete ,
     markTaskAsInProgress: markTaskAsInProgress,
-    deleteTask: deleteTask
+    deleteTask: deleteTask,
+    allTasks: allTasks
+
 }

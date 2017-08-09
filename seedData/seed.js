@@ -91,13 +91,13 @@ let taskData = [
         owner: 1,
         parentid: 1
     },
-     {
-         name: 'Build models',
-         description: 'backbone models',
-         budget_hours: 10,
-         owner: 2,
-         parentid: 2
-     },
+    {
+        name: 'Build models',
+        description: 'backbone models',
+        budget_hours: 10,
+        owner: 2,
+        parentid: 2
+    },
     {
         name: 'Build Views',
         description: 'sick views',
