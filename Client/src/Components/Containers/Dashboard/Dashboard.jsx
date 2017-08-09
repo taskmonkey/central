@@ -49,4 +49,5 @@ class Dashboard extends Component{
   }
 }
 
+//export default connect(mapStateToProps, mapDispathToProps)(Dashboard)
 export default withRouter(Dashboard);
