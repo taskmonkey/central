@@ -14,18 +14,17 @@ class TaskForm extends Component {
     this.setState({[e.target.name]: e.target.value});
   }
 
-  handleTaskForm(e) {
-    e.preventDefault();
-    axios.post('/api/cats/TaskForm', {name: this.state.name, owner: this.state.owner, image: this.state.image, description: this.state.description})
-      .then(res => {
-        console.log('handleTaskForm: ', res);
-        this.props.cats.push(res);
-        alert('cat is now in our database!');
-      })
-      .catch(err => {
-        console.log('error in the post', err);
-      });
-  }
+  // handleTaskForm(e) {
+  //   e.preventDefault();
+  //   axios.post('/api/cats/TaskForm', {name: this.state.name, owner: this.state.owner, image: this.state.image, description: this.state.description})
+  //     .then(res => {
+  //       console.log('handleTaskForm: ', res);
+  //       this.props.cats.push(res);
+  //     })
+  //     .catch(err => {
+  //       console.log('error in the post', err);
+  //     });
+  // }
 
   render() {
     return (
