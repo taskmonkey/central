@@ -4,8 +4,12 @@ import {Redirect, Link, withRouter} from 'react-router-dom';
 import PieGraph from './PieChart.jsx'
 import BarGraph from './BarChart.jsx'
 import NavTask from './NavTask.jsx'
+import {connect} from 'react-redux'
+
+
 
 class Dashboard extends Component{
+  
   render() {
     return(
       <div className="dashboard-container">
@@ -44,4 +48,5 @@ class Dashboard extends Component{
   }
 }
 
+//export default connect(mapStateToProps, mapDispathToProps)(Dashboard)
 export default withRouter(Dashboard);
