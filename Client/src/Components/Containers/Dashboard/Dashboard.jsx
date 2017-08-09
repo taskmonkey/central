@@ -4,8 +4,15 @@ import {Redirect, Link, withRouter} from 'react-router-dom';
 import PieGraph from './PieChart.jsx'
 import BarGraph from './BarChart.jsx'
 import NavTask from './NavTask.jsx'
+import Auth from '../../../Auth/Auth.js'
 
 class Dashboard extends Component{
+  constructor(props) {
+    super(props)
+    this.state = {
+      auth: new Auth(),
+    }
+  }
   render() {
     return(
       <div className="dashboard-container">
@@ -21,8 +28,7 @@ class Dashboard extends Component{
         <div className="right-col">
 					<div className="dashboard-title">
 						<h1 className="pull-left">Dashboard</h1>
-						<div className="pull-right">Sample 1</div>
-						<span className="pull-right">Same 2</span>
+            <Link to="/login"><button className="logoutButton" onClick={this.state.auth.logout}>Logout</button></Link>
 					</div>
 					<div className="graph-container">
 						<h3>HRLA16</h3>
@@ -38,7 +44,6 @@ class Dashboard extends Component{
 						</div>
 					</div>
         </div>
-        <Link to="/tasksList"><button>Tasks List</button></Link>
       </div>
     )
   }

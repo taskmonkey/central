@@ -30,6 +30,11 @@ svg.custom path.link {
 	stroke-width: 5px;
 }
 
+.logoutButton {
+	float: right;
+	margin-right: 10%;
+}
+
 .body{
   font-family: 'Lato', sans-serif;
 }
@@ -233,7 +238,7 @@ svg.custom path.link {
 	border-radius: 0;
 	background: #2f2f2f;
 	font-family: 'Lato', sans-serif;
-	margin: 0;	
+	margin: 0;
 }
 
 .navbar-inverse .navbar-nav>li>a, .navbar-inverse .navbar-brand  {
@@ -269,4 +274,4 @@ svg.custom path.link {
 
  p.landing-blurbs {
 	text-align: center;
-} 
+}
