@@ -24,6 +24,7 @@ updateActualHours = (clientResponse, hoursObj) => {
     });
 };
 
+
 findAllChildTasks = (clientResponse, taskObj) => {
     let sql = `select  id, name, parentid
 from    (select * from tasks
@@ -60,8 +61,11 @@ deleteTask = (clientResponse, taskObj) => {
      
         clientResponse.end();
     });
-}
+};
 
+budgetVsActual = (clientResponse, taskObj) => {
+
+};
 module.exports = {
     createNewProject: createNewProject,
     createNewTask: createNewTask,

@@ -25,6 +25,20 @@ findAllTasksOfUser = (clientResponse, userObj) => {
     });
 };
 
+findAllProjectsOfUser = (clientResponse, userObj) => {
+    // given a user id, find all their tasks, then from the list of tasks of a user go up the chain and find the root. group by root id to get rid of duplicates
+    let sql = ``;
+    db.query(sql, (err, resp) => {
+        clientResponse.send(resp);
+    })
+};
+
+//     let sql = `select  id, name, parentid
+// from    (select * from tasks
+//          order by parentid, id) tasks_sorted,
+//         (select @pv := '${taskObj.taskid}')temp
+// where   find_in_set(parentid, @pv) > 0 
+// and     @pv := concat(@pv, ',', id);`;
 
 findAllTasksOfOwner = (clientResponse, ownerObj) => {
     let sql = `SELECT * FROM tasks WHERE tasks.owner = "${userObj.id}";`; 
