@@ -4,6 +4,7 @@ import {Redirect, Link, withRouter} from 'react-router-dom';
 import PieGraph from './PieChart.jsx'
 import BarGraph from './BarChart.jsx'
 import NavTask from './NavTask.jsx'
+import {connect} from 'react-redux'
 import Auth from '../../../Auth/Auth.js'
 
 class Dashboard extends Component{
@@ -13,7 +14,7 @@ class Dashboard extends Component{
       auth: new Auth(),
     }
   }
-  
+
   render() {
     return(
       <div className="dashboard-container">
