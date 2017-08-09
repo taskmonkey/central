@@ -17,15 +17,9 @@ export function fetchTasks() {
   };
 }
 
-export function createTask(name, categories, content) {
-  const request = axios.post(`${ROOT_URL}/posts?${API_KEY}`, {
-    title: name,
-    categories: categories,
-    content: content
-  })
-
+export function createTask(task) {
   return {
     type: CREATE_TASK,
-    payload: request
+    payload: task
   }
 }
