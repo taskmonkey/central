@@ -4,7 +4,6 @@ import {Redirect, Link, withRouter} from 'react-router-dom';
 import PieGraph from './PieChart.jsx'
 import BarGraph from './BarChart.jsx'
 import NavTask from './NavTask.jsx'
-<<<<<<< HEAD
 import Auth from '../../../Auth/Auth.js'
 
 class Dashboard extends Component{
@@ -14,14 +13,6 @@ class Dashboard extends Component{
       auth: new Auth(),
     }
   }
-=======
-import {connect} from 'react-redux'
-
-
-
-class Dashboard extends Component{
-  
->>>>>>> fixed merge conflicts
   render() {
     return(
       <div className="dashboard-container">

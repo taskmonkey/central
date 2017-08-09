@@ -4,6 +4,7 @@ const path = require('path');
 const users = require('../../Database/users.js');
 const tasks = require('../../Database/tasks.js');
 const users_tasks = require('../../Database/users_tasks.js');
+const Sequelize = require('sequelize');
 
 /*
 
@@ -16,6 +17,9 @@ const users_tasks = require('../../Database/users_tasks.js');
 
 */
 
+router.get('/entireTasks', (req, res) => {
+  tasks.allTasks(res);
+})
 
 router.get('/entireUsers', (req, res) => {
   users.allUsers(res);
