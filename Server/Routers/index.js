@@ -36,12 +36,21 @@ router.get('/entireUsersTasks', (req, res) => {
   users_tasks.getTable(res);
 })
 
+
+// {username: ''}
+// gives back id, us
+
 router.get('/getUserInfo', (req, res) => {
-  users.getuserInfo(res, req.body.params);
+  
+  
+  users.getUserInfo(res, req.query);
 });
 
+
+//{id: ''}
 router.get('/allProjectsByUser', (req, res) => {
-  users.allProjectsByUser(res, req.body.params);
+  
+  users.allProjectsByUser(res, req.query);
 })
 
 
@@ -56,37 +65,37 @@ router.get('/dashboard', (req, res) => {
 });
 
 
-router.get('/allTheData', (req, res) => {
-  // inside the axios request package the nickname in {params: }
+// router.get('/allTheData', (req, res) => {
+//   // inside the axios request package the nickname in {params: }
   
 
 
-});
+// });
 
 
 
 
 router.post('/addProject', (req, res) => {
-  tasks.createNewProject(res, req.body.params);
+  tasks.createNewProject(res, req.body);
   
 });
 
 router.post('/addTask', (req, res)=>{
   //posting a task to the database
-  tasks.createNewTask(res, req.body.params);
+  tasks.createNewTask(res, req.body);
 
 });
 
 router.get('/allTasksByUser', (req, res)=> {
   // gets all tasks assigned to users
-  users.findAllTasksOfUser(res, req.body.params);
+  users.findAllTasksOfUser(res, req.body);
 });
 
 
 
-router.get('/allChildTasks', (req,res)=>{
+router.get('/allChildTasks/:id', (req,res)=>{
   //this should query FOR All Child Tasks
-  tasks.findAllChildTasks(res, req.body.params);
+  tasks.findAllChildTasks(res, req.params);
 });
 
 
@@ -112,15 +121,15 @@ router.get('/budgetVsActual', (req, res)=>{
 });
 
 router.put('/updateActualHours', (req, res) => {
-  tasks.updateActualHours(res, req.body.params);
+  tasks.updateActualHours(res, req.body);
 });
 
 router.put('/updateStatusInProgress', (req, res) => {
-  tasks.markTaskAsInProgress(res, req.body.params);
+  tasks.markTaskAsInProgress(res, req.body);
 });
 
 router.put('/updateStatusComplete', (req, res) => {
-  tasks.markTaskAsComplete(res, req.body.params);
+  tasks.markTaskAsComplete(res, req.body);
 });
 
 

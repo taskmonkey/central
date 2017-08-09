@@ -6,8 +6,9 @@ giveUserNewTask = (clientResponse, userTaskObj) => {
     db.query(`select * from users_tasks where user_id = ?`, [userTaskObj.userid], (err, res) => {
         if (res) {
             db.query(sql, sanitize, (err, resp) => {
-                
-                clientResponse.send(resp.insertId);
+                if(clientResponse){
+                    clientResponse.send(resp.insertId);
+                }
             });
         } else {
             clientResponse.end();
