@@ -8,7 +8,7 @@ createNewProject = (clientResponse, taskObj) => {
         if(taskObj.assignees.length > 0) {
             taskObj.assignees.forEach(id => {
                 id.taskid = resp.insertId;
-                //giveUserNewTask({username: hello);
+                
             });
 
         } else {
@@ -18,12 +18,13 @@ createNewProject = (clientResponse, taskObj) => {
     });
 };
 
+
 giveUserNewTask = (userTaskObj) => {
     db.query("select users.id from users WHERE users.username = ?", [userTaskObj.username], (err, resp) => {
         if (resp) {
-            // db.query("insert into users_tasks (user_id, task_id) VALUES (?, ?)", [resp.id, ], (err, response) => {
+            db.query("insert into users_tasks (user_id, task_id) VALUES (?, ?)", [resp.id, ], (err, response) => {
 
-            // });
+            });
 
         } 
     });
@@ -53,7 +54,7 @@ createNewTask = (clientResponse, taskObj) => {
 };
 
 updateActualHours = (clientResponse, hoursObj) => {
-    let temp = [hoursObj.actual_hours, hoursObj.id];
+    let temp = [hoursObj.actual_hours, hoursObj.taskid];
     let sql = `UPDATE tasks SET actual_hours = ? WHERE id = ?`;
     db.query(sql, temp, (err, resp) => {
        
@@ -63,7 +64,7 @@ updateActualHours = (clientResponse, hoursObj) => {
 
 
 findAllChildTasks = (clientResponse, taskObj) => {
-    let sql = `select  id, name, parentid
+    let sql = `select  id, name, parentid, budget_hours, actual_hours, owner, status
 from    (select * from tasks
          order by parentid, id) tasks_sorted,
         (select @pv := '${taskObj.taskid}')temp
@@ -71,13 +72,12 @@ where   find_in_set(parentid, @pv) > 0
 and     @pv := concat(@pv, ',', id);`;
 
     db.query(sql, (err, resp) => {
-
         clientResponse.send(resp);
     });
 };
 
 markTaskAsComplete = (clientResponse, taskObj) => {
-    let sql = `UPDATE tasks SET status = 1 WHERE id = "${taskObj.id}"`;
+    let sql = `UPDATE tasks SET status = 1 WHERE id = "${taskObj.taskid}"`;
     db.query(sql, (err, resp) => {
  
         clientResponse.end();
@@ -85,7 +85,7 @@ markTaskAsComplete = (clientResponse, taskObj) => {
 };
 
 markTaskAsInProgress = (clientResponse, taskObj) => {
-    let sql = `UPDATE tasks SET status = 0 WHERE id = "${taskObj.id}"`;
+    let sql = `UPDATE tasks SET status = 0 WHERE id = "${taskObj.taskid}"`;
     db.query(sql, (err, resp) => {
 
         clientResponse.end();
@@ -93,7 +93,7 @@ markTaskAsInProgress = (clientResponse, taskObj) => {
 };
 
 deleteTask = (clientResponse, taskObj) => {
-    let sql = `DELETE FROM tasks WHERE tasks.id = "${taskObj.id}"`;
+    let sql = `DELETE FROM tasks WHERE tasks.id = "${taskObj.taskid}"`;
     db.query(sql, (err, resp) => {
         clientResponse.end();
     });
