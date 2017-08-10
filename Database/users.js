@@ -94,19 +94,6 @@ allProjectsByUser = (clientResponse, userObj) => {
     });
 };
 
-// findAllChildTasks = (taskObj, cb) => {
-//     let sql = `select  id, name, parentid
-// from    (select * from tasks
-//          order by parentid, id) tasks_sorted,
-//         (select @pv := '${taskObj.taskid}')temp
-// where   find_in_set(parentid, @pv) > 0 
-// and     @pv := concat(@pv, ',', id);`;
-
-//     db.query(sql, (err, resp) => {
-        
-//     });
-// };
-
 findAllTasksOfOwner = (clientResponse, ownerObj) => {
     let sql = `SELECT * FROM tasks WHERE tasks.owner = "${userObj.userid}";`; 
 

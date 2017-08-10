@@ -12,8 +12,6 @@ export const GET_ALL_TASKS = 'GET_ALL_TASKS'
 export const GET_USERS_TASKS = 'GET_USERS_TASKS'
 export const FIND_ALL_TASKS_OF_USERS = 'FIND_ALL_TASKS_OF_USERS'
 export const GET_ALL_USERS = 'GET_ALL_USERS'
-
-
 export const STORE_PROFILE = 'STORE_PROFILE';
 
 export function fetchTasks() {

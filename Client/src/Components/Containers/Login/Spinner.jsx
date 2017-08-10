@@ -23,7 +23,8 @@ class Spinner extends Component {
       if (this.state.auth.isAuthenticated()) {
         this.state.auth.getProfile((err, profile) => {
           
-          
+          this.props.storeProfile(profile);
+          //console.log(this.props, 'profile hopefully');
           this.props.history.push('/dashboard')
        });
         //this.props.history.push('/dashboard')
@@ -34,6 +35,7 @@ class Spinner extends Component {
   }
 
   render() {
+    //console.log(this.props, 'props');
     return(
       <div className="spinnerContainer">
         <MDSpinner className="spinner" size="300"/>
@@ -45,8 +47,7 @@ class Spinner extends Component {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({storeProfile}, dispatch);
 }
-
 function mapStateToProps(state) {
-  return {profiles: state.profile.userProfile};
+  return {profile: state.tasks.profile};
 }
-export default withRouter(Spinner);
+export default connect(mapStateToProps, mapDispatchToProps)(Spinner);

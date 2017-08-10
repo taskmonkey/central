@@ -137,11 +137,11 @@ router.put('/updateStatusComplete', (req, res) => {
 
 
 router.post('/addUserToTask', (req, res) => {
-  users_tasks.giveUserNewTask(res, req.body.params);
+  users_tasks.giveUserNewTask(res, req.body);
 });
 
 router.post('/addTaskToUser', (req, res) => {
-  users_tasks.giveTaskNewUser(res, req.body.params);
+  users_tasks.giveTaskNewUser(res, req.body);
 });
 
 
