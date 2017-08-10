@@ -6,7 +6,7 @@ import MDSpinner from "react-md-spinner";
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {storeProfile} from '../../../Actions/index.js';
-
+import axios from 'axios';
 
 
 class Spinner extends Component {
@@ -24,7 +24,8 @@ class Spinner extends Component {
         this.state.auth.getProfile((err, profile) => {
           
           this.props.storeProfile(profile);
-          //console.log(this.props, 'profile hopefully');
+          axios.get('/getUserInfo', {params: {username: this.props.profile.nickname}}).then(resp => console.log(resp, 'should have user id'));
+
           this.props.history.push('/dashboard')
        });
         //this.props.history.push('/dashboard')
