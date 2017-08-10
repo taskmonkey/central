@@ -34,6 +34,7 @@
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.2",
     "react-sidenav": "^2.1.2",
+    "react-sparklines": "^1.7.0",
     "react-tree-graph": "^2.0.0",
     "recharts": "^1.0.0-alpha.2",
     "redux": "^3.7.2",
