@@ -74,7 +74,7 @@ const SideNavWithAlerts = () =>
 
         <Nav id="products">
             <NavIcon><Icon20 icon={profile} /></NavIcon>
-            <NavText> Users </NavText>
+             <NavText><Link to="/users">{' '}<span style={{ paddingRight: 6 }}>Users</span>{' '}</Link></NavText> 
         </Nav>
         <Nav id="orders">
             <NavIcon><Icon20 icon={pen} /></NavIcon>
