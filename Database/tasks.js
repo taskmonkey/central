@@ -5,28 +5,52 @@ createNewProject = (clientResponse, taskObj) => {
     let temp = [taskObj.name, taskObj.description, taskObj.budget_hours, taskObj.owner];
     let sql = `INSERT INTO tasks (name, description, budget_hours, owner) VALUES (?, ?, ?, ?);`;
     db.query(sql, temp, (err, resp) => {
-        if(taskObj.assignees.length > 0) {
-            taskObj.assignees.forEach(id => {
-                id.taskid = resp.insertId;
+        let parsedAssignees = JSON.parse(taskObj.assignees);
+        var responseObject = {taskid: resp.insertId};
+        if(parsedAssignees.length > 0) {
+            responseObject.success = [];
+            responseObject.failure = [];
+            let assignees = parsedAssignees.length;
+            let count = 0;
+            parsedAssignees.forEach(id => {
+                let temp = {};
+                temp.username = id;            
+                temp.taskid = resp.insertId;
+                console.log(temp);
+                giveUserNewTask(temp, () => {
+                    count++;
+                    responseObject.success.push(id);
+                    if (count === assignees) {
+                        clientResponse.send(responseObject);
+                    }
+                },() => {
+                    count++;
+                    responseObject.failure.push(id);
+                    if(count === assignees) {
+                        clientResponse.send(responseObject);
+                    }
+                });
                 
             });
 
         } else {
-            clientResponse.send(resp.insertId);
+            clientResponse.send(responseObject);
 
         }
     });
 };
 
 
-giveUserNewTask = (userTaskObj) => {
+giveUserNewTask = (userTaskObj, cb, failcb) => {
     db.query("select users.id from users WHERE users.username = ?", [userTaskObj.username], (err, resp) => {
         if (resp) {
-            db.query("insert into users_tasks (user_id, task_id) VALUES (?, ?)", [resp.id, ], (err, response) => {
-
+            db.query("insert into users_tasks (user_id, tasks_id) VALUES (?, ?)", [resp[0].id, userTaskObj.taskid], (err, response) => {
+                cb();
             });
 
-        } 
+        } else {
+            failcb();
+        }
     });
 }
 

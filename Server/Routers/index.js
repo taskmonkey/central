@@ -63,11 +63,21 @@ router.get('/dashboard', (req, res) => {
 
 
 
+////////// Use addProject on the form page. add a property of assignees that has an array of all the names of people trying to be added to new Project
+
+// project object as well as an assignees array attached of everyone being assigned to the project
+//WILL RETURN AN OBJECT {'taskid" : 'id here'} of the taskid of the new project
+//will also return two arrays "success" and "failure" which shows which users were sucessfully given the task or failed to give task
 
 router.post('/addProject', (req, res) => {
+  console.log(req.body);
+  
   tasks.createNewProject(res, req.body);
   
 });
+
+
+////////////////////////////////////////////////
 
 router.post('/addTask', (req, res)=>{
   //posting a task to the database
