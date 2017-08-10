@@ -1,15 +1,26 @@
 import React, { Component } from 'react';
+import { Button, Modal } from 'react-bootstrap';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {createTask, fetchTasks} from '../../../Actions/index.js';
+import MyModal from '../TasksList/TaskModal.jsx';
 
 class TaskForm extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      showModal: false
+    };
     //function binding
     this.handleChange = this.handleChange.bind(this);
     this.handleTaskForm = this.handleTaskForm.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
+  }
+  toggleModal(){
+    this.setState({
+        showModal: !this.state.showModal
+    });
   }
 
   handleChange(e) {
@@ -31,29 +42,14 @@ class TaskForm extends Component {
 
   render() {
     return (
-      <div className="container createTask">
-        <div className="row">
-          <h1>create a task</h1>
-          <form onSubmit={(e) => {e.preventDefault(); this.handleTaskForm(nameForm.value, taskForm.value, description.value);}}>
-            <div className="form-group col-md-5 col-md-offset-1">
-              <label htmlFor="nameForm">Task</label>
-              <input type="text" className="form-control" name="task" id="taskForm" placeholder="please enter a task" onChange={this.handleChange}/>
-            </div>
-            <div className="form-group col-md-5">
-              <label htmlFor="assignee">Assignee</label>
-              <input type="text" className="form-control" name="assignee" id="nameForm" placeholder="please enter a name" onChange={this.handleChange}/>
-            </div>
-            <div className="form-group col-md-6 col-md-offset-3">
-              <label htmlFor="budgetHours">Budget Hours</label>
-              <input type="text" className="form-control" name="budgetHours" id="budgetHours" placeholder="please enter expected hours" onChange={this.handleChange}/>
-            </div>
-            <div className="form-group col-md-8 col-md-6 col-md-offset-3">
-              <label htmlFor="description">Task description</label>
-              <textarea className="form-control" id="description" rows="3" name="description" id="description" placeholder="please enter a description" onChange={this.handleChange}></textarea>
-              <button className="btn btn-primary" type="submit">Submit</button> 
-            </div>
-          </form>
-        </div>
+      <div>
+        <Button bsStyle="success" onClick={this.toggleModal}>Add Task</Button>
+        <MyModal
+          toggleModal={this.toggleModal}
+          showModal={this.state.showModal}
+          handleChange = {this.handleChange}
+          handleTaskForm = {this.handleTaskForm}
+        />
       </div>
     );
   }
