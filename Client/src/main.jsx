@@ -7,6 +7,7 @@ import TasksList from './Components/Containers/TasksList/TasksList.jsx';
 import TasksTree from './Components/Containers/TasksTree/TasksTree.jsx';
 import TasksDetails from './Components/Containers/TasksDetails/TasksDetails.jsx';
 import TaskForm from './Components/Containers/TasksList/TaskForm.jsx';
+<<<<<<< HEAD
 import Spinner from './Components/Containers/Login/Spinner.jsx';
 
 import axios from 'axios';
@@ -20,6 +21,19 @@ const mapStateToProps = (state) =>{
 }
 const mapDispathToProps = (dispatch) => {
   return bindActionCreators({getUsersTasks, getAllTasks, findAllTasksOfUser, getAllUsers}, dispatch)  
+=======
+import axios from 'axios';
+import {connect} from 'react-redux'
+import {getUsersTasks, getAllTasks} from './Actions/index.js'
+import {bindActionCreators} from 'redux'
+
+const mapStateToProps = (state) =>{
+  console.log('this is the state in main', state)
+  return {}
+}
+const mapDispathToProps = (dispatch) => {
+  return bindActionCreators({getUsersTasks, getAllTasks}, dispatch)  
+>>>>>>> 8b236fd62b349204ccd5ee92db4caad2b01ceb36
 }
 
 class Main extends Component {
@@ -30,10 +44,17 @@ class Main extends Component {
     }
   }
   componentDidMount() {
+<<<<<<< HEAD
     //console.log('this is the main props',this.props)
     axios.get('http://localhost:3000/entireUsersTasks')
       .then(result => {
         //console.log(result.data)
+=======
+    console.log('this is the main props',this.props)
+    axios.get('http://localhost:3000/entireUsersTasks')
+      .then(result => {
+        console.log(result.data)
+>>>>>>> 8b236fd62b349204ccd5ee92db4caad2b01ceb36
         this.props.getUsersTasks(result.data)
       })
       .catch(err => {
@@ -41,6 +62,7 @@ class Main extends Component {
       })
     axios.get('http://localhost:3000/entireTasks')
       .then(result =>{
+<<<<<<< HEAD
         //console.log('this is the tasks table', result.data)
         this.props.getAllTasks(result.data)
       })
@@ -60,6 +82,11 @@ class Main extends Component {
       .catch(err => {
         console.log('err')
       })
+=======
+        console.log('this is the tasks table', result.data)
+        this.props.getAllTasks(result.data)
+      })
+>>>>>>> 8b236fd62b349204ccd5ee92db4caad2b01ceb36
   }
 
   render(){
@@ -81,6 +108,7 @@ class Main extends Component {
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 export default Main;
 =======
@@ -91,3 +119,7 @@ export default connect(mapStateToProps, mapDispathToProps)(Main)
 export default connect(mapStateToProps, mapDispathToProps)(Main)
 //export default Main;
 >>>>>>> working on main.jsx
+=======
+export default connect(mapStateToProps, mapDispathToProps)(Main)
+//export default Main;
+>>>>>>> 8b236fd62b349204ccd5ee92db4caad2b01ceb36
