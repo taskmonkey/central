@@ -79,7 +79,7 @@ const SideNavWithAlerts = () =>
         <Nav id="orders">
             <NavIcon><Icon20 icon={pen} /></NavIcon>
             <NavText>
-                <Link to="/tasksList">{' '}<span style={{ paddingRight: 6 }}>Projects</span>{' '}</Link>
+                <Link to="/projectsList">{' '}<span style={{ paddingRight: 6 }}>Projects</span>{' '}</Link>
                 <span
                     style={{
                         textAlign: 'center',

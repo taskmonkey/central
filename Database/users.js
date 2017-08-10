@@ -23,10 +23,10 @@ deleteUser = (clientResponse, userObj) => {
 }
 
 findAllTasksOfUser = (clientResponse, userObj) => {
-    let sql = `SELECT users.username, tasks.name, tasks.description, tasks.budget_hours, tasks.actual_hours, tasks.parentid, users_tasks.difficulty, tasks.owner, tasks.status FROM users 
-    INNER JOIN users_tasks ON users.id = users_tasks.user_id 
+    let sql = `SELECT users.username, tasks.name, tasks.description, tasks.budget_hours, tasks.actual_hours, tasks.parentid, users_tasks.difficulty, tasks.owner, tasks.status FROM users
+    INNER JOIN users_tasks ON users.id = users_tasks.user_id
     INNER JOIN tasks ON users_tasks.tasks_id = tasks.id
-    WHERE users.id = "${userObj.userid}";`; 
+    WHERE users.id = "${userObj.userid}";`;
 
     db.query(sql, (err, resp) => {
         clientResponse.send(resp);
@@ -35,42 +35,43 @@ findAllTasksOfUser = (clientResponse, userObj) => {
 
 findProjectOfTask = (taskObj, cb) => {
     // given a task id, find all their tasks, then from the list of tasks of a task go up the chain and find the root. group by root id to get rid of duplicates
-    let sql = `select MIN(id) as parent from (select 
+    let sql = `select MIN(id) as parent from (select
   @parent:=parentid as parentid, name, id
 from
   (select @parent:="${taskObj.id}") actual
-join 
+join
   (select * from tasks order by id desc) total
-where 
+where
   @parent=id) ours`;
     db.query(sql, (err, resp) => {
         //console.log(resp, 'proj by task');
-    
+
         cb(resp[0].parent);
     });
 };
 
 
 allProjectsByUser = (clientResponse, userObj) => {
-    let sql = `SELECT tasks.id FROM users 
-    INNER JOIN users_tasks ON users.id = users_tasks.user_id 
+    let sql = `SELECT tasks.id FROM users
+    INNER JOIN users_tasks ON users.id = users_tasks.user_id
     INNER JOIN tasks ON users_tasks.tasks_id = tasks.id
-    WHERE users.id = "${userObj.userid}";`; 
+    WHERE users.id = "${userObj.userid}";`;
 
     db.query(sql, (err, resp) => {
         //console.log(resp);
+        if(resp.length) {
         var amountofTasks = resp.length;
         var count = 0;
         var projList = [];
 
         resp.forEach(task => {
- 
+
             findProjectOfTask(task, (parent) => {
                 count++;
                 //console.log(parent);
                 if (projList.indexOf(parent) === -1) {
                     projList.push(parent);
-                } 
+                }
                 if (count === amountofTasks) {
                     var amountOfProj = projList.length;
                     var counter = 0;
@@ -87,15 +88,18 @@ allProjectsByUser = (clientResponse, userObj) => {
                             }
                         })
                     });
-            
+
                 }
             });
         });
+      } else {
+        clientResponse.send([]);
+      }
     });
 };
 
 findAllTasksOfOwner = (clientResponse, ownerObj) => {
-    let sql = `SELECT * FROM tasks WHERE tasks.owner = "${userObj.userid}";`; 
+    let sql = `SELECT * FROM tasks WHERE tasks.owner = "${userObj.userid}";`;
 
     db.query(sql, (err, resp) => {
         clientResponse.send(resp);
@@ -107,10 +111,11 @@ getUserInfo = (clientResponse, userObj) => {
     let sql = `SELECT * from users WHERE users.username = ?`;
     console.log(userObj, 'userobj');
     db.query(sql, [userObj.username], (err, resp) => {
-        if(resp){
+        if(resp.length){
             clientResponse.send(JSON.stringify(resp[0].id));
         } else {
             db.query("insert into users (username) VALUES (?)", [userObj.username], (err, response) => {
+                console.log('new user');
                 clientResponse.send(JSON.stringify(response.insertId));
 
             })
@@ -119,7 +124,7 @@ getUserInfo = (clientResponse, userObj) => {
 }
 
 openTasksOfUser = (clientResponse, userObj) => {
-    let sql = `SELECT * from users INNER JOIN 
+    let sql = `SELECT * from users INNER JOIN
     users_tasks ON users.id = users_tasks.user_id INNER JOIN tasks ON users_tasks.tasks_id = tasks.id WHERE users.id = "${userObj.userid}" AND tasks.status IN (-1,0);`;
     db.query(sql, (err, resp) => {
 

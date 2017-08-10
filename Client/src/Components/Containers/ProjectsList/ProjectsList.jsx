@@ -5,14 +5,10 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {fetchTasks} from '../../../Actions/index.js';
 import NavTask from '../Dashboard/NavTask.jsx';
-import TasksListItem from './TasksListItem.jsx';
+import ProjectsListItem from './ProjectsListItem.jsx';
 
 
-class TasksList extends Component{
-
-  componentWillMount() {
-    this.props.fetchTasks();
-  }
+class ProjectsList extends Component{
 
   render() {
     return(
@@ -33,8 +29,8 @@ class TasksList extends Component{
           <div className="tasksListContainer">
             <div>
               {
-                this.props.tasks.map(task =>
-                  <TasksListItem tasksListItem={task}/>
+                this.props.projects.map(project =>
+                  <ProjectsListItem projectsListItem={project}/>
                 )
               }
               <Link to="/tasksTree"><button className="tasksTreeButton">Tasks Tree</button></Link>
@@ -47,12 +43,12 @@ class TasksList extends Component{
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({fetchTasks}, dispatch);
-}
+// function mapDispatchToProps(dispatch) {
+//   return bindActionCreators({}, dispatch);
+// }
 
 function mapStateToProps(state) {
-  return { tasks: state.tasks.allTasks }
+  return { projects: state.tasks.allProjects }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TasksList);
+export default connect(mapStateToProps)(ProjectsList);

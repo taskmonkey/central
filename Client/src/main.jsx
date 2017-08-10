@@ -3,10 +3,10 @@ import { BrowserRouter, Route, Switch, PropsRoute } from 'react-router-dom';
 
 import Login from './Components/Containers/Login/login.jsx';
 import Dashboard from './Components/Containers/Dashboard/Dashboard.jsx';
-import TasksList from './Components/Containers/TasksList/TasksList.jsx';
+import ProjectsList from './Components/Containers/ProjectsList/ProjectsList.jsx';
 import TasksTree from './Components/Containers/TasksTree/TasksTree.jsx';
 import TasksDetails from './Components/Containers/TasksDetails/TasksDetails.jsx';
-import TaskForm from './Components/Containers/TasksList/TaskForm.jsx';
+import TaskForm from './Components/Containers/ProjectsList/TaskForm.jsx';
 import Spinner from './Components/Containers/Login/Spinner.jsx';
 import axios from 'axios';
 import {connect} from 'react-redux'
@@ -18,7 +18,7 @@ const mapStateToProps = (state) =>{
   return {}
 }
 const mapDispathToProps = (dispatch) => {
-  return bindActionCreators({getUsersTasks, getAllTasks, findAllTasksOfUser, getAllUsers}, dispatch)  
+  return bindActionCreators({getUsersTasks, getAllTasks, findAllTasksOfUser, getAllUsers}, dispatch)
 }
 
 class Main extends Component {
@@ -48,7 +48,7 @@ class Main extends Component {
       })
     axios.get('http://localhost:3000/allTasksByUser')
       .then(result =>{
-      
+
         //console.log('this is the ALLTASKSBYUSER', result.data)
     })
     axios.get('http://localhost:3000/entireUsers')
@@ -69,7 +69,7 @@ class Main extends Component {
           <Route exact path="/" component={Spinner}/>
           <Route exact path="/login" component={Login}/>
           <Route exact path="/dashboard" component={Dashboard}/>
-          <Route exact path="/tasksList" component={TasksList}/>
+          <Route exact path="/projectsList" component={ProjectsList}/>
           <Route exact path="/tasksTree" component={TasksTree}/>
           <Route exact path="/taskForm" component={TaskForm}/>
           <Route exact path="/tasksDetails" component={TasksDetails}/>

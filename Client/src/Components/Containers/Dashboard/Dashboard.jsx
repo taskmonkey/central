@@ -13,7 +13,6 @@ import {bindActionCreators} from 'redux'
 
 const mapStateToProps = (state) =>{
   //console.log('this is the state in main DASHBOARD', state)
-  
   return {
     allTasks: state.tasks.allTasks,
     allUsers: state.tasks.allUsers,
@@ -21,7 +20,7 @@ const mapStateToProps = (state) =>{
   }
 }
 const mapDispathToProps = (dispatch) => {
-  return bindActionCreators({getUsersTasks, getAllTasks, findAllTasksOfUser, getAllUsers}, dispatch)  
+  return bindActionCreators({getUsersTasks, getAllTasks, findAllTasksOfUser, getAllUsers}, dispatch)
 }
 
 
@@ -31,16 +30,6 @@ class Dashboard extends Component{
     this.state = {
       auth: new Auth()
     }
-  }
-  
-
-  componentWillMount() {
-    this.state.auth.handleAuthentication();
-    this.state.auth.getProfile((err, profile) => {
-      //console.log(profile);
-
-      //this.props.fetchTasks(profile.nickname);
-    });
   }
 
   render() {
