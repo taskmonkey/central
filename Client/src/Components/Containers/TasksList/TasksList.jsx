@@ -28,7 +28,7 @@ class TasksList extends Component{
         </div> */}
         <div className="right-col">
 					<div className="dashboard-title">
-						<h1 className="pull-left">Tasks List</h1>
+						<h1 className="pull-left">Projects List</h1>
 					</div>
           <div className="tasksListContainer">
             <div>
