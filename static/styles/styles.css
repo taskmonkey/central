@@ -285,7 +285,7 @@ svg.custom path.link {
 	min-height:600px;
 	background-repeat: no-repeat;
 	background-size: 100% 100%;;
-	background: #FFF; 
+	background: #FFF;
 	text-align: center;
 	font-family: 'Lato', sans-serif;
 	margin: 0;
@@ -307,4 +307,14 @@ svg.custom path.link {
 
  p.landing-blurbs {
 	text-align: center;
+}
+
+
+.example-appear {
+  opacity: 0.01;
+}
+
+.example-appear.example-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
 }
