@@ -16,7 +16,7 @@ createNewUser = (clientResponse, userObj) => {
 };
 
 deleteUser = (clientResponse, userObj) => {
-    let sql = `DELETE FROM users WHERE users.id = "${userObj.id}"`;
+    let sql = `DELETE FROM users WHERE users.id = "${userObj.userid}"`;
     db.query(sql, (err, resp) => {
         clientResponse.end();
     })
@@ -26,7 +26,7 @@ findAllTasksOfUser = (clientResponse, userObj) => {
     let sql = `SELECT users.username, tasks.name, tasks.description, tasks.budget_hours, tasks.actual_hours, tasks.parentid, users_tasks.difficulty, tasks.owner, tasks.status FROM users 
     INNER JOIN users_tasks ON users.id = users_tasks.user_id 
     INNER JOIN tasks ON users_tasks.tasks_id = tasks.id
-    WHERE users.id = "${userObj.id}";`; 
+    WHERE users.id = "${userObj.userid}";`; 
 
     db.query(sql, (err, resp) => {
         clientResponse.send(resp);
@@ -38,7 +38,7 @@ findProjectOfTask = (userObj, cb) => {
     let sql = `select MIN(id) as parent from (select 
   @parent:=parentid as parentid, name, id
 from
-  (select @parent:="${userObj.id}") actual
+  (select @parent:="${userObj.userid}") actual
 join 
   (select * from tasks order by id desc) total
 where 
@@ -61,7 +61,7 @@ allProjectsByUser = (clientResponse, userObj) => {
         var amountofTasks = resp.length;
         var count = 0;
         var projList = [];
-
+        
         resp.forEach(task => {
 
             findProjectOfTask(task, (parent) => {
@@ -101,7 +101,7 @@ where   find_in_set(parentid, @pv) > 0
 and     @pv := concat(@pv, ',', id);`;
 
     db.query(sql, (err, resp) => {
-        cb(resp);
+        console.log(resp);
     });
 };
 
@@ -126,6 +126,14 @@ getUserInfo = (clientResponse, userObj) => {
     })
 }
 
+openTasksOfUser = (clientResponse, userObj) => {
+    let sql = `SELECT * from users INNER JOIN 
+    users_tasks ON users.id = users_tasks.user_id INNER JOIN tasks ON users_tasks.tasks_id = tasks.id WHERE users.id = "${userObj.userid}" AND tasks.status IN (-1,0);`;
+    db.query(sql, (err, resp) => {
+
+        clientResponse.send(resp);
+    })
+};
 
 module.exports = {
     createNewUser: createNewUser,
@@ -134,5 +142,6 @@ module.exports = {
     findAllTasksOfOwner: findAllTasksOfOwner,
     allProjectsByUser: allProjectsByUser,
     allUsers: allUsers,
-    getUserInfo: getUserInfo
+    getUserInfo: getUserInfo,
+    openTasksOfUser: openTasksOfUser
 }

@@ -5,27 +5,52 @@ createNewProject = (clientResponse, taskObj) => {
     let temp = [taskObj.name, taskObj.description, taskObj.budget_hours, taskObj.owner];
     let sql = `INSERT INTO tasks (name, description, budget_hours, owner) VALUES (?, ?, ?, ?);`;
     db.query(sql, temp, (err, resp) => {
-        if(taskObj.assignees.length > 0) {
-            taskObj.assignees.forEach(id => {
-                id.taskid = resp.insertId;
-                //giveUserNewTask({username: hello);
+        let parsedAssignees = JSON.parse(taskObj.assignees);
+        var responseObject = {taskid: resp.insertId};
+        if(parsedAssignees.length > 0) {
+            responseObject.success = [];
+            responseObject.failure = [];
+            let assignees = parsedAssignees.length;
+            let count = 0;
+            parsedAssignees.forEach(id => {
+                let temp = {};
+                temp.username = id;            
+                temp.taskid = resp.insertId;
+                console.log(temp);
+                giveUserNewTask(temp, () => {
+                    count++;
+                    responseObject.success.push(id);
+                    if (count === assignees) {
+                        clientResponse.send(responseObject);
+                    }
+                },() => {
+                    count++;
+                    responseObject.failure.push(id);
+                    if(count === assignees) {
+                        clientResponse.send(responseObject);
+                    }
+                });
+                
             });
 
         } else {
-            clientResponse.send(resp.insertId);
+            clientResponse.send(responseObject);
 
         }
     });
 };
 
-giveUserNewTask = (userTaskObj) => {
+
+giveUserNewTask = (userTaskObj, cb, failcb) => {
     db.query("select users.id from users WHERE users.username = ?", [userTaskObj.username], (err, resp) => {
         if (resp) {
-            // db.query("insert into users_tasks (user_id, task_id) VALUES (?, ?)", [resp.id, ], (err, response) => {
+            db.query("insert into users_tasks (user_id, tasks_id) VALUES (?, ?)", [resp[0].id, userTaskObj.taskid], (err, response) => {
+                cb();
+            });
 
-            // });
-
-        } 
+        } else {
+            failcb();
+        }
     });
 }
 
@@ -53,7 +78,7 @@ createNewTask = (clientResponse, taskObj) => {
 };
 
 updateActualHours = (clientResponse, hoursObj) => {
-    let temp = [hoursObj.actual_hours, hoursObj.id];
+    let temp = [hoursObj.actual_hours, hoursObj.taskid];
     let sql = `UPDATE tasks SET actual_hours = ? WHERE id = ?`;
     db.query(sql, temp, (err, resp) => {
        
@@ -63,7 +88,7 @@ updateActualHours = (clientResponse, hoursObj) => {
 
 
 findAllChildTasks = (clientResponse, taskObj) => {
-    let sql = `select  id, name, parentid
+    let sql = `select  id, name, parentid, budget_hours, actual_hours, owner, status
 from    (select * from tasks
          order by parentid, id) tasks_sorted,
         (select @pv := '${taskObj.taskid}')temp
@@ -71,13 +96,12 @@ where   find_in_set(parentid, @pv) > 0
 and     @pv := concat(@pv, ',', id);`;
 
     db.query(sql, (err, resp) => {
-
         clientResponse.send(resp);
     });
 };
 
 markTaskAsComplete = (clientResponse, taskObj) => {
-    let sql = `UPDATE tasks SET status = 1 WHERE id = "${taskObj.id}"`;
+    let sql = `UPDATE tasks SET status = 1 WHERE id = "${taskObj.taskid}"`;
     db.query(sql, (err, resp) => {
  
         clientResponse.end();
@@ -85,7 +109,7 @@ markTaskAsComplete = (clientResponse, taskObj) => {
 };
 
 markTaskAsInProgress = (clientResponse, taskObj) => {
-    let sql = `UPDATE tasks SET status = 0 WHERE id = "${taskObj.id}"`;
+    let sql = `UPDATE tasks SET status = 0 WHERE id = "${taskObj.taskid}"`;
     db.query(sql, (err, resp) => {
 
         clientResponse.end();
@@ -93,7 +117,7 @@ markTaskAsInProgress = (clientResponse, taskObj) => {
 };
 
 deleteTask = (clientResponse, taskObj) => {
-    let sql = `DELETE FROM tasks WHERE tasks.id = "${taskObj.id}"`;
+    let sql = `DELETE FROM tasks WHERE tasks.id = "${taskObj.taskid}"`;
     db.query(sql, (err, resp) => {
         clientResponse.end();
     });

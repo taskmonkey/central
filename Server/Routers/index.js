@@ -7,23 +7,12 @@ const users_tasks = require('../../Database/users_tasks.js');
 
 /*
 
-  1. Hit "/getUserInfo" route to get needed user data like id
-
-  2. Hit "/allProjectsByUser" with an object like {params: {id: "user id"}} where inside 'user id' goes an integer. 
-    this gives back data to all of the root tasks
-
-
-
-
-
-
-
-
-
-
-
-
-
+  GENERAL REQUEST STANDARDS
+  taskid:
+  if request includes a taskid give the req object have a key value pair taskid: 'your taskid here'
+  
+  userid:
+  if request includes userid, then object includes userid: 'your userid here'
 
 */
 
@@ -74,11 +63,21 @@ router.get('/dashboard', (req, res) => {
 
 
 
+////////// Use addProject on the form page. add a property of assignees that has an array of all the names of people trying to be added to new Project
+
+// project object as well as an assignees array attached of everyone being assigned to the project
+//WILL RETURN AN OBJECT {'taskid" : 'id here'} of the taskid of the new project
+//will also return two arrays "success" and "failure" which shows which users were sucessfully given the task or failed to give task
 
 router.post('/addProject', (req, res) => {
+  console.log(req.body);
+  
   tasks.createNewProject(res, req.body);
   
 });
+
+
+////////////////////////////////////////////////
 
 router.post('/addTask', (req, res)=>{
   //posting a task to the database
@@ -88,14 +87,23 @@ router.post('/addTask', (req, res)=>{
 
 router.get('/allTasksByUser', (req, res)=> {
   // gets all tasks assigned to users
-  users.findAllTasksOfUser(res, req.body);
+  users.findAllTasksOfUser(res, req.query);
 });
 
 
+//pass in userid
+router.get('/allOpenTasksOfUser', (req, res) => {
+  console.log(req.query);
+  
+  users.openTasksOfUser(res, req.query);
+});
 
-router.get('/allChildTasks/:id', (req,res)=>{
-  //this should query FOR All Child Tasks
-  tasks.findAllChildTasks(res, req.params);
+
+//given a project id
+// Only gives back children. WON'T GIVE BACK THE ACTUAL PROJECT
+router.get('/allChildTasks', (req,res)=>{
+  
+  tasks.findAllChildTasks(res, req.query);
 });
 
 
