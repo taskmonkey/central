@@ -100,7 +100,6 @@ router.get('/allTasksByUser', (req, res)=> {
   users.findAllTasksOfUser(res, req.body);
 });
 
-<<<<<<< HEAD
 
 
 //pass in userid
