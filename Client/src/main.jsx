@@ -39,8 +39,6 @@ class Main extends Component {
       })
   }
 
-
-
   render(){
     return (
       <BrowserRouter>
