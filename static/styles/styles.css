@@ -1,4 +1,9 @@
 
+.spinnerContainer {
+	text-align: center;
+	margin-top: 15%
+}
+
 div.custom-container {
 	background-color: white;
 	border-right: solid;

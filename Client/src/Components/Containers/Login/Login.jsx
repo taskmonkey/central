@@ -15,15 +15,6 @@ class Login extends Component {
     this.goToDashboard = this.goToDashboard.bind(this);
   }
 
-  componentWillMount() {
-    this.state.auth.handleAuthentication();
-    setTimeout(() => {
-      if (this.state.auth.isAuthenticated()) {
-        this.props.history.push('/dashboard')
-      }
-    }, 200)
-  }
-
   checkAuth(e) {
     e.preventDefault();
     this.state.auth.handleAuthentication();
@@ -122,76 +113,3 @@ class Login extends Component {
 }
 
 export default withRouter(Login);
-
-// import React, { Component } from 'react';
-// import { Navbar, Button } from 'react-bootstrap';
-// import Auth from '../../../Auth/Auth.js';
-//
-// class Login extends Component {
-//
-//   constructor(props) {
-//     super(props)
-//     this.state = {
-//       auth: new Auth(),
-//     }
-//   }
-//
-//   goTo(route) {
-//     this.props.history.replace(`/${route}`)
-//   }
-//
-//   login() {
-//     this.state.auth.login();
-//   }
-//
-//   logout() {
-//     this.state.auth.logout();
-//   }
-//
-//   render() {
-//     const { isAuthenticated } = this.state.auth;
-//
-//     return (
-//       <div>
-//         <Navbar fluid>
-//           <Navbar.Header>
-//             <Navbar.Brand>
-//               <a href="#">Auth0 - React</a>
-//             </Navbar.Brand>
-//             <Button
-//               bsStyle="primary"
-//               className="btn-margin"
-//               onClick={this.goTo.bind(this, 'dashboard')}
-//             >
-//               Home
-//             </Button>
-//             {
-//               !isAuthenticated() && (
-//                   <Button
-//                     bsStyle="primary"
-//                     className="btn-margin"
-//                     onClick={this.login.bind(this)}
-//                   >
-//                     Log In
-//                   </Button>
-//                 )
-//             }
-//             {
-//               isAuthenticated() && (
-//                   <Button
-//                     bsStyle="primary"
-//                     className="btn-margin"
-//                     onClick={this.logout.bind(this)}
-//                   >
-//                     Log Out
-//                   </Button>
-//                 )
-//             }
-//           </Navbar.Header>
-//         </Navbar>
-//       </div>
-//     );
-//   }
-// }
-//
-// export default Login;

@@ -9,7 +9,7 @@ export default class Auth {
     this.auth0 = new auth0.WebAuth({
       domain: 'austenwma.auth0.com',
       clientID: ClientID.CLIENT_ID,
-      redirectUri: 'http://localhost:3000',
+      redirectUri: 'http://localhost:3000/',
       audience: 'https://austenwma.auth0.com/userinfo',
       responseType: 'token id_token',
       scope: 'openid profile'
