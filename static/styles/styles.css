@@ -260,11 +260,15 @@ svg.custom path.link {
 	font-size: 30px;
 }
 
-.createTask {
+/* .createTask {
 	text-align: center;
 	color: #353942;
 	border: 3px solid #2CC5C6;
 	margin: 10% auto;
+} */
+
+.createTask h1 {
+	text-align: center;
 }
 
 /* LANDING PAGE STYLING  */
