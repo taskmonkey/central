@@ -11,7 +11,7 @@ DROP TABLE IF EXISTS users_tasks;
 CREATE TABLE users (
     id int NOT NULL AUTO_INCREMENT,
     username VARCHAR(255) UNIQUE,
-    image VARCHAR(255),
+    image VARCHAR(255) DEFAULT NULL,
     PRIMARY KEY (id)
 
 );

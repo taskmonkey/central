@@ -33,6 +33,16 @@ class Dashboard extends Component{
     }
   }
   
+
+  componentWillMount() {
+    this.state.auth.handleAuthentication();
+    this.state.auth.getProfile((err, profile) => {
+      //console.log(profile);
+
+      //this.props.fetchTasks(profile.nickname);
+    });
+  }
+
   render() {
     return(
       <div className="dashboard-container">

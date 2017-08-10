@@ -9,7 +9,7 @@ let TasksListItem = (props) => {
       <div className="tasksListItemCircle">
         <img className="tasksListItemCircleImage" src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"/>
       </div>
-      <div className="tasksListItemTitle" onClick={() => {  props.history.push("/tasksTree")}}>{props.tasksListItem.content}</div>
+      <div className="tasksListItemTitle" onClick={() => {  props.history.push("/tasksTree")}}>{props.tasksListItem.name}</div>
     </div>
   )
 }

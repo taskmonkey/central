@@ -14,8 +14,11 @@ export const FIND_ALL_TASKS_OF_USERS = 'FIND_ALL_TASKS_OF_USERS'
 export const GET_ALL_USERS = 'GET_ALL_USERS'
 
 
+export const STORE_PROFILE = 'STORE_PROFILE';
+
 export function fetchTasks() {
-  const request = axios.get(`${ROOT_URL}/posts?${API_KEY}`);
+  const request = axios.get('/allProjectsByUser', {params: {userid: 2}});
+  console.log(request);
   return {
     type: FETCH_TASKS,
     payload: request
@@ -58,5 +61,11 @@ export function getAllUsers(info){
   return {
     type: GET_ALL_USERS,
     payload: info
+  }
+}
+export function storeProfile(profile) {
+  return {
+    type: STORE_PROFILE,
+    payload: profile
   }
 }
