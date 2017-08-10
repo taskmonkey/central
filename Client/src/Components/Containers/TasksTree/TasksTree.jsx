@@ -34,7 +34,7 @@ class TasksTree extends Component{
           {
             name: 'Child Four',
             children: [{
-              name: 'Child Six',
+              name: 'Child Six'
             }]
           }]
       }]

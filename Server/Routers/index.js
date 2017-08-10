@@ -36,7 +36,7 @@ router.get('/entireTasks', (req, res) =>{
 })
 
 // {username: ''}
-// gives back id, us
+// gives back id of given user
 
 router.get('/getUserInfo', (req, res) => {
   
@@ -47,6 +47,8 @@ router.get('/getUserInfo', (req, res) => {
 
 //{userid: ''}
 router.get('/allProjectsByUser', (req, res) => {
+  console.log(req.query);
+  console.log('all projects by user');
   users.allProjectsByUser(res, req.query);
 })
 
@@ -58,18 +60,8 @@ router.get('/node_modules/auth0-js/build/auth0.js', (req, res) => {
 });
 
 router.get('/dashboard', (req, res) => {
-  console.log('HOPEFULLY THIS WILL CHANGE SOMETHING IN THE REDUX STORE, AND FORCE THE UPDATE OF OUR PAGE (TO OMIT THE LOGOUT)', req);
-});
-
-
-// router.get('/allTheData', (req, res) => {
-//   // inside the axios request package the nickname in {params: }
-  
-
-
-// });
-
-
+  console.log('dashy');
+})
 
 
 router.post('/addProject', (req, res) => {
@@ -88,6 +80,12 @@ router.get('/allTasksByUser', (req, res)=> {
   users.findAllTasksOfUser(res, req.body);
 });
 
+
+//pass in userid
+router.get('/allOpenTasksOfUser', (req, res) => {
+ 
+  users.openTasksOfUser(res, req.query);
+});
 
 
 router.get('/allChildTasks/:id', (req,res)=>{
@@ -109,6 +107,7 @@ router.get('/allRelationalTasks', (req, res) =>{
 
 router.get('/totalBudgetHours', (err, resp) => {
   //return total budget
+  //gets all children, then sums up total budget from them.
 
 });
 
@@ -138,16 +137,19 @@ router.put('/updateStatusComplete', (req, res) => {
 
 
 router.post('/addUserToTask', (req, res) => {
-  users_tasks.giveUserNewTask(res, req.body.params);
+  users_tasks.giveUserNewTask(res, req.body);
 });
 
 router.post('/addTaskToUser', (req, res) => {
-  users_tasks.giveTaskNewUser(res, req.body.params);
+  users_tasks.giveTaskNewUser(res, req.body);
 });
 
 
 
-
+// router.get('*', (req, res) => {
+//   console.log('wildcard hit');
+//   res.sendFile(path.resolve(__dirname, '../../static/index.html'));
+// });
 
 
 

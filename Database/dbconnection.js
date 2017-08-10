@@ -5,6 +5,7 @@ var db = mysql.createConnection({
     user: 'root',
 
     //password: '1234',
+    password: '1234',
     database: 'taskmon'
 });
 

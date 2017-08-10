@@ -1,6 +1,6 @@
-import { FETCH_TASKS, CREATE_TASK, GET_USERS_TASKS, GET_ALL_TASKS, FIND_ALL_TASKS_OF_USERS, GET_ALL_USERS } from '../Actions/index';
+import { FETCH_TASKS, CREATE_TASK, GET_USERS_TASKS, GET_ALL_TASKS, FIND_ALL_TASKS_OF_USERS, GET_ALL_USERS, STORE_PROFILE } from '../Actions/index';
 
-const INITIAL_STATE = { allTasks: [], usersTasks: [], allTasksByUsers: [], allUsers: [], task: null };
+const INITIAL_STATE = { allTasks: [], usersTasks: [], allTasksByUsers: [], allUsers: [], profile: {}, task: null };
 
 export default function(state = INITIAL_STATE, action) {
   //console.log('this is the reducer', action)
@@ -12,7 +12,7 @@ export default function(state = INITIAL_STATE, action) {
   case CREATE_TASK:
     return Object.assign({}, state, {allTasks: [...state.allTasks, action.payload]});
 
-    //return Object.assign({}, state, {allTasks: action.payload.data});
+    return Object.assign({}, state, {allTasks: action.payload.data});
   case GET_USERS_TASKS:
     return Object.assign({},state, {usersTasks: action.payload});
   case GET_ALL_TASKS:
@@ -21,6 +21,8 @@ export default function(state = INITIAL_STATE, action) {
     return Object.assign({}, state, {}, {allTasksByUsers: action.payload})
   case GET_ALL_USERS: 
     return Object.assign({}, state, {allUsers: action.payload})
+  case STORE_PROFILE:
+    return Object.assign({}, state, {profile: action.payload});
   default:
     return state;
   }

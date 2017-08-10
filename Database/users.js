@@ -33,18 +33,19 @@ findAllTasksOfUser = (clientResponse, userObj) => {
     });
 };
 
-findProjectOfTask = (userObj, cb) => {
-    // given a user id, find all their tasks, then from the list of tasks of a user go up the chain and find the root. group by root id to get rid of duplicates
+findProjectOfTask = (taskObj, cb) => {
+    // given a task id, find all their tasks, then from the list of tasks of a task go up the chain and find the root. group by root id to get rid of duplicates
     let sql = `select MIN(id) as parent from (select 
   @parent:=parentid as parentid, name, id
 from
-  (select @parent:="${userObj.userid}") actual
+  (select @parent:="${taskObj.id}") actual
 join 
   (select * from tasks order by id desc) total
 where 
   @parent=id) ours`;
     db.query(sql, (err, resp) => {
         //console.log(resp, 'proj by task');
+    
         cb(resp[0].parent);
     });
 };
@@ -61,9 +62,9 @@ allProjectsByUser = (clientResponse, userObj) => {
         var amountofTasks = resp.length;
         var count = 0;
         var projList = [];
-        
-        resp.forEach(task => {
 
+        resp.forEach(task => {
+ 
             findProjectOfTask(task, (parent) => {
                 count++;
                 //console.log(parent);
@@ -76,6 +77,7 @@ allProjectsByUser = (clientResponse, userObj) => {
                     var projData = [];
                     projList.forEach(proj => {
                         db.query(`select * from tasks where id = "${proj}"`, (err, resp) => {
+
                             counter++;
                             if(resp) {
                                 projData.push(resp[0]);
@@ -89,19 +91,6 @@ allProjectsByUser = (clientResponse, userObj) => {
                 }
             });
         });
-    });
-};
-
-findAllChildTasks = (taskObj, cb) => {
-    let sql = `select  id, name, parentid
-from    (select * from tasks
-         order by parentid, id) tasks_sorted,
-        (select @pv := '${taskObj.taskid}')temp
-where   find_in_set(parentid, @pv) > 0 
-and     @pv := concat(@pv, ',', id);`;
-
-    db.query(sql, (err, resp) => {
-        console.log(resp);
     });
 };
 
@@ -119,9 +108,12 @@ getUserInfo = (clientResponse, userObj) => {
     console.log(userObj, 'userobj');
     db.query(sql, [userObj.username], (err, resp) => {
         if(resp){
-            clientResponse.send(resp[0]);
+            clientResponse.send(JSON.stringify(resp[0].id));
         } else {
-            clientResponse.send(resp);
+            db.query("insert into users (username) VALUES (?)", [userObj.username], (err, response) => {
+                clientResponse.send(JSON.stringify(response.insertId));
+
+            })
         }
     })
 }
@@ -143,5 +135,5 @@ module.exports = {
     allProjectsByUser: allProjectsByUser,
     allUsers: allUsers,
     getUserInfo: getUserInfo,
-    openTasksOfUser: openTasksOfUser
+    openTasksOfUser: openTasksOfUser,
 }
