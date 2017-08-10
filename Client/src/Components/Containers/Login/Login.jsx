@@ -17,10 +17,7 @@ class Login extends Component {
   checkAuth(e) {
     e.preventDefault();
     this.state.auth.handleAuthentication();
-    console.log(localStorage)
-    this.state.auth.getProfile((err, profile) => {
-      console.log(profile);
-    });
+    
     alert(this.state.auth.isAuthenticated());
   }
 
