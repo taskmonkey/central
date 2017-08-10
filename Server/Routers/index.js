@@ -85,8 +85,6 @@ router.get('/dashboard', (req, res) => {
 
 router.post('/addProject', (req, res) => {
 
-  console.log(req.body);
-
   tasks.createNewProject(res, req.body);
 
 });
@@ -102,6 +100,7 @@ router.get('/allTasksByUser', (req, res)=> {
   users.findAllTasksOfUser(res, req.body);
 });
 
+<<<<<<< HEAD
 
 
 //pass in userid
@@ -111,9 +110,6 @@ router.get('/allOpenTasksOfUser', (req, res) => {
 });
 
 
-router.get('/allChildTasks/:id', (req,res)=>{
-  //this should query FOR All Child Tasks
-  tasks.findAllChildTasks(res, req.params);
 
 //pass in userid
 router.get('/allOpenTasksOfUser', (req, res) => {
