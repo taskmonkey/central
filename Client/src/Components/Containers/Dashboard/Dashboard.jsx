@@ -5,6 +5,8 @@ import PieGraph from './PieChart.jsx'
 import BarGraph from './BarChart.jsx'
 import NavTask from './NavTask.jsx'
 import Auth from '../../../Auth/Auth.js'
+import {connect} from 'react-redux'
+
 
 class Dashboard extends Component{
   constructor(props) {
@@ -13,6 +15,8 @@ class Dashboard extends Component{
       auth: new Auth(),
     }
   }
+
+
   render() {
     return(
       <div className="dashboard-container">
