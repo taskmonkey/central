@@ -4,7 +4,7 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {createTask, fetchTasks} from '../../../Actions/index.js';
-import MyModal from '../TasksList/TaskModal.jsx';
+import MyModal from '../ProjectsList/TaskModal.jsx';
 
 class TaskForm extends Component {
   constructor(props) {
@@ -27,7 +27,7 @@ class TaskForm extends Component {
     e.preventDefault();
     console.log(e.target.name, nameForm.value);
   }
-  
+
   handleTaskForm(nameVal, categoryVal, contentVal) {
     // e.preventDefault();
     axios.post('http://reduxblog.herokuapp.com/api/posts?key=taskmon', {name: nameVal, categories: categoryVal, content: contentVal})

@@ -5,7 +5,7 @@ import {Redirect,Link, withRouter} from 'react-router-dom'
 import MDSpinner from "react-md-spinner";
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {storeProfile} from '../../../Actions/index.js';
+import {storeProfile, fetchProjects} from '../../../Actions/index.js';
 import axios from 'axios';
 
 
@@ -22,9 +22,18 @@ class Spinner extends Component {
     setTimeout(() => {
       if (this.state.auth.isAuthenticated()) {
         this.state.auth.getProfile((err, profile) => {
-          
+
           this.props.storeProfile(profile);
-          axios.get('/getUserInfo', {params: {username: this.props.profile.nickname}}).then(resp => console.log(resp, 'should have user id'));
+          axios.get('/getUserInfo', {params: {username: this.props.profile.nickname}})
+          .then((res) => {
+            axios.get('/allProjectsByUser', {params: {userid: Number(res.data)}})
+            .then((res) => {
+              this.props.fetchProjects(res.data);
+            })
+            .catch(err => {
+              console.log(err);
+            })
+          })
 
           this.props.history.push('/dashboard')
        });
@@ -46,7 +55,7 @@ class Spinner extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({storeProfile}, dispatch);
+  return bindActionCreators({storeProfile, fetchProjects}, dispatch);
 }
 function mapStateToProps(state) {
   return {profile: state.tasks.profile};

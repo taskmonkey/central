@@ -8,14 +8,23 @@ const Sequelize = require('sequelize');
 
 /*
 
+<<<<<<< HEAD
   1. Hit "/getUserInfo" route to get needed user data like id
 
-  2. Hit "/allProjectsByUser" with an object like {params: {id: "user id"}} where inside 'user id' goes an integer. 
+  2. Hit "/allProjectsByUser" with an object like {params: {id: "user id"}} where inside 'user id' goes an integer.
     this gives back data to all of the root tasks
 
 
 
-  
+
+=======
+  GENERAL REQUEST STANDARDS
+  taskid:
+  if request includes a taskid give the req object have a key value pair taskid: 'your taskid here'
+
+  userid:
+  if request includes userid, then object includes userid: 'your userid here'
+>>>>>>> Changes on router/server
 
 */
 
@@ -39,16 +48,15 @@ router.get('/entireTasks', (req, res) =>{
 // gives back id of given user
 
 router.get('/getUserInfo', (req, res) => {
-  
-  
+
+
   users.getUserInfo(res, req.query);
 });
 
 
 //{userid: ''}
 router.get('/allProjectsByUser', (req, res) => {
-  console.log(req.query);
-  console.log('all projects by user');
+
   users.allProjectsByUser(res, req.query);
 })
 
@@ -60,13 +68,25 @@ router.get('/node_modules/auth0-js/build/auth0.js', (req, res) => {
 });
 
 router.get('/dashboard', (req, res) => {
+
   console.log('dashy');
 })
 
 
+
+// router.get('/allTheData', (req, res) => {
+//   // inside the axios request package the nickname in {params: }
+
+
+
+// });
+
+
+
 router.post('/addProject', (req, res) => {
+
   tasks.createNewProject(res, req.body);
-  
+
 });
 
 router.post('/addTask', (req, res)=>{
@@ -81,27 +101,39 @@ router.get('/allTasksByUser', (req, res)=> {
 });
 
 
+
 //pass in userid
 router.get('/allOpenTasksOfUser', (req, res) => {
- 
+
   users.openTasksOfUser(res, req.query);
 });
 
 
-router.get('/allChildTasks/:id', (req,res)=>{
-  //this should query FOR All Child Tasks
-  tasks.findAllChildTasks(res, req.params);
+
+//pass in userid
+router.get('/allOpenTasksOfUser', (req, res) => {
+  console.log(req.query);
+
+  users.openTasksOfUser(res, req.query);
+});
+
+
+//given a project id
+// Only gives back children. WON'T GIVE BACK THE ACTUAL PROJECT
+router.get('/allChildTasks', (req,res)=>{
+
+  tasks.findAllChildTasks(res, req.query);
 });
 
 
 router.get('/allUsersInProject', (req, res)=>{
   //this should query FOR ALL USERS IN OUR DATABASE
-  
+
 
 });
 
 router.get('/allRelationalTasks', (req, res) =>{
-  //this should bring back all users and  the tasks that each user owns 
+  //this should bring back all users and  the tasks that each user owns
 
 });
 

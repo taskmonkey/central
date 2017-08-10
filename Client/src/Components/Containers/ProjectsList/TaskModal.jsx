@@ -25,15 +25,15 @@ export default (props) => {
               </div>
               <div className="form-group">
                 <label htmlFor="description">Task description</label>
-                <textarea className="form-control" id="description" rows="3" name="description" id="description" placeholder="please enter a description" onChange={props.handleChange}></textarea> 
+                <textarea className="form-control" id="description" rows="3" name="description" id="description" placeholder="please enter a description" onChange={props.handleChange}></textarea>
               </div>
             </form>
         </div>
       </Modal.Body>
       <Modal.Footer>
-        <Button bsStyle="info" onClick={(e)=> {e.preventDefault(); props.handleTaskForm(nameForm.value, taskForm.value, description.value); props.toggleModal()}}>Create Task</Button> 
+        <Button bsStyle="info" onClick={(e)=> {e.preventDefault(); props.handleTaskForm(nameForm.value, taskForm.value, description.value); props.toggleModal()}}>Create Task</Button>
         <Button bsStyle="danger" onClick={props.toggleModal}>Close</Button>
       </Modal.Footer>
-    </Modal> 
+    </Modal>
   )
 }
