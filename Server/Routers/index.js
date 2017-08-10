@@ -27,6 +27,9 @@ router.get('/entireUsersTasks', (req, res) => {
   users_tasks.getTable(res);
 })
 
+router.get('/entireTasks', (req, res) =>{
+  tasks.allTasks(res);
+})
 
 // {username: ''}
 // gives back id, us

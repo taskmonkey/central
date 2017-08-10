@@ -9,7 +9,7 @@ import TasksDetails from './Components/Containers/TasksDetails/TasksDetails.jsx'
 import TaskForm from './Components/Containers/TasksList/TaskForm.jsx';
 import axios from 'axios';
 import {connect} from 'react-redux'
-import {getTasks} from './Actions/index.js'
+import {getUsersTasks, getAllTasks} from './Actions/index.js'
 import {bindActionCreators} from 'redux'
 
 const mapStateToProps = (state) =>{
@@ -17,7 +17,7 @@ const mapStateToProps = (state) =>{
   return {}
 }
 const mapDispathToProps = (dispatch) => {
-  return bindActionCreators({getTasks}, dispatch)  
+  return bindActionCreators({getUsersTasks, getAllTasks}, dispatch)  
 }
 
 class Main extends Component {
@@ -32,10 +32,15 @@ class Main extends Component {
     axios.get('http://localhost:3000/entireUsersTasks')
       .then(result => {
         console.log(result.data)
-        this.props.getTasks(result.data)
+        this.props.getUsersTasks(result.data)
       })
       .catch(err => {
         console.log(err)
+      })
+    axios.get('http://localhost:3000/entireTasks')
+      .then(result =>{
+        console.log('this is the tasks table', result.data)
+        this.props.getAllTasks(result.data)
       })
   }
 
