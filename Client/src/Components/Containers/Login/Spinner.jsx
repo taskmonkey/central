@@ -20,7 +20,7 @@ class Spinner extends Component {
       } else {
         this.props.history.push('/login')
       }
-    }, 500)
+    }, 750)
   }
 
   render() {
