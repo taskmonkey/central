@@ -5,14 +5,34 @@ import PieGraph from './PieChart.jsx'
 import BarGraph from './BarChart.jsx'
 import NavTask from './NavTask.jsx'
 import Auth from '../../../Auth/Auth.js'
+import {connect} from 'react-redux'
+import {getUsersTasks, getAllTasks, findAllTasksOfUser, getAllUsers} from '../../../Actions/index.js'
+import {bindActionCreators} from 'redux'
+
+
+
+const mapStateToProps = (state) =>{
+  //console.log('this is the state in main DASHBOARD', state)
+  
+  return {
+    allTasks: state.tasks.allTasks,
+    allUsers: state.tasks.allUsers,
+    allTasksUsers: state.tasks.usersTasks
+  }
+}
+const mapDispathToProps = (dispatch) => {
+  return bindActionCreators({getUsersTasks, getAllTasks, findAllTasksOfUser, getAllUsers}, dispatch)  
+}
+
 
 class Dashboard extends Component{
   constructor(props) {
     super(props)
     this.state = {
-      auth: new Auth(),
+      auth: new Auth()
     }
   }
+  
   render() {
     return(
       <div className="dashboard-container">
@@ -33,7 +53,7 @@ class Dashboard extends Component{
 					<div className="graph-container">
 						<h3>HRLA16</h3>
             <hr></hr>
-          	  <BarGraph />
+          	  <BarGraph allTasks={this.props.allTasks} allTasksUsers={this.props.allTasksUsers} allUsers={this.props.allUsers}/>
 						<h3>Sprints</h3>
             <hr></hr>
 						<div className="row">
@@ -50,4 +70,4 @@ class Dashboard extends Component{
 }
 
 //export default connect(mapStateToProps, mapDispathToProps)(Dashboard)
-export default withRouter(Dashboard);
+export default connect(mapStateToProps, mapDispathToProps)(Dashboard)

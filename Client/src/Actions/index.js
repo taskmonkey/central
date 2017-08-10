@@ -10,6 +10,8 @@ export const CREATE_TASK = 'CREATE_TASK'
 export const GET_TASKS = 'GET_TASKS'
 export const GET_ALL_TASKS = 'GET_ALL_TASKS'
 export const GET_USERS_TASKS = 'GET_USERS_TASKS'
+export const FIND_ALL_TASKS_OF_USERS = 'FIND_ALL_TASKS_OF_USERS'
+export const GET_ALL_USERS = 'GET_ALL_USERS'
 
 
 export function fetchTasks() {
@@ -28,7 +30,7 @@ export function createTask(task) {
 }
 
 export function getUsersTasks(info){
-  
+  //console.log('this is the getAllUsersTasks', info)
   return {
     type: GET_USERS_TASKS,
     payload: info
@@ -36,9 +38,25 @@ export function getUsersTasks(info){
 }
 
 export function getAllTasks(info){
-  console.log('this is in the getalltasks action', info)
+  //console.log('this is in the getalltasks action', info)
   return {
     type: GET_ALL_TASKS,
+    payload: info
+  }
+}
+
+export function findAllTasksOfUser(info){
+  //console.log('this is the findAllTasksOfUser', info)
+  return {
+    type: FIND_ALL_TASKS_OF_USERS,
+    payload: info 
+  }
+}
+
+export function getAllUsers(info){
+  //console.log('this is working')
+  return {
+    type: GET_ALL_USERS,
     payload: info
   }
 }
