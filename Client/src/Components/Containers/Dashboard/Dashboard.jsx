@@ -55,7 +55,7 @@ const mapStateToProps = (state) =>{
     mappedUsersAndTasks : mapUserstoAllTasks(state.tasks.allTasks, state.tasks.allUsers, state.tasks.usersTasks)
   }
 }
-const mapDispathToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({getTasksByLoggedInUser}, dispatch)
 }
 
@@ -107,4 +107,4 @@ class Dashboard extends Component{
 }
 
 //export default connect(mapStateToProps, mapDispathToProps)(Dashboard)
-export default connect(mapStateToProps, mapDispathToProps)(Dashboard)
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)

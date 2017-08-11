@@ -34,7 +34,7 @@ class Spinner extends Component {
               this.props.fetchProjects(result.data);
               axios.get('/allOpenTasksOfUser', {params: {userid: Number(res.data)}})
               .then((data)=>{
-                // console.log(data.data)
+                console.log(data.data)
                 this.props.getTasksByLoggedInUser(data.data)
               })
             })

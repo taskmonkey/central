@@ -19,7 +19,6 @@ import { stack } from 'react-icons-kit/icomoon/stack';
 import { quill } from 'react-icons-kit/icomoon/quill';
 import { bell } from 'react-icons-kit/icomoon/bell';
 import { database } from 'react-icons-kit/icomoon/database';
-
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {fetchTasks} from '../../../Actions/index.js';
@@ -111,7 +110,29 @@ const SideNavWithAlerts = (props) =>
             <NavText> My Tasks </NavText>
             <Nav id="dashboard2">
                 <NavIcon><Icon20 size={16} icon={quill} /></NavIcon>
-                <NavText><Link to="/myTasks"> Tasks </Link> </NavText>
+                <NavText><Link to="/myTasks"> <span style={{ paddingRight: 6 }}>Tasks</span>{' '}</Link> <span
+                    style={{
+                        textAlign: 'center',
+                        lineHeight: '16px',
+                        height: 16,
+                        width: 16,
+                        margin: '0 auto',
+                        borderRadius: '50%',
+                        fontSize: 9,
+                        display: 'inline-block',
+                        color: '#FFF',
+                        background: '#36bbea',
+                        fontFamily: 'Lato'
+
+                    }}
+                >
+          {props.Tasks}
+                </span>
+                
+                
+                
+                </NavText>
+                
             </Nav>
             <Nav
                 id="sales2"
@@ -145,6 +166,7 @@ const SideNavWithAlerts = (props) =>
 
 class NavTask extends React.Component {
     render() {
+
     
         return (
             <div className="sideBar">
@@ -184,7 +206,7 @@ class NavTask extends React.Component {
                             <div style={{ fontSize: 11,  color: '#E5E5E5' }}> Software Engineer </div>
                         </div>
                     </div>
-                    <SideNavWithAlerts Projects = {this.props.projects.length}/>
+                    <SideNavWithAlerts Projects = {this.props.projects.length} Tasks={this.props.tasks.length}/>
                 </BaseContainer>
                 <Separator />
                 <BaseContainer
@@ -203,7 +225,8 @@ class NavTask extends React.Component {
 }
 
 function mapStateToProps(state) {
-  return { projects: state.tasks.allProjects }
+  //console.log(state)
+  return { projects: state.tasks.allProjects, tasks:state.tasks.tasksByLoggedInUser }
 }
 
 export default connect(mapStateToProps)(NavTask);

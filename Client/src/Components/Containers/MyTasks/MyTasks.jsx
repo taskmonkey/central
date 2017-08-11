@@ -5,10 +5,29 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {fetchTasks} from '../../../Actions/index.js';
 import NavTask from '../Dashboard/NavTask.jsx';
+import {getTasksByLoggedInUser} from '../../../Actions/index.js'
+import MyTasksComponent from './OpenTasks.jsx';
 
-export default class MyTasks extends Component{
 
+
+const mapStateToProps = (state) =>{
+  console.log(state)
+  //console.log('this is the state in main DASHBOARD', state)
+  return {
+    tasksByUser: state.tasks.tasksByLoggedInUser
+  }
+}
+const mapDispatchToProps = (dispatch) => {
+  return {}
+} 
+
+
+class MyTasks extends Component{
+  constructor(props){
+    super(props)
+  }
   render() {
+    console.log(this.props, 'this is the mytasks page')
     return(
       <div className="dashboard-container">
         <div className="left-col">
@@ -23,7 +42,12 @@ export default class MyTasks extends Component{
 					</div>
           <div className="tasksListContainer">
             <div>
-              
+              <h3>Task Descriptions</h3>
+              {
+                this.props.tasksByUser.map(task => 
+                  <MyTasksComponent task={task}/>
+                )
+              } 
             </div>
           </div>
         </div>
@@ -31,3 +55,4 @@ export default class MyTasks extends Component{
     )
   }
 }
+export default connect(mapStateToProps, mapDispatchToProps)(MyTasks)
