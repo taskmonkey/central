@@ -33,18 +33,21 @@ createNewProject = (clientResponse, taskObj) => {
             responseObject.failure = [];
             let assignees = parsedAssignees.length;
             let count = 0;
+  
             parsedAssignees.forEach(id => {
                 let temp = {};
                 temp.username = id;            
                 temp.taskid = resp.insertId;
-                console.log(temp);
+
                 giveUserNewTask(temp, () => {
+ 
                     count++;
                     responseObject.success.push(id);
                     if (count === assignees) {
                         clientResponse.send(responseObject);
                     }
                 },() => {
+                    console.log(id, 'id on fake person');
                     count++;
                     responseObject.failure.push(id);
                     if(count === assignees) {
@@ -64,7 +67,7 @@ createNewProject = (clientResponse, taskObj) => {
 
 giveUserNewTask = (userTaskObj, cb, failcb) => {
     db.query("select users.id from users WHERE users.username = ?", [userTaskObj.username], (err, resp) => {
-        if (resp) {
+        if (resp && resp.length) {
             db.query("insert into users_tasks (user_id, tasks_id) VALUES (?, ?)", [resp[0].id, userTaskObj.taskid], (err, response) => {
                 cb();
             });
@@ -74,20 +77,6 @@ giveUserNewTask = (userTaskObj, cb, failcb) => {
         }
     });
 }
-
-// let sanitize = [userTaskObj.userid, userTaskObj.taskid];
-//     let sql = `INSERT INTO users_tasks (user_id, task_id) VALUES (?, ?)`;
-//     db.query(`select * from users_tasks where user_id = ?`, [userTaskObj.userid], (err, res) => {
-//         if (res) {
-//             db.query(sql, sanitize, (err, resp) => {
-                
-//                 clientResponse.send(resp.insertId);
-//             });
-//         } else {
-//             clientResponse.end();
-//         }
-
-//     });
 
 createNewTask = (clientResponse, taskObj) => {
     let temp = [taskObj.name, taskObj.budget_hours, taskObj.owner, taskObj.parentid];
@@ -109,6 +98,7 @@ updateActualHours = (clientResponse, hoursObj) => {
 
 
 findAllChildTasks = (clientResponse, taskObj) => {
+
     let sql = `select  id, name, description, parentid, budget_hours, actual_hours, owner, status
 from    (select * from tasks
          order by parentid, id) tasks_sorted,
@@ -117,8 +107,12 @@ where   find_in_set(parentid, @pv) > 0
 and     @pv := concat(@pv, ',', id);`;
 
     db.query(sql, (err, resp) => {
-        
-        clientResponse.send(getNestedChildren(resp, taskObj.taskid));
+        let temp = getNestedChildren(resp, taskObj.taskid);
+        budgetVsActual(null, taskObj, (totals) => {
+            console.log(totals);
+            temp.push(totals);
+            clientResponse.send(temp);
+        });
     });
 };
 
@@ -152,15 +146,26 @@ totalBudget = (clientResponse, taskObj) => {
     });
 };
 
-budgetVsActual = (clientResponse, taskObj) => {
+budgetVsActual = (clientResponse, taskObj, cb) => {
     //Should only be called when task complete
-     let sql = `select  id, name, parentid, budget_hours, actual_hours
+     let sql = `select  SUM(budget_hours) as budgetTotal, SUM(actual_hours) as actualTotal
 from    (select * from tasks
          order by parentid, id) tasks_sorted,
-        (select @pv := '${taskObj.taskid}')temp
-where   find_in_set(parentid, @pv) > 0 
-and     @pv := concat(@pv, ',', id);`;
+        (select @root := '${taskObj.taskid}')temp
+where   find_in_set(parentid, @root) > 0 
+and     @root := concat(@root, ',', id)`;
+    db.query(sql, (err, resp) => {
+        if(cb) {
+            cb(resp[0]);
+        } else {
+            clientResponse.send(resp[0]);
+
+        }
+
+        
+    })
 };
+
 module.exports = {
     createNewProject: createNewProject,
     createNewTask: createNewTask,
@@ -169,6 +174,7 @@ module.exports = {
     markTaskAsComplete: markTaskAsComplete ,
     markTaskAsInProgress: markTaskAsInProgress,
     deleteTask: deleteTask,
-    allTasks: allTasks
+    allTasks: allTasks,
+    budgetVsActual: budgetVsActual
 
 }

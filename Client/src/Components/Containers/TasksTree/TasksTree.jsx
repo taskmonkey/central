@@ -10,19 +10,44 @@ class TasksTree extends Component{
   constructor() {
     super()
     this.state = {
-      userProfilePeekName: '',
+      taskName: '',
+      taskDescription: '',
+      taskBudget_hours: ''
     }
     this.onNodeClick = this.onNodeClick.bind(this);
+    this.traverseTree = this.traverseTree.bind(this);
   }
 
   onNodeClick(nodeKey) {
+    let node = this.traverseTree(nodeKey, this.props.tree);
     this.setState({
-      userProfilePeekName: nodeKey,
+      taskName: node.name,
+      taskDescription: node.description,
+      taskBudget_hours: 'Budget hours:  ' + node.budget_hours.toString()
+      
     })
   }
-
+  traverseTree(id, node) {
+    if(node.id === id) {
+      return node;
+    } else {
+      if(node.children) {
+        for(var i = 0; i < node.children.length; i++) {
+          let route = this.traverseTree(id, node.children[i]);
+          if(route){
+            return route;
+          }
+        }
+      }
+    }
+  }
   render() {
-
+    let budget = '';
+    let actual = ''
+    if(this.props.tree.timeAlloted){
+      budget = "total budgeted hours: " + this.props.tree.timeAlloted[0];
+      actual = "total actual hours: " + this.props.tree.timeAlloted[1];
+    }
     return(
       <div>
         <div className="dashboard-container">
@@ -44,7 +69,11 @@ class TasksTree extends Component{
               animated
               duration={500}
               treeClassName="custom"
+              keyProp='id'
+              labelProp = 'name'
+              
               nodeClickHandler={this.onNodeClick}
+
               />
             </div>
           </div>
@@ -52,8 +81,17 @@ class TasksTree extends Component{
             <div className="userProfilePeekCircle">
               <img className="userProfilePeekCirclePic" src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"/>
             </div>
+            
             <div className="userProfilePeekNameContainer">
-              <div className="userProfilePeekName">{this.state.userProfilePeekName}</div>
+              <div>
+              {budget}
+              </div>
+              <div>
+                {actual}
+                </div>
+              <div className="userProfilePeekName">{this.state.taskName}</div>
+              <div>{this.state.taskDescription}</div>
+              <div>{this.state.taskBudget_hours}</div>
             </div>
           </div>
         </div>
