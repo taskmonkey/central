@@ -2,6 +2,20 @@ const db = require('./dbconnection.js');
 const users_tasks = require('./users_tasks.js');
 
 
+const getNestedChildren = (arr, parent, index = 0) => {
+    let nested = [];
+    for(let i = index; i < arr.length; i++) {
+        if(arr[i].parentid == parent) {
+            let children = getNestedChildren(arr, arr[i].id, index + 1);
+            if(children.length) {
+                arr[i].children = children
+            }
+            nested.push(arr[i])
+        }
+    }
+    return nested;
+};
+
 allTasks = (clientResponse) => {
     db.query("SELECT * FROM tasks", (err, resp) => {
         clientResponse.send(resp);
@@ -103,7 +117,8 @@ where   find_in_set(parentid, @pv) > 0
 and     @pv := concat(@pv, ',', id);`;
 
     db.query(sql, (err, resp) => {
-        clientResponse.send(resp);
+        
+        clientResponse.send(getNestedChildren(resp, taskObj.taskid));
     });
 };
 

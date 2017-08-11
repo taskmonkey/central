@@ -8,7 +8,6 @@ const Sequelize = require('sequelize');
 
 /*
 
-<<<<<<< HEAD
   1. Hit "/getUserInfo" route to get needed user data like id
 
   2. Hit "/allProjectsByUser" with an object like {params: {id: "user id"}} where inside 'user id' goes an integer.
@@ -17,14 +16,12 @@ const Sequelize = require('sequelize');
 
 
 
-=======
   GENERAL REQUEST STANDARDS
   taskid:
   if request includes a taskid give the req object have a key value pair taskid: 'your taskid here'
 
   userid:
   if request includes userid, then object includes userid: 'your userid here'
->>>>>>> Changes on router/server
 
 */
 

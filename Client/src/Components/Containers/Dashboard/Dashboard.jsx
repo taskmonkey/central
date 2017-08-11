@@ -31,7 +31,7 @@ class Dashboard extends Component{
       auth: new Auth()
     }
   }
-
+  
   render() {
     return(
       <div className="dashboard-container">

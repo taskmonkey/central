@@ -1,6 +1,7 @@
 const db = require('./dbconnection.js');
 
 
+
 allUsers = (clientResponse) => {
     db.query("SELECT * FROM users", (err, resp) => {
         clientResponse.send(resp);
@@ -59,7 +60,7 @@ allProjectsByUser = (clientResponse, userObj) => {
 
     db.query(sql, (err, resp) => {
         //console.log(resp);
-        if(resp.length) {
+        if (resp && resp.length) {
         var amountofTasks = resp.length;
         var count = 0;
         var projList = [];
@@ -131,6 +132,8 @@ openTasksOfUser = (clientResponse, userObj) => {
         clientResponse.send(resp);
     })
 };
+
+
 
 module.exports = {
     createNewUser: createNewUser,
