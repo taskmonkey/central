@@ -17,7 +17,6 @@ class ProjectsListItem extends Component {
       let tree = this.props.projectsListItem;
       tree.children = resp.data;
       tree.timeAlloted = [tree.budget_hours + totals.budgetTotal, tree.actual_hours + totals.actualTotal];
-      console.log(tree,' what a tree');
       this.props.projectTree(tree);
     })
   }
