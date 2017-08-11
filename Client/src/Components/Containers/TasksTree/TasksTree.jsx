@@ -32,6 +32,7 @@ class TasksTree extends Component{
 
   onNodeClick(nodeKey) {
     let node = this.traverseTree(nodeKey, this.props.tree);
+  
     this.setState({
       taskName: node.name,
       taskDescription: node.description,
