@@ -3,8 +3,8 @@ import { Button, Modal } from 'react-bootstrap';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {createTask, fetchTasks} from '../../../Actions/index.js';
-import MyModal from '../ProjectsList/TaskModal.jsx';
+import {createProject} from '../../../Actions/index.js';
+import MyModal from '../ProjectsList/ProjectModal.jsx';
 
 class TaskForm extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class TaskForm extends Component {
     };
     //function binding
     this.handleChange = this.handleChange.bind(this);
-    this.handleTaskForm = this.handleTaskForm.bind(this);
+    this.handleProjectForm = this.handleProjectForm.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
   }
   toggleModal(){
@@ -48,7 +48,7 @@ class TaskForm extends Component {
           toggleModal={this.toggleModal}
           showModal={this.state.showModal}
           handleChange = {this.handleChange}
-          handleTaskForm = {this.handleTaskForm}
+          handleProjectForm = {this.handleProjectForm}
         />
       </div>
     );

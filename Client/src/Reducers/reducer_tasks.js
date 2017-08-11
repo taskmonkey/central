@@ -1,4 +1,4 @@
-import { FETCH_PROJECTS, CREATE_TASK, GET_USERS_TASKS, GET_ALL_TASKS, FIND_ALL_TASKS_OF_USERS, GET_ALL_USERS, STORE_PROFILE, PROJECT_TREE, GET_TASKS_BY_LOGGED_IN_USER } from '../Actions/index';
+import { FETCH_PROJECTS, CREATE_TASK, GET_USERS_TASKS, GET_ALL_TASKS, FIND_ALL_TASKS_OF_USERS, GET_ALL_USERS, STORE_PROFILE, PROJECT_TREE, GET_TASKS_BY_LOGGED_IN_USER, CREATE_PROJECT } from '../Actions/index';
 
 const INITIAL_STATE = { allTasks: [], usersTasks: [], allTasksByUsers: [], allUsers: [], profile: {}, task: null, allProjects: [], projectTree: {}, tasksByLoggedInUser: [] };
 
@@ -7,6 +7,8 @@ export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
   case FETCH_PROJECTS:
     return Object.assign({}, state, {allProjects: action.payload});
+  case CREATE_PROJECT:
+    return Object.assign({}, state, {allProjects: [...state.allProjects, action.payload]});
   case CREATE_TASK:
     return Object.assign({}, state, {allTasks: [...state.allTasks, action.payload]});
   case GET_USERS_TASKS:

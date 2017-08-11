@@ -28,9 +28,9 @@ class TaskForm extends Component {
     console.log(e.target.name, nameForm.value);
   }
   
-  handleTaskForm(nameVal, categoryVal, contentVal) {
+  handleTaskForm(nameVal, assigneeVal, budgetHoursVal, descriptionVal) {
     // e.preventDefault();
-    axios.post('http://reduxblog.herokuapp.com/api/posts?key=taskmon', {name: nameVal, categories: categoryVal, content: contentVal})
+    axios.post('/addProject',{params: {name: nameVal, assignees: [assigneeVal], budgetHours: budgetHoursVal, description: descriptionVal, owner: 4}})
       .then(res => {
         console.log('here is the post res', res);
         this.props.createTask(res);

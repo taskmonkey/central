@@ -1,10 +1,15 @@
 import React, {Component} from 'react';
+import axios from 'axios';
+import { Button, Modal } from 'react-bootstrap';
 import {render} from 'react-dom';
 import {Redirect, Link, withRouter} from 'react-router-dom';
 import Tree from 'react-tree-graph';
 import $ from 'jquery';
 import NavTask from '../Dashboard/NavTask.jsx';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {createTask} from '../../../Actions/index.js';
+import MyModal from './TaskModal.jsx';
 
 class TasksTree extends Component{
   constructor() {
@@ -12,10 +17,16 @@ class TasksTree extends Component{
     this.state = {
       taskName: '',
       taskDescription: '',
-      taskBudget_hours: ''
+      taskBudget_hours: '',
+      userProfilePeekName: '',
+      showModal: false
     }
     this.onNodeClick = this.onNodeClick.bind(this);
     this.traverseTree = this.traverseTree.bind(this);
+    this.onNodeClick = this.onNodeClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleTaskForm = this.handleTaskForm.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
   }
 
   onNodeClick(nodeKey) {
@@ -41,6 +52,30 @@ class TasksTree extends Component{
       }
     }
   }
+
+  toggleModal(){
+    this.setState({
+        showModal: !this.state.showModal
+    });
+  }
+
+  handleChange(e) {
+    e.preventDefault();
+    console.log(e.target.name, taskForm.value);
+  }
+  
+  handleTaskForm(nameVal, assigneeVal, budgetHoursVal, descriptionVal) {
+    // e.preventDefault();
+    axios.post('/addProject',{params: {name: nameVal, assignees: [assigneeVal], budgetHours: budgetHoursVal, description: descriptionVal, owner: 4}})
+      .then(res => {
+        console.log('here is the post res', res);
+        this.props.createTask(res);
+      })
+      .catch(err => {
+        console.log('error in the post', err);
+      });
+  }
+
   render() {
     let budget = '';
     let actual = ''
@@ -93,6 +128,15 @@ class TasksTree extends Component{
               <div>{this.state.taskDescription}</div>
               <div>{this.state.taskBudget_hours}</div>
             </div>
+            <div>
+              <Button bsStyle="success" onClick={this.toggleModal}>Add Task</Button>
+              <MyModal
+                toggleModal={this.toggleModal}
+                showModal={this.state.showModal}
+                handleChange = {this.handleChange}
+                handleTaskForm = {this.handleTaskForm}
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -100,10 +144,13 @@ class TasksTree extends Component{
   }
 }
 
-
-function mapStateToProps(state) {
-  return { tree: state.tasks.projectTree }
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({createTask}, dispatch);
 }
 
-export default connect(mapStateToProps)(TasksTree);
+function mapStateToProps(state) {
+  return {tree: state.tasks.projectTree}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TasksTree);
 
