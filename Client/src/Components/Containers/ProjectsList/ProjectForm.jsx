@@ -25,19 +25,14 @@ class ProjectForm extends Component {
 
   handleChange(e) {
     e.preventDefault();
-    console.log(e.target.name, e.target.value);
-    console.log(e.target.name, 'type: ', typeof e.target.value);
-
   }
 
   handleProjectForm(nameVal, assigneeVal, budgetHoursVal, descriptionVal) {
     var newAssigneeVals = assigneeVal.split(' ');
     if (Number(budgetHoursVal) == budgetHoursVal) {
-      axios.post('/addProject', {name: nameVal, assignees: newAssigneeVals, budget_hours: budgetHoursVal, description: descriptionVal, owner: this.props.storeProfile})
+      axios.post('/addProject', {name: nameVal, assignees: newAssigneeVals, budget_hours: budgetHoursVal, description: descriptionVal, owner: this.props.storeProfile.userid})
       .then(res => {
-        var dataName = JSON.parse(res.config.data);
-        console.log('here is the post res', dataName.name);
-        // this.props.createProject(res.data.task);
+        this.props.createProject(res.data.task);
       })
       .then(()=> {
         this.toggleModal();
@@ -73,7 +68,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  return {tasks: state.tasks.allTasks, storeProfile: state.tasks.storeProfile}
+  return {projects: state.tasks.allProjects, storeProfile: state.tasks.profile}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProjectForm);
