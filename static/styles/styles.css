@@ -1,14 +1,15 @@
 
 .spinnerContainer {
 	text-align: center;
-	margin-top: 15%
+	margin-top: 15%;
 }
 
 div.custom-container {
 	background-color: white;
+	overflow-x: scroll;
 	border-right: solid;
 	border-color: #353942;
-	padding-left: 30px;
+	padding-left: 30px;x`
 }
 
 svg.custom .node circle {
@@ -290,15 +291,15 @@ svg.custom path.link {
 
 .jumbotron {
 
-	background: url("http://blog.hubstaff.com/wp-content/uploads/2017/07/the-10-best-business-task-manager-apps2.png") no-repeat center; 
+	background: url("http://blog.hubstaff.com/wp-content/uploads/2017/07/the-10-best-business-task-manager-apps2.png") no-repeat center;
 	min-height:600px;
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
-	background: #FFF;  
+	background: #FFF;
 	text-align: center;
 	font-family: 'Lato', sans-serif;
 	margin: 0;
-	box-shadow: 0px 10px 20px -5px rgba(0,0,0,.8); 
+	box-shadow: 0px 10px 20px -5px rgba(0,0,0,.8);
 }
 
 .jumbotron h1 {

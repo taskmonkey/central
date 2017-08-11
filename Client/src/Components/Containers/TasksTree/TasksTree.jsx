@@ -168,5 +168,9 @@ function mapStateToProps(state) {
   return {tree: state.tasks.projectTree, storeProfile: state.tasks.profile}
 }
 
+<<<<<<< HEAD
 export default connect(mapStateToProps, mapDispatchToProps)(TasksTree);
 
+=======
+export default connect(mapStateToProps)(TasksTree);
+>>>>>>> Xander rebase
