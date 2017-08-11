@@ -1,6 +1,6 @@
-import { FETCH_PROJECTS, CREATE_TASK, GET_USERS_TASKS, GET_ALL_TASKS, FIND_ALL_TASKS_OF_USERS, GET_ALL_USERS, STORE_PROFILE, PROJECT_TREE } from '../Actions/index';
+import { FETCH_PROJECTS, CREATE_TASK, GET_USERS_TASKS, GET_ALL_TASKS, FIND_ALL_TASKS_OF_USERS, GET_ALL_USERS, STORE_PROFILE, PROJECT_TREE, GET_TASKS_BY_LOGGED_IN_USER } from '../Actions/index';
 
-const INITIAL_STATE = { allTasks: [], usersTasks: [], allTasksByUsers: [], allUsers: [], profile: {}, task: null, allProjects: [], projectTree: {} };
+const INITIAL_STATE = { allTasks: [], usersTasks: [], allTasksByUsers: [], allUsers: [], profile: {}, task: null, allProjects: [], projectTree: {}, tasksByLoggedInUser: [] };
 
 export default function(state = INITIAL_STATE, action) {
   //console.log('this is the reducer', action)
@@ -21,6 +21,8 @@ export default function(state = INITIAL_STATE, action) {
     return Object.assign({}, state, {profile: action.payload});
   case PROJECT_TREE:
     return Object.assign({}, state, {projectTree: action.payload});
+  case GET_TASKS_BY_LOGGED_IN_USER:
+    return Object.assign({}, state, {tasksByLoggedInUser: action.payload});
   default:
     return state;
   }

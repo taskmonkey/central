@@ -6,12 +6,12 @@ import BarGraph from './BarChart.jsx'
 import NavTask from './NavTask.jsx'
 import Auth from '../../../Auth/Auth.js'
 import {connect} from 'react-redux'
-import {getUsersTasks, getAllTasks, findAllTasksOfUser, getAllUsers} from '../../../Actions/index.js'
+import {getTasksByLoggedInUser} from '../../../Actions/index.js'
 import {bindActionCreators} from 'redux'
 
 const mapUserstoAllTasks = (allTasks, allUsers, usersTasks) =>{
-  console.log(allTasks, 'this is the all tasks')
-  console.log(allUsers)
+  // console.log(allTasks, 'this is the all tasks')
+  // console.log(allUsers)
   let userObjects = []
   let taskObjects = []
   let lookUpObject = {}
@@ -30,17 +30,19 @@ const mapUserstoAllTasks = (allTasks, allUsers, usersTasks) =>{
     lookUpObject[i] = allTasks[i]
   }
   for (let i = 0; i < usersTasks.length; i++){
-    usersTasks[i]['status'] = lookUpObject[usersTasks[i].tasks_id -1].status
+    usersTasks[i]['status'] = lookUpObject[usersTasks[i].tasks_id - 1].status
+    usersTasks[i]['description'] = lookUpObject[usersTasks[i].tasks_id - 1].description
   }
-  console.log(lookUpObject, 'this is the lookupObject')
-  console.log(usersTasks, 'this is the usersTasks')
-  console.log(allTasks, 'alltasks')
-  console.log(allUsers, 'allusers')
+  for (let i= 0; i < usersTasks.length; i++){
+    if (usersTasks[i].status === -1){
+      userObjects[usersTasks[i].user_id -1].incomplete++
+    }
+    if (usersTasks[i].status === 1){
+      userObjects[usersTasks[i].user_id -1].completed++
+    }
+  }
+  return userObjects;
   // console.log(lookUpObject, 'this is the new object')
-  
-}
-
-const getIncompleteVsComplete= (owner, tasksArray) => {
   
 }
 
@@ -54,10 +56,8 @@ const mapStateToProps = (state) =>{
   }
 }
 const mapDispathToProps = (dispatch) => {
-  return bindActionCreators({getUsersTasks, getAllTasks, findAllTasksOfUser, getAllUsers}, dispatch)
+  return bindActionCreators({getTasksByLoggedInUser}, dispatch)
 }
-
-
 
 
 class Dashboard extends Component{
@@ -68,11 +68,11 @@ class Dashboard extends Component{
       // barchart: []
     }
   }
-  
   render() {
     return(
       <div className="dashboard-container">
         <div className="left-col">
+        <Link to="/login"><button className="logoutButton" onClick={this.state.auth.logout}>Logout</button></Link>
 					<div className="app-title">
 						<h1>Task Mon</h1>
 					</div>
@@ -84,13 +84,13 @@ class Dashboard extends Component{
         <div className="right-col">
 					<div className="dashboard-title">
 						<h1 className="pull-left">Dashboard</h1>
-            <Link to="/login"><button className="logoutButton" onClick={this.state.auth.logout}>Logout</button></Link>
 					</div>
+          <Link to="/login"><button className="logoutButton" onClick={this.state.auth.logout}>Logout</button></Link>
 					<div className="graph-container">
 						<h3>HRLA16</h3>
             <hr></hr>
             <BarGraph allTasksAndUsers={this.props.mappedUsersAndTasks} allTasksUsers={this.props.allTasksUsers} allUsers={this.props.allUsers}/>
-          	  
+          	  <Link to="/login"><button className="logoutButton" onClick={this.state.auth.logout}>Logout</button></Link>
 						<h3>Sprints</h3>
             <hr></hr>
 						<div className="row">

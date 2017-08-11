@@ -9,13 +9,15 @@ import TasksTree from './Components/Containers/TasksTree/TasksTree.jsx';
 import TasksDetails from './Components/Containers/TasksDetails/TasksDetails.jsx';
 import TaskForm from './Components/Containers/ProjectsList/TaskForm.jsx';
 import Spinner from './Components/Containers/Login/Spinner.jsx';
+import MyTasks from './Components/Containers/MyTasks/MyTasks.jsx'
 import axios from 'axios';
 import {connect} from 'react-redux'
 import {getUsersTasks, getAllTasks, findAllTasksOfUser, getAllUsers} from './Actions/index.js'
 import {bindActionCreators} from 'redux'
 
+
 const mapStateToProps = (state) =>{
-  //console.log('this is the state in main', state)
+  
   return {}
 }
 const mapDispathToProps = (dispatch) => {
@@ -70,6 +72,7 @@ class Main extends Component {
           <Route exact path="/" component={Spinner}/>
           <Route exact path="/login" component={Login}/>
           <Route exact path="/dashboard" component={Dashboard}/>
+          <Route exact path="/myTasks" component={MyTasks}/>
           <Route exact path="/projectsList" component={ProjectsList}/>
           <Route exact path="/users" component={UserList}/>
           <Route exact path="/tasksTree" component={TasksTree}/>

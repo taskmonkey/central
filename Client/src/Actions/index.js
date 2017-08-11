@@ -14,6 +14,7 @@ export const FIND_ALL_TASKS_OF_USERS = 'FIND_ALL_TASKS_OF_USERS'
 export const GET_ALL_USERS = 'GET_ALL_USERS'
 export const STORE_PROFILE = 'STORE_PROFILE';
 export const PROJECT_TREE = 'PROJECT_TREE';
+export const GET_TASKS_BY_LOGGED_IN_USER = 'GET_TASKS_BY_LOGGED_IN_USER';
 
 export function fetchProjects(request) {
   return {
@@ -70,5 +71,11 @@ export function projectTree(tree) {
   return {
     type: PROJECT_TREE,
     payload: tree
+  }
+}
+export function getTasksByLoggedInUser(tasks){
+  return {
+    type: GET_TASKS_BY_LOGGED_IN_USER,
+    payload: tasks
   }
 }

@@ -5,7 +5,7 @@ import {Redirect,Link, withRouter} from 'react-router-dom'
 import MDSpinner from "react-md-spinner";
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {storeProfile, fetchProjects} from '../../../Actions/index.js';
+import {storeProfile, fetchProjects, getTasksByLoggedInUser} from '../../../Actions/index.js';
 import axios from 'axios';
 
 
@@ -28,9 +28,15 @@ class Spinner extends Component {
             profile.userid = Number(res.data.id);  
             profile.image = res.data.image;
             axios.get('/allProjectsByUser', {params: {userid: Number(res.data.id)}})
-            .then((res) => {
+        
+            .then((result) => {
               
-              this.props.fetchProjects(res.data);
+              this.props.fetchProjects(result.data);
+              axios.get('/allOpenTasksOfUser', {params: {userid: Number(res.data)}})
+              .then((data)=>{
+                // console.log(data.data)
+                this.props.getTasksByLoggedInUser(data.data)
+              })
             })
             .catch(err => {
               console.log(err);
@@ -39,7 +45,7 @@ class Spinner extends Component {
           this.props.storeProfile(profile);
           
           this.props.history.push('/dashboard')
-       });
+      });
       } else {
         this.props.history.push('/login')
       }
@@ -57,7 +63,7 @@ class Spinner extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({storeProfile, fetchProjects}, dispatch);
+  return bindActionCreators({storeProfile, fetchProjects, getTasksByLoggedInUser}, dispatch);
 }
 function mapStateToProps(state) {
   return {profile: state.tasks.profile};
