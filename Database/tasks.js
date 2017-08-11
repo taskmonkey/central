@@ -25,16 +25,16 @@ allTasks = (clientResponse) => {
 createNewProject = (clientResponse, taskObj) => {
     let temp = [taskObj.name, taskObj.description, taskObj.budget_hours, taskObj.owner];
     let sql = `INSERT INTO tasks (name, description, budget_hours, owner) VALUES (?, ?, ?, ?);`;
-    db.query(sql, temp, (err, resp) => {
-        let parsedAssignees = JSON.parse(taskObj.assignees);
+    db.query(sql, temp, (err, resp) => {     
+       
         var responseObject = {taskid: resp.insertId};
-        if(parsedAssignees.length > 0) {
+        if(taskObj.assignees.length > 0) {
             responseObject.success = [];
             responseObject.failure = [];
-            let assignees = parsedAssignees.length;
+            let assignees = taskObj.assignees.length;
             let count = 0;
   
-            parsedAssignees.forEach(id => {
+            taskObj.assignees.forEach(id => {
                 let temp = {};
                 temp.username = id;            
                 temp.taskid = resp.insertId;

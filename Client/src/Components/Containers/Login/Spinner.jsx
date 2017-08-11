@@ -23,9 +23,9 @@ class Spinner extends Component {
       if (this.state.auth.isAuthenticated()) {
         this.state.auth.getProfile((err, profile) => {
 
-          this.props.storeProfile(profile);
-          axios.get('/getUserInfo', {params: {username: this.props.profile.nickname}})
+          axios.get('/getUserInfo', {params: {username:profile.nickname}})
           .then((res) => {
+            profile.userid = Number(res.data);  
             axios.get('/allProjectsByUser', {params: {userid: Number(res.data)}})
             .then((res) => {
               this.props.fetchProjects(res.data);
@@ -34,10 +34,9 @@ class Spinner extends Component {
               console.log(err);
             })
           })
-
+          this.props.storeProfile(profile);
           this.props.history.push('/dashboard')
        });
-        //this.props.history.push('/dashboard')
       } else {
         this.props.history.push('/login')
       }

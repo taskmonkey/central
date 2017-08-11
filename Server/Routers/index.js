@@ -81,7 +81,6 @@ router.get('/dashboard', (req, res) => {
 
 
 router.post('/addProject', (req, res) => {
-
   tasks.createNewProject(res, req.body);
 
 });
@@ -101,15 +100,6 @@ router.get('/allTasksByUser', (req, res)=> {
 
 //pass in userid
 router.get('/allOpenTasksOfUser', (req, res) => {
-
-  users.openTasksOfUser(res, req.query);
-});
-
-
-
-//pass in userid
-router.get('/allOpenTasksOfUser', (req, res) => {
-  console.log(req.query);
 
   users.openTasksOfUser(res, req.query);
 });
