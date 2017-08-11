@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch, PropsRoute } from 'react-router-dom';
 import Login from './Components/Containers/Login/login.jsx';
 import Dashboard from './Components/Containers/Dashboard/Dashboard.jsx';
 import ProjectsList from './Components/Containers/ProjectsList/ProjectsList.jsx';
+import UserList from './Components/Containers/Users/UserList.jsx';
 import TasksTree from './Components/Containers/TasksTree/TasksTree.jsx';
 import TasksDetails from './Components/Containers/TasksDetails/TasksDetails.jsx';
 import TaskForm from './Components/Containers/ProjectsList/TaskForm.jsx';
@@ -70,6 +71,7 @@ class Main extends Component {
           <Route exact path="/login" component={Login}/>
           <Route exact path="/dashboard" component={Dashboard}/>
           <Route exact path="/projectsList" component={ProjectsList}/>
+          <Route exact path="/users" component={UserList}/>
           <Route exact path="/tasksTree" component={TasksTree}/>
           <Route exact path="/taskForm" component={TaskForm}/>
           <Route exact path="/tasksDetails" component={TasksDetails}/>

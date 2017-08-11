@@ -68,9 +68,9 @@ router.get('/node_modules/auth0-js/build/auth0.js', (req, res) => {
 });
 
 router.get('/dashboard', (req, res) => {
-
   console.log('dashy');
 })
+
 
 
 
