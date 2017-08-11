@@ -20,6 +20,10 @@ import { quill } from 'react-icons-kit/icomoon/quill';
 import { bell } from 'react-icons-kit/icomoon/bell';
 import { database } from 'react-icons-kit/icomoon/database';
 
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {fetchTasks} from '../../../Actions/index.js';
+
 const Icon20 = props => <SvgIcon size={props.size || 20} icon={props.icon} />;
 
 const BaseContainer = props =>
@@ -56,7 +60,8 @@ const SeparatorTitle = props => {
 
 
 
-const SideNavWithAlerts = () =>
+const SideNavWithAlerts = (props) =>
+
     <SideNav
         hoverBgColor="#232a2f"
         hoverColor="#36bbea"
@@ -96,7 +101,7 @@ const SideNavWithAlerts = () =>
 
                     }}
                 >
-          10
+          {props.Projects}
                 </span>
             </NavText>
         </Nav>
@@ -140,6 +145,7 @@ const SideNavWithAlerts = () =>
 
 class NavTask extends React.Component {
     render() {
+    
         return (
             <div className="sideBar">
                 <BaseContainer style={{ background: '#2c3e50', color: '#FFF' , fontFamily: 'Lato'}}>
@@ -178,7 +184,7 @@ class NavTask extends React.Component {
                             <div style={{ fontSize: 11,  color: '#E5E5E5' }}> Software Engineer </div>
                         </div>
                     </div>
-                    <SideNavWithAlerts />
+                    <SideNavWithAlerts Projects = {this.props.projects.length}/>
                 </BaseContainer>
                 <Separator />
                 <BaseContainer
@@ -196,4 +202,8 @@ class NavTask extends React.Component {
     }
 }
 
-export default NavTask;
+function mapStateToProps(state) {
+  return { projects: state.tasks.allProjects }
+}
+
+export default connect(mapStateToProps)(NavTask);

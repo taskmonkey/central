@@ -25,6 +25,7 @@ CREATE TABLE tasks (
     actual_hours int DEFAULT 0,
     owner INT DEFAULT NULL,
     status INT DEFAULT -1,
+    deficiency INT DEFAULT 0,
     PRIMARY KEY (id),
     FOREIGN KEY (parentid) REFERENCES tasks (id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (owner) REFERENCES users (id)

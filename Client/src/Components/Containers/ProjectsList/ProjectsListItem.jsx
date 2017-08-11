@@ -11,9 +11,13 @@ class ProjectsListItem extends Component {
     this.getTaskTree = this.getTaskTree.bind(this);
   }
   getTaskTree(){
-    axios.get('/allChildTasks', {params: {taskid: this.props.projectsListItem.id}}).then(resp => {
+    axios.get('/allChildTasks', {params: {taskid: this.props.projectsListItem.id}})
+    .then(resp => {
+      let totals = resp.data.pop();
       let tree = this.props.projectsListItem;
       tree.children = resp.data;
+      tree.timeAlloted = [tree.budget_hours + totals.budgetTotal, tree.actual_hours + totals.actualTotal];
+      console.log(tree,' what a tree');
       this.props.projectTree(tree);
     })
   }
