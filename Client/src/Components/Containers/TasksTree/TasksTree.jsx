@@ -22,23 +22,7 @@ class TasksTree extends Component{
   }
 
   render() {
-    // let data = {
-    //   name: 'Parent',
-    //   children: [{
-    //       name: 'Child One',
-    //   }, {
-    //       name: 'Child Two',
-    //       children: [{
-    //         name: 'Child Three',
-    //       },
-    //       {
-    //         name: 'Child Four',
-    //         children: [{
-    //           name: 'Child Six'
-    //         }]
-    //       }]
-    //   }]
-    // }
+
     return(
       <div>
         <div className="dashboard-container">
