@@ -100,7 +100,7 @@ router.get('/allTasksByUser', (req, res)=> {
 
 //pass in userid
 router.get('/allOpenTasksOfUser', (req, res) => {
-
+  //console.log(req.query)
   users.openTasksOfUser(res, req.query);
 });
 
@@ -124,9 +124,15 @@ router.get('/allRelationalTasks', (req, res) =>{
 
 });
 
+router.get('/totalBudgetHours', (err, resp) => {
+  //return total budget
+  //gets all children, then sums up total budget from them.
 
-router.get('/budgetVsActual', (req, res) => {
-  tasks.budgetVsActual(res, req.query);
+});
+
+router.get('/budgetVsActual', (req, res)=>{
+  //return difference between budget and actual hours
+
 });
 
 router.put('/updateActualHours', (req, res) => {
@@ -140,6 +146,10 @@ router.put('/updateStatusInProgress', (req, res) => {
 router.put('/updateStatusComplete', (req, res) => {
   tasks.markTaskAsComplete(res, req.body);
 });
+
+
+
+
 
 
 

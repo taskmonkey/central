@@ -126,10 +126,10 @@ getUserInfo = (clientResponse, userObj) => {
 }
 
 openTasksOfUser = (clientResponse, userObj) => {
+    console.log(userObj)
     let sql = `SELECT * from users INNER JOIN
     users_tasks ON users.id = users_tasks.user_id INNER JOIN tasks ON users_tasks.tasks_id = tasks.id WHERE users.id = "${userObj.userid}" AND tasks.status IN (-1,0);`;
     db.query(sql, (err, resp) => {
-
         clientResponse.send(resp);
     })
 };
