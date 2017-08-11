@@ -34,7 +34,7 @@ const getIncompleteVsComplete= (owner, tasksArray) => {
   console.log(owner)
   let userObject = {name : owner, completed: 0, incomplete: 0}
   for (let i = 0; i < tasksArray.length; i++){
-    console.log(tasksArray[i].owner, owner)
+    console.log(tasksArray[i])
     if (tasksArray[i].owner === owner && tasksArray[i].status===-1){
       userObject.incomplete++
     } 
