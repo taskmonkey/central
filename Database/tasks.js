@@ -27,7 +27,7 @@ createNewProject = (clientResponse, taskObj) => {
     let sql = `INSERT INTO tasks (name, description, budget_hours, owner) VALUES (?, ?, ?, ?);`;
     db.query(sql, temp, (err, resp) => {     
        
-        var responseObject = {taskid: resp.insertId};
+        var responseObject = {};
         if(taskObj.assignees.length > 0) {
             responseObject.success = [];
             responseObject.failure = [];
@@ -44,21 +44,25 @@ createNewProject = (clientResponse, taskObj) => {
                     count++;
                     responseObject.success.push(id);
                     if (count === assignees) {
-                        clientResponse.send(responseObject);
+                        
+                        findOneTask(clientResponse, {taskid: resp.insertId}, responseObject);
+                        
                     }
                 },() => {
                     console.log(id, 'id on fake person');
                     count++;
                     responseObject.failure.push(id);
                     if(count === assignees) {
-                        clientResponse.send(responseObject);
+                        findOneTask(clientResponse, {taskid: resp.insertId}, responseObject);
+                       
                     }
                 });
                 
             });
 
         } else {
-            clientResponse.send(responseObject);
+            findOneTask(clientResponse, {taskid: resp.insertId}, responseObject);
+            
 
         }
     });
@@ -159,12 +163,18 @@ and     @root := concat(@root, ',', id)`;
             cb(resp[0]);
         } else {
             clientResponse.send(resp[0]);
-
         }
-
-        
     })
 };
+
+findOneTask = (clientResponse, taskObj, obj) => {
+    db.query(`SELECT * from tasks WHERE tasks.id = "${taskObj.taskid}"`, (err, resp) => {
+        obj.task = resp[0];
+        console.log(obj, 'findOneTask');
+        clientResponse.send(obj);
+    })
+}
+
 
 module.exports = {
     createNewProject: createNewProject,

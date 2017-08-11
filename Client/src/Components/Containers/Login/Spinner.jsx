@@ -25,9 +25,11 @@ class Spinner extends Component {
 
           axios.get('/getUserInfo', {params: {username:profile.nickname}})
           .then((res) => {
-            profile.userid = Number(res.data);  
-            axios.get('/allProjectsByUser', {params: {userid: Number(res.data)}})
+            profile.userid = Number(res.data.id);  
+            profile.image = res.data.image;
+            axios.get('/allProjectsByUser', {params: {userid: Number(res.data.id)}})
             .then((res) => {
+              
               this.props.fetchProjects(res.data);
             })
             .catch(err => {
@@ -35,6 +37,7 @@ class Spinner extends Component {
             })
           })
           this.props.storeProfile(profile);
+          
           this.props.history.push('/dashboard')
        });
       } else {
