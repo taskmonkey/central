@@ -53,7 +53,7 @@ class Spinner extends Component {
   }
 
   render() {
-    //console.log(this.props, 'props');
+    
     return(
       <div className="spinnerContainer">
         <MDSpinner className="spinner" size="300"/>
