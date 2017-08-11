@@ -6,12 +6,13 @@ const API_KEY = TEST_API_KEY;
 const ROOT_URL = `http://reduxblog.herokuapp.com/api`;
 
 export const FETCH_PROJECTS = 'FETCH_PROJECTS';
-export const CREATE_TASK = 'CREATE_TASK'
-export const GET_TASKS = 'GET_TASKS'
-export const GET_ALL_TASKS = 'GET_ALL_TASKS'
-export const GET_USERS_TASKS = 'GET_USERS_TASKS'
-export const FIND_ALL_TASKS_OF_USERS = 'FIND_ALL_TASKS_OF_USERS'
-export const GET_ALL_USERS = 'GET_ALL_USERS'
+export const CREATE_PROJECT = 'CREATE_PROJECT';
+export const CREATE_TASK = 'CREATE_TASK';
+export const GET_TASKS = 'GET_TASKS';
+export const GET_ALL_TASKS = 'GET_ALL_TASKS';
+export const GET_USERS_TASKS = 'GET_USERS_TASKS';
+export const FIND_ALL_TASKS_OF_USERS = 'FIND_ALL_TASKS_OF_USERS';
+export const GET_ALL_USERS = 'GET_ALL_USERS';
 export const STORE_PROFILE = 'STORE_PROFILE';
 export const PROJECT_TREE = 'PROJECT_TREE';
 export const GET_TASKS_BY_LOGGED_IN_USER = 'GET_TASKS_BY_LOGGED_IN_USER';
@@ -20,6 +21,13 @@ export function fetchProjects(request) {
   return {
     type: FETCH_PROJECTS,
     payload: request
+  };
+}
+
+export function createProject(newProject) {
+  return {
+    type: CREATE_PROJECT,
+    payload: newProject
   };
 }
 

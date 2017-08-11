@@ -7,7 +7,7 @@ import ProjectsList from './Components/Containers/ProjectsList/ProjectsList.jsx'
 import UserList from './Components/Containers/Users/UserList.jsx';
 import TasksTree from './Components/Containers/TasksTree/TasksTree.jsx';
 import TasksDetails from './Components/Containers/TasksDetails/TasksDetails.jsx';
-import TaskForm from './Components/Containers/ProjectsList/TaskForm.jsx';
+import ProjectForm from './Components/Containers/ProjectsList/ProjectForm.jsx';
 import Spinner from './Components/Containers/Login/Spinner.jsx';
 import MyTasks from './Components/Containers/MyTasks/MyTasks.jsx'
 import axios from 'axios';
@@ -76,7 +76,7 @@ class Main extends Component {
           <Route exact path="/projectsList" component={ProjectsList}/>
           <Route exact path="/users" component={UserList}/>
           <Route exact path="/tasksTree" component={TasksTree}/>
-          <Route exact path="/taskForm" component={TaskForm}/>
+          <Route exact path="/projectForm" component={ProjectForm}/>
           <Route exact path="/tasksDetails" component={TasksDetails}/>
         </Switch>
       </BrowserRouter>

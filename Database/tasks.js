@@ -25,8 +25,8 @@ allTasks = (clientResponse) => {
 createNewProject = (clientResponse, taskObj) => {
     let temp = [taskObj.name, taskObj.description, taskObj.budget_hours, taskObj.owner];
     let sql = `INSERT INTO tasks (name, description, budget_hours, owner) VALUES (?, ?, ?, ?);`;
-    db.query(sql, temp, (err, resp) => {     
-       
+    db.query(sql, temp, (err, resp) => {
+        
         var responseObject = {};
         if(taskObj.assignees.length > 0) {
             responseObject.success = [];
@@ -171,6 +171,7 @@ findOneTask = (clientResponse, taskObj, obj) => {
     db.query(`SELECT * from tasks WHERE tasks.id = "${taskObj.taskid}"`, (err, resp) => {
         obj.task = resp[0];
         console.log(obj, 'findOneTask');
+        
         clientResponse.send(obj);
     })
 }
