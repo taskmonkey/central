@@ -202,19 +202,6 @@ class NavTask extends React.Component {
     }
 }
 
-
-// function mapDispatchToProps(dispatch) {
-//   return bindActionCreators({createTask, fetchTasks}, dispatch);
-// }
-
-// function mapStateToProps(state) {
-//   return { tasks: state.tasks.allTasks }
-// }
-
-// export default connect(mapStateToProps, mapDispatchToProps)(TaskForm);
-// export default NavTask;
-
-
 function mapStateToProps(state) {
   return { projects: state.tasks.allProjects }
 }
