@@ -9,42 +9,39 @@ import {connect} from 'react-redux'
 import {getUsersTasks, getAllTasks, findAllTasksOfUser, getAllUsers} from '../../../Actions/index.js'
 import {bindActionCreators} from 'redux'
 
-const mapUserstoAllTasks = (allTasks, allUsers) =>{
- 
-  let nameObjects = {}
+const mapUserstoAllTasks = (allTasks, allUsers, usersTasks) =>{
+  console.log(allTasks, 'this is the all tasks')
+  console.log(allUsers)
   let userObjects = []
-  let users = []
-  for (let i = 0; i < allUsers.length; i++){
-    //console.log('hello')
-    nameObjects[allUsers[i].id] = allUsers[i].username
-    if (!users.includes(allUsers[i].username)){
-      users.push(allUsers[i].username)
+  let taskObjects = []
+  let lookUpObject = {}
+  let createNewUserObjects = () => {
+    for (let i = 0; i < allUsers.length; i++){
+      let newUserObject = {};
+      newUserObject['name'] = allUsers[i].username
+      newUserObject['completed'] = 0;
+      newUserObject['incomplete'] = 0;
+      newUserObject['id'] = allUsers[i].id;
+      userObjects.push(newUserObject)
     }
-  } 
+  }
+  createNewUserObjects()
   for (let i = 0; i < allTasks.length; i++){
-    allTasks[i].owner = nameObjects[allTasks[i].owner]
+    lookUpObject[i] = allTasks[i]
   }
-  for (let i = 0; i < users.length; i++){
-    users[i] = getIncompleteVsComplete(users[i], allTasks)
+  for (let i = 0; i < usersTasks.length; i++){
+    usersTasks[i]['status'] = lookUpObject[usersTasks[i].tasks_id -1].status
   }
-  return users
+  console.log(lookUpObject, 'this is the lookupObject')
+  console.log(usersTasks, 'this is the usersTasks')
+  console.log(allTasks, 'alltasks')
+  console.log(allUsers, 'allusers')
+  // console.log(lookUpObject, 'this is the new object')
+  
 }
 
 const getIncompleteVsComplete= (owner, tasksArray) => {
-  console.log(owner)
-  let userObject = {name : owner, completed: 0, incomplete: 0}
-  for (let i = 0; i < tasksArray.length; i++){
-    console.log(tasksArray[i])
-    if (tasksArray[i].owner === owner && tasksArray[i].status===-1){
-      userObject.incomplete++
-    } 
-   
-    if (tasksArray[i].owner === owner && tasksArray[i].status===1){ 
-      userObject.completed++
-    }
-  }
- 
-  return userObject
+  
 }
 
 const mapStateToProps = (state) =>{
@@ -53,7 +50,7 @@ const mapStateToProps = (state) =>{
     allTasks: state.tasks.allTasks,
     allUsers: state.tasks.allUsers,
     allTasksUsers: state.tasks.usersTasks,
-    mappedUsersAndTasks : mapUserstoAllTasks(state.tasks.allTasks, state.tasks.allUsers)
+    mappedUsersAndTasks : mapUserstoAllTasks(state.tasks.allTasks, state.tasks.allUsers, state.tasks.usersTasks)
   }
 }
 const mapDispathToProps = (dispatch) => {
