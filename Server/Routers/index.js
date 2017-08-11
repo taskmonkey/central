@@ -81,7 +81,6 @@ router.get('/dashboard', (req, res) => {
 
 
 router.post('/addProject', (req, res) => {
-  console.log(req.body, 'body');
   tasks.createNewProject(res, req.body);
 
 });
