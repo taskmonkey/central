@@ -4,7 +4,7 @@ import {Redirect, Link, withRouter} from 'react-router-dom';
 import Tree from 'react-tree-graph';
 import $ from 'jquery';
 import NavTask from '../Dashboard/NavTask.jsx';
-
+import {connect} from 'react-redux';
 
 class TasksTree extends Component{
   constructor() {
@@ -22,24 +22,23 @@ class TasksTree extends Component{
   }
 
   render() {
-    let data = {
-      name: 'Parent',
-      children: [{
-          name: 'Child One',
-      }, {
-          name: 'Child Two',
-          children: [{
-            name: 'Child Three',
-          },
-          {
-            name: 'Child Four',
-            children: [{
-              name: 'Child Six'
-            }]
-          }]
-      }]
-    }
-
+    // let data = {
+    //   name: 'Parent',
+    //   children: [{
+    //       name: 'Child One',
+    //   }, {
+    //       name: 'Child Two',
+    //       children: [{
+    //         name: 'Child Three',
+    //       },
+    //       {
+    //         name: 'Child Four',
+    //         children: [{
+    //           name: 'Child Six'
+    //         }]
+    //       }]
+    //   }]
+    // }
     return(
       <div>
         <div className="dashboard-container">
@@ -55,7 +54,7 @@ class TasksTree extends Component{
             </div>
             <div className="custom-container">
               <Tree
-              data={data}
+              data={this.props.tree}
               height={900}
               width={1050}
               animated
@@ -79,4 +78,10 @@ class TasksTree extends Component{
   }
 }
 
-export default withRouter(TasksTree);
+
+function mapStateToProps(state) {
+  return { tree: state.tasks.projectTree }
+}
+
+export default connect(mapStateToProps)(TasksTree);
+

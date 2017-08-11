@@ -13,6 +13,7 @@ export const GET_USERS_TASKS = 'GET_USERS_TASKS'
 export const FIND_ALL_TASKS_OF_USERS = 'FIND_ALL_TASKS_OF_USERS'
 export const GET_ALL_USERS = 'GET_ALL_USERS'
 export const STORE_PROFILE = 'STORE_PROFILE';
+export const PROJECT_TREE = 'PROJECT_TREE';
 
 export function fetchProjects(request) {
   return {
@@ -63,5 +64,11 @@ export function storeProfile(profile) {
   return {
     type: STORE_PROFILE,
     payload: profile
+  }
+}
+export function projectTree(tree) {
+  return {
+    type: PROJECT_TREE,
+    payload: tree
   }
 }
