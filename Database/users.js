@@ -113,11 +113,12 @@ getUserInfo = (clientResponse, userObj) => {
     console.log(userObj, 'userobj');
     db.query(sql, [userObj.username], (err, resp) => {
         if(resp.length){
-            clientResponse.send(JSON.stringify(resp[0].id));
+            clientResponse.send(JSON.stringify(resp[0]));
         } else {
             db.query("insert into users (username) VALUES (?)", [userObj.username], (err, response) => {
-                console.log('new user');
-                clientResponse.send(JSON.stringify(response.insertId));
+                
+                getUserInfo(clientResponse, {username: response.insertId});
+                
 
             })
         }
