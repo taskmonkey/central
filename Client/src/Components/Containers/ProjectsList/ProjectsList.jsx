@@ -6,6 +6,7 @@ import {bindActionCreators} from 'redux';
 // import {fetchTasks} from '../../../Actions/index.js';
 import NavTask from '../Dashboard/NavTask.jsx';
 import ProjectsListItem from './ProjectsListItem.jsx';
+import ProjectForm from './ProjectForm.jsx';
 
 
 class ProjectsList extends Component{
@@ -33,8 +34,8 @@ class ProjectsList extends Component{
                   <ProjectsListItem projectsListItem={project}/>
                 )
               }
-              <Link to="/tasksTree"><button className="tasksTreeButton">Tasks Tree</button></Link>
-              <Link to="/taskForm"><button>Tasks Form</button></Link>
+              <ProjectForm />
+              {/* <Link to="/tasksTree"><button className="tasksTreeButton">Tasks Tree</button></Link> */}
             </div>
           </div>
         </div>

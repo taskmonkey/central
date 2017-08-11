@@ -76,7 +76,7 @@ class Main extends Component {
           <Route exact path="/projectsList" component={ProjectsList}/>
           <Route exact path="/users" component={UserList}/>
           <Route exact path="/tasksTree" component={TasksTree}/>
-          <Route exact path="/ProjectForm" component={ProjectForm}/>
+          <Route exact path="/projectForm" component={ProjectForm}/>
           <Route exact path="/tasksDetails" component={TasksDetails}/>
         </Switch>
       </BrowserRouter>

@@ -6,7 +6,7 @@ import {bindActionCreators} from 'redux';
 import {createProject} from '../../../Actions/index.js';
 import MyModal from '../ProjectsList/ProjectModal.jsx';
 
-class TaskForm extends Component {
+class ProjectForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,25 +25,37 @@ class TaskForm extends Component {
 
   handleChange(e) {
     e.preventDefault();
-    console.log(e.target.name, nameForm.value);
+    console.log(e.target.name, e.target.value);
+    console.log(e.target.name, 'type: ', typeof e.target.value);
+
   }
 
-  handleTaskForm(nameVal, categoryVal, contentVal) {
-    // // e.preventDefault();
-    // axios.post('http://reduxblog.herokuapp.com/api/posts?key=taskmon', {name: nameVal, categories: categoryVal, content: contentVal})
-    //   .then(res => {
-    //     console.log('here is the post res', res);
-    //     this.props.createTask(res);
-    //   })
-    //   .catch(err => {
-    //     console.log('error in the post', err);
-    //   });
+  handleProjectForm(nameVal, assigneeVal, budgetHoursVal, descriptionVal) {
+    var newAssigneeVals = assigneeVal.split(' ');
+    if (Number(budgetHoursVal) == budgetHoursVal) {
+      axios.post('/addProject', {name: nameVal, assignees: newAssigneeVals, budget_hours: budgetHoursVal, description: descriptionVal, owner: this.props.storeProfile})
+      .then(res => {
+        var dataName = JSON.parse(res.config.data);
+        console.log('here is the post res', dataName.name);
+        // this.props.createProject(res.data.task);
+      })
+      .then(()=> {
+        this.toggleModal();
+      })
+      .catch(err => {
+        console.log('error in the post', err);
+      });
+
+    }
+    else {
+      alert('please enter a number');
+    }
   }
 
   render() {
     return (
-      <div>
-        <Button bsStyle="success" onClick={this.toggleModal}>Add Task</Button>
+      <div className="tasksTreeButton">
+        <Button bsStyle="success" onClick={this.toggleModal}>Add Project</Button>
         <MyModal
           toggleModal={this.toggleModal}
           showModal={this.state.showModal}
@@ -57,11 +69,11 @@ class TaskForm extends Component {
 
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({createTask, fetchTasks}, dispatch);
+  return bindActionCreators({createProject}, dispatch);
 }
 
 function mapStateToProps(state) {
-  return { tasks: state.tasks.allTasks }
+  return {tasks: state.tasks.allTasks, storeProfile: state.tasks.storeProfile}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TaskForm);
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectForm);

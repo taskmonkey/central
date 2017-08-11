@@ -10,7 +10,7 @@ export default (props) => {
       <Modal.Body>
         <div className="createTask">
             <h1>Create a Project</h1>
-            <form onSubmit={(e) => {e.preventDefault(); props.handleTaskForm(nameForm.value, assigneeForm.value, projectForm.value, description.value); props.toggleModal()}}>
+            <form onSubmit={(e) => {e.preventDefault(); props.handleProjectForm(projectForm.value, assigneeForm.value, budgetHours.value, description.value)}}>
               <div className="form-group">
                 <label htmlFor="nameForm">Project Name</label>
                 <input type="text" className="form-control" name="project" id="projectForm" placeholder="please enter project name" onChange={props.handleChange}/>
@@ -31,7 +31,7 @@ export default (props) => {
         </div>
       </Modal.Body>
       <Modal.Footer>
-        <Button bsStyle="info" onClick={(e)=> {e.preventDefault(); props.handleTaskForm(nameForm.value, assigneeForm.value, projectForm.value, description.value); props.toggleModal()}}>Create Project</Button>
+        <Button bsStyle="info" onClick={(e)=> {e.preventDefault(); props.handleProjectForm(projectForm.value, assigneeForm.value, budgetHours.value, description.value);}}>Create Project</Button>
         <Button bsStyle="danger" onClick={props.toggleModal}>Close</Button>
       </Modal.Footer>
     </Modal>

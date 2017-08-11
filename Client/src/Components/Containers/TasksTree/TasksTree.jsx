@@ -65,8 +65,7 @@ class TasksTree extends Component{
   }
   
   handleTaskForm(nameVal, assigneeVal, budgetHoursVal, descriptionVal) {
-    // e.preventDefault();
-    axios.post('/addProject',{params: {name: nameVal, assignees: [assigneeVal], budgetHours: budgetHoursVal, description: descriptionVal, owner: 4}})
+    axios.post('/addProject',{name: nameVal, assignees: [assigneeVal], budget_hours: budgetHoursVal, description: descriptionVal, owner: 4})
       .then(res => {
         console.log('here is the post res', res);
         this.props.createTask(res);
