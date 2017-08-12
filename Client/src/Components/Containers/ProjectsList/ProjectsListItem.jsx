@@ -5,6 +5,7 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {projectTree} from '../../../Actions/index.js';
+
 class ProjectsListItem extends Component {
   constructor(props){
     super(props);
@@ -13,6 +14,7 @@ class ProjectsListItem extends Component {
   getTaskTree(){
     axios.get('/allChildTasks', {params: {taskid: this.props.projectsListItem.id}})
     .then(resp => {
+      console.log('this is in the projectslistitem', this.props.projectsListItem.id)
       let totals = resp.data.pop();
       let tree = this.props.projectsListItem;
       tree.children = resp.data;
@@ -20,6 +22,7 @@ class ProjectsListItem extends Component {
       this.props.projectTree(tree);
     })
   }
+
   render(){
     return(
       

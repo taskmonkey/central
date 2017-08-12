@@ -30,7 +30,7 @@ class MyTasks extends Component{
   componentWillMount(){
     axios.get('/allOpenTasksOfUser', {params: {userid: this.props.profile}})
               .then((data)=>{
-                console.log(data.data)
+                console.log('this is the data package',data.data)
                 this.props.getTasksByLoggedInUser(data.data)
               })
               .catch((err)=>{
