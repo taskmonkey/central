@@ -6,8 +6,9 @@ import BarGraph from './BarChart.jsx'
 import NavTask from './NavTask.jsx'
 import Auth from '../../../Auth/Auth.js'
 import {connect} from 'react-redux'
-import {getTasksByLoggedInUser} from '../../../Actions/index.js'
+import {getTasksByLoggedInUser, getUsersTasks, getAllTasks, findAllTasksOfUser, getAllUsers } from '../../../Actions/index.js'
 import {bindActionCreators} from 'redux'
+import axios from 'axios'
 
 const mapUserstoAllTasks = (allTasks, allUsers, usersTasks) =>{
   // console.log(allTasks, 'this is the all tasks')
@@ -24,6 +25,8 @@ const mapUserstoAllTasks = (allTasks, allUsers, usersTasks) =>{
       newUserObject['id'] = allUsers[i].id;
       userObjects.push(newUserObject)
     }
+
+  
   }
   createNewUserObjects()
   for (let i = 0; i < allTasks.length; i++){
@@ -52,11 +55,13 @@ const mapStateToProps = (state) =>{
     allTasks: state.tasks.allTasks,
     allUsers: state.tasks.allUsers,
     allTasksUsers: state.tasks.usersTasks,
-    mappedUsersAndTasks : mapUserstoAllTasks(state.tasks.allTasks, state.tasks.allUsers, state.tasks.usersTasks)
+    mappedUsersAndTasks : mapUserstoAllTasks(state.tasks.allTasks, state.tasks.allUsers, state.tasks.usersTasks),
+    profile: state.tasks.profile.userid,
+    tasks:state.tasks.tasksByLoggedInUser
   }
 }
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({getTasksByLoggedInUser}, dispatch)
+  return bindActionCreators({getTasksByLoggedInUser,getUsersTasks, getAllTasks, findAllTasksOfUser, getAllUsers}, dispatch)
 }
 
 
@@ -66,6 +71,41 @@ class Dashboard extends Component{
     this.state = {
       auth: new Auth()
     }
+  }
+  componentWillMount(){
+    console.log('helllooooo this is mountinggggggg')
+    axios.get('http://localhost:3000/entireUsersTasks')
+      .then(result => {
+        //console.log(result.data)
+        this.props.getUsersTasks(result.data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+    axios.get('http://localhost:3000/entireTasks')
+      .then(result =>{
+        //console.log('this is the tasks table', result.data)
+        this.props.getAllTasks(result.data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+    axios.get('/allOpenTasksOfUser', {params: {userid: this.props.profile}})
+      .then((data)=>{
+        console.log(data.data)
+        this.props.getTasksByLoggedInUser(data.data)
+      })
+      .catch((err)=>{
+        console.log('error')
+      })
+    axios.get('http://localhost:3000/entireUsers')
+      .then(result => {
+        this.props.getAllUsers(result.data)
+        //console.log('this is the users table', result.data)
+      })
+      .catch(err => {
+        console.log('err')
+      })
   }
   render() {
     return(
