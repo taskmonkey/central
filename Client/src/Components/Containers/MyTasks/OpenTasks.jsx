@@ -16,15 +16,22 @@ class MyTasksComponent extends Component{
     this.getTaskTree = this.getTaskTree.bind(this);
   }
   getTaskTree(){
-    axios.get('/allChildTasks', {params: {taskid: this.props.projects[0].id}})
-    .then(resp => {
-      console.log(this.props.projects)
-      let totals = resp.data.pop();
-      let tree = this.props.projects;
-      tree.children = resp.data;
-      tree.timeAlloted = [tree.budget_hours + totals.budgetTotal, tree.actual_hours + totals.actualTotal];
-      this.props.projectTree(tree);
-    })
+    console.log(this.props)
+    // /projectOfTask
+    axios.get('/projectOfTask', {params: {taskid: this.props.task.id}})
+      .then(result =>{
+        console.log('this is the result' , result)
+        axios.get('/allChildTasks', {params: {taskid: result.data.parent}})
+          .then(resp => {
+          console.log('this is the children',resp)
+          let totals = resp.data.pop();
+          let tree = this.props.projects;
+          console.log(tree)
+          tree.children = resp.data;
+          tree.timeAlloted = [tree.budget_hours + totals.budgetTotal, tree.actual_hours + totals.actualTotal];
+          this.props.projectTree(tree);
+        })
+      })
     .catch(err =>{
       console.log('fuck')
     })
@@ -36,16 +43,21 @@ class MyTasksComponent extends Component{
         <div className="IndividualTasks">
           <div className="row">
             
-            <div className="col-sm-4">
+            <div className="col-sm-2">
               {this.props.task.name}
             </div>
-            
             <div className="col-sm-8">
               {this.props.task.description}
             </div>
+            <div className="col-sm-1">
+              <Link to='/tasksTree'><div className="" onClick={this.getTaskTree}><button className="taskButton">TaskTree</button></div></Link> 
+            </div>
+            <div className="col-sm-1">
+              <Link to='/tasksTree'><div className="" onClick={this.getTaskTree}><button className="taskButtonComplete">Complete</button></div></Link> 
+            </div>
           </div>
         </div>
-        <Link to='/tasksTree'><div className="tasksListItemTitle" onClick={this.getTaskTree}>GoToTree</div></Link> 
+        
         {/* <div className="tasksListItemTitle" onClick={() => {  props.history.push("/tasksTree")}}>{props.user.username}</div> */}
       </div>
     )

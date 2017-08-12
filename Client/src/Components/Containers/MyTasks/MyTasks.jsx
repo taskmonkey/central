@@ -52,10 +52,12 @@ class MyTasks extends Component{
         <div className="right-col">
 					<div className="dashboard-title">
 						<h1 className="pull-left">My Tasks</h1>
+            
 					</div>
           <div className="tasksListContainer">
             <div>
               <h3>Task Descriptions</h3>
+              <hr></hr>
               {
                 this.props.tasksByUser.map(task => 
                   <MyTasksComponent task={task}/>
