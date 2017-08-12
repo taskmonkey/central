@@ -10,7 +10,7 @@ export default function(state = INITIAL_STATE, action) {
   case CREATE_PROJECT:
     return Object.assign({}, state, {allProjects: [...state.allProjects, action.payload]});
   case CREATE_TASK:
-    return Object.assign({}, state, {allTasks: [...state.allTasks, action.payload]});
+    return Object.assign({}, state, {allTasks: [...state.allTasks, action.payload], tasksByLoggedInUser: [...state.tasksByLoggedInUser]});
   case GET_USERS_TASKS:
     return Object.assign({},state, {usersTasks: action.payload});
   case GET_ALL_TASKS:

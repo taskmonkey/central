@@ -73,7 +73,7 @@ const SideNavWithAlerts = (props) =>
         <div />
         <Nav id="dashboard">
             <NavIcon><Icon20 icon={ic_aspect_ratio} /></NavIcon>
-            <NavText><Link to="/dashboard">{' '}<span style={{ paddingRight: 6 }}>Dashboard</span>{' '}</Link></NavText>
+            <NavText><Link to="/">{' '}<span style={{ paddingRight: 6 }}>Dashboard</span>{' '}</Link></NavText>
         </Nav>
 
         <Nav id="products">
