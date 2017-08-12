@@ -81,7 +81,7 @@ giveUserNewTask = (userTaskObj, cb, failcb) => {
             failcb();
         }
     });
-}
+};
 
 updateActualHours = (clientResponse, hoursObj) => {
     let temp = [hoursObj.actual_hours, hoursObj.taskid];
@@ -178,9 +178,7 @@ join
 where
   @parent=id) ours`;
     db.query(sql, (err, resp) => {
-        //console.log(resp, 'proj by task');
-
-        clientResponse.send(resp[0].parent);
+        clientResponse.send(JSON.stringify(resp[0]));
     });
 };
 
