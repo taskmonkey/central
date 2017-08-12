@@ -67,7 +67,6 @@ const SideNavWithAlerts = (props) =>
     <SideNav
         hoverBgColor="#232a2f"
         hoverColor="#36bbea"
-        highlightBgColor="#00acac"
         defaultSelected="products"
         highlightColor="#FFF"
         fontFamily="Lato"
