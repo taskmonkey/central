@@ -49,7 +49,6 @@ createNewProject = (clientResponse, taskObj) => {
                         
                     }
                 },() => {
-                    console.log(id, 'id on fake person');
                     count++;
                     responseObject.failure.push(id);
                     if(count === assignees) {
@@ -235,5 +234,6 @@ module.exports = {
     deleteTask: deleteTask,
     allTasks: allTasks,
     budgetVsActual: budgetVsActual
+    
 
 }
