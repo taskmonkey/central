@@ -118,7 +118,7 @@ getUserInfo = (clientResponse, userObj) => {
           console.log('user exists');
             clientResponse.send(JSON.stringify(resp[0]));
         } else {
-            db.query("insert into users (username) VALUES (?)", [userObj.username], (err, response) => {
+            db.query("insert into users (username, image) VALUES (?, ?)", [userObj.username, userObj.image], (err, response) => {
 
                 db.query("SELECT * FROM users WHERE users.id = ?", response.insertId, (err, userInfo) => {
                   clientResponse.send(JSON.stringify(userInfo[0]));
