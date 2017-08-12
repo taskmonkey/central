@@ -23,6 +23,8 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {getTasksByLoggedInUser, storeProfile, fetchTasks } from '../../../Actions/index.js'
 
+import Auth from '../../../Auth/Auth.js'
+
 const Icon20 = props => <SvgIcon size={props.size || 20} icon={props.icon} />;
 
 const BaseContainer = props =>
