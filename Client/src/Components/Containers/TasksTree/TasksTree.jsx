@@ -111,6 +111,7 @@ class TasksTree extends Component{
   						<h1>Task Mon</h1>
   					</div>
             <NavTask />
+              <Button bsStyle="success" onClick={()=> {node ? this.toggleModal() : null}}>Add Task</Button>
           </div>
           <div className="taskTreeContainer">
             <div className="dashboard-title">
@@ -148,14 +149,9 @@ class TasksTree extends Component{
                 {actual}
                 </div>
               <div className="userProfilePeekName">{node ? node.name : ''}</div>
-<<<<<<< HEAD
                 <div>{node ? node.description : ''}</div>
                 <Button bsStyle="success" onClick={()=> {node ? this.toggleModal() : null}}>Add Task</Button>
               </div>
-=======
-              <div>{node ? node.description : ''}</div>
-              <div>{this.state.taskBudget_hours}</div>
->>>>>>> preparing for rebase
             </div>
             <div>
               <MyModal
@@ -164,7 +160,6 @@ class TasksTree extends Component{
                 handleChange = {this.handleChange}
                 handleTaskForm = {this.handleTaskForm}
               />
-              <Button bsStyle="success" onClick={()=> {node ? this.toggleModal() : null}}>Add Task</Button>
             </div>
           </div>
         </div>
