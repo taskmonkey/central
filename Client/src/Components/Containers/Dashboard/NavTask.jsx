@@ -22,6 +22,8 @@ import { database } from 'react-icons-kit/icomoon/database';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {fetchTasks} from '../../../Actions/index.js';
+import Auth from '../../../Auth/Auth.js';
+
 
 const Icon20 = props => <SvgIcon size={props.size || 20} icon={props.icon} />;
 
@@ -107,10 +109,7 @@ const SideNavWithAlerts = (props) =>
 
         <Nav id="customers">
             <NavIcon><Icon20 icon={stack} /></NavIcon>
-            <NavText> My Tasks </NavText>
-            <Nav id="dashboard2">
-                <NavIcon><Icon20 size={16} icon={quill} /></NavIcon>
-                <NavText><Link to="/myTasks"> <span style={{ paddingRight: 6 }}>Tasks</span>{' '}</Link> <span
+            <NavText> My Tasks &nbsp; <span
                     style={{
                         textAlign: 'center',
                         lineHeight: '16px',
@@ -126,8 +125,11 @@ const SideNavWithAlerts = (props) =>
 
                     }}
                 >
-          {props.Tasks}
-                </span>
+                {props.Tasks}                
+                </span></NavText>
+            <Nav id="dashboard2">
+                <NavIcon><Icon20 size={16} icon={quill} /></NavIcon>
+                <NavText><Link to="/myTasks"> <span style={{ paddingRight: 6 }}>Tasks</span>{' '}</Link> 
                 
                 
                 
@@ -160,11 +162,23 @@ const SideNavWithAlerts = (props) =>
             <NavIcon><Icon20 icon={database} /></NavIcon>
             <NavText> Settings </NavText>
         </Nav>
+        <Nav id="deliveries">
+            <NavText><Link to="/login"><button className="logoutButton" onClick={props.Auth.logout}>Logout</button></Link></NavText>
+        </Nav>
     </SideNav>;
 
 
 
 class NavTask extends React.Component {
+    constructor(){
+        super()
+        this.state = {
+            auth: new Auth()
+        }
+        
+
+    }
+    
     render() {
 
     
@@ -206,7 +220,7 @@ class NavTask extends React.Component {
                             <div style={{ fontSize: 11,  color: '#E5E5E5' }}> Software Engineer </div>
                         </div>
                     </div>
-                    <SideNavWithAlerts Projects = {this.props.projects.length} Tasks={this.props.tasks.length}/>
+                    <SideNavWithAlerts Projects = {this.props.projects.length} Tasks={this.props.tasks.length} Auth = {this.state.auth}/>
                 </BaseContainer>
                 <Separator />
                 <BaseContainer

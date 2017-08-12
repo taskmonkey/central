@@ -20,13 +20,12 @@ class ProjectsList extends Component{
 					</div>
           <NavTask />
         </div>
-        {/* <div className ="col-sm-">
 
-        </div> */}
         <div className="right-col">
 					<div className="dashboard-title">
 						<h1 className="pull-left">Projects List</h1>
 					</div>
+              <ProjectForm />
           <div className="tasksListContainer">
             <div>
               {
@@ -34,7 +33,6 @@ class ProjectsList extends Component{
                   <ProjectsListItem projectsListItem={project}/>
                 )
               }
-              <ProjectForm />
               {/* <Link to="/tasksTree"><button className="tasksTreeButton">Tasks Tree</button></Link> */}
             </div>
           </div>

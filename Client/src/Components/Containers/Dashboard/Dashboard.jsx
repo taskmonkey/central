@@ -65,14 +65,12 @@ class Dashboard extends Component{
     super(props)
     this.state = {
       auth: new Auth()
-      // barchart: []
     }
   }
   render() {
     return(
       <div className="dashboard-container">
         <div className="left-col">
-        <Link to="/login"><button className="logoutButton" onClick={this.state.auth.logout}>Logout</button></Link>
 					<div className="app-title">
 						<h1>Task Mon</h1>
 					</div>
@@ -85,12 +83,12 @@ class Dashboard extends Component{
 					<div className="dashboard-title">
 						<h1 className="pull-left">Dashboard</h1>
 					</div>
-          <Link to="/login"><button className="logoutButton" onClick={this.state.auth.logout}>Logout</button></Link>
+      
 					<div className="graph-container">
 						<h3>HRLA16</h3>
             <hr></hr>
             <BarGraph allTasksAndUsers={this.props.mappedUsersAndTasks} allTasksUsers={this.props.allTasksUsers} allUsers={this.props.allUsers}/>
-          	  <Link to="/login"><button className="logoutButton" onClick={this.state.auth.logout}>Logout</button></Link>
+      
 						<h3>Sprints</h3>
             <hr></hr>
 						<div className="row">

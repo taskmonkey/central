@@ -28,9 +28,13 @@ class ProjectForm extends Component {
   }
 
   handleProjectForm(nameVal, assigneeVal, budgetHoursVal, descriptionVal) {
-    var newAssigneeVals = assigneeVal.split(' ');
+    var newAssigneeVals = assigneeVal.length > 0 ? assigneeVal.split(' ') : [];
+    if (newAssigneeVals.indexOf(this.props.storeProfile.nickname) < 0) {
+      newAssigneeVals.push(this.props.storeProfile.nickname);
+    }
+    newAssigneeVals.push(this.props.storeProfile.nickname);
     if (Number(budgetHoursVal) == budgetHoursVal) {
-      axios.post('/addProject', {name: nameVal, assignees: newAssigneeVals, budget_hours: budgetHoursVal, description: descriptionVal, owner: this.props.storeProfile.userid})
+      axios.post('/addProject', {name: nameVal, parentid: null, assignees: newAssigneeVals, budget_hours: budgetHoursVal, description: descriptionVal, owner: this.props.storeProfile.userid})
       .then(res => {
         this.props.createProject(res.data.task);
       })
@@ -49,7 +53,7 @@ class ProjectForm extends Component {
 
   render() {
     return (
-      <div className="tasksTreeButton">
+      <div className="tasksTreeButton" style={{position: 'absolute', zIndex: 2, float: 'right'}}>
         <Button bsStyle="success" onClick={this.toggleModal}>Add Project</Button>
         <MyModal
           toggleModal={this.toggleModal}

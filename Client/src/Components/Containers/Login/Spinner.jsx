@@ -34,7 +34,6 @@ class Spinner extends Component {
               this.props.fetchProjects(result.data);
               axios.get('/allOpenTasksOfUser', {params: {userid: Number(res.data.id)}})
               .then((data)=>{
-                console.log(data.data)
                 this.props.getTasksByLoggedInUser(data.data)
               })
             })
@@ -53,7 +52,7 @@ class Spinner extends Component {
   }
 
   render() {
-    //console.log(this.props, 'props');
+    
     return(
       <div className="spinnerContainer">
         <MDSpinner className="spinner" size="300"/>

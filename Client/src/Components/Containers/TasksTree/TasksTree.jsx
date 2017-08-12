@@ -8,19 +8,17 @@ import $ from 'jquery';
 import NavTask from '../Dashboard/NavTask.jsx';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {createTask} from '../../../Actions/index.js';
+import {createTask, projectTree} from '../../../Actions/index.js';
 import MyModal from './TaskModal.jsx';
 
 class TasksTree extends Component{
   constructor() {
     super()
     this.state = {
-      taskName: '',
-      taskDescription: '',
       taskBudget_hours: '',
-      userProfilePeekName: '',
       showModal: false,
-      taskId: null
+      currentNode: null,
+      button: 900
     }
     this.onNodeClick = this.onNodeClick.bind(this);
     this.traverseTree = this.traverseTree.bind(this);
@@ -32,11 +30,10 @@ class TasksTree extends Component{
 
   onNodeClick(nodeKey) {
     let node = this.traverseTree(nodeKey, this.props.tree);
+  
     this.setState({
-      taskName: node.name,
-      taskDescription: node.description,
-      taskBudget_hours: 'Budget hours:  ' + node.budget_hours.toString(),
-      taskId: node.id
+      currentNode: node,
+      taskBudget_hours: 'Budget hours:  ' + node.budget_hours.toString()
       
     })
   }
@@ -68,10 +65,21 @@ class TasksTree extends Component{
   handleTaskForm(nameVal, assigneeVal, budgetHoursVal, descriptionVal) {
     var newAssigneeVals = assigneeVal.split(' ');
     if (Number(budgetHoursVal) == budgetHoursVal) {
-      axios.post('/addTask', {name: nameVal, assignees: newAssigneeVals, budget_hours: budgetHoursVal, description: descriptionVal, owner: this.props.storeProfile.userid, parentid: this.state.taskId})
+      axios.post('/addTask', {name: nameVal, assignees: newAssigneeVals, budget_hours: budgetHoursVal, description: descriptionVal, owner: this.props.storeProfile.userid, parentid: this.state.currentNode.id})
       .then(res => {
-        console.log('taskPost: ', res.data.task);
         this.props.createTask(res.data.task);
+        if(this.state.currentNode.children) {
+          currentNode: this.state.currentNode.children.push(res.data.task);
+        } else {
+          this.state.currentNode.children = [res.data.task];  
+        }
+        if (this.state.button === 900){
+          this.setState({button: 899});
+        } else {
+          this.setState({button: 900});
+        }
+        
+        
       })
       .then(()=> {
         this.toggleModal();
@@ -92,6 +100,7 @@ class TasksTree extends Component{
       budget = "total budgeted hours: " + this.props.tree.timeAlloted[0];
       actual = "total actual hours: " + this.props.tree.timeAlloted[1];
     }
+    let node = this.state.currentNode;
     return(
       <div>
         <div className="dashboard-container">
@@ -108,17 +117,15 @@ class TasksTree extends Component{
             <div className="custom-container">
               <Tree
               data={this.props.tree}
-              height={900}
+              height={this.state.button}
               width={1050}
               animated
               duration={500}
-              treeClassName="custom"
+              treeClassName='custom'
               keyProp='id'
               labelProp = 'name'
-              
               nodeClickHandler={this.onNodeClick}
-
-              />
+              />;
             </div>
           </div>
           <div className="userProfilePeek">
@@ -133,12 +140,12 @@ class TasksTree extends Component{
               <div>
                 {actual}
                 </div>
-              <div className="userProfilePeekName">{this.state.taskName}</div>
-              <div>{this.state.taskDescription}</div>
+              <div className="userProfilePeekName">{node ? node.name : ''}</div>
+              <div>{node ? node.description : ''}</div>
               <div>{this.state.taskBudget_hours}</div>
+              <Button bsStyle="success" onClick={()=> {node ? this.toggleModal() : null}}>Add Task</Button>
             </div>
             <div>
-              <Button bsStyle="success" onClick={()=> {this.state.taskId ? this.toggleModal() : null}}>Add Task</Button>
               <MyModal
                 toggleModal={this.toggleModal}
                 showModal={this.state.showModal}
@@ -154,7 +161,7 @@ class TasksTree extends Component{
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({createTask}, dispatch);
+  return bindActionCreators({createTask, projectTree}, dispatch);
 }
 
 function mapStateToProps(state) {
