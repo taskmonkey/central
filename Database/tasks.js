@@ -105,7 +105,6 @@ and     @pv := concat(@pv, ',', id);`;
     db.query(sql, (err, resp) => {
         let temp = getNestedChildren(resp, taskObj.taskid);
         budgetVsActual(null, taskObj, (totals) => {
-            console.log(totals);
             temp.push(totals);
             clientResponse.send(temp);
         });
@@ -168,6 +167,23 @@ findOneTask = (clientResponse, taskObj, obj) => {
     })
 }
 
+projectOfTask = (clientResponse, taskObj) => {
+    // given a task id, find all their tasks, then from the list of tasks of a task go up the chain and find the root. group by root id to get rid of duplicates
+    let sql = `select MIN(id) as parent from (select
+  @parent:=parentid as parentid, name, id
+from
+  (select @parent:="${taskObj.taskid}") actual
+join
+  (select * from tasks order by id desc) total
+where
+  @parent=id) ours`;
+    db.query(sql, (err, resp) => {
+        //console.log(resp, 'proj by task');
+
+        clientResponse.send(resp[0].parent);
+    });
+};
+
 
 module.exports = {
     createNewTask: createNewTask,
@@ -177,7 +193,8 @@ module.exports = {
     markTaskAsInProgress: markTaskAsInProgress,
     deleteTask: deleteTask,
     allTasks: allTasks,
-    budgetVsActual: budgetVsActual
+    budgetVsActual: budgetVsActual,
+    projectOfTask: projectOfTask
     
 
 }
