@@ -25,6 +25,8 @@ const mapUserstoAllTasks = (allTasks, allUsers, usersTasks) =>{
       newUserObject['id'] = allUsers[i].id;
       userObjects.push(newUserObject)
     }
+
+  
   }
   createNewUserObjects()
   for (let i = 0; i < allTasks.length; i++){
@@ -53,7 +55,9 @@ const mapStateToProps = (state) =>{
     allTasks: state.tasks.allTasks,
     allUsers: state.tasks.allUsers,
     allTasksUsers: state.tasks.usersTasks,
-    mappedUsersAndTasks : mapUserstoAllTasks(state.tasks.allTasks, state.tasks.allUsers, state.tasks.usersTasks)
+    mappedUsersAndTasks : mapUserstoAllTasks(state.tasks.allTasks, state.tasks.allUsers, state.tasks.usersTasks),
+    profile: state.tasks.profile.userid,
+    tasks:state.tasks.tasksByLoggedInUser
   }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -86,11 +90,14 @@ class Dashboard extends Component{
       .catch(err => {
         console.log(err)
       })
-    axios.get('http://localhost:3000/allTasksByUser')
-      .then(result =>{
-
-        //console.log('this is the ALLTASKSBYUSER', result.data)
-    })
+    axios.get('/allOpenTasksOfUser', {params: {userid: this.props.profile}})
+      .then((data)=>{
+        console.log(data.data)
+        this.props.getTasksByLoggedInUser(data.data)
+      })
+      .catch((err)=>{
+        console.log('error')
+      })
     axios.get('http://localhost:3000/entireUsers')
       .then(result => {
         this.props.getAllUsers(result.data)

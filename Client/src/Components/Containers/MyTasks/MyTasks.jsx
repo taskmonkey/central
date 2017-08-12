@@ -5,20 +5,21 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {fetchTasks} from '../../../Actions/index.js';
 import NavTask from '../Dashboard/NavTask.jsx';
-import {getTasksByLoggedInUser} from '../../../Actions/index.js'
+import {getTasksByLoggedInUser, storeProfile } from '../../../Actions/index.js'
 import MyTasksComponent from './OpenTasks.jsx';
-
-
+import axios from 'axios'
+//function here that changes tasksByLoggedInUser by fetching data
 
 const mapStateToProps = (state) =>{
-  console.log(state)
-  //console.log('this is the state in main DASHBOARD', state)
+  
+  console.log('this is the state in main MYTASKS', state)
   return {
-    tasksByUser: state.tasks.tasksByLoggedInUser
+    tasksByUser: state.tasks.tasksByLoggedInUser,
+    profile: state.tasks.profile.userid
   }
 }
 const mapDispatchToProps = (dispatch) => {
-  return {}
+  return bindActionCreators({getTasksByLoggedInUser}, dispatch)
 } 
 
 
@@ -26,8 +27,20 @@ class MyTasks extends Component{
   constructor(props){
     super(props)
   }
+  componentWillMount(){
+    axios.get('/allOpenTasksOfUser', {params: {userid: this.props.profile}})
+              .then((data)=>{
+                console.log(data.data)
+                this.props.getTasksByLoggedInUser(data.data)
+              })
+              .catch((err)=>{
+                console.log('error')
+              })
+  }
+
+
   render() {
-    console.log(this.props, 'this is the mytasks page')
+    //console.log(this.props, 'this is the mytasks page')
     return(
       <div className="dashboard-container">
         <div className="left-col">
