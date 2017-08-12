@@ -9,7 +9,7 @@ div.custom-container {
 	overflow-x: scroll;
 	border-right: solid;
 	border-color: #353942;
-	padding-left: 30px;x`
+	padding-left: 30px;
 }
 
 svg.custom {
@@ -24,11 +24,11 @@ svg.custom .node circle {
 
 svg.custom .node text {
 	font-size: 15px;
-	width: 30px;
+	text-anchor: middle;
 	background-color: #444;
 	fill: #353942;
 	text-shadow: 0 1px 4px black;
-	dominant-baseline: hanging;
+	dominant-baseline: text-before-edge;
 }
 
 svg.custom .node {
@@ -38,7 +38,7 @@ svg.custom .node {
 svg.custom path.link {
 	fill: none;
 	stroke: #2593B8;
-	stroke-width: 5px;
+	stroke-width: 2px;
 }
 
 .logoutButton {
@@ -255,6 +255,10 @@ svg.custom path.link {
 .userProfilePeekCirclePic {
 	max-width: 100%;
   max-height: 100%;
+}
+
+.userProfilePeekName {
+	font-size: 30px;
 }
 
 .userProfilePeekTaskContainer {

@@ -31,17 +31,10 @@ class TasksTree extends Component{
 
   onNodeClick(nodeKey) {
     let node = this.traverseTree(nodeKey, this.props.tree);
-
     this.setState({
       currentNode: node,
-      taskBudget_hours: 'Budget hours:  ' + node.budget_hours.toString(),
-      taskName: node.name,
-      taskDescription: node.description,
-      taskBudget_hours: 'Budget hours:  ' + node.budget_hours.toString(),
-      taskId: node.id,
       taskBudget_hours: 'Budget hours:  ' + node.budget_hours.toString()
     })
-    this.props.tree.children.push({name: 'WUBBULUBBADUBDUB'})
     this.forceUpdate();
   }
   traverseTree(id, node) {
@@ -103,7 +96,8 @@ class TasksTree extends Component{
   render() {
     console.log('TREE', this.props.tree)
     let budget = '';
-    let actual = ''
+    let actual = '';
+    let treeMargins = { bottom : 10, left : 20, right : 100, top : 10};
     if(this.props.tree.timeAlloted){
       budget = "total budgeted hours: " + this.props.tree.timeAlloted[0];
       actual = "total actual hours: " + this.props.tree.timeAlloted[1];
@@ -133,6 +127,7 @@ class TasksTree extends Component{
               keyProp='id'
               labelProp = 'name'
               nodeOffset= {10}
+              margins={treeMargins}
               nodeClickHandler={this.onNodeClick}
               />;
             </div>
@@ -153,11 +148,9 @@ class TasksTree extends Component{
                 {actual}
                 </div>
               <div className="userProfilePeekName">{node ? node.name : ''}</div>
-              <div>{node ? node.description : ''}</div>
+                <div>{node ? node.description : ''}</div>
+                <Button bsStyle="success" onClick={()=> {node ? this.toggleModal() : null}}>Add Task</Button>
               </div>
-              <div>{this.state.taskDescription}</div>
-              <div>{this.state.taskBudget_hours}</div>
-              <Button bsStyle="success" onClick={()=> {node ? this.toggleModal() : null}}>Add Task</Button>
             </div>
             <div>
               <MyModal
