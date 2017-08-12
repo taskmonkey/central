@@ -252,12 +252,12 @@ svg.custom path.link {
   max-height: 100%;
 }
 
-.userProfilePeekNameContainer {
+.userProfilePeekTaskContainer {
 	text-align: center;
 	margin-top: 30px;
 }
 
-.userProfilePeekName {
+.userProfilePeekTask {
 	font-size: 30px;
 }
 
