@@ -102,7 +102,7 @@ class TasksTree extends Component{
       budget = "total budgeted hours: " + this.props.tree.timeAlloted[0];
       actual = "total actual hours: " + this.props.tree.timeAlloted[1];
     }
-    let node = this.state.currentNode;
+
     return(
       <div>
         <div className="dashboard-container">
