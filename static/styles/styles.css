@@ -1,14 +1,19 @@
 
 .spinnerContainer {
 	text-align: center;
-	margin-top: 15%
+	margin-top: 15%;
 }
 
 div.custom-container {
 	background-color: white;
+	overflow-x: scroll;
 	border-right: solid;
 	border-color: #353942;
 	padding-left: 30px;
+}
+
+svg.custom {
+	overflow: scroll;
 }
 
 svg.custom .node circle {
@@ -18,11 +23,12 @@ svg.custom .node circle {
 }
 
 svg.custom .node text {
-	font-size: 20px;
+	font-size: 15px;
+	text-anchor: middle;
 	background-color: #444;
 	fill: #353942;
 	text-shadow: 0 1px 4px black;
-	dominant-baseline: hanging;
+	dominant-baseline: text-before-edge;
 }
 
 svg.custom .node {
@@ -32,7 +38,7 @@ svg.custom .node {
 svg.custom path.link {
 	fill: none;
 	stroke: #2593B8;
-	stroke-width: 5px;
+	stroke-width: 2px;
 }
 
 .logoutButton {
@@ -200,6 +206,7 @@ svg.custom path.link {
   height: 150px;
   border-style: solid;
 	border-radius: 75px;
+	border-width: thin;
 	margin: 0 auto;
 	margin-top: 7%;
 	margin-left: 7%;
@@ -241,6 +248,7 @@ svg.custom path.link {
   height: 200px;
   border-style: solid;
 	border-radius: 100px;
+	border-width: thin;
 	margin: 0 auto;
 	margin-top: 30px;
 	overflow: hidden;
@@ -251,12 +259,16 @@ svg.custom path.link {
   max-height: 100%;
 }
 
-.userProfilePeekNameContainer {
+.userProfilePeekName {
+	font-size: 30px;
+}
+
+.userProfilePeekTaskContainer {
 	text-align: center;
 	margin-top: 30px;
 }
 
-.userProfilePeekName {
+.userProfilePeekTask {
 	font-size: 30px;
 }
 
@@ -290,15 +302,15 @@ svg.custom path.link {
 
 .jumbotron {
 
-	background: url("http://blog.hubstaff.com/wp-content/uploads/2017/07/the-10-best-business-task-manager-apps2.png") no-repeat center; 
+	background: url("http://blog.hubstaff.com/wp-content/uploads/2017/07/the-10-best-business-task-manager-apps2.png") no-repeat center;
 	min-height:600px;
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
-	background: #FFF;  
+	background: #FFF;
 	text-align: center;
 	font-family: 'Lato', sans-serif;
 	margin: 0;
-	box-shadow: 0px 10px 20px -5px rgba(0,0,0,.8); 
+	box-shadow: 0px 10px 20px -5px rgba(0,0,0,.8);
 }
 
 .jumbotron h1 {

@@ -3,7 +3,6 @@ import auth0 from 'auth0-js';
 import ClientID from '../../config.js'
 import history from '../history';
 
-
 export default class Auth {
   constructor() {
     this.auth0 = new auth0.WebAuth({
@@ -12,7 +11,7 @@ export default class Auth {
       redirectUri: 'http://localhost:3000/',
       audience: 'https://austenwma.auth0.com/userinfo',
       responseType: 'token id_token',
-      scope: 'openid profile'
+      scope: 'openid profile',
     });
 
     this.login = this.login.bind(this);
@@ -21,6 +20,27 @@ export default class Auth {
     this.isAuthenticated = this.isAuthenticated.bind(this);
     this.getProfile = this.getProfile.bind(this);
   }
+
+  // var options = {
+  //   avatar: {
+  //     url: function(email, cb) {
+  //       var url = obtainAvatarUrl(email);
+  //       cb(null, url);
+  //     },
+  //     displayName: function(email, cb) {
+  //       var displayName = obtainDisplayName(email);
+  //       cb(null, displayName);
+  //     }
+  //   }
+  //   allowedConnections: ['twitter', 'facebook', 'linkedin']
+  // };
+  //
+  // var lock = new Auth0Lock(ClientID.CLIENT_ID, 'austenwma.auth0.com', options);
+  //
+  // lock.show({
+  //   icon: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg'
+  //   callbackURL: 'http://localhost:3000/'
+  // })
 
   login() {
     this.auth0.authorize();

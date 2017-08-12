@@ -22,15 +22,15 @@ class Spinner extends Component {
     setTimeout(() => {
       if (this.state.auth.isAuthenticated()) {
         this.state.auth.getProfile((err, profile) => {
-
-          axios.get('/getUserInfo', {params: {username:profile.nickname}})
+          console.log('PROFILLEEEEE', profile)
+          axios.get('/getUserInfo', {params: {username:profile.nickname, image: profile.picture}})
           .then((res) => {
-            profile.userid = Number(res.data.id);  
+            profile.userid = Number(res.data.id);
             profile.image = res.data.image;
             axios.get('/allProjectsByUser', {params: {userid: Number(res.data.id)}})
-        
+
             .then((result) => {
-              
+
               this.props.fetchProjects(result.data);
               axios.get('/allOpenTasksOfUser', {params: {userid: Number(res.data.id)}})
               .then((data)=>{
@@ -42,7 +42,7 @@ class Spinner extends Component {
             })
           })
           this.props.storeProfile(profile);
-          
+
           this.props.history.push('/dashboard')
       });
       } else {
@@ -52,7 +52,7 @@ class Spinner extends Component {
   }
 
   render() {
-    
+
     return(
       <div className="spinnerContainer">
         <MDSpinner className="spinner" size="300"/>

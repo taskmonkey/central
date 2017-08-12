@@ -114,13 +114,16 @@ getUserInfo = (clientResponse, userObj) => {
     let sql = `SELECT * from users WHERE users.username = ?`;
     console.log(userObj, 'userobj');
     db.query(sql, [userObj.username], (err, resp) => {
-        if(resp.length){
+        if(resp && resp.length){
+          console.log('user exists');
             clientResponse.send(JSON.stringify(resp[0]));
         } else {
-            db.query("insert into users (username) VALUES (?)", [userObj.username], (err, response) => {
-                
-                getUserInfo(clientResponse, {username: response.insertId});
-                
+            db.query("insert into users (username, image) VALUES (?, ?)", [userObj.username, userObj.image], (err, response) => {
+
+                db.query("SELECT * FROM users WHERE users.id = ?", response.insertId, (err, userInfo) => {
+                  clientResponse.send(JSON.stringify(userInfo[0]));
+                });
+
 
             })
         }
@@ -128,10 +131,10 @@ getUserInfo = (clientResponse, userObj) => {
 }
 
 openTasksOfUser = (clientResponse, userObj) => {
-    
-    let sql = `SELECT * from users_tasks INNER JOIN tasks ON users_tasks.tasks_id = tasks.id 
+
+    let sql = `SELECT * from users_tasks INNER JOIN tasks ON users_tasks.tasks_id = tasks.id
     WHERE users_tasks.user_id = "${userObj.userid}" AND tasks.status IN (-1,0) GROUP BY users_tasks.id;`;
-    
+
     db.query(sql, (err, resp) => {
         console.log(resp, 'open tasks of user');
         console.log(userObj.userid);

@@ -32,12 +32,10 @@ class UserList extends Component{
           <div className="tasksListContainer">
             <div>
                {
-                this.props.users.map(user => 
+                this.props.users.map(user =>
                   <UserComponent user={user}/>
                 )
               } 
-              <Link to="/tasksTree"><button className="tasksTreeButton">Tasks Tree</button></Link>
-              <Link to="/taskForm"><button>Tasks Form</button></Link>
             </div>
           </div>
         </div>

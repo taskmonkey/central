@@ -18,7 +18,8 @@ class TasksTree extends Component{
       taskBudget_hours: '',
       showModal: false,
       currentNode: null,
-      button: 900
+      button: 900,
+      taskId: null,
     }
     this.onNodeClick = this.onNodeClick.bind(this);
     this.traverseTree = this.traverseTree.bind(this);
@@ -30,12 +31,11 @@ class TasksTree extends Component{
 
   onNodeClick(nodeKey) {
     let node = this.traverseTree(nodeKey, this.props.tree);
-  
     this.setState({
       currentNode: node,
       taskBudget_hours: 'Budget hours:  ' + node.budget_hours.toString()
-      
     })
+    this.forceUpdate();
   }
   traverseTree(id, node) {
     if(node.id === id) {
@@ -61,7 +61,7 @@ class TasksTree extends Component{
   handleChange(e) {
     e.preventDefault();
   }
-  
+
   handleTaskForm(nameVal, assigneeVal, budgetHoursVal, descriptionVal) {
     var newAssigneeVals = assigneeVal.split(' ');
     if (Number(budgetHoursVal) == budgetHoursVal) {
@@ -71,15 +71,15 @@ class TasksTree extends Component{
         if(this.state.currentNode.children) {
           currentNode: this.state.currentNode.children.push(res.data.task);
         } else {
-          this.state.currentNode.children = [res.data.task];  
+          this.state.currentNode.children = [res.data.task];
         }
         if (this.state.button === 900){
           this.setState({button: 899});
         } else {
           this.setState({button: 900});
         }
-        
-        
+
+
       })
       .then(()=> {
         this.toggleModal();
@@ -94,8 +94,10 @@ class TasksTree extends Component{
   }
 
   render() {
+    console.log('TREE', this.props.tree)
     let budget = '';
-    let actual = ''
+    let actual = '';
+    let treeMargins = { bottom : 10, left : 20, right : 100, top : 10};
     if(this.props.tree.timeAlloted){
       budget = "total budgeted hours: " + this.props.tree.timeAlloted[0];
       actual = "total actual hours: " + this.props.tree.timeAlloted[1];
@@ -124,6 +126,8 @@ class TasksTree extends Component{
               treeClassName='custom'
               keyProp='id'
               labelProp = 'name'
+              nodeOffset= {10}
+              margins={treeMargins}
               nodeClickHandler={this.onNodeClick}
               />;
             </div>
@@ -132,18 +136,21 @@ class TasksTree extends Component{
             <div className="userProfilePeekCircle">
               <img className="userProfilePeekCirclePic" src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"/>
             </div>
-            
             <div className="userProfilePeekNameContainer">
+              <div className="userProfilePeekName">{console.log(this.state)}</div>
+            </div>
+            <div className="userProfilePeekTaskContainer">
+              <div className="userProfilePeekTask">{this.state.taskName}</div>
               <div>
-              {budget}
+                {budget}
               </div>
               <div>
                 {actual}
                 </div>
               <div className="userProfilePeekName">{node ? node.name : ''}</div>
-              <div>{node ? node.description : ''}</div>
-              <div>{this.state.taskBudget_hours}</div>
-              <Button bsStyle="success" onClick={()=> {node ? this.toggleModal() : null}}>Add Task</Button>
+                <div>{node ? node.description : ''}</div>
+                <Button bsStyle="success" onClick={()=> {node ? this.toggleModal() : null}}>Add Task</Button>
+              </div>
             </div>
             <div>
               <MyModal
@@ -155,7 +162,6 @@ class TasksTree extends Component{
             </div>
           </div>
         </div>
-      </div>
     )
   }
 }
@@ -169,4 +175,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TasksTree);
-
