@@ -119,7 +119,6 @@ and     @pv := concat(@pv, ',', id);`;
 markTaskAsComplete = (clientResponse, taskObj) => {
     let sql = `UPDATE tasks SET status = 1, actual_hours = ? WHERE id = ?`;
     db.query(sql, [taskObj.actual_hours, taskObj.taskid], (err, resp) => {
-
         clientResponse.end();
     });
 };
