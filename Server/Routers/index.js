@@ -51,6 +51,11 @@ router.get('/getUserInfo', (req, res) => {
 router.get('/allProjectsByUser', (req, res) => {
 
   users.allProjectsByUser(res, req.query);
+});
+
+router.get('/projectOfTask', (req, res) => {
+
+  tasks.projectOfTask(res, req.query);
 })
 
 
@@ -62,7 +67,7 @@ router.get('/node_modules/auth0-js/build/auth0.js', (req, res) => {
 
 router.get('/dashboard', (req, res) => {
   console.log('dashy');
-})
+});
 
 
 
@@ -142,6 +147,7 @@ router.put('/updateStatusInProgress', (req, res) => {
 router.put('/updateStatusComplete', (req, res) => {
   tasks.markTaskAsComplete(res, req.body);
 });
+
 
 
 

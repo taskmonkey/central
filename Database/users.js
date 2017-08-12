@@ -34,22 +34,6 @@ findAllTasksOfUser = (clientResponse, userObj) => {
     });
 };
 
-findProjectOfTask = (taskObj, cb) => {
-    // given a task id, find all their tasks, then from the list of tasks of a task go up the chain and find the root. group by root id to get rid of duplicates
-    let sql = `select MIN(id) as parent from (select
-  @parent:=parentid as parentid, name, id
-from
-  (select @parent:="${taskObj.id}") actual
-join
-  (select * from tasks order by id desc) total
-where
-  @parent=id) ours`;
-    db.query(sql, (err, resp) => {
-        //console.log(resp, 'proj by task');
-
-        cb(resp[0].parent);
-    });
-};
 
 
 allProjectsByUser = (clientResponse, userObj) => {
@@ -99,6 +83,24 @@ allProjectsByUser = (clientResponse, userObj) => {
     });
 };
 
+findProjectOfTask = (taskObj, cb) => {
+    // given a task id, find all their tasks, then from the list of tasks of a task go up the chain and find the root. group by root id to get rid of duplicates
+    let sql = `select MIN(id) as parent from (select
+  @parent:=parentid as parentid, name, id
+from
+  (select @parent:="${taskObj.id}") actual
+join
+  (select * from tasks order by id desc) total
+where
+  @parent=id) ours`;
+    db.query(sql, (err, resp) => {
+        //console.log(resp, 'proj by task');
+
+        cb(resp[0].parent);
+    });
+};
+
+
 findAllTasksOfOwner = (clientResponse, ownerObj) => {
     let sql = `SELECT * FROM tasks WHERE tasks.owner = "${userObj.userid}";`;
 
@@ -126,10 +128,13 @@ getUserInfo = (clientResponse, userObj) => {
 }
 
 openTasksOfUser = (clientResponse, userObj) => {
-    console.log(userObj)
-    let sql = `SELECT * from users INNER JOIN
-    users_tasks ON users.id = users_tasks.user_id INNER JOIN tasks ON users_tasks.tasks_id = tasks.id WHERE users.id = "${userObj.userid}" AND tasks.status IN (-1,0);`;
+    
+    let sql = `SELECT * from users_tasks INNER JOIN tasks ON users_tasks.tasks_id = tasks.id 
+    WHERE users_tasks.user_id = "${userObj.userid}" AND tasks.status IN (-1,0) GROUP BY users_tasks.id;`;
+    
     db.query(sql, (err, resp) => {
+        console.log(resp, 'open tasks of user');
+        console.log(userObj.userid);
         clientResponse.send(resp);
     })
 };

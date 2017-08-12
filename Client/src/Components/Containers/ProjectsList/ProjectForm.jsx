@@ -32,7 +32,6 @@ class ProjectForm extends Component {
     if (newAssigneeVals.indexOf(this.props.storeProfile.nickname) < 0) {
       newAssigneeVals.push(this.props.storeProfile.nickname);
     }
-    newAssigneeVals.push(this.props.storeProfile.nickname);
     if (Number(budgetHoursVal) == budgetHoursVal) {
       axios.post('/addProject', {name: nameVal, parentid: null, assignees: newAssigneeVals, budget_hours: budgetHoursVal, description: descriptionVal, owner: this.props.storeProfile.userid})
       .then(res => {
