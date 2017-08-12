@@ -9,7 +9,8 @@ import TasksTree from './Components/Containers/TasksTree/TasksTree.jsx';
 import TasksDetails from './Components/Containers/TasksDetails/TasksDetails.jsx';
 import ProjectForm from './Components/Containers/ProjectsList/ProjectForm.jsx';
 import Spinner from './Components/Containers/Login/Spinner.jsx';
-import MyTasks from './Components/Containers/MyTasks/MyTasks.jsx'
+import MyTasks from './Components/Containers/MyTasks/MyTasks.jsx';
+import Settings from './Components/Containers/Settings/Settings.jsx';
 import axios from 'axios';
 import {connect} from 'react-redux'
 import {getUsersTasks, getAllTasks, findAllTasksOfUser, getAllUsers} from './Actions/index.js'
@@ -17,7 +18,7 @@ import {bindActionCreators} from 'redux'
 
 
 const mapStateToProps = (state) =>{
-  
+
   return {}
 }
 const mapDispathToProps = (dispatch) => {
@@ -78,6 +79,7 @@ class Main extends Component {
           <Route exact path="/tasksTree" component={TasksTree}/>
           <Route exact path="/projectForm" component={ProjectForm}/>
           <Route exact path="/tasksDetails" component={TasksDetails}/>
+          <Route exact path="/settings" component={Settings}/>
         </Switch>
       </BrowserRouter>
     )
