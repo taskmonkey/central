@@ -26,27 +26,27 @@ createNewTask = (clientResponse, taskObj) => {
     let temp = [taskObj.name, taskObj.description, taskObj.budget_hours, taskObj.owner, taskObj.parentid];
     let sql = `INSERT INTO tasks (name, description, budget_hours, owner, parentid) VALUES (?, ?, ?, ?, ?);`;
     db.query(sql, temp, (err, resp) => {
-        
+
         var responseObject = {};
         if(taskObj.assignees.length > 0) {
             responseObject.success = [];
             responseObject.failure = [];
             let assignees = taskObj.assignees.length;
             let count = 0;
-  
+
             taskObj.assignees.forEach(id => {
                 let temp = {};
-                temp.username = id;            
+                temp.username = id;
                 temp.taskid = resp.insertId;
 
                 giveUserNewTask(temp, () => {
- 
+
                     count++;
                     responseObject.success.push(id);
                     if (count === assignees) {
-                        
+
                         findOneTask(clientResponse, {taskid: resp.insertId}, responseObject);
-                        
+
                     }
                 },() => {
                     console.log(id, 'id on fake person');
@@ -54,15 +54,15 @@ createNewTask = (clientResponse, taskObj) => {
                     responseObject.failure.push(id);
                     if(count === assignees) {
                         findOneTask(clientResponse, {taskid: resp.insertId}, responseObject);
-                       
+
                     }
                 });
-                
+
             });
 
         } else {
             findOneTask(clientResponse, {taskid: resp.insertId}, responseObject);
-            
+
 
         }
     });
@@ -87,7 +87,7 @@ updateActualHours = (clientResponse, hoursObj) => {
     let temp = [hoursObj.actual_hours, hoursObj.taskid];
     let sql = `UPDATE tasks SET actual_hours = ? WHERE id = ?`;
     db.query(sql, temp, (err, resp) => {
-       
+
         clientResponse.end();
     });
 };
@@ -99,7 +99,7 @@ findAllChildTasks = (clientResponse, taskObj) => {
 from    (select * from tasks
          order by parentid, id) tasks_sorted,
         (select @pv := '${taskObj.taskid}')temp
-where   find_in_set(parentid, @pv) > 0 
+where   find_in_set(parentid, @pv) > 0
 and     @pv := concat(@pv, ',', id);`;
 
     db.query(sql, (err, resp) => {
@@ -112,9 +112,9 @@ and     @pv := concat(@pv, ',', id);`;
 };
 
 markTaskAsComplete = (clientResponse, taskObj) => {
-    let sql = `UPDATE tasks SET status = 1 WHERE id = "${taskObj.taskid}"`;
-    db.query(sql, (err, resp) => {
- 
+    let sql = `UPDATE tasks SET status = 1, actual_hours = ? WHERE id = ?`;
+    db.query(sql, [taskObj.actual_hours, taskObj.taskid], (err, resp) => {
+
         clientResponse.end();
     });
 };
@@ -147,7 +147,7 @@ budgetVsActual = (clientResponse, taskObj, cb) => {
 from    (select * from tasks
          order by parentid, id) tasks_sorted,
         (select @root := '${taskObj.taskid}')temp
-where   find_in_set(parentid, @root) > 0 
+where   find_in_set(parentid, @root) > 0
 and     @root := concat(@root, ',', id)`;
     db.query(sql, (err, resp) => {
         if(cb) {
@@ -193,6 +193,6 @@ module.exports = {
     allTasks: allTasks,
     budgetVsActual: budgetVsActual,
     projectOfTask: projectOfTask
-    
+
 
 }
