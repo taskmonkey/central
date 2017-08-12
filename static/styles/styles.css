@@ -12,6 +12,10 @@ div.custom-container {
 	padding-left: 30px;x`
 }
 
+svg.custom {
+	overflow: scroll;
+}
+
 svg.custom .node circle {
 	fill: white;
 	stroke: #2CC5C6;
@@ -19,7 +23,8 @@ svg.custom .node circle {
 }
 
 svg.custom .node text {
-	font-size: 20px;
+	font-size: 15px;
+	width: 30px;
 	background-color: #444;
 	fill: #353942;
 	text-shadow: 0 1px 4px black;

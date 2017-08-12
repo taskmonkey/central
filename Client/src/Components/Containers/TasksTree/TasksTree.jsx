@@ -18,7 +18,7 @@ class TasksTree extends Component{
       taskBudget_hours: '',
       showModal: false,
       currentNode: null,
-      button: 900
+      button: 900,
       taskId: null,
     }
     this.onNodeClick = this.onNodeClick.bind(this);
@@ -34,9 +34,7 @@ class TasksTree extends Component{
 
     this.setState({
       currentNode: node,
-      taskBudget_hours: 'Budget hours:  ' + node.budget_hours.toString()
-    console.log('node', node)
-    this.setState({
+      taskBudget_hours: 'Budget hours:  ' + node.budget_hours.toString(),
       taskName: node.name,
       taskDescription: node.description,
       taskBudget_hours: 'Budget hours:  ' + node.budget_hours.toString(),
@@ -103,7 +101,6 @@ class TasksTree extends Component{
   }
 
   render() {
-    alert('RERENDERING')
     console.log('TREE', this.props.tree)
     let budget = '';
     let actual = ''
@@ -135,6 +132,7 @@ class TasksTree extends Component{
               treeClassName='custom'
               keyProp='id'
               labelProp = 'name'
+              nodeOffset= {10}
               nodeClickHandler={this.onNodeClick}
               />;
             </div>
