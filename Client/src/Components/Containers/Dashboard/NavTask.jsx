@@ -155,7 +155,7 @@ const SideNavWithAlerts = (props) =>
         </Nav>
         <Nav id="deliveries">
             <NavIcon><Icon20 icon={database} /></NavIcon>
-            <NavText> Settings </NavText>
+            <NavText><Link to="/settings">{' '}<span style={{ paddingRight: 6 }}>Settings</span>{' '}</Link></NavText>
         </Nav>
         <Nav id="deliveries">
             <NavText><Link to="/login"><button className="logoutButton" onClick={props.Auth.logout}>Logout</button></Link></NavText>

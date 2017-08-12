@@ -111,7 +111,6 @@ class TasksTree extends Component{
   						<h1>Task Mon</h1>
   					</div>
             <NavTask />
-              <Button bsStyle="success" onClick={()=> {node ? this.toggleModal() : null}}>Add Task</Button>
           </div>
           <div className="taskTreeContainer">
             <div className="dashboard-title">
