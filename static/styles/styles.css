@@ -331,7 +331,7 @@ svg.custom path.link {
 	text-decoration: underline;
 }
 
- p.landing-blurbs {
+p.landing-blurbs {
 	text-align: center;
 }
 
@@ -343,4 +343,23 @@ svg.custom path.link {
 .example-appear.example-appear-active {
   opacity: 1;
   transition: opacity .5s ease-in;
+}
+.taskButton{
+	border-radius : 10px 10px 10px 10px;
+	font-weight: normal;
+  background-color: #2CC5C6;
+  border: none;
+  margin-right: -10px;
+	margin-bottom: 15px;
+	color: #f8f5ed;
+}
+.taskButtonComplete{
+	border-radius : 10px 10px 10px 10px;
+	font-weight: normal;
+  background-color: #84E184;
+  border: none;
+	margin-right: 5px;
+	margin-left: -10px;
+	margin-bottom: 15px;
+	color: #f8f5ed;
 }

@@ -73,7 +73,7 @@ class Dashboard extends Component{
     }
   }
   componentWillMount(){
-    console.log('helllooooo this is mountinggggggg')
+    //console.log('helllooooo this is mountinggggggg')
     axios.get('http://localhost:3000/entireUsersTasks')
       .then(result => {
         //console.log(result.data)
@@ -92,7 +92,7 @@ class Dashboard extends Component{
       })
     axios.get('/allOpenTasksOfUser', {params: {userid: this.props.profile}})
       .then((data)=>{
-        console.log(data.data)
+        //console.log(data.data)
         this.props.getTasksByLoggedInUser(data.data)
       })
       .catch((err)=>{

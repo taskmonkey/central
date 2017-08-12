@@ -30,7 +30,7 @@ class MyTasks extends Component{
   componentWillMount(){
     axios.get('/allOpenTasksOfUser', {params: {userid: this.props.profile}})
               .then((data)=>{
-                console.log(data.data)
+                console.log('this is the data package',data.data)
                 this.props.getTasksByLoggedInUser(data.data)
               })
               .catch((err)=>{
@@ -52,10 +52,12 @@ class MyTasks extends Component{
         <div className="right-col">
 					<div className="dashboard-title">
 						<h1 className="pull-left">My Tasks</h1>
+            
 					</div>
           <div className="tasksListContainer">
             <div>
               <h3>Task Descriptions</h3>
+              <hr></hr>
               {
                 this.props.tasksByUser.map(task => 
                   <MyTasksComponent task={task}/>
