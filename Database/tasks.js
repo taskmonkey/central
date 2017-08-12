@@ -22,52 +22,6 @@ allTasks = (clientResponse) => {
     })
 }
 
-createNewProject = (clientResponse, taskObj) => {
-    let temp = [taskObj.name, taskObj.description, taskObj.budget_hours, taskObj.owner];
-    let sql = `INSERT INTO tasks (name, description, budget_hours, owner) VALUES (?, ?, ?, ?);`;
-    db.query(sql, temp, (err, resp) => {
-        
-        var responseObject = {};
-        if(taskObj.assignees.length > 0) {
-            responseObject.success = [];
-            responseObject.failure = [];
-            let assignees = taskObj.assignees.length;
-            let count = 0;
-  
-            taskObj.assignees.forEach(id => {
-                let temp = {};
-                temp.username = id;            
-                temp.taskid = resp.insertId;
-
-                giveUserNewTask(temp, () => {
- 
-                    count++;
-                    responseObject.success.push(id);
-                    if (count === assignees) {
-                        
-                        findOneTask(clientResponse, {taskid: resp.insertId}, responseObject);
-                        
-                    }
-                },() => {
-                    count++;
-                    responseObject.failure.push(id);
-                    if(count === assignees) {
-                        findOneTask(clientResponse, {taskid: resp.insertId}, responseObject);
-                       
-                    }
-                });
-                
-            });
-
-        } else {
-            findOneTask(clientResponse, {taskid: resp.insertId}, responseObject);
-            
-
-        }
-    });
-};
-
-
 createNewTask = (clientResponse, taskObj) => {
     let temp = [taskObj.name, taskObj.description, taskObj.budget_hours, taskObj.owner, taskObj.parentid];
     let sql = `INSERT INTO tasks (name, description, budget_hours, owner, parentid) VALUES (?, ?, ?, ?, ?);`;
@@ -128,15 +82,6 @@ giveUserNewTask = (userTaskObj, cb, failcb) => {
         }
     });
 }
-
-// createNewTask = (clientResponse, taskObj) => {
-//     let temp = [taskObj.name, taskObj.budget_hours, taskObj.owner, taskObj.parentid];
-//     let sql = `INSERT INTO tasks (name, budget_hours, owner, parentid) VALUES (?, ?, ?, ?, ?);`;
-//     db.query(sql, temp, (err, resp) => {
-      
-//         clientResponse.send(resp);
-//     });
-// };
 
 updateActualHours = (clientResponse, hoursObj) => {
     let temp = [hoursObj.actual_hours, hoursObj.taskid];
@@ -225,7 +170,6 @@ findOneTask = (clientResponse, taskObj, obj) => {
 
 
 module.exports = {
-    createNewProject: createNewProject,
     createNewTask: createNewTask,
     updateActualHours: updateActualHours,
     findAllChildTasks: findAllChildTasks,
