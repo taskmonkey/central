@@ -19,7 +19,8 @@ class TasksTree extends Component{
       taskDescription: '',
       taskBudget_hours: '',
       userProfilePeekName: '',
-      showModal: false
+      showModal: false,
+      taskId: null
     }
     this.onNodeClick = this.onNodeClick.bind(this);
     this.traverseTree = this.traverseTree.bind(this);
@@ -34,7 +35,8 @@ class TasksTree extends Component{
     this.setState({
       taskName: node.name,
       taskDescription: node.description,
-      taskBudget_hours: 'Budget hours:  ' + node.budget_hours.toString()
+      taskBudget_hours: 'Budget hours:  ' + node.budget_hours.toString(),
+      taskId: node.id
       
     })
   }
@@ -61,18 +63,26 @@ class TasksTree extends Component{
 
   handleChange(e) {
     e.preventDefault();
-    console.log(e.target.name, taskForm.value);
   }
   
   handleTaskForm(nameVal, assigneeVal, budgetHoursVal, descriptionVal) {
-    axios.post('/addProject',{name: nameVal, assignees: [assigneeVal], budget_hours: budgetHoursVal, description: descriptionVal, owner: 4})
+    var newAssigneeVals = assigneeVal.split(' ');
+    if (Number(budgetHoursVal) == budgetHoursVal) {
+      axios.post('/addTask', {name: nameVal, assignees: newAssigneeVals, budget_hours: budgetHoursVal, description: descriptionVal, owner: this.props.storeProfile.userid, parentid: this.state.taskId})
       .then(res => {
-        console.log('here is the post res', res);
-        this.props.createTask(res);
+        console.log('taskPost: ', res.data.task);
+        this.props.createTask(res.data.task);
+      })
+      .then(()=> {
+        this.toggleModal();
       })
       .catch(err => {
         console.log('error in the post', err);
       });
+    }
+    else {
+      alert('budget hours must be a number');
+    }
   }
 
   render() {
@@ -128,7 +138,7 @@ class TasksTree extends Component{
               <div>{this.state.taskBudget_hours}</div>
             </div>
             <div>
-              <Button bsStyle="success" onClick={this.toggleModal}>Add Task</Button>
+              <Button bsStyle="success" onClick={()=> {this.state.taskId ? this.toggleModal() : null}}>Add Task</Button>
               <MyModal
                 toggleModal={this.toggleModal}
                 showModal={this.state.showModal}
@@ -148,7 +158,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  return {tree: state.tasks.projectTree}
+  return {tree: state.tasks.projectTree, storeProfile: state.tasks.profile}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TasksTree);

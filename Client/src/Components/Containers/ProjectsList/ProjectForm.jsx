@@ -43,7 +43,7 @@ class ProjectForm extends Component {
 
     }
     else {
-      alert('please enter a number');
+      alert('budget hours must be a number');
     }
   }
 
