@@ -9,6 +9,7 @@ import {connect} from 'react-redux'
 import {getTasksByLoggedInUser, getUsersTasks, getAllTasks, findAllTasksOfUser, getAllUsers } from '../../../Actions/index.js'
 import {bindActionCreators} from 'redux'
 import axios from 'axios'
+import io from 'socket.io-client';
 
 const mapUserstoAllTasks = (allTasks, allUsers, usersTasks) =>{
   // console.log(allTasks, 'this is the all tasks')
@@ -26,7 +27,7 @@ const mapUserstoAllTasks = (allTasks, allUsers, usersTasks) =>{
       userObjects.push(newUserObject)
     }
 
-  
+
   }
   createNewUserObjects()
   for (let i = 0; i < allTasks.length; i++){
@@ -45,16 +46,18 @@ const mapUserstoAllTasks = (allTasks, allUsers, usersTasks) =>{
     }
   }
   return userObjects;
-  
+  // console.log(lookUpObject, 'this is the new object')
+
 }
 
 const mapStateToProps = (state) =>{
+  //console.log('this is the state in main DASHBOARD', state)
   return {
     allTasks: state.tasks.allTasks,
     allUsers: state.tasks.allUsers,
     allTasksUsers: state.tasks.usersTasks,
     mappedUsersAndTasks : mapUserstoAllTasks(state.tasks.allTasks, state.tasks.allUsers, state.tasks.usersTasks),
-    profile: state.tasks.profile.userid,
+    profile: state.tasks.profile,
     tasks:state.tasks.tasksByLoggedInUser
   }
 }
@@ -69,8 +72,10 @@ class Dashboard extends Component{
     this.state = {
       auth: new Auth()
     }
+    this.willMount = this.willMount.bind(this);
   }
-  componentWillMount(){
+
+  willMount() {
     axios.get('http://localhost:3000/entireUsersTasks')
       .then(result => {
         this.props.getUsersTasks(result.data)
@@ -85,7 +90,7 @@ class Dashboard extends Component{
       .catch(err => {
         console.log(err)
       })
-    axios.get('/allOpenTasksOfUser', {params: {userid: this.props.profile}})
+    axios.get('/allOpenTasksOfUser', {params: {userid: this.props.profile.userid}})
       .then((data)=>{
         this.props.getTasksByLoggedInUser(data.data)
       })
@@ -100,7 +105,26 @@ class Dashboard extends Component{
         console.log('err')
       })
   }
+
+  componentWillMount(){
+    this.willMount();
+  }
+
+  componentDidMount() {
+    // '/' will trigger the .on('connection') event on the server side, connects everytime the component mounts
+    this.socket = io('/');
+    this.socket.on('addedTask', body => {
+      console.log('body', body);
+      console.log('profile', this.props.profile);
+      if(body.body.assignees[0] === this.props.profile.nickname) {
+        alert('You have a new task assigned!');
+        this.willMount();
+      }
+    });
+  }
+
   render() {
+    console.log(this.props.mappedUsersAndTasks, this.props.allTasksUsers, this.props.allUsers)
     return(
       <div className="dashboard-container">
         <div className="left-col">
@@ -109,16 +133,19 @@ class Dashboard extends Component{
 					</div>
           <NavTask />
         </div>
+        {/* <div className ="col-sm-">
+
+        </div> */}
         <div className="right-col">
 					<div className="dashboard-title">
 						<h1 className="pull-left">Dashboard</h1>
 					</div>
-      
+
 					<div className="graph-container">
 						<h3>HRLA16</h3>
             <hr></hr>
             <BarGraph allTasksAndUsers={this.props.mappedUsersAndTasks} allTasksUsers={this.props.allTasksUsers} allUsers={this.props.allUsers}/>
-      
+
 						<h3>Sprints</h3>
             <hr></hr>
 						<div className="row">
@@ -134,4 +161,5 @@ class Dashboard extends Component{
   }
 }
 
+//export default connect(mapStateToProps, mapDispathToProps)(Dashboard)
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)

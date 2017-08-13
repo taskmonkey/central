@@ -11,6 +11,7 @@ import {bindActionCreators} from 'redux';
 import {createTask, projectTree} from '../../../Actions/index.js';
 import MyModal from './TaskModal.jsx';
 import CompleteModal from './CompleteModal.jsx';
+import io from 'socket.io-client';
 
 class TasksTree extends Component{
   constructor() {
@@ -31,6 +32,14 @@ class TasksTree extends Component{
     this.toggleModal = this.toggleModal.bind(this);
     this.toggleCompleteModal = this.toggleCompleteModal.bind(this);
     this.handleCompleteTask = this.handleCompleteTask.bind(this);
+  }
+
+  componentDidMount() {
+    // '/' will trigger the .on('connection') event on the server side
+    this.socket = io('/');
+    this.socket.on('addedTask', body => {
+      // alert(body);
+    });
   }
 
   onNodeClick(nodeKey) {
@@ -55,7 +64,7 @@ class TasksTree extends Component{
       }
     }
   }
-  checkChildren(node) {  
+  checkChildren(node) {
     if(node.children) {
       for(let i = 0; i < node.children.length; i++) {
         if(node.children[i].status !== 1) {
@@ -90,8 +99,9 @@ class TasksTree extends Component{
       })
     }
     var newAssigneeVals = splitStrAndEraseSpaces(assigneeVal);
+    var taskDetails = {name: nameVal, assignees: newAssigneeVals, budget_hours: budgetHoursVal, description: descriptionVal, owner: this.props.storeProfile.userid, parentid: this.state.currentNode.id};
     if (Number(budgetHoursVal) == budgetHoursVal) {
-      axios.post('/addTask', {name: nameVal, assignees: newAssigneeVals, budget_hours: budgetHoursVal, description: descriptionVal, owner: this.props.storeProfile.userid, parentid: this.state.currentNode.id})
+      axios.post('/addTask', taskDetails)
       .then(res => {
         var newRes = res.data.task;
         newRes.className = 'red-node';
@@ -99,7 +109,7 @@ class TasksTree extends Component{
         if(this.state.currentNode.children) {
           currentNode: this.state.currentNode.children.push(newRes);
         } else {
-          this.state.currentNode.children = [newRes];  
+          this.state.currentNode.children = [newRes];
         }
         if (this.state.button === 900){
           this.setState({button: 899});
@@ -109,6 +119,8 @@ class TasksTree extends Component{
       })
       .then(()=> {
         this.toggleModal();
+        console.log('EMITTING IO')
+        this.socket.emit('addedTask', taskDetails)
       })
       .catch(err => {
         console.log('error in the post', err);
@@ -195,9 +207,11 @@ class TasksTree extends Component{
                 {actual}
                 </div>
               <div className="userProfilePeekName">{node ? node.name : ''}</div>
-              <div>{node ? node.description : ''}</div>
-              <div>{this.state.taskBudget_hours}</div>
-              <Button bsStyle="success" onClick={()=> {node ? this.toggleModal() : null}}>Add Task</Button>
+              <div className="userProfilePeekDetails">
+                <div>{node ? node.description : ''}</div>
+                <div>{this.state.taskBudget_hours}</div>
+              </div>
+              <Button className="userProfilePeekButtons" bsStyle="success" onClick={()=> {node ? this.toggleModal() : null}}>Add Task</Button>
               <Button bsStyle="info" onClick={()=>{node && !this.checkChildren(node) ? this.toggleCompleteModal() : null}}>Mark task as complete</Button>
             </div>
             <div>

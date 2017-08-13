@@ -4,6 +4,10 @@
 	margin-top: 15%;
 }
 
+.navTaskSpans {
+	color: white;
+}
+
 div.custom-container {
 	background-color: white;
 	overflow-x: scroll;
@@ -18,14 +22,44 @@ div.custom-container {
 }
 
 .red-node text{
-	font-size: 20px;
+	font-size: 15px;
 	text-shadow: 0 1px 4px black;
 	dominant-baseline: hanging;
+	text-anchor: middle;
 }
+
+.red-node-root {
+	fill: red;
+	cursor: pointer;
+	/* stroke: red; */
+}
+
+.red-node-root text{
+	font-size: 25px;
+	text-shadow: 0 1px 4px black;
+	dominant-baseline: hanging;
+	text-anchor: start;
+}
+
+.green-node-root {
+	fill: red;
+	cursor: pointer;
+	/* stroke: red; */
+}
+
+.green-node-root text{
+	font-size: 25px;
+	text-shadow: 0 1px 4px black;
+	dominant-baseline: hanging;
+	text-anchor: start;
+}
+
 
 .green-node {
 	fill: green;
 	cursor: pointer;
+	dominant-baseline: hanging;
+	text-anchor: middle;
 }
 
 .green-node text{
@@ -221,6 +255,9 @@ svg.custom path.link {
 .tasksListItemContainer {
 	width: 100%;
 	display: inline-block;
+	padding-bottom: 5%;
+	border-bottom-style: solid;
+	border-color: #D3D3D3;
 }
 
 .tasksListItemCircle {
@@ -242,7 +279,7 @@ svg.custom path.link {
 }
 
 .tasksListItemTitle {
-	padding-top: 12%;
+	padding-top: 10%;
 	padding-left: 27.5%;
 	font-size: 30px;
 }
@@ -254,7 +291,7 @@ svg.custom path.link {
 
 .tasksTreeButton {
 	width: 95%;
-	margin: 5% auto;
+	margin: 6% 0% 0% 3%;
 }
 
 .userProfilePeek {
@@ -283,6 +320,13 @@ svg.custom path.link {
 
 .userProfilePeekName {
 	font-size: 24px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.userProfilePeekDetails {
+	margin-top: 10px;
+	margin-bottom: 50px;
 }
 
 .userProfilePeekTaskContainer {
@@ -292,6 +336,10 @@ svg.custom path.link {
 
 .userProfilePeekTask {
 	font-size: 30px;
+}
+
+.userProfilePeekButtons {
+	margin-right: 10px;
 }
 
 /* .createTask {
@@ -384,4 +432,8 @@ p.landing-blurbs {
 	margin-left: -10px;
 	margin-bottom: 15px;
 	color: #f8f5ed;
+}
+
+.projectFormButtons {
+	margin-right: 30px;
 }

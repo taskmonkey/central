@@ -18,9 +18,9 @@ class ProjectsListItem extends Component {
       let tree = this.props.projectsListItem;
       tree.children = resp.data;
       if (tree.status === -1) {
-        tree.className = 'red-node';
+        tree.className = 'red-node-root';
       } else if (tree.status === 1) {
-        tree.className = 'green-node';
+        tree.className = 'green-node-root';
       }
       tree.timeAlloted = [tree.budget_hours + totals.budgetTotal, tree.actual_hours + totals.actualTotal];
       this.props.projectTree(tree);
@@ -29,7 +29,7 @@ class ProjectsListItem extends Component {
 
   render(){
     return(
-      
+
       <div className="tasksListItemContainer">
         <div className="tasksListItemCircle">
           <img className="tasksListItemCircleImage" src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"/>
@@ -38,7 +38,7 @@ class ProjectsListItem extends Component {
       </div>
     )
   }
-  
+
 }
 
 
@@ -47,4 +47,3 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(null, mapDispatchToProps)(ProjectsListItem);
-
