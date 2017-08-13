@@ -12,7 +12,7 @@ import axios from 'axios'
 import io from 'socket.io-client';
 
 const mapUserstoAllTasks = (allTasks, allUsers, usersTasks) =>{
-  // console.log(allTasks, 'this is the all tasks')
+  //console.log(allTasks, 'this is the all tasks')
   // console.log(allUsers)
   let userObjects = []
   let taskObjects = []
@@ -26,11 +26,6 @@ const mapUserstoAllTasks = (allTasks, allUsers, usersTasks) =>{
       newUserObject['id'] = allUsers[i].id;
       userObjects.push(newUserObject)
     }
-<<<<<<< HEAD
-
-
-=======
->>>>>>> getting ready to rebase
   }
   createNewUserObjects()
   for (let i = 0; i < allTasks.length; i++){
@@ -53,19 +48,33 @@ const mapUserstoAllTasks = (allTasks, allUsers, usersTasks) =>{
 
 }
 
+const getBudgetVsActual = (allTasksByLoggedInUser) => {
+  
+  let budgetedHours = 0;
+  let actualHours = 0;
+  for (let i = 0; i < allTasksByLoggedInUser.length; i++) {
+    budgetedHours  += allTasksByLoggedInUser[i].budget_hours ;
+    actualHours += allTasksByLoggedInUser[i].actual_hours;
+  }
+  // console.log(actualHours/budgetedHours)
+  return actualHours/budgetedHours
+}
+
+
+
+
+
+
 const mapStateToProps = (state) =>{
-<<<<<<< HEAD
-  //console.log('this is the state in main DASHBOARD', state)
-=======
-  console.log(state)
->>>>>>> getting ready to rebase
+  console.log('this is the state in main DASHBOARD', state)
   return {
     allTasks: state.tasks.allTasks,
     allUsers: state.tasks.allUsers,
     allTasksUsers: state.tasks.usersTasks,
     mappedUsersAndTasks : mapUserstoAllTasks(state.tasks.allTasks, state.tasks.allUsers, state.tasks.usersTasks),
     profile: state.tasks.profile,
-    tasks:state.tasks.tasksByLoggedInUser
+    tasks:state.tasks.tasksByLoggedInUser,
+    budgetVsActual: getBudgetVsActual(state.tasks.tasksByLoggedInUser)
   }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -130,11 +139,7 @@ class Dashboard extends Component{
   }
 
   render() {
-<<<<<<< HEAD
-    console.log(this.props.mappedUsersAndTasks, this.props.allTasksUsers, this.props.allUsers)
-=======
-    console.log(this.props.mappedUsersAndTasks, )
->>>>>>> getting ready to rebase
+    //console.log(this.props.mappedUsersAndTasks, this.props.allTasksUsers, this.props.allUsers)
     return(
       <div className="dashboard-container">
         <div className="left-col">
@@ -155,17 +160,21 @@ class Dashboard extends Component{
 						<h3>HRLA16</h3>
             <hr></hr>
             <BarGraph allTasksAndUsers={this.props.mappedUsersAndTasks} allTasksUsers={this.props.allTasksUsers} allUsers={this.props.allUsers}/>
-<<<<<<< HEAD
-
-=======
->>>>>>> getting ready to rebase
 						<h3>Sprints</h3>
             <hr></hr>
 						<div className="row">
-              <PieGraph />
-							{/* <div className="col-sm-4"><PieGraph /></div>
-							<div className="col-sm-4"><PieGraph /></div>
-							<div className="col-sm-4"><PieGraph /></div> */}
+              <div className="col-sm-4" id="budgetvsactual">
+                hello
+              </div>
+              <div className="col-sm-4">
+                hello
+              </div>
+              <div className="col-sm-4">
+                hello
+              </div>
+            </div>
+            <div className="row">
+              <PieGraph budgetVsActual = {this.props.budgetVsActual} />
 						</div>
 					</div>
         </div>
