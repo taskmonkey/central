@@ -7,6 +7,11 @@ const getNestedChildren = (arr, parent, index = 0) => {
     for(let i = index; i < arr.length; i++) {
         if(arr[i].parentid == parent) {
             let children = getNestedChildren(arr, arr[i].id, index + 1);
+            if (arr[i].status === -1) {
+                arr[i].className = 'red-node';
+            } else if (arr[i].status === 1){
+                arr[i].className = 'green-node';
+            }
             if(children.length) {
                 arr[i].children = children
             }

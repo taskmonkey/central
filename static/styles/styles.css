@@ -11,6 +11,26 @@ div.custom-container {
 	border-color: #353942;
 	padding-left: 30px;
 }
+.red-node {
+	fill: red;
+	/* stroke: red; */
+}
+
+.red-node text{
+	font-size: 20px;
+	text-shadow: 0 1px 4px black;
+	dominant-baseline: hanging;
+}
+
+.green-node {
+	fill: green;
+}
+
+.green-node text{
+	font-size: 20px;
+	text-shadow: 0 1px 4px black;
+	dominant-baseline: hanging;
+}
 
 svg.custom {
 	overflow: scroll;
