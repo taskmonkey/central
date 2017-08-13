@@ -4,19 +4,19 @@ const db = require('../Database/dbConnection.js');
 let userData = [
     {
         username: 'richsong003',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/6/64/Simple_light_bulb_graphic.png'
+        image: 'https://cdn.bulbagarden.net/upload/c/c4/569Garbodor.png'
     },
     {
         username: 'austenesus',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/6/64/Simple_light_bulb_graphic.png'
+        image: 'https://avatars0.githubusercontent.com/u/27669434?v=4&s=400'
     },
     {
         username: 'jardini.alex',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/6/64/Simple_light_bulb_graphic.png'
+        image: 'https://cdn.bulbagarden.net/upload/c/c4/569Garbodor.png'
     },
     {
         username: 'ham-d',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/6/64/Simple_light_bulb_graphic.png'
+        image: 'https://avatars2.githubusercontent.com/u/11185264?v=4&s=400'
     } 
 
 ];
@@ -54,11 +54,11 @@ let taskData = [
 
     },
     {
-        name: "properly seal new countertops",
-        description: 'i want to be able to gaze into my own eyes while making lunch',
+        name: "paint the interior",
+        description: 'warm and inviting colors',
         budget_hours: 10,
         owner: 1,
-        parentid: 4,
+        parentid: 1,
 
     },
     {
@@ -85,11 +85,11 @@ let taskData = [
 
     },
     {
-        name: 'fresh coat of paint',
-        description: 'sherwin-williams, none of that cheap stuff',
+        name: 'cover all fixtures ',
+        description: 'insert crappy pun here',
         budget_hours: 3,
         owner: 1,
-        parentid: 1
+        parentid: 5
     },
     {
         name: 'Build models',
@@ -111,7 +111,77 @@ let taskData = [
         budget_hours: 5,
         owner: 2,
         parentid: 2
-    }
+    },
+    {
+        name: 'HR precourse',
+        description: 'I am one with the for loop',
+        budget_hours: 80,
+        owner: 4,
+        parentid: null
+    },
+    {
+        name: 'underscore',
+        description: '_.contains danger',
+        budget_hours: 5,
+        owner: 4,
+        parentid: 13
+    },
+    {
+        name: 'part 1',
+        description: 're-implement some handy functions',
+        budget_hours: 5,
+        owner: 2,
+        parentid: 14
+    },
+    {
+        name: 'part2',
+        description: 're-implement some handy functions',
+        budget_hours: 5,
+        owner: 2,
+        parentid: 14
+    },
+    {
+        name: '_.memo-ize',
+        description: 'I\'ll remember this',
+        budget_hours: 1,
+        owner: 4,
+        parentid: 16
+    },
+    {
+        name: 'recursion',
+        description: 'recursion',
+        budget_hours: 10,
+        owner: 4,
+        parentid: 13
+    },
+    {
+        name: 'parseJSON',
+        description: 'Use recursive descent parser',
+        budget_hours: 5,
+        owner: 2,
+        parentid: 18
+    },
+    {
+        name: 'stringifyJSON',
+        description: 'don\'t forget the double quotes',
+        budget_hours: 2,
+        owner: 2,
+        parentid: 18
+    },
+    {
+        name: 'twittler',
+        description: 'make twitter, also HTML is hard',
+        budget_hours: 12,
+        owner: 2,
+        parentid: 13
+    },
+    {
+        name: '_.once',
+        description: 'Return a function that can be called at most one time',
+        budget_hours: 1,
+        owner: 4,
+        parentid: 16
+    },
     
 ];
 
@@ -165,8 +235,44 @@ let users_tasks = [
         taskid: 11
     },
     {
+        userid: 1,
+        taskid: 1
+    },
+    {
         userid: 3,
         taskid: 11
+    },
+    {
+        userid: 1,
+        taskid: 14
+    },
+    {
+        userid: 2,
+        taskid: 15
+    },
+    {
+        userid: 3,
+        taskid: 16
+    },
+    {
+        userid: 4,
+        taskid: 17
+    },
+    {
+        userid: 1,
+        taskid: 16
+    },
+    {
+        userid: 2,
+        taskid: 18
+    },
+    {
+        userid: 3,
+        taskid: 15
+    },
+    {
+        userid: 4,
+        taskid: 14
     }
 ]
 
@@ -196,8 +302,8 @@ createNewProject = (clientResponse, taskObj) => {
 };
 
 createNewTask = (clientResponse, taskObj) => {
-    let sql = `INSERT INTO tasks (name, description, budget_hours, owner, parentid) VALUES ("${taskObj.name}", "${taskObj.description}", "${taskObj.budget_hours}", "${taskObj.owner}", "${taskObj.parentid}");`;
-    db.query(sql, (err, resp) => {
+    let sql = `INSERT INTO tasks (name, description, budget_hours, owner, parentid) VALUES (?, ?, ?, ?, ?);`;
+    db.query(sql, [taskObj.name, taskObj.description, taskObj.budget_hours, taskObj.owner, taskObj.parentid], (err, resp) => {
         count++;
         taskCounter++;
         if (err) {
@@ -252,7 +358,7 @@ giveUserNewTask = (clientResponse, userTaskObj) => {
         } else {
             console.log('task given to user');
             if (count === totalSeeds) {
-                console.log('inside user new task');
+                console.log('successfully seeded data');
                 process.exit();
             }
         }

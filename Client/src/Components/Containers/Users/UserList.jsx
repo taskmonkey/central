@@ -22,9 +22,6 @@ class UserList extends Component{
 					</div>
           <NavTask />
         </div>
-        {/* <div className ="col-sm-">
-
-        </div> */}
         <div className="right-col">
 					<div className="dashboard-title">
 						<h1 className="pull-left">Users</h1>

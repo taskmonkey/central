@@ -109,7 +109,7 @@ const SideNavWithAlerts = (props) =>
 
         <Nav id="customers">
             <NavIcon><Icon20 icon={stack} /></NavIcon>
-            <NavText> My Tasks &nbsp; <span
+            <NavText><Link to="/myTasks"> My Tasks &nbsp; <span
                     style={{
                         textAlign: 'center',
                         lineHeight: '16px',
@@ -126,8 +126,8 @@ const SideNavWithAlerts = (props) =>
                     }}
                 >
                 {props.Tasks}
-                </span></NavText>
-            <Nav id="dashboard2">
+                </span></Link></NavText>
+            {/* <Nav id="dashboard2">
                 <NavIcon><Icon20 size={16} icon={quill} /></NavIcon>
                 <NavText><Link to="/myTasks"> <span style={{ paddingRight: 6 }}>Tasks</span>{' '}</Link>
 
@@ -139,7 +139,7 @@ const SideNavWithAlerts = (props) =>
             <Nav id="sales2">
                 <NavIcon><Icon20 size={16} icon={bell} /></NavIcon>
                 <NavText> Alert </NavText>
-            </Nav>
+            </Nav> */}
             {/* <Nav id="products2">
                 <NavIcon><Icon20 size={16} icon={ic_business_center} /></NavIcon>
                 <NavText> Reports </NavText>

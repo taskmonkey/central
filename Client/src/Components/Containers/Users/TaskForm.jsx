@@ -25,14 +25,12 @@ class TaskForm extends Component {
 
   handleChange(e) {
     e.preventDefault();
-    console.log(e.target.name, nameForm.value);
   }
   
   handleTaskForm(nameVal, assigneeVal, budgetHoursVal, descriptionVal) {
-    // e.preventDefault();
+  
     axios.post('/addProject',{params: {name: nameVal, assignees: [assigneeVal], budgetHours: budgetHoursVal, description: descriptionVal, owner: 4}})
       .then(res => {
-        console.log('here is the post res', res);
         this.props.createTask(res);
       })
       .catch(err => {

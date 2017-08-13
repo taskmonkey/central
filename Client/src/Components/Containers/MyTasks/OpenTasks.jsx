@@ -15,29 +15,35 @@ class MyTasksComponent extends Component{
     super(props)
     this.getTaskTree = this.getTaskTree.bind(this);
   }
+  projectFromArray(id){
+    for(let i = 0; i < this.props.projects.length; i++) {
+      if (this.props.projects[i].id === id) {
+        return this.props.projects[i];
+      }
+    }
+  }
   getTaskTree(){
-    console.log(this.props)
-    // /projectOfTask
     axios.get('/projectOfTask', {params: {taskid: this.props.task.id}})
       .then(result =>{
-        console.log('this is the result' , result)
         axios.get('/allChildTasks', {params: {taskid: result.data.parent}})
           .then(resp => {
-          console.log('this is the children',resp)
+
           let totals = resp.data.pop();
-          let tree = this.props.projects;
-          console.log(tree)
+          let tree = this.projectFromArray(result.data.parent);
+          if (tree.status === -1) {
+            tree.className = 'red-node';
+          } else if (tree.status === 1) {
+            tree.className = 'green-node';
+          }
           tree.children = resp.data;
           tree.timeAlloted = [tree.budget_hours + totals.budgetTotal, tree.actual_hours + totals.actualTotal];
           this.props.projectTree(tree);
         })
       })
     .catch(err =>{
-      console.log('fuck')
     })
   }
   render(){
-    //console.log(this.props)
     return(
       <div className="OpenTasks">
         <div className="IndividualTasks">

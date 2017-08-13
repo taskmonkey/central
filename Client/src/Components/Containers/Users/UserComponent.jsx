@@ -4,7 +4,6 @@ import {Redirect,Link, withRouter} from 'react-router-dom'
 
 const UserComponent = (props) => {
 
-  console.log(props.user, 'HEEEEEEERE')
 
   return(
     <div className="tasksListItemContainer">

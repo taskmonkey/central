@@ -33,10 +33,8 @@ class Main extends Component {
     }
   }
   componentDidMount() {
-    //console.log('this is the main props',this.props)
     axios.get('http://localhost:3000/entireUsersTasks')
       .then(result => {
-        //console.log(result.data)
         this.props.getUsersTasks(result.data)
       })
       .catch(err => {
@@ -44,7 +42,6 @@ class Main extends Component {
       })
     axios.get('http://localhost:3000/entireTasks')
       .then(result =>{
-        //console.log('this is the tasks table', result.data)
         this.props.getAllTasks(result.data)
       })
       .catch(err => {
@@ -53,12 +50,10 @@ class Main extends Component {
     axios.get('http://localhost:3000/allTasksByUser')
       .then(result =>{
 
-        //console.log('this is the ALLTASKSBYUSER', result.data)
     })
     axios.get('http://localhost:3000/entireUsers')
       .then(result => {
         this.props.getAllUsers(result.data)
-        //console.log('this is the users table', result.data)
       })
       .catch(err => {
         console.log('err')

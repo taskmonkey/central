@@ -22,7 +22,6 @@ class Spinner extends Component {
     setTimeout(() => {
       if (this.state.auth.isAuthenticated()) {
         this.state.auth.getProfile((err, profile) => {
-          console.log('PROFILLEEEEE', profile)
           axios.get('/getUserInfo', {params: {username:profile.nickname, image: profile.picture}})
           .then((res) => {
             profile.userid = Number(res.data.id);

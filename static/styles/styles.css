@@ -13,6 +13,7 @@ div.custom-container {
 }
 .red-node {
 	fill: red;
+	cursor: pointer;
 	/* stroke: red; */
 }
 
@@ -24,6 +25,7 @@ div.custom-container {
 
 .green-node {
 	fill: green;
+	cursor: pointer;
 }
 
 .green-node text{
@@ -280,7 +282,7 @@ svg.custom path.link {
 }
 
 .userProfilePeekName {
-	font-size: 30px;
+	font-size: 24px;
 }
 
 .userProfilePeekTaskContainer {

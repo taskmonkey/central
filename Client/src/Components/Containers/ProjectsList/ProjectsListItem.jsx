@@ -14,10 +14,8 @@ class ProjectsListItem extends Component {
   getTaskTree(){
     axios.get('/allChildTasks', {params: {taskid: this.props.projectsListItem.id}})
     .then(resp => {
-      console.log('this is in the projectslistitem', resp)
       let totals = resp.data.pop();
       let tree = this.props.projectsListItem;
-      console.log('this is the getTaskTree', tree)
       tree.children = resp.data;
       if (tree.status === -1) {
         tree.className = 'red-node';
