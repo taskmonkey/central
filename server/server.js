@@ -5,12 +5,14 @@ const path = require('path')
 const PORT = 3000
 const app = express();
 const router = require('./Routers')
+const cors = require('cors');
 
+
+app.use(cors());
 
 app.use(parser.json());
 app.use(parser.urlencoded({extended:true}))
 
-//app.use(express.static(path.join('__dirname + ../client/public')))
 app.use(express.static(path.resolve(__dirname, '../static')));
 
 app.use('/', router)

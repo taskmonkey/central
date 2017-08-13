@@ -54,7 +54,6 @@ createNewTask = (clientResponse, taskObj) => {
 
                     }
                 },() => {
-                    console.log(id, 'id on fake person');
                     count++;
                     responseObject.failure.push(id);
                     if(count === assignees) {
@@ -165,8 +164,6 @@ and     @root := concat(@root, ',', id)`;
 findOneTask = (clientResponse, taskObj, obj) => {
     db.query(`SELECT * from tasks WHERE tasks.id = "${taskObj.taskid}"`, (err, resp) => {
         obj.task = resp[0];
-        console.log(obj, 'findOneTask');
-
         clientResponse.send(obj);
     })
 }

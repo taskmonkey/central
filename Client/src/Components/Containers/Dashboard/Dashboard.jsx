@@ -45,12 +45,10 @@ const mapUserstoAllTasks = (allTasks, allUsers, usersTasks) =>{
     }
   }
   return userObjects;
-  // console.log(lookUpObject, 'this is the new object')
   
 }
 
 const mapStateToProps = (state) =>{
-  //console.log('this is the state in main DASHBOARD', state)
   return {
     allTasks: state.tasks.allTasks,
     allUsers: state.tasks.allUsers,
@@ -73,10 +71,8 @@ class Dashboard extends Component{
     }
   }
   componentWillMount(){
-    //console.log('helllooooo this is mountinggggggg')
     axios.get('http://localhost:3000/entireUsersTasks')
       .then(result => {
-        //console.log(result.data)
         this.props.getUsersTasks(result.data)
       })
       .catch(err => {
@@ -84,7 +80,6 @@ class Dashboard extends Component{
       })
     axios.get('http://localhost:3000/entireTasks')
       .then(result =>{
-        //console.log('this is the tasks table', result.data)
         this.props.getAllTasks(result.data)
       })
       .catch(err => {
@@ -92,7 +87,6 @@ class Dashboard extends Component{
       })
     axios.get('/allOpenTasksOfUser', {params: {userid: this.props.profile}})
       .then((data)=>{
-        //console.log(data.data)
         this.props.getTasksByLoggedInUser(data.data)
       })
       .catch((err)=>{
@@ -101,7 +95,6 @@ class Dashboard extends Component{
     axios.get('http://localhost:3000/entireUsers')
       .then(result => {
         this.props.getAllUsers(result.data)
-        //console.log('this is the users table', result.data)
       })
       .catch(err => {
         console.log('err')
@@ -116,9 +109,6 @@ class Dashboard extends Component{
 					</div>
           <NavTask />
         </div>
-        {/* <div className ="col-sm-">
-
-        </div> */}
         <div className="right-col">
 					<div className="dashboard-title">
 						<h1 className="pull-left">Dashboard</h1>
@@ -144,5 +134,4 @@ class Dashboard extends Component{
   }
 }
 
-//export default connect(mapStateToProps, mapDispathToProps)(Dashboard)
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)

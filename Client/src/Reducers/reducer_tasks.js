@@ -3,7 +3,6 @@ import { FETCH_PROJECTS, CREATE_TASK, GET_USERS_TASKS, GET_ALL_TASKS, FIND_ALL_T
 const INITIAL_STATE = { allTasks: [], usersTasks: [], allTasksByUsers: [], allUsers: [], profile: {}, task: null, allProjects: [], projectTree: {}, tasksByLoggedInUser: [] };
 
 export default function(state = INITIAL_STATE, action) {
-  //console.log('this is the reducer', action)
   switch (action.type) {
   case FETCH_PROJECTS:
     return Object.assign({}, state, {allProjects: action.payload});

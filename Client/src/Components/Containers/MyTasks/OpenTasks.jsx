@@ -23,15 +23,18 @@ class MyTasksComponent extends Component{
     }
   }
   getTaskTree(){
-    // /projectOfTask
     axios.get('/projectOfTask', {params: {taskid: this.props.task.id}})
       .then(result =>{
         axios.get('/allChildTasks', {params: {taskid: result.data.parent}})
           .then(resp => {
 
-          
           let totals = resp.data.pop();
           let tree = this.projectFromArray(result.data.parent);
+          if (tree.status === -1) {
+            tree.className = 'red-node';
+          } else if (tree.status === 1) {
+            tree.className = 'green-node';
+          }
           tree.children = resp.data;
           tree.timeAlloted = [tree.budget_hours + totals.budgetTotal, tree.actual_hours + totals.actualTotal];
           this.props.projectTree(tree);

@@ -37,17 +37,12 @@ router.get('/entireUsersTasks', (req, res) => {
   users_tasks.getTable(res);
 })
 
-// {username: ''}
-// gives back id of given user
-
 router.get('/getUserInfo', (req, res) => {
 
 
   users.getUserInfo(res, req.query);
 });
 
-
-//{userid: ''}
 router.get('/allProjectsByUser', (req, res) => {
 
   users.allProjectsByUser(res, req.query);
@@ -71,17 +66,6 @@ router.get('/dashboard', (req, res) => {
 });
 
 
-
-
-// router.get('/allTheData', (req, res) => {
-//   // inside the axios request package the nickname in {params: }
-
-
-
-// });
-
-
-
 router.post('/addProject', (req, res) => {
   tasks.createNewTask(res, req.body);
 
@@ -100,15 +84,11 @@ router.get('/allTasksByUser', (req, res)=> {
 
 
 
-//pass in userid
 router.get('/allOpenTasksOfUser', (req, res) => {
-  //console.log(req.query)
   users.openTasksOfUser(res, req.query);
 });
 
 
-//given a project id
-// Only gives back children. WON'T GIVE BACK THE ACTUAL PROJECT
 router.get('/allChildTasks', (req,res)=>{
 
   tasks.findAllChildTasks(res, req.query);
@@ -146,7 +126,6 @@ router.put('/updateStatusInProgress', (req, res) => {
 });
 
 router.put('/updateStatusComplete', (req, res) => {
-  console.log('hello');
   tasks.markTaskAsComplete(res, req.body);
 });
 

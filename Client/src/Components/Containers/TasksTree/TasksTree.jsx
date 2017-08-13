@@ -63,7 +63,6 @@ class TasksTree extends Component{
         }
         let route = this.checkChildren(node.children[i]);
         if (route) {
-          console.log(route, 'route');
           return route;
         }
       }
@@ -92,7 +91,6 @@ class TasksTree extends Component{
     }
     var newAssigneeVals = splitStrAndEraseSpaces(assigneeVal);
     if (Number(budgetHoursVal) == budgetHoursVal) {
-      console.log('newAssignees', newAssigneeVals);
       axios.post('/addTask', {name: nameVal, assignees: newAssigneeVals, budget_hours: budgetHoursVal, description: descriptionVal, owner: this.props.storeProfile.userid, parentid: this.state.currentNode.id})
       .then(res => {
         var newRes = res.data.task;
@@ -122,12 +120,10 @@ class TasksTree extends Component{
   }
   handleCompleteTask(actualHours) {
     if (Number(actualHours) == actualHours) {
-    //console.log(this.checkChildren(this.state.currentNode), 'tododododo');
     axios.put('/updateStatusComplete', {taskid: this.state.currentNode.id, actual_hours: actualHours})
       .then (() => {
         this.state.currentNode.className = 'green-node';
         this.state.currentNode.status = 1;
-        //this.props.tree.timeAlloted[1] += Number(actualHours);
         if (this.state.button === 900){
           this.setState({button: 899});
         } else {
@@ -145,7 +141,6 @@ class TasksTree extends Component{
     }
   }
   render() {
-    console.log('TREE', this.props.tree)
     let budget = '';
     let actual = '';
     let treeMargins = { bottom : 10, left : 20, right : 100, top : 10};

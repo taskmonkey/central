@@ -43,7 +43,6 @@ allProjectsByUser = (clientResponse, userObj) => {
     WHERE users.id = "${userObj.userid}";`;
 
     db.query(sql, (err, resp) => {
-        //console.log(resp);
         if (resp && resp.length) {
         var amountofTasks = resp.length;
         var count = 0;
@@ -53,7 +52,6 @@ allProjectsByUser = (clientResponse, userObj) => {
 
             findProjectOfTask(task, (parent) => {
                 count++;
-                //console.log(parent);
                 if (projList.indexOf(parent) === -1) {
                     projList.push(parent);
                 }
@@ -94,8 +92,6 @@ join
 where
   @parent=id) ours`;
     db.query(sql, (err, resp) => {
-        //console.log(resp, 'proj by task');
-
         cb(resp[0].parent);
     });
 };
@@ -112,10 +108,8 @@ findAllTasksOfOwner = (clientResponse, ownerObj) => {
 
 getUserInfo = (clientResponse, userObj) => {
     let sql = `SELECT * from users WHERE users.username = ?`;
-    console.log(userObj, 'userobj');
     db.query(sql, [userObj.username], (err, resp) => {
         if(resp && resp.length){
-          console.log('user exists');
             clientResponse.send(JSON.stringify(resp[0]));
         } else {
             db.query("insert into users (username, image) VALUES (?, ?)", [userObj.username, userObj.image], (err, response) => {
@@ -136,8 +130,6 @@ openTasksOfUser = (clientResponse, userObj) => {
     WHERE users_tasks.user_id = "${userObj.userid}" AND tasks.status IN (-1,0) GROUP BY users_tasks.id;`;
 
     db.query(sql, (err, resp) => {
-        console.log(resp, 'open tasks of user');
-        console.log(userObj.userid);
         clientResponse.send(resp);
     })
 };

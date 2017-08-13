@@ -36,7 +36,6 @@ class MyTasks extends Component{
 
 
   render() {
-    //console.log(this.props, 'this is the mytasks page')
     return(
       <div className="dashboard-container">
         <div className="left-col">

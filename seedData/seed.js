@@ -358,7 +358,7 @@ giveUserNewTask = (clientResponse, userTaskObj) => {
         } else {
             console.log('task given to user');
             if (count === totalSeeds) {
-                console.log('inside user new task');
+                console.log('successfully seeded data');
                 process.exit();
             }
         }
