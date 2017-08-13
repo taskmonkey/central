@@ -2,7 +2,7 @@ const express = require('express')
 
 const parser = require('body-parser')
 const path = require('path')
-const PORT = 3000
+const PORT = process.env.PORT || 3000;
 const app = express();
 const router = require('./Routers')
 
@@ -28,7 +28,7 @@ io.on('connection', socket => {
   })
 })
 
-server.listen(PORT, (err)=>{
+server.listen(PORT, process.env.IP, (err)=>{
   if (err){
     console.log('there is an err')
   } else {
