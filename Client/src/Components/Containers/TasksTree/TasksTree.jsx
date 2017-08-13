@@ -207,9 +207,11 @@ class TasksTree extends Component{
                 {actual}
                 </div>
               <div className="userProfilePeekName">{node ? node.name : ''}</div>
-              <div>{node ? node.description : ''}</div>
-              <div>{this.state.taskBudget_hours}</div>
-              <Button bsStyle="success" onClick={()=> {node ? this.toggleModal() : null}}>Add Task</Button>
+              <div className="userProfilePeekDetails">
+                <div>{node ? node.description : ''}</div>
+                <div>{this.state.taskBudget_hours}</div>
+              </div>
+              <Button className="userProfilePeekButtons" bsStyle="success" onClick={()=> {node ? this.toggleModal() : null}}>Add Task</Button>
               <Button bsStyle="info" onClick={()=>{node && !this.checkChildren(node) ? this.toggleCompleteModal() : null}}>Mark task as complete</Button>
             </div>
             <div>
