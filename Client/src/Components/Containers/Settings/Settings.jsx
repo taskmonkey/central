@@ -17,8 +17,21 @@ class Settings extends Component {
         </div>
         <div className="right-col">
           <div className="dashboard-title">
-            <h1 className="pull-left">Settings</h1>
+            <div className="tasksListContainer">
+            <h1 className="pull-left">Unavailable</h1>
+            <div className="row">
+              <div className="col-sm-4">
+
+              </div>
+              <div className="col-sm-8">
+                <img src ="https://s-media-cache-ak0.pinimg.com/736x/6f/23/7e/6f237ea6ac27fe935dfc4aa3dc72232e--original--poisons.jpg"/>
+              </div>
+            </div>
+            <h1 className ="paidfeature"> Oops !  </h1>
+            <h3 className ="paidfeature">Looks live you've reached a paid feature.  Please upgrade now!</h3>
+            
           </div>
+        </div>
         </div>
       </div>
     )
