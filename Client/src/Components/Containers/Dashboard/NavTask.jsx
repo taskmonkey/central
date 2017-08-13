@@ -20,6 +20,7 @@ import { quill } from 'react-icons-kit/icomoon/quill';
 import { bell } from 'react-icons-kit/icomoon/bell';
 import { database } from 'react-icons-kit/icomoon/database';
 import { circleLeft } from 'react-icons-kit/icomoon/circleLeft';
+import { bubbles } from 'react-icons-kit/icomoon/bubbles';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {getTasksByLoggedInUser, storeProfile, fetchTasks } from '../../../Actions/index.js'
@@ -153,6 +154,10 @@ const SideNavWithAlerts = (props) =>
             }}
         >
             <NavIcon><Icon20 icon={fileText2} /></NavIcon><NavText> Reports </NavText>
+        </Nav>
+        <Nav id="deliveries">
+            <NavIcon><Icon20 icon={bubbles} /></NavIcon>
+            <NavText><Link to="/chat">{' '}<span className="navTaskSpans" style={{ paddingRight: 6 }}>Chat</span>{' '}</Link></NavText>
         </Nav>
         <Nav id="deliveries">
             <NavIcon><Icon20 icon={database} /></NavIcon>

@@ -26,6 +26,12 @@ io.on('connection', socket => {
       from: socket.id.slice(8),
     })
   })
+  socket.on('message', body => {
+    socket.broadcast.emit('message', {
+      body,
+      from: socket.id.slice(8),
+    })
+  })
 })
 
 server.listen(PORT, process.env.IP, (err)=>{

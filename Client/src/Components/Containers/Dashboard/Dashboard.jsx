@@ -114,10 +114,9 @@ class Dashboard extends Component{
     // '/' will trigger the .on('connection') event on the server side, connects everytime the component mounts
     this.socket = io('/');
     this.socket.on('addedTask', body => {
-      console.log('body', body);
-      console.log('profile', this.props.profile);
+      // console.log('body', body);
+      // console.log('profile', this.props.profile);
       if(body.body.assignees[0] === this.props.profile.nickname) {
-        alert('You have a new task assigned!');
         this.willMount();
       }
     });
