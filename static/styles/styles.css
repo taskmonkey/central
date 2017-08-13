@@ -426,16 +426,16 @@ svg.custom path.link {
 }
 
 .jumbotron {
-
-	background: url("http://blog.hubstaff.com/wp-content/uploads/2017/07/the-10-best-business-task-manager-apps2.png") no-repeat center;
+	background: url("https://images.unsplash.com/photo-1497215842964-222b430dc094?dpr=2&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=") no-repeat;
 	min-height:600px;
-	background-repeat: no-repeat;
-	background-size: 100% 100%;
-	background: #FFF;
+	/* background-repeat: no-repeat; */
+	/* background-size: 100% 100%; */
+	/* background: #FFF; */
+	background-position: center center; 
 	text-align: center;
 	font-family: 'Lato', sans-serif;
 	margin: 0;
-	box-shadow: 0px 10px 20px -5px rgba(0,0,0,.8);
+	/* box-shadow: 0px 10px 20px -5px rgba(0,0,0,.8); */
 }
 
 .jumbotron h1 {
