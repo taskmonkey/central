@@ -76,17 +76,17 @@ const SideNavWithAlerts = (props) =>
         <div />
         <Nav id="dashboard">
             <NavIcon><Icon20 icon={ic_aspect_ratio} /></NavIcon>
-            <NavText><Link to="/dashboard">{' '}<span style={{ paddingRight: 6 }}>Dashboard</span>{' '}</Link></NavText>
+            <NavText><Link to="/dashboard">{' '}<span className="navTaskSpans" style={{ paddingRight: 6 }}>Dashboard</span>{' '}</Link></NavText>
         </Nav>
 
         <Nav id="products">
             <NavIcon><Icon20 icon={profile} /></NavIcon>
-            <NavText><Link to="/users">{' '}<span style={{ paddingRight: 6 }}>Users</span>{' '}</Link></NavText>
+            <NavText><Link to="/users">{' '}<span className="navTaskSpans" style={{ paddingRight: 6 }}>Users</span>{' '}</Link></NavText>
         </Nav>
         <Nav id="orders">
             <NavIcon><Icon20 icon={pen} /></NavIcon>
             <NavText>
-                <Link to="/projectsList">{' '}<span style={{ paddingRight: 6 }}>Projects</span>{' '}</Link>
+                <Link to="/projectsList">{' '}<span className="navTaskSpans" style={{ paddingRight: 6 }}>Projects</span>{' '}</Link>
                 <span
                     style={{
                         textAlign: 'center',
@@ -110,7 +110,7 @@ const SideNavWithAlerts = (props) =>
 
         <Nav id="customers">
             <NavIcon><Icon20 icon={stack} /></NavIcon>
-            <NavText><Link to="/myTasks">{' '}<span style={{ paddingRight: 6 }}>My Tasks</span>{' '}<span
+            <NavText><Link to="/myTasks">{' '}<span className="navTaskSpans" style={{ paddingRight: 6 }}>My Tasks</span>{' '}<span
                     style={{
                         textAlign: 'center',
                         lineHeight: '16px',
@@ -156,11 +156,11 @@ const SideNavWithAlerts = (props) =>
         </Nav>
         <Nav id="deliveries">
             <NavIcon><Icon20 icon={database} /></NavIcon>
-            <NavText><Link to="/settings">{' '}<span style={{ paddingRight: 6 }}>Settings</span>{' '}</Link></NavText>
+            <NavText><Link to="/settings">{' '}<span className="navTaskSpans" style={{ paddingRight: 6 }}>Settings</span>{' '}</Link></NavText>
         </Nav>
         <Nav id="deliveries">
             <NavIcon><Icon20 icon={circleLeft} /></NavIcon>
-            <NavText><Link to="/login">{' '}<span onClick={props.Auth.logout} style={{ paddingRight: 6 }}>Logout</span>{' '}</Link></NavText>
+            <NavText><Link to="/login">{' '}<span className="navTaskSpans" onClick={props.Auth.logout} style={{ paddingRight: 6 }}>Logout</span>{' '}</Link></NavText>
         </Nav>
     </SideNav>;
 

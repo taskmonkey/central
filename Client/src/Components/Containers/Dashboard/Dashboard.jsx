@@ -124,6 +124,7 @@ class Dashboard extends Component{
   }
 
   render() {
+    console.log(this.props.mappedUsersAndTasks, this.props.allTasksUsers, this.props.allUsers)
     return(
       <div className="dashboard-container">
         <div className="left-col">

@@ -19,11 +19,12 @@ const data = [
 export default class BarGraph extends Component{
   constructor(props){
     super(props)
-  
+
   }
 
 
   render(){
+    console.log(this.props.allTasksAndUsers, 'czscnzskjdcnzscd')
     return (
     <BarChart width={600} height={300} data={this.props.allTasksAndUsers}
         margin={{top: 20, right: 30, left: 20, bottom: 5}}>
