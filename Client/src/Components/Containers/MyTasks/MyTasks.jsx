@@ -50,8 +50,14 @@ class MyTasks extends Component{
             
 					</div>
           <div className="tasksListContainer">
-            <div>
-              <h3>Task Descriptions</h3>
+            <div className = "row">
+              <div className ="col-sm-2" id= "tasknamecolumn">
+                Task Name
+              </div>
+              <div className ="col-sm-10" id="tasknamecolumn">
+                Task Description
+              </div>
+              {/* <h3>Task Descriptions</h3> */}
               <hr></hr>
               {
                 this.props.tasksByUser.map(task => 

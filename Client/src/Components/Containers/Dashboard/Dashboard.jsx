@@ -12,7 +12,7 @@ import axios from 'axios'
 import io from 'socket.io-client';
 
 const mapUserstoAllTasks = (allTasks, allUsers, usersTasks) =>{
-  // console.log(allTasks, 'this is the all tasks')
+  //console.log(allTasks, 'this is the all tasks')
   // console.log(allUsers)
   let userObjects = []
   let taskObjects = []
@@ -26,8 +26,6 @@ const mapUserstoAllTasks = (allTasks, allUsers, usersTasks) =>{
       newUserObject['id'] = allUsers[i].id;
       userObjects.push(newUserObject)
     }
-
-
   }
   createNewUserObjects()
   for (let i = 0; i < allTasks.length; i++){
@@ -50,15 +48,33 @@ const mapUserstoAllTasks = (allTasks, allUsers, usersTasks) =>{
 
 }
 
+const getBudgetVsActual = (allTasksByLoggedInUser) => {
+  
+  let budgetedHours = 0;
+  let actualHours = 0;
+  for (let i = 0; i < allTasksByLoggedInUser.length; i++) {
+    budgetedHours  += allTasksByLoggedInUser[i].budget_hours ;
+    actualHours += allTasksByLoggedInUser[i].actual_hours;
+  }
+  // console.log(actualHours/budgetedHours)
+  return actualHours/budgetedHours
+}
+
+
+
+
+
+
 const mapStateToProps = (state) =>{
-  //console.log('this is the state in main DASHBOARD', state)
+  console.log('this is the state in main DASHBOARD', state)
   return {
     allTasks: state.tasks.allTasks,
     allUsers: state.tasks.allUsers,
     allTasksUsers: state.tasks.usersTasks,
     mappedUsersAndTasks : mapUserstoAllTasks(state.tasks.allTasks, state.tasks.allUsers, state.tasks.usersTasks),
     profile: state.tasks.profile,
-    tasks:state.tasks.tasksByLoggedInUser
+    tasks:state.tasks.tasksByLoggedInUser,
+    budgetVsActual: getBudgetVsActual(state.tasks.tasksByLoggedInUser)
   }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -114,8 +130,8 @@ class Dashboard extends Component{
     // '/' will trigger the .on('connection') event on the server side, connects everytime the component mounts
     this.socket = io('/');
     this.socket.on('addedTask', body => {
-      console.log('body', body);
-      console.log('profile', this.props.profile);
+      // console.log('body', body);
+      // console.log('profile', this.props.profile);
       if(body.body.assignees[0] === this.props.profile.nickname) {
         alert('You have a new task assigned!');
         this.willMount();
@@ -124,7 +140,7 @@ class Dashboard extends Component{
   }
 
   render() {
-    console.log(this.props.mappedUsersAndTasks, this.props.allTasksUsers, this.props.allUsers)
+    //console.log(this.props.mappedUsersAndTasks, this.props.allTasksUsers, this.props.allUsers)
     return(
       <div className="dashboard-container">
         <div className="left-col">
@@ -145,14 +161,21 @@ class Dashboard extends Component{
 						<h3>HRLA16</h3>
             <hr></hr>
             <BarGraph allTasksAndUsers={this.props.mappedUsersAndTasks} allTasksUsers={this.props.allTasksUsers} allUsers={this.props.allUsers}/>
-
 						<h3>Sprints</h3>
             <hr></hr>
 						<div className="row">
-              <PieGraph />
-							{/* <div className="col-sm-4"><PieGraph /></div>
-							<div className="col-sm-4"><PieGraph /></div>
-							<div className="col-sm-4"><PieGraph /></div> */}
+              <div className="col-sm-4" id="budgetvsactual">
+                hello
+              </div>
+              <div className="col-sm-4">
+                hello
+              </div>
+              <div className="col-sm-4">
+                hello
+              </div>
+            </div>
+            <div className="row">
+              <PieGraph budgetVsActual = {this.props.budgetVsActual} />
 						</div>
 					</div>
         </div>
