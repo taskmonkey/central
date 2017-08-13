@@ -22,14 +22,44 @@ div.custom-container {
 }
 
 .red-node text{
-	font-size: 20px;
+	font-size: 15px;
 	text-shadow: 0 1px 4px black;
 	dominant-baseline: hanging;
+	text-anchor: middle;
 }
+
+.red-node-root {
+	fill: red;
+	cursor: pointer;
+	/* stroke: red; */
+}
+
+.red-node-root text{
+	font-size: 25px;
+	text-shadow: 0 1px 4px black;
+	dominant-baseline: hanging;
+	text-anchor: start;
+}
+
+.green-node-root {
+	fill: red;
+	cursor: pointer;
+	/* stroke: red; */
+}
+
+.green-node-root text{
+	font-size: 25px;
+	text-shadow: 0 1px 4px black;
+	dominant-baseline: hanging;
+	text-anchor: start;
+}
+
 
 .green-node {
 	fill: green;
 	cursor: pointer;
+	dominant-baseline: hanging;
+	text-anchor: middle;
 }
 
 .green-node text{

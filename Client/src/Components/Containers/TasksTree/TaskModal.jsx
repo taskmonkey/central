@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Modal } from 'react-bootstrap';
+import io from 'socket.io-client';
 
 export default (props) => {
   return (
@@ -34,6 +35,6 @@ export default (props) => {
         <Button bsStyle="info" onClick={(e)=> {e.preventDefault(); props.handleTaskForm(taskForm.value, assigneeForm.value, budgetHours.value, description.value);}}>Create Task</Button>
         <Button bsStyle="danger" onClick={props.toggleModal}>Close</Button>
       </Modal.Footer>
-    </Modal> 
+    </Modal>
   )
 }
