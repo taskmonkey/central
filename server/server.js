@@ -5,10 +5,6 @@ const path = require('path')
 const PORT = 3000
 const app = express();
 const router = require('./Routers')
-const cors = require('cors');
-
-
-app.use(cors());
 
 app.use(parser.json());
 app.use(parser.urlencoded({extended:true}))
