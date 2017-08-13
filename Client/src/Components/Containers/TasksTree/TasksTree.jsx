@@ -177,7 +177,8 @@ class TasksTree extends Component{
               treeClassName='custom'
               keyProp='id'
               labelProp = 'name'
-              nodeOffset= {10}
+              nodeOffset= {5}
+              nodeRadius = {7}
               margins={treeMargins}
               nodeClickHandler={this.onNodeClick}
               />;

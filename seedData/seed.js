@@ -111,7 +111,77 @@ let taskData = [
         budget_hours: 5,
         owner: 2,
         parentid: 2
-    }
+    },
+    {
+        name: 'HR precourse',
+        description: 'I am one with the for loop',
+        budget_hours: 80,
+        owner: 4,
+        parentid: null
+    },
+    {
+        name: 'underscore',
+        description: '_.contains danger',
+        budget_hours: 5,
+        owner: 4,
+        parentid: 13
+    },
+    {
+        name: 'part 1',
+        description: 're-implement some handy functions',
+        budget_hours: 5,
+        owner: 2,
+        parentid: 14
+    },
+    {
+        name: 'part2',
+        description: 're-implement some handy functions',
+        budget_hours: 5,
+        owner: 2,
+        parentid: 14
+    },
+    {
+        name: '_.memo-ize',
+        description: 'I\'ll remember this',
+        budget_hours: 1,
+        owner: 4,
+        parentid: 16
+    },
+    {
+        name: 'recursion',
+        description: 'recursion',
+        budget_hours: 10,
+        owner: 4,
+        parentid: 13
+    },
+    {
+        name: 'parseJSON',
+        description: 'Use recursive descent parser',
+        budget_hours: 5,
+        owner: 2,
+        parentid: 18
+    },
+    {
+        name: 'stringifyJSON',
+        description: 'don\'t forget the double quotes',
+        budget_hours: 2,
+        owner: 2,
+        parentid: 18
+    },
+    {
+        name: 'twittler',
+        description: 'make twitter, also HTML is hard',
+        budget_hours: 12,
+        owner: 2,
+        parentid: 13
+    },
+    {
+        name: '_.once',
+        description: 'Return a function that can be called at most one time',
+        budget_hours: 1,
+        owner: 4,
+        parentid: 16
+    },
     
 ];
 
@@ -165,8 +235,44 @@ let users_tasks = [
         taskid: 11
     },
     {
+        userid: 1,
+        taskid: 1
+    },
+    {
         userid: 3,
         taskid: 11
+    },
+    {
+        userid: 1,
+        taskid: 14
+    },
+    {
+        userid: 2,
+        taskid: 15
+    },
+    {
+        userid: 3,
+        taskid: 16
+    },
+    {
+        userid: 4,
+        taskid: 17
+    },
+    {
+        userid: 1,
+        taskid: 16
+    },
+    {
+        userid: 2,
+        taskid: 18
+    },
+    {
+        userid: 3,
+        taskid: 15
+    },
+    {
+        userid: 4,
+        taskid: 14
     }
 ]
 
@@ -196,8 +302,8 @@ createNewProject = (clientResponse, taskObj) => {
 };
 
 createNewTask = (clientResponse, taskObj) => {
-    let sql = `INSERT INTO tasks (name, description, budget_hours, owner, parentid) VALUES ("${taskObj.name}", "${taskObj.description}", "${taskObj.budget_hours}", "${taskObj.owner}", "${taskObj.parentid}");`;
-    db.query(sql, (err, resp) => {
+    let sql = `INSERT INTO tasks (name, description, budget_hours, owner, parentid) VALUES (?, ?, ?, ?, ?);`;
+    db.query(sql, [taskObj.name, taskObj.description, taskObj.budget_hours, taskObj.owner, taskObj.parentid], (err, resp) => {
         count++;
         taskCounter++;
         if (err) {
