@@ -255,6 +255,9 @@ svg.custom path.link {
 .tasksListItemContainer {
 	width: 100%;
 	display: inline-block;
+	padding-bottom: 5%;
+	border-bottom-style: solid;
+	border-color: #D3D3D3;
 }
 
 .tasksListItemCircle {
@@ -276,7 +279,7 @@ svg.custom path.link {
 }
 
 .tasksListItemTitle {
-	padding-top: 12%;
+	padding-top: 10%;
 	padding-left: 27.5%;
 	font-size: 30px;
 }

@@ -19,6 +19,7 @@ import { stack } from 'react-icons-kit/icomoon/stack';
 import { quill } from 'react-icons-kit/icomoon/quill';
 import { bell } from 'react-icons-kit/icomoon/bell';
 import { database } from 'react-icons-kit/icomoon/database';
+import { circleLeft } from 'react-icons-kit/icomoon/circleLeft';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {getTasksByLoggedInUser, storeProfile, fetchTasks } from '../../../Actions/index.js'
@@ -158,7 +159,8 @@ const SideNavWithAlerts = (props) =>
             <NavText><Link to="/settings">{' '}<span style={{ paddingRight: 6 }}>Settings</span>{' '}</Link></NavText>
         </Nav>
         <Nav id="deliveries">
-            <NavText><Link to="/login"><button className="logoutButton" onClick={props.Auth.logout}>Logout</button></Link></NavText>
+            <NavIcon><Icon20 icon={circleLeft} /></NavIcon>
+            <NavText><Link to="/login">{' '}<span onClick={props.Auth.logout} style={{ paddingRight: 6 }}>Logout</span>{' '}</Link></NavText>
         </Nav>
     </SideNav>;
 
