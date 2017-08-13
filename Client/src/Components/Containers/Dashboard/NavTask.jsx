@@ -110,7 +110,7 @@ const SideNavWithAlerts = (props) =>
 
         <Nav id="customers">
             <NavIcon><Icon20 icon={stack} /></NavIcon>
-            <NavText><Link to="/myTasks"> My Tasks &nbsp; <span
+            <NavText><Link to="/myTasks">{' '}<span style={{ paddingRight: 6 }}>My Tasks</span>{' '}<span
                     style={{
                         textAlign: 'center',
                         lineHeight: '16px',
