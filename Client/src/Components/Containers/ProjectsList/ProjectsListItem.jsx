@@ -19,6 +19,11 @@ class ProjectsListItem extends Component {
       let tree = this.props.projectsListItem;
       console.log('this is the getTaskTree', tree)
       tree.children = resp.data;
+      if (tree.status === -1) {
+        tree.className = 'red-node';
+      } else if (tree.status === 1) {
+        tree.className = 'green-node';
+      }
       tree.timeAlloted = [tree.budget_hours + totals.budgetTotal, tree.actual_hours + totals.actualTotal];
       this.props.projectTree(tree);
     })
