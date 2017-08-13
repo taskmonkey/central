@@ -8,11 +8,8 @@ import NavTask from '../Dashboard/NavTask.jsx';
 import {getTasksByLoggedInUser, storeProfile } from '../../../Actions/index.js'
 import MyTasksComponent from './OpenTasks.jsx';
 import axios from 'axios'
-//function here that changes tasksByLoggedInUser by fetching data
 
 const mapStateToProps = (state) =>{
-  
-  console.log('this is the state in main MYTASKS', state)
   return {
     tasksByUser: state.tasks.tasksByLoggedInUser,
     profile: state.tasks.profile.userid
@@ -30,7 +27,6 @@ class MyTasks extends Component{
   componentWillMount(){
     axios.get('/allOpenTasksOfUser', {params: {userid: this.props.profile}})
               .then((data)=>{
-                console.log('this is the data package',data.data)
                 this.props.getTasksByLoggedInUser(data.data)
               })
               .catch((err)=>{

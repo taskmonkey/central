@@ -188,7 +188,7 @@ class TasksTree extends Component{
               <img className="userProfilePeekCirclePic" src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"/>
             </div>
             <div className="userProfilePeekNameContainer">
-              <div className="userProfilePeekName">{console.log(this.state)}</div>
+              <div className="userProfilePeekName"></div>
             </div>
             <div className="userProfilePeekTaskContainer">
               <div className="userProfilePeekTask">{this.state.taskName}</div>
