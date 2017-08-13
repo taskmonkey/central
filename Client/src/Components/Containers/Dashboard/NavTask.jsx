@@ -181,15 +181,15 @@ class NavTask extends React.Component {
 
     }
 
-    componentWillMount(){
-        axios.get('/allOpenTasksOfUser', {params: {userid: this.props.profile.userid}})
-            .then((data)=>{
-                this.props.getTasksByLoggedInUser(data.data)
-            })
-            .catch((err)=>{
-                console.log('error')
-            })
-    }
+    // componentWillMount(){
+    //     axios.get('/allOpenTasksOfUser', {params: {userid: this.props.profile.userid}})
+    //         .then((data)=>{
+    //             this.props.getTasksByLoggedInUser(data.data)
+    //         })
+    //         .catch((err)=>{
+    //             console.log('error')
+    //         })
+    // }
     render() {
 
         return (
