@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run build & node server/server.js",
-    "build": "webpack --watch",
-    "heroku-postbuild": "npm install"
+    "start": "node server/server.js & npm run build",
+    "build": "webpack --watch"
   },
   "devDependencies": {},
   "dependencies": {
