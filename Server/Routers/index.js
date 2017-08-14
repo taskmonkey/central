@@ -61,9 +61,9 @@ router.get('/node_modules/auth0-js/build/auth0.js', (req, res) => {
   res.sendFile(path.join(__dirname, '../node_modules/auth0-js/build/auth0.js'));
 });
 
-router.get('/dashboard', (req, res) => {
-  console.log('dashy');
-});
+
+
+
 
 
 router.post('/addProject', (req, res) => {
@@ -131,13 +131,6 @@ router.put('/updateStatusComplete', (req, res) => {
 
 
 
-
-
-
-
-
-
-
 router.post('/addUserToTask', (req, res) => {
   users_tasks.giveUserNewTask(res, req.body);
 });
@@ -148,11 +141,14 @@ router.post('/addTaskToUser', (req, res) => {
 
 
 
+router.get('/dashboard', (req, res) => {
+  console.log('dashy');
+});
+
 // router.get('*', (req, res) => {
 //   console.log('wildcard hit');
 //   res.sendFile(path.resolve(__dirname, '../../static/index.html'));
 // });
-
 
 
 
