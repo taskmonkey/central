@@ -68,10 +68,7 @@ const getBudgetVsActual = (userTasks, teamTasks ) => {
       actualHoursForTeam += teamTasks[i].actual_hours;
     }
   }
-  console.log(budgetedHoursForTeam)
-  console.log(budgetedHoursForUser)
-  console.log(actualHoursForUser)
-  console.log(actualHoursForTeam)
+  
 
   budgetVsActualObject['user'] = actualHoursForUser / budgetedHoursForUser
   budgetVsActualObject['team'] = actualHoursForTeam / budgetedHoursForTeam
@@ -81,7 +78,7 @@ const getBudgetVsActual = (userTasks, teamTasks ) => {
 
 
 const mapStateToProps = (state) =>{
-  console.log(state)
+  //console.log(state)
   //console.log('this is the state in main DASHBOARD', state)
   return {
     allTasks: state.tasks.allTasks,

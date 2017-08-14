@@ -10,7 +10,7 @@ export default class PieGraph extends React.Component {
   // static displayName = 'PieDemo';
 
   render () {
-    console.log(this.props.budgetVsActual , 'in piechart')
+    //console.log(this.props.budgetVsActual , 'in piechart')
     return (
       <div>
         <div className ="row">
