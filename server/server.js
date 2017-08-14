@@ -4,7 +4,7 @@ const parser = require('body-parser')
 const path = require('path')
 const PORT = process.env.PORT || 3000;
 const app = express();
-const router = require('./Routers')
+const router = require(path.resolve(__dirname, './Routers/index.js'))
 
 const http = require('http')
 const server = http.createServer(app)
