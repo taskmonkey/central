@@ -57,7 +57,7 @@ class MyTasksComponent extends Component{
               {this.props.task.description}
             </div>
             <div className="col-sm-2">
-              <Link to='/tasksTree'><div className="" onClick={this.getTaskTree}><button className="taskButton">TaskTree</button></div></Link> 
+              <Link to='/tasksTree'><div className="" onClick={this.getTaskTree}><button className="taskButton">TaskTree</button></div></Link>
             </div>
           </div>
         </div>

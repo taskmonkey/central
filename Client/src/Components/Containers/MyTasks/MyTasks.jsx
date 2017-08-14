@@ -39,16 +39,15 @@ class MyTasks extends Component{
     return(
       <div className="dashboard-container">
         <div className="left-col">
-					<div className="app-title">
-						<h1>Task Mon</h1>
-					</div>
-          <NavTask />
+          <div className="app-title">
+              <h1>Task Mon</h1>
+          </div>
+        <NavTask />
         </div>
         <div className="right-col">
-					<div className="dashboard-title">
-						<h1 className="pull-left">My Tasks</h1>
-
-					</div>
+          <div className="dashboard-title">
+              <h1 className="pull-left">My Tasks</h1>
+          </div>
           <div className="tasksListContainer">
             <div className = "row">
               <div className ="col-sm-2" id= "tasknamecolumn">
@@ -57,14 +56,16 @@ class MyTasks extends Component{
               <div className ="col-sm-10" id="tasknamecolumn">
                 Task Description
               </div>
-              {/* <h3>Task Descriptions</h3> */}
-              <hr></hr>
+            </div>
+            <hr></hr>
+            <div className="row">
+              <div className="col-sm-12">
               {
                 this.props.tasksByUser.map(task =>
                   <MyTasksComponent task={task}/>
                 )
               }
-
+            </div>
             </div>
           </div>
         </div>

@@ -22,8 +22,9 @@ div.custom-container {
 }
 
 .red-node text{
+	margin-top: 5px;
 	font-size: 15px;
-	text-shadow: 0 1px 4px black;
+	/* text-shadow: 0 1px 4px black; */
 	dominant-baseline: hanging;
 	text-anchor: middle;
 }
@@ -35,8 +36,9 @@ div.custom-container {
 }
 
 .red-node-root text{
+	margin-top: 5px;
 	font-size: 25px;
-	text-shadow: 0 1px 4px black;
+	/* text-shadow: 0 1px 4px black; */
 	dominant-baseline: hanging;
 	text-anchor: start;
 }
@@ -49,7 +51,7 @@ div.custom-container {
 
 .green-node-root text{
 	font-size: 25px;
-	text-shadow: 0 1px 4px black;
+	/* text-shadow: 0 1px 4px black; */
 	dominant-baseline: hanging;
 	text-anchor: start;
 }
@@ -64,7 +66,7 @@ div.custom-container {
 
 .green-node text{
 	font-size: 20px;
-	text-shadow: 0 1px 4px black;
+	/* text-shadow: 0 1px 4px black; */
 	dominant-baseline: hanging;
 }
 
@@ -79,11 +81,12 @@ svg.custom .node circle {
 }
 
 svg.custom .node text {
+	margin-top: 5px;
 	font-size: 15px;
 	text-anchor: middle;
 	background-color: #444;
 	fill: #353942;
-	text-shadow: 0 1px 4px black;
+	/* text-shadow: 0 1px 4px black; */
 	dominant-baseline: text-before-edge;
 }
 
@@ -186,6 +189,10 @@ svg.custom path.link {
 
 .recharts-wrapper {
 	margin: 0 auto;
+	position: relative;
+	cursor: default;
+	width: 725px !important;
+	height: 300px;
 }
 .CircularProgressbar {
   /*
@@ -225,11 +232,11 @@ svg.custom path.link {
   margin-top: 50px;
   height: 200px;
   width: 200px;
-  margin-left: 100px
+  margin-left: 90px
 }
 
 .progressBar3 {
-  margin-top: 50px;
+  margin-top: 47px;
   height: 200px;
   width: 200px;
   margin-right: 300px
@@ -246,7 +253,7 @@ svg.custom path.link {
 
 .tasksListContainer {
 	margin-left: 3%;
-	margin-top: 75px;
+	margin-top: 75px; 
 	width: 82%;
 	height: 900px;
 }
@@ -324,9 +331,10 @@ svg.custom path.link {
 .tasksListItemCircle {
 	width: 100px;
   height: 100px;
-  border-style: solid;
+  /* border-style: solid;
+	border-width: thin;  */
 	border-radius: 75px;
-	border-width: thin;
+	border: 2px solid #D3D3D3; 
 	margin: 0 auto;
 	margin-top: 7%;
 	margin-left: 7%;
@@ -342,8 +350,10 @@ svg.custom path.link {
  .tasksListItemTitle {
 	padding-top: 10%;
 	padding-left: 20%;
-	font-size: 1.5em;
-}
+	font-size: 1.3em;
+	color: #000;
+	text-decoration: none;
+} 
 
 .taskTreeContainer {
 	margin-left: 15%;
@@ -356,9 +366,7 @@ svg.custom path.link {
 
 .tasksTreeButton {
 	width: 95%;
-	margin-top: 6%;
-	margin-left: 42%;
-
+	margin: 6% 79% 0;
 }
 
 .userProfilePeek {
@@ -367,17 +375,18 @@ svg.custom path.link {
 	margin-top: -54%;
 	height: 100vh;
 	width: 20%;
-	border: 1px solid #000;
+	border: 1px solid #d3d3d3;
 }
 
 .userProfilePeekCircle {
-	width: 200px;
-  height: 200px;
+	width: 150px;
+	height: 150px;
+	border: 1px solid #d3d3d3;
   border-style: thin;
 	border-radius: 100px;
 	border-width: thin;
 	margin: 0 auto;
-	margin-top: 30px;
+	margin-top: 100px;
 	overflow: hidden;
 }
 
@@ -528,4 +537,29 @@ p.landing-blurbs {
 
 .pie {
 	text-align: center;
+}
+
+.btn-success {
+	color: #fff;
+	background-color: #2CC5C6;
+	border-color: #2CC5C6;
+}
+
+.projectsListContainer {
+	margin-left: 3%;
+	width: 82%;
+	height: 900px;
+}
+
+.btn-info {
+	color: #FFF;
+	background-color: #003e58;
+	border-color: #003e58;
+}
+#tasknamecolumn {
+	padding-left: 1.5%;
+	text-align: left;
+	/* margin-bottom: 2%; */
+	font-weight: bold;
+	font-style: italic;
 }

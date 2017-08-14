@@ -69,7 +69,8 @@ const getBudgetVsActual = (userTasks, teamTasks ) => {
     }
   }
   
-
+  console.log(budgetedHoursForTeam)
+  console.log(actualHoursForTeam)
   budgetVsActualObject['user'] = actualHoursForUser / budgetedHoursForUser
   budgetVsActualObject['team'] = actualHoursForTeam / budgetedHoursForTeam
   
