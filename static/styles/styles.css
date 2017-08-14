@@ -236,12 +236,12 @@ svg.custom path.link {
 }
 
 .complete .CircularProgressbar-path{
-  stroke: #79C879;
+  stroke: #ff0202;
 }
 
 
 .incomplete .CircularProgressbar-path  {
-  stroke: #ff0202;
+  stroke: #79C879;
 
 }
 
@@ -295,11 +295,11 @@ svg.custom path.link {
 }
 
 .userProfilePeek {
-	margin-left: 1332px;
+	margin-left: 80%;
 	margin-top: 58px;
-	height: 902px;
-	width: 350px;
-	border-style: solid;
+	height: 100vh;
+	width: 20%;
+	border: 1px solid #000;
 }
 
 .userProfilePeekCircle {
@@ -439,4 +439,8 @@ p.landing-blurbs {
 }
 #budgetvsactual{
 	text-align: center;
+	margin-left: 75px;
+}
+#budgetvsactualteam{
+	margin-left: 100px;
 }

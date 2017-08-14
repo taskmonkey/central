@@ -10,17 +10,18 @@ export default class PieGraph extends React.Component {
   // static displayName = 'PieDemo';
 
   render () {
+    console.log(this.props.budgetVsActual , 'in piechart')
     return (
       <div>
         <div className ="row">
           <div className ="col-sm-4">
             <div className = "progressBar1">
-              <CircularProgressbar percentage={this.props.budgetVsActual} initialAnimation={true} classForPercentage = {(percent) => percent < 60 ? 'incomplete' : 'complete'}/>
+              <CircularProgressbar percentage={Math.floor(this.props.budgetVsActual.user * 100)} initialAnimation={true} classForPercentage = {(percent) => percent < 60 ? 'incomplete' : 'complete'}/>
             </div>
           </div>
           <div className ="col-sm-4">
             <div className = "progressBar2">
-              <CircularProgressbar percentage={40} initialAnimation={true} classForPercentage = {(percent) => percent < 60 ? 'incomplete' : 'complete'}/>
+              <CircularProgressbar percentage={Math.floor(this.props.budgetVsActual.team * 100)} initialAnimation={true} classForPercentage = {(percent) => percent < 60 ? 'incomplete' : 'complete'}/>
             </div>
           </div>
           <div className ="col-sm-4">

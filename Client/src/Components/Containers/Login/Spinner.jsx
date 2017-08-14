@@ -34,15 +34,15 @@ class Spinner extends Component {
               axios.get('/allOpenTasksOfUser', {params: {userid: Number(res.data.id)}})
               .then((data)=>{
                 this.props.getTasksByLoggedInUser(data.data)
+          this.props.storeProfile(profile);
+          this.props.history.push('/dashboard')
               })
             })
             .catch(err => {
               console.log(err);
             })
           })
-          this.props.storeProfile(profile);
 
-          this.props.history.push('/dashboard')
       });
       } else {
         this.props.history.push('/login')

@@ -33,25 +33,25 @@ class Main extends Component {
     }
   }
   componentDidMount() {
-    axios.get('http://localhost:3000/entireUsersTasks')
+    axios.get('/entireUsersTasks')
       .then(result => {
         this.props.getUsersTasks(result.data)
       })
       .catch(err => {
         console.log(err)
       })
-    axios.get('http://localhost:3000/entireTasks')
+    axios.get('/entireTasks')
       .then(result =>{
         this.props.getAllTasks(result.data)
       })
       .catch(err => {
         console.log(err)
       })
-    axios.get('http://localhost:3000/allTasksByUser')
+    axios.get('/allTasksByUser')
       .then(result =>{
 
     })
-    axios.get('http://localhost:3000/entireUsers')
+    axios.get('/entireUsers')
       .then(result => {
         this.props.getAllUsers(result.data)
       })
