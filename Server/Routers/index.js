@@ -92,7 +92,6 @@ router.get('/allOpenTasksOfUser', (req, res) => {
 
 
 router.get('/allChildTasks', (req,res)=>{
-
   tasks.findAllChildTasks(res, req.query);
 });
 

@@ -99,7 +99,7 @@ updateActualHours = (clientResponse, hoursObj) => {
 
 findAllChildTasks = (clientResponse, taskObj) => {
 
-    let sql = `select  id, name, description, parentid, budget_hours, actual_hours, owner, status
+    let sql = `select  id, name, description, parentid, budget_hours, actual_hours, owner, status, deficiency, assignee
 from    (select * from tasks
          order by parentid, id) tasks_sorted,
         (select @pv := '${taskObj.taskid}')temp
