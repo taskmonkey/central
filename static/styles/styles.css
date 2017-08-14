@@ -253,7 +253,7 @@ svg.custom path.link {
 
 .tasksListContainer {
 	margin-left: 3%;
-	margin-top: 75px; 
+	margin-top: 75px;
 	width: 82%;
 	height: 900px;
 }
@@ -334,7 +334,7 @@ svg.custom path.link {
   /* border-style: solid;
 	border-width: thin;  */
 	border-radius: 75px;
-	border: 2px solid #D3D3D3; 
+	border: 2px solid #D3D3D3;
 	margin: 0 auto;
 	margin-top: 7%;
 	margin-left: 7%;
@@ -353,7 +353,7 @@ svg.custom path.link {
 	font-size: 1.3em;
 	color: #000;
 	text-decoration: none;
-} 
+}
 
 .taskTreeContainer {
 	margin-left: 15%;
@@ -562,4 +562,23 @@ p.landing-blurbs {
 	/* margin-bottom: 2%; */
 	font-weight: bold;
 	font-style: italic;
+}
+.dropbox {
+	width: 500px;
+	height: 300px;
+	border-style: dotted;
+	margin-left: 28%;
+	margin-top: 30px;
+}
+
+.openFileButton {
+	margin-top: 40px;
+}
+
+.reportsContainer {
+	margin-left: 3%;
+	margin-top: 75px;
+	width: 82%;
+	height: 900px;
+	text-align: center;
 }
