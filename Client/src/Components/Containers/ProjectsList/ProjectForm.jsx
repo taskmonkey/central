@@ -61,14 +61,14 @@ class ProjectForm extends Component {
     return (
       // style={{position: 'absolute', zIndex: 2, float: 'right'}}
       <div className="tasksTreeButton">
-        <Button className="projectFormButtons" bsStyle="success" onClick={this.toggleModal}>Add Project</Button>
+        <Button className="addProjectFormButton" bsStyle="success" onClick={this.toggleModal}>Add Project</Button>
         <MyModal
           toggleModal={this.toggleModal}
           showModal={this.state.showModal}
           handleChange = {this.handleChange}
           handleProjectForm = {this.handleProjectForm}
         />
-        
+
       </div>
     );
   }

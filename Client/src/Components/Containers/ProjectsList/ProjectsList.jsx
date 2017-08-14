@@ -25,7 +25,7 @@ class ProjectsList extends Component{
 						<h1 className="pull-left">Projects List</h1>
 					</div>
               <ProjectForm />
-          <div className="tasksListContainer">
+          <div className="projectsListContainer">
             <div>
               {
                 this.props.projects.map(project =>

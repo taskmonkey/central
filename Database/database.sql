@@ -26,6 +26,7 @@ CREATE TABLE tasks (
     owner INT DEFAULT NULL,
     status INT DEFAULT -1,
     deficiency INT DEFAULT 0,
+    assignee VARCHAR(255),
     PRIMARY KEY (id),
     FOREIGN KEY (parentid) REFERENCES tasks (id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (owner) REFERENCES users (id)

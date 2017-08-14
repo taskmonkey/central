@@ -17,7 +17,7 @@ const mapStateToProps = (state) =>{
 }
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({getTasksByLoggedInUser}, dispatch)
-} 
+}
 
 
 class MyTasks extends Component{
@@ -47,7 +47,7 @@ class MyTasks extends Component{
         <div className="right-col">
 					<div className="dashboard-title">
 						<h1 className="pull-left">My Tasks</h1>
-            
+
 					</div>
           <div className="tasksListContainer">
             <div className = "row">
@@ -60,11 +60,11 @@ class MyTasks extends Component{
               {/* <h3>Task Descriptions</h3> */}
               <hr></hr>
               {
-                this.props.tasksByUser.map(task => 
+                this.props.tasksByUser.map(task =>
                   <MyTasksComponent task={task}/>
                 )
-              } 
-              
+              }
+
             </div>
           </div>
         </div>

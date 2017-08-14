@@ -23,6 +23,7 @@ class TasksTree extends Component{
       currentNode: null,
       button: 900,
       taskId: null,
+      assignee: {name: '', img: "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"},
     }
     this.onNodeClick = this.onNodeClick.bind(this);
     this.traverseTree = this.traverseTree.bind(this);
@@ -43,10 +44,23 @@ class TasksTree extends Component{
   }
 
   onNodeClick(nodeKey) {
+    // HA, GOOD LUCK WITH THIS XD SPAGHETTI CODE TO THE MAXXXXX
     let node = this.traverseTree(nodeKey, this.props.tree);
+    let nodeAssigneeClone = node.assignee.slice(0);
+    nodeAssigneeClone = nodeAssigneeClone.split('');
+    let quoteIdx = nodeAssigneeClone.indexOf("'");
+    nodeAssigneeClone.splice(0, quoteIdx + 1);
+    quoteIdx = nodeAssigneeClone.indexOf("'");
+    let name = nodeAssigneeClone.splice(0, quoteIdx).join('');
+    nodeAssigneeClone.splice(0,1);
+    quoteIdx = nodeAssigneeClone.indexOf("'");
+    nodeAssigneeClone.splice(0, quoteIdx + 1);
+    quoteIdx = nodeAssigneeClone.indexOf("'");
+    let img = nodeAssigneeClone.splice(0, quoteIdx).join('');
     this.setState({
       currentNode: node,
-      taskBudget_hours: 'Budget hours:  ' + node.budget_hours.toString()
+      taskBudget_hours: 'Budget hours:  ' + node.budget_hours.toString(),
+      assignee: {name, img},
     })
     this.forceUpdate();
   }
@@ -191,12 +205,13 @@ class TasksTree extends Component{
               />
               <div className="userProfilePeek">
                 <div className="userProfilePeekCircle">
-                  <img className="userProfilePeekCirclePic" src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"/>
+                  <img className="userProfilePeekCirclePic" src={this.state.assignee.img}/>
                 </div>
                 <div className="userProfilePeekNameContainer">
                   <div className="userProfilePeekName"></div>
                 </div>
                 <div className="userProfilePeekTaskContainer">
+                  <div className="userProfilePeekAssignee">Assigned to: {'\xa0\xa0' + this.state.assignee.name}</div>
                   <div className="userProfilePeekTask">{this.state.taskName}</div>
                   <div>
                     {budget}
@@ -227,7 +242,7 @@ class TasksTree extends Component{
                     handleCompleteTask = {this.handleCompleteTask}
                   />
                 </div>
-              </div> 
+              </div>
             </div>
           </div>
         </div>

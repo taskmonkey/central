@@ -251,6 +251,13 @@ svg.custom path.link {
 	height: 900px;
 }
 
+.projectsListContainer {
+	margin-left: 3%;
+	margin-top: -35px;
+	width: 82%;
+	height: 900px;
+}
+
 .chatContainer {
 	font-family: 'Lato', sans-serif;
 	position: absolute;
@@ -308,9 +315,9 @@ svg.custom path.link {
 }
 
 .tasksListItemContainer {
-	width: 100%; 
+	width: 100%;
 	display: inline-block;
-	padding-bottom: 3%;  
+	padding-bottom: 3%;
 	border-bottom: 1px solid #D3D3D3
 }
 
@@ -336,22 +343,28 @@ svg.custom path.link {
 	padding-top: 10%;
 	padding-left: 20%;
 	font-size: 1.5em;
-} 
+}
 
 .taskTreeContainer {
 	margin-left: 15%;
 	position: absolute;
 }
 
+.addProjectFormButton {
+		width: 300px;
+}
+
 .tasksTreeButton {
 	width: 95%;
-	margin: 6% 42%
+	margin-top: 6%;
+	margin-left: 42%;
+
 }
 
 .userProfilePeek {
 	/* margin-left: 1332px; */
 	margin-left: 80%;
-	margin-top: -54%; 
+	margin-top: -54%;
 	height: 100vh;
 	width: 20%;
 	border: 1px solid #000;
@@ -366,6 +379,10 @@ svg.custom path.link {
 	margin: 0 auto;
 	margin-top: 30px;
 	overflow: hidden;
+}
+
+.userProfilePeekAssignee {
+	font-size: 20px;
 }
 
 .userProfilePeekCirclePic {
@@ -427,16 +444,16 @@ svg.custom path.link {
 
 .jumbotron {
 	background: linear-gradient(
-      rgba(0, 0, 0, 0.3), 
+      rgba(0, 0, 0, 0.3),
       rgba(0, 0, 0, 0.3)
-		), 
-		url("https://images.unsplash.com/photo-1497215842964-222b430dc094?dpr=2&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=") 
+		),
+		url("https://images.unsplash.com/photo-1497215842964-222b430dc094?dpr=2&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=")
 		no-repeat;
 	min-height:100vh;
 	/* background-repeat: no-repeat; */
 	/* background-size: 100% 100%; */
 	/* background: #FFF; */
-	background-position: center center; 
+	background-position: center center;
 	text-align: center;
 	font-family: 'Lato', sans-serif;
 	margin: 0;
@@ -444,7 +461,7 @@ svg.custom path.link {
 }
 
  .jumboText {
-	margin: 20% auto; 
+	margin: 20% auto;
 	color: #F8F8FF
 	/* font-size: 100px; */
 }
@@ -457,7 +474,7 @@ svg.custom path.link {
 	font-family: 'Lato', sans-serif;
 	color: #FFF;
 	background: #003e58;
-	height: 50vh; 
+	height: 50vh;
 	/* height: 40%; */
 	padding-bottom: 2%;
 }
@@ -507,7 +524,7 @@ p.landing-blurbs {
 }
  .projectFormButtons {
 	margin: 0 auto
-} 
+}
 
 .pie {
 	text-align: center;

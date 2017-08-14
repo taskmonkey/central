@@ -4,12 +4,14 @@ const parser = require('body-parser')
 const path = require('path')
 const PORT = process.env.PORT || 3000;
 const app = express();
-const router = require('./Routers')
+const router = require(path.join(__dirname, './Routers/index.js'))
 
 const http = require('http')
 const server = http.createServer(app)
 const socketIO = require('socket.io')
 const io = socketIO(server)
+
+
 
 app.use(parser.json());
 app.use(parser.urlencoded({extended:true}))

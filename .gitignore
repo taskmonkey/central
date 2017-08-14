@@ -1,5 +1,6 @@
 node_modules/
 Client/config.js
+.DS_Store
 .env
 static/bundle.js
 Static/bundle.js
