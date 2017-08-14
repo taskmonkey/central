@@ -242,7 +242,6 @@ svg.custom path.link {
 
 .incomplete .CircularProgressbar-path  {
   stroke: #ff0202;
-
 }
 
 .tasksListContainer {
@@ -250,6 +249,62 @@ svg.custom path.link {
 	margin-top: 75px;
 	width: 82%;
 	height: 900px;
+}
+
+.chatContainer {
+	font-family: 'Lato', sans-serif;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 15%;
+}
+
+.chatImageContainer {
+	width: 50px;
+	height: 50px;
+	border-style: solid;
+	border-radius: 25px;
+	overflow: hidden;
+	border-width: thin;
+}
+
+.chatMessageContainer {
+	margin-bottom: 20px;
+}
+
+.message {
+	margin-left: 80px;
+	margin-top: -30px;
+}
+
+.chatImageContainerImage {
+	max-width: 100%;
+  max-height: 100%;
+}
+
+.chatInput {
+	width: 400px;
+	margin-right: 30px;
+	margin-left: 30px;
+}
+
+.messagesContainer {
+	height: 650px;
+	width: 750px;
+	border-style: solid;
+	border-color: #BEBEBE;
+	border-radius: 10px;
+	margin-bottom: 40px;
+	overflow-y: scroll;
+	padding-top: 40px;
+}
+
+.chatListContainer {
+	margin-left: 3%;
+	margin-top: 75px;
+	width: 82%;
+	height: 750px;
 }
 
 .tasksListItemContainer {
@@ -436,4 +491,8 @@ p.landing-blurbs {
 
 .projectFormButtons {
 	margin-right: 30px;
+}
+
+.chatListContainer {
+
 }

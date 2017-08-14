@@ -76,14 +76,14 @@ class Dashboard extends Component{
   }
 
   willMount() {
-    axios.get('http://localhost:3000/entireUsersTasks')
+    axios.get('/entireUsersTasks')
       .then(result => {
         this.props.getUsersTasks(result.data)
       })
       .catch(err => {
         console.log(err)
       })
-    axios.get('http://localhost:3000/entireTasks')
+    axios.get('/entireTasks')
       .then(result =>{
         this.props.getAllTasks(result.data)
       })
@@ -97,7 +97,7 @@ class Dashboard extends Component{
       .catch((err)=>{
         console.log('error')
       })
-    axios.get('http://localhost:3000/entireUsers')
+    axios.get('/entireUsers')
       .then(result => {
         this.props.getAllUsers(result.data)
       })
@@ -114,10 +114,9 @@ class Dashboard extends Component{
     // '/' will trigger the .on('connection') event on the server side, connects everytime the component mounts
     this.socket = io('/');
     this.socket.on('addedTask', body => {
-      console.log('body', body);
-      console.log('profile', this.props.profile);
+      // console.log('body', body);
+      // console.log('profile', this.props.profile);
       if(body.body.assignees[0] === this.props.profile.nickname) {
-        alert('You have a new task assigned!');
         this.willMount();
       }
     });

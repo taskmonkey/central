@@ -5,12 +5,14 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {createProject} from '../../../Actions/index.js';
 import MyModal from '../ProjectsList/ProjectModal.jsx';
+import Auth from '../../../Auth/Auth.js'
 
 class ProjectForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showModal: false
+      showModal: false,
+      auth: new Auth(),
     };
     //function binding
     this.handleChange = this.handleChange.bind(this);
@@ -18,9 +20,14 @@ class ProjectForm extends Component {
     this.toggleModal = this.toggleModal.bind(this);
   }
   toggleModal(){
-    this.setState({
-        showModal: !this.state.showModal
-    });
+    this.state.auth.handleAuthentication();
+    setTimeout(() => {
+      if(this.state.auth.isAuthenticated()) {
+        this.setState({
+          showModal: !this.state.showModal
+        });
+      }
+    }, 300)
   }
 
   handleChange(e) {

@@ -3,7 +3,6 @@ import {render} from 'react-dom';
 import {Redirect, Link, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-// import {fetchTasks} from '../../../Actions/index.js';
 import NavTask from '../Dashboard/NavTask.jsx';
 import ProjectsListItem from './ProjectsListItem.jsx';
 import ProjectForm from './ProjectForm.jsx';

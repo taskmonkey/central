@@ -6,11 +6,11 @@ import Dashboard from './Components/Containers/Dashboard/Dashboard.jsx';
 import ProjectsList from './Components/Containers/ProjectsList/ProjectsList.jsx';
 import UserList from './Components/Containers/Users/UserList.jsx';
 import TasksTree from './Components/Containers/TasksTree/TasksTree.jsx';
-import TasksDetails from './Components/Containers/TasksDetails/TasksDetails.jsx';
 import ProjectForm from './Components/Containers/ProjectsList/ProjectForm.jsx';
 import Spinner from './Components/Containers/Login/Spinner.jsx';
 import MyTasks from './Components/Containers/MyTasks/MyTasks.jsx';
 import Settings from './Components/Containers/Settings/Settings.jsx';
+import Chat from './Components/Containers/Chat/Chat.jsx';
 import axios from 'axios';
 import {connect} from 'react-redux'
 import {getUsersTasks, getAllTasks, findAllTasksOfUser, getAllUsers} from './Actions/index.js'
@@ -33,25 +33,25 @@ class Main extends Component {
     }
   }
   componentDidMount() {
-    axios.get('http://localhost:3000/entireUsersTasks')
+    axios.get('/entireUsersTasks')
       .then(result => {
         this.props.getUsersTasks(result.data)
       })
       .catch(err => {
         console.log(err)
       })
-    axios.get('http://localhost:3000/entireTasks')
+    axios.get('/entireTasks')
       .then(result =>{
         this.props.getAllTasks(result.data)
       })
       .catch(err => {
         console.log(err)
       })
-    axios.get('http://localhost:3000/allTasksByUser')
+    axios.get('/allTasksByUser')
       .then(result =>{
 
     })
-    axios.get('http://localhost:3000/entireUsers')
+    axios.get('/entireUsers')
       .then(result => {
         this.props.getAllUsers(result.data)
       })
@@ -73,8 +73,8 @@ class Main extends Component {
           <Route exact path="/users" component={UserList}/>
           <Route exact path="/tasksTree" component={TasksTree}/>
           <Route exact path="/projectForm" component={ProjectForm}/>
-          <Route exact path="/tasksDetails" component={TasksDetails}/>
           <Route exact path="/settings" component={Settings}/>
+          <Route exact path="/chat" component={Chat}/>
         </Switch>
       </BrowserRouter>
     )
