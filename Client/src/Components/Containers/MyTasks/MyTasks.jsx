@@ -64,6 +64,7 @@ class MyTasks extends Component{
                   <MyTasksComponent task={task}/>
                 )
               } 
+              
             </div>
           </div>
         </div>

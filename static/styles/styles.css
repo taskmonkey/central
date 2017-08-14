@@ -10,9 +10,9 @@
 
 div.custom-container {
 	background-color: white;
-	overflow-x: scroll;
-	border-right: solid;
-	border-color: #353942;
+	/* overflow-x: scroll; */
+	/* border-right: solid;
+	border-color: #353942; */
 	padding-left: 30px;
 }
 .red-node {
@@ -308,16 +308,15 @@ svg.custom path.link {
 }
 
 .tasksListItemContainer {
-	width: 100%;
+	width: 100%; 
 	display: inline-block;
-	padding-bottom: 5%;
-	border-bottom-style: solid;
-	border-color: #D3D3D3;
+	padding-bottom: 3%;  
+	border-bottom: 1px solid #D3D3D3
 }
 
 .tasksListItemCircle {
-	width: 150px;
-  height: 150px;
+	width: 100px;
+  height: 100px;
   border-style: solid;
 	border-radius: 75px;
 	border-width: thin;
@@ -333,11 +332,11 @@ svg.custom path.link {
   max-height: 100%;
 }
 
-.tasksListItemTitle {
+ .tasksListItemTitle {
 	padding-top: 10%;
-	padding-left: 27.5%;
-	font-size: 30px;
-}
+	padding-left: 20%;
+	font-size: 1.5em;
+} 
 
 .taskTreeContainer {
 	margin-left: 15%;
@@ -350,8 +349,14 @@ svg.custom path.link {
 }
 
 .userProfilePeek {
+<<<<<<< HEAD
 	margin-left: 80%;
 	margin-top: 58px;
+=======
+	/* margin-left: 1332px; */
+	margin-left: 80%;
+	margin-top: 58px; 
+>>>>>>> style changes
 	height: 100vh;
 	width: 20%;
 	border: 1px solid #000;
@@ -360,7 +365,7 @@ svg.custom path.link {
 .userProfilePeekCircle {
 	width: 200px;
   height: 200px;
-  border-style: solid;
+  border-style: thin;
 	border-radius: 100px;
 	border-width: thin;
 	margin: 0 auto;
@@ -426,8 +431,13 @@ svg.custom path.link {
 }
 
 .jumbotron {
-	background: url("https://images.unsplash.com/photo-1497215842964-222b430dc094?dpr=2&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=") no-repeat;
-	min-height:600px;
+	background: linear-gradient(
+      rgba(0, 0, 0, 0.3), 
+      rgba(0, 0, 0, 0.3)
+		), 
+		url("https://images.unsplash.com/photo-1497215842964-222b430dc094?dpr=2&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=") 
+		no-repeat;
+	min-height:100vh;
 	/* background-repeat: no-repeat; */
 	/* background-size: 100% 100%; */
 	/* background: #FFF; */
@@ -438,19 +448,27 @@ svg.custom path.link {
 	/* box-shadow: 0px 10px 20px -5px rgba(0,0,0,.8); */
 }
 
-.jumbotron h1 {
-	margin: 200px auto;
+ .jumboText {
+	margin: 20% auto; 
+	color: #F8F8FF
+	/* font-size: 100px; */
+}
+
+.jumbotron h1{
+	margin-bottom: 5%;
 }
 
 .landing-bottom{
 	font-family: 'Lato', sans-serif;
 	color: #FFF;
 	background: #003e58;
-	height: 60vh;
+	height: 50vh; 
+	/* height: 40%; */
+	padding-bottom: 2%;
 }
 
 .landing-header {
-	margin-top: 80px;
+	margin-top: 60px;
 	padding: 1px;
 	text-align: center;
 	text-decoration: underline;
@@ -489,10 +507,9 @@ p.landing-blurbs {
 	color: #f8f5ed;
 }
 
-.projectFormButtons {
-	margin-right: 30px;
-}
-
 .chatListContainer {
 
 }
+ .projectFormButtons {
+	margin: 0 auto
+} 

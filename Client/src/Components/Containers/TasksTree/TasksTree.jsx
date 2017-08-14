@@ -100,7 +100,7 @@ class TasksTree extends Component{
     }
     var newAssigneeVals = splitStrAndEraseSpaces(assigneeVal);
     var taskDetails = {name: nameVal, assignees: newAssigneeVals, budget_hours: budgetHoursVal, description: descriptionVal, owner: this.props.storeProfile.userid, parentid: this.state.currentNode.id};
-    if (Number(budgetHoursVal) == budgetHoursVal) {
+    if (Number(budgetHoursVal) == budgetHoursVal && budgetHoursVal) {
       axios.post('/addTask', taskDetails)
       .then(res => {
         var newRes = res.data.task;
@@ -131,7 +131,7 @@ class TasksTree extends Component{
     }
   }
   handleCompleteTask(actualHours) {
-    if (Number(actualHours) == actualHours) {
+    if (Number(actualHours) == actualHours && actualHours) {
     axios.put('/updateStatusComplete', {taskid: this.state.currentNode.id, actual_hours: actualHours})
       .then (() => {
         this.state.currentNode.className = 'green-node';
@@ -188,7 +188,7 @@ class TasksTree extends Component{
               nodeRadius = {7}
               margins={treeMargins}
               nodeClickHandler={this.onNodeClick}
-              />;
+              />
             </div>
           </div>
           <div className="userProfilePeek">
@@ -212,7 +212,7 @@ class TasksTree extends Component{
                 <div>{this.state.taskBudget_hours}</div>
               </div>
               <Button className="userProfilePeekButtons" bsStyle="success" onClick={()=> {node ? this.toggleModal() : null}}>Add Task</Button>
-              <Button bsStyle="info" onClick={()=>{node && !this.checkChildren(node) ? this.toggleCompleteModal() : null}}>Mark task as complete</Button>
+              <Button bsStyle="info" onClick={()=>{node && !this.checkChildren(node) ? this.toggleCompleteModal() : null}}>Complete</Button>
             </div>
             <div>
               <MyModal
