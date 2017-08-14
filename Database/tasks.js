@@ -28,8 +28,8 @@ allTasks = (clientResponse) => {
 }
 
 createNewTask = (clientResponse, taskObj) => {
-    let temp = [taskObj.name, taskObj.description, taskObj.budget_hours, taskObj.owner, taskObj.parentid];
-    let sql = `INSERT INTO tasks (name, description, budget_hours, owner, parentid) VALUES (?, ?, ?, ?, ?);`;
+    let temp = [taskObj.name, taskObj.description, taskObj.budget_hours, taskObj.owner, taskObj.parentid, taskObj.assignees[0]];
+    let sql = `INSERT INTO tasks (name, description, budget_hours, owner, parentid, assignee) VALUES (?, ?, ?, ?, ?, ?);`;
     db.query(sql, temp, (err, resp) => {
 
         var responseObject = {};
