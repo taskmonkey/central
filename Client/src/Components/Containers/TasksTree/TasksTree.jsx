@@ -198,7 +198,7 @@ class TasksTree extends Component{
                 treeClassName='custom'
                 keyProp='id'
                 labelProp = 'name'
-                nodeOffset= {5}
+                nodeOffset= {9}
                 nodeRadius = {7}
                 margins={treeMargins}
                 nodeClickHandler={this.onNodeClick}
@@ -224,8 +224,8 @@ class TasksTree extends Component{
                     <div>{node ? node.description : ''}</div>
                     <div>{this.state.taskBudget_hours}</div>
                   </div>
-                  <Button className="userProfilePeekButtons" bsStyle="success" onClick={()=> {node ? this.toggleModal() : null}}>Add Task</Button>
-                  <Button bsStyle="info" onClick={()=>{node && !this.checkChildren(node) ? this.toggleCompleteModal() : null}}>Complete</Button>
+                  <Button className="userProfilePeekButtons" bsStyle="warning" onClick={()=> {node ? this.toggleModal() : null}}>Add Task</Button>
+                  <Button className="completeButton" bsStyle="success" onClick={()=>{node && !this.checkChildren(node) ? this.toggleCompleteModal() : null}}>Complete</Button>
                 </div>
                 <div>
                   <MyModal

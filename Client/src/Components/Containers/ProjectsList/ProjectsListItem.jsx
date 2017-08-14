@@ -36,7 +36,7 @@ class ProjectsListItem extends Component {
           <img className="tasksListItemCircleImage" src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"/>
         </div>
         <Link to='/tasksTree'><div className="tasksListItemTitle" onClick={this.getTaskTree}>{this.props.projectsListItem.name}</div></Link>
-        <Button className="projectFormButtons" bsStyle="danger" style={{float: 'right'}}>Delete Project</Button>
+        <Button bsStyle="danger" style={{float: 'right'}}>Delete Project</Button>
       </div>
     )
   }

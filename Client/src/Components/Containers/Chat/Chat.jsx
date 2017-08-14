@@ -76,7 +76,7 @@ class Chat extends Component {
             </div>
             <div>
               <input className="chatInput" type="text" placeholder='Enter a message...' onKeyPress={(e) => {if(e.key === 'Enter') {this.submitMessage()}}}></input>
-              <button className="chatInputButton" onClick={this.submitMessage}>Send Message</button>
+              <button className="chatInputButton btn btn-success" onClick={this.submitMessage}>Send Message</button>
             </div>
           </div>
         </div>

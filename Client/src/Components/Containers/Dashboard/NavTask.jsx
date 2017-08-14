@@ -153,7 +153,7 @@ const SideNavWithAlerts = (props) =>
                 //console.log('Sales clicked!', arguments);
             }}
         >
-            <NavIcon><Icon20 icon={fileText2} /></NavIcon><NavText> <Link to="/settings">{' '}<span className="navTaskSpans" style={{ paddingRight: 6 }}>Reports</span>{' '}</Link> </NavText>
+            <NavIcon><Icon20 icon={fileText2} /></NavIcon><NavText> <Link to="/settings">{' '}<span style={{ paddingRight: 6, color: "#FFF" }}>Reports</span>{' '}</Link> </NavText>
         </Nav>
         <Nav id="deliveries">
             <NavIcon><Icon20 icon={bubbles} /></NavIcon>
