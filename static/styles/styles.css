@@ -155,7 +155,7 @@ svg.custom path.link {
 	height: 60px;
 	right: 0px;
 	left: 0px;
-	width: 1500px;
+	width: 100%;
 	position: absolute;
 }
 
@@ -344,20 +344,14 @@ svg.custom path.link {
 }
 
 .tasksTreeButton {
-	/* width: 95%;
-	margin: 6% 0% 0% 3%; */
-	margin: 6% 43%
+	width: 95%;
+	margin: 6% 42%
 }
 
 .userProfilePeek {
-<<<<<<< HEAD
-	margin-left: 80%;
-	margin-top: 58px;
-=======
 	/* margin-left: 1332px; */
 	margin-left: 80%;
-	margin-top: 58px; 
->>>>>>> style changes
+	margin-top: -54%; 
 	height: 100vh;
 	width: 20%;
 	border: 1px solid #000;
@@ -514,3 +508,7 @@ p.landing-blurbs {
  .projectFormButtons {
 	margin: 0 auto
 } 
+
+.pie {
+	text-align: center;
+}

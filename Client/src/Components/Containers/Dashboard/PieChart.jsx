@@ -14,18 +14,21 @@ export default class PieGraph extends React.Component {
     return (
       <div>
         <div className ="row">
-          <div className ="col-sm-4">
+          <div className ="col-sm-4 offset-lg-2">
             <div className = "progressBar1">
+              <h4 className="pie">Me</h4>
               <CircularProgressbar percentage={Math.floor(this.props.budgetVsActual.user * 100)} initialAnimation={true} classForPercentage = {(percent) => percent < 60 ? 'incomplete' : 'complete'}/>
             </div>
           </div>
           <div className ="col-sm-4">
             <div className = "progressBar2">
+              <h4 className="pie">Team</h4>
               <CircularProgressbar percentage={Math.floor(this.props.budgetVsActual.team * 100)} initialAnimation={true} classForPercentage = {(percent) => percent < 60 ? 'incomplete' : 'complete'}/>
             </div>
           </div>
           <div className ="col-sm-4">
             <div className = "progressBar3">
+              <h4 className="pie">Company</h4>
               <CircularProgressbar percentage={70} initialAnimation={true} classForPercentage = {(percent) => percent < 60 ? 'incomplete' : 'complete'}/>
             </div>
           </div>
