@@ -12,7 +12,7 @@ import axios from 'axios'
 import io from 'socket.io-client';
 
 const mapUserstoAllTasks = (allTasks, allUsers, usersTasks) =>{
-  // console.log(allTasks, 'this is the all tasks')
+  //console.log(allTasks, 'this is the all tasks')
   // console.log(allUsers)
   let userObjects = []
   let taskObjects = []
@@ -26,8 +26,6 @@ const mapUserstoAllTasks = (allTasks, allUsers, usersTasks) =>{
       newUserObject['id'] = allUsers[i].id;
       userObjects.push(newUserObject)
     }
-
-
   }
   createNewUserObjects()
   for (let i = 0; i < allTasks.length; i++){
@@ -50,15 +48,46 @@ const mapUserstoAllTasks = (allTasks, allUsers, usersTasks) =>{
 
 }
 
+const getBudgetVsActual = (userTasks, teamTasks ) => {
+  let budgetVsActualObject = {};
+  let budgetedHoursForUser = 0;
+  let actualHoursForUser = 0;
+  let budgetedHoursForTeam = 0;
+  let actualHoursForTeam = 0;
+
+  if (userTasks.length > 0){
+    for (let i = 0; i < userTasks.length; i++) {
+    
+      budgetedHoursForUser += userTasks[i].budget_hours;
+      actualHoursForUser += userTasks[i].actual_hours;
+    }
+  }
+  if (teamTasks.length > 0){
+    for (let i = 0; i < teamTasks.length; i++) {
+      budgetedHoursForTeam += teamTasks[i].budget_hours;
+      actualHoursForTeam += teamTasks[i].actual_hours;
+    }
+  }
+  
+
+  budgetVsActualObject['user'] = actualHoursForUser / budgetedHoursForUser
+  budgetVsActualObject['team'] = actualHoursForTeam / budgetedHoursForTeam
+  
+  return budgetVsActualObject
+}
+
+
 const mapStateToProps = (state) =>{
+  //console.log(state)
   //console.log('this is the state in main DASHBOARD', state)
   return {
     allTasks: state.tasks.allTasks,
     allUsers: state.tasks.allUsers,
     allTasksUsers: state.tasks.usersTasks,
     mappedUsersAndTasks : mapUserstoAllTasks(state.tasks.allTasks, state.tasks.allUsers, state.tasks.usersTasks),
+    budgetVsActual: getBudgetVsActual(state.tasks.allTasksByUsers, state.tasks.allTasks),
     profile: state.tasks.profile,
-    tasks:state.tasks.tasksByLoggedInUser
+    tasks: state.tasks.tasksByLoggedInUser
   }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -104,6 +133,13 @@ class Dashboard extends Component{
       .catch(err => {
         console.log('err')
       })
+    axios.get('/allTasksByUser', {params: {userid: JSON.stringify(this.props.profile.userid)}})
+    .then(result => {
+      this.props.findAllTasksOfUser(result.data)
+    })
+    .catch(err => {
+      console.log('err')
+    })
   }
 
   componentWillMount(){
@@ -123,7 +159,8 @@ class Dashboard extends Component{
   }
 
   render() {
-    console.log(this.props.mappedUsersAndTasks, this.props.allTasksUsers, this.props.allUsers)
+    //console.log(this.props.profile.userid, 'this is the userid')
+    //console.log(this.props.mappedUsersAndTasks, this.props.allTasksUsers, this.props.allUsers)
     return(
       <div className="dashboard-container">
         <div className="left-col">
@@ -144,14 +181,20 @@ class Dashboard extends Component{
 						<h3>HRLA16</h3>
             <hr></hr>
             <BarGraph allTasksAndUsers={this.props.mappedUsersAndTasks} allTasksUsers={this.props.allTasksUsers} allUsers={this.props.allUsers}/>
-
-						<h3>Sprints</h3>
+						<h3>Budget Vs Actual Hours</h3>
             <hr></hr>
 						<div className="row">
-              <PieGraph />
-							{/* <div className="col-sm-4"><PieGraph /></div>
-							<div className="col-sm-4"><PieGraph /></div>
-							<div className="col-sm-4"><PieGraph /></div> */}
+              <div className="col-sm-4" id="budgetvsactual">
+                Me
+              </div>
+              <div className="col-sm-4" id="budgetvsactualteam">
+                Team
+              </div>
+              <div className="col-sm-4">
+              </div>
+            </div>
+            <div className="row">
+              <PieGraph budgetVsActual = {this.props.budgetVsActual} />
 						</div>
 					</div>
         </div>

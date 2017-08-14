@@ -5,35 +5,23 @@ import CircularProgressbar from 'react-circular-progressbar';
 
 
 
-const data = [
-  { name: 'iphone4', value: 120, fill: '#ff7300' },
-  { name: 'iphone4s', value: 500, fill: '#e5671a' },
-  { name: 'iphone5', value: 600, fill: '#907213' }
-];
-const sectors = [
-  { cx: 250, cy: 250, startAngle: 0, endAngle: 60, innerRadius: 100, outerRadius: 200 },
-  { cx: 250, cy: 250, startAngle: 60, endAngle: 120, innerRadius: 100, outerRadius: 200 },
-  { cx: 250, cy: 250, startAngle: 120, endAngle: 180, innerRadius: 100, outerRadius: 200 },
-  { cx: 250, cy: 250, startAngle: 180, endAngle: 240, innerRadius: 100, outerRadius: 200 },
-  { cx: 250, cy: 250, startAngle: 240, endAngle: 300, innerRadius: 100, outerRadius: 200 },
-  { cx: 250, cy: 250, startAngle: 300, endAngle: 360, innerRadius: 100, outerRadius: 200 },
-];
 
 export default class PieGraph extends React.Component {
   // static displayName = 'PieDemo';
 
   render () {
+    //console.log(this.props.budgetVsActual , 'in piechart')
     return (
       <div>
         <div className ="row">
           <div className ="col-sm-4">
             <div className = "progressBar1">
-              <CircularProgressbar percentage={90} initialAnimation={true} classForPercentage = {(percent) => percent < 60 ? 'incomplete' : 'complete'}/>
+              <CircularProgressbar percentage={Math.floor(this.props.budgetVsActual.user * 100)} initialAnimation={true} classForPercentage = {(percent) => percent < 60 ? 'incomplete' : 'complete'}/>
             </div>
           </div>
           <div className ="col-sm-4">
             <div className = "progressBar2">
-              <CircularProgressbar percentage={40} initialAnimation={true} classForPercentage = {(percent) => percent < 60 ? 'incomplete' : 'complete'}/>
+              <CircularProgressbar percentage={Math.floor(this.props.budgetVsActual.team * 100)} initialAnimation={true} classForPercentage = {(percent) => percent < 60 ? 'incomplete' : 'complete'}/>
             </div>
           </div>
           <div className ="col-sm-4">

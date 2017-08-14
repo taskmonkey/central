@@ -24,12 +24,12 @@ deleteUser = (clientResponse, userObj) => {
 }
 
 findAllTasksOfUser = (clientResponse, userObj) => {
-    let sql = `SELECT users.username, tasks.name, tasks.description, tasks.budget_hours, tasks.actual_hours, tasks.parentid, users_tasks.difficulty, tasks.owner, tasks.status FROM users
-    INNER JOIN users_tasks ON users.id = users_tasks.user_id
-    INNER JOIN tasks ON users_tasks.tasks_id = tasks.id
-    WHERE users.id = "${userObj.userid}";`;
+    
+    console.log(userObj, 'userObj');
+    let sql = `SELECT * from users_tasks INNER JOIN tasks ON users_tasks.tasks_id = tasks.id
+    WHERE users_tasks.user_id = ? GROUP BY users_tasks.id;`;
 
-    db.query(sql, (err, resp) => {
+    db.query(sql, [userObj.userid], (err, resp) => {
         clientResponse.send(resp);
     });
 };
@@ -98,6 +98,7 @@ where
 
 
 findAllTasksOfOwner = (clientResponse, ownerObj) => {
+    console.log(ownerObj)
     let sql = `SELECT * FROM tasks WHERE tasks.owner = "${userObj.userid}";`;
 
     db.query(sql, (err, resp) => {

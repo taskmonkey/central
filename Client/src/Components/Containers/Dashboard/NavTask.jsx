@@ -150,10 +150,10 @@ const SideNavWithAlerts = (props) =>
         <Nav
             id="sales"
             onNavClick={() => {
-                console.log('Sales clicked!', arguments);
+                //console.log('Sales clicked!', arguments);
             }}
         >
-            <NavIcon><Icon20 icon={fileText2} /></NavIcon><NavText> Reports </NavText>
+            <NavIcon><Icon20 icon={fileText2} /></NavIcon><NavText> <Link to="/settings">{' '}<span style={{ paddingRight: 6 }}>Reports</span>{' '}</Link> </NavText>
         </Nav>
         <Nav id="deliveries">
             <NavIcon><Icon20 icon={bubbles} /></NavIcon>
@@ -181,15 +181,15 @@ class NavTask extends React.Component {
 
     }
 
-    componentWillMount(){
-        axios.get('/allOpenTasksOfUser', {params: {userid: this.props.profile.userid}})
-            .then((data)=>{
-                this.props.getTasksByLoggedInUser(data.data)
-            })
-            .catch((err)=>{
-                console.log('error')
-            })
-    }
+    // componentWillMount(){
+    //     axios.get('/allOpenTasksOfUser', {params: {userid: this.props.profile.userid}})
+    //         .then((data)=>{
+    //             this.props.getTasksByLoggedInUser(data.data)
+    //         })
+    //         .catch((err)=>{
+    //             console.log('error')
+    //         })
+    // }
     render() {
 
         return (

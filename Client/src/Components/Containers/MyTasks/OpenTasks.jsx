@@ -22,6 +22,7 @@ class MyTasksComponent extends Component{
       }
     }
   }
+
   getTaskTree(){
     axios.get('/projectOfTask', {params: {taskid: this.props.task.id}})
       .then(result =>{
@@ -55,11 +56,8 @@ class MyTasksComponent extends Component{
             <div className="col-sm-8">
               {this.props.task.description}
             </div>
-            <div className="col-sm-1">
+            <div className="col-sm-2">
               <Link to='/tasksTree'><div className="" onClick={this.getTaskTree}><button className="taskButton">TaskTree</button></div></Link> 
-            </div>
-            <div className="col-sm-1">
-              <Link to='/tasksTree'><div className="" onClick={this.getTaskTree}><button className="taskButtonComplete">Complete</button></div></Link> 
             </div>
           </div>
         </div>

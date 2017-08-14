@@ -78,13 +78,15 @@ router.post('/addTask', (req, res)=>{
 });
 
 router.get('/allTasksByUser', (req, res)=> {
+  console.log(req.query, 'query from route');
   // gets all tasks assigned to users
-  users.findAllTasksOfUser(res, req.body);
+  users.findAllTasksOfUser(res, req.query);
 });
 
 
 
 router.get('/allOpenTasksOfUser', (req, res) => {
+  //console.log(req.query, 'query from allopentasksofusers')
   users.openTasksOfUser(res, req.query);
 });
 
