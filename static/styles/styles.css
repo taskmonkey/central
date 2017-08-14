@@ -344,8 +344,9 @@ svg.custom path.link {
 }
 
 .tasksTreeButton {
-	width: 95%;
-	margin: 6% 0% 0% 3%;
+	/* width: 95%;
+	margin: 6% 0% 0% 3%; */
+	margin: 6% 43%
 }
 
 .userProfilePeek {
