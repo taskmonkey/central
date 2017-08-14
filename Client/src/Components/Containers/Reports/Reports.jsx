@@ -37,14 +37,14 @@ class Reports extends Component {
               <section>
                 <aside>
                   <h2>Drop Your Report Here</h2>
-                  <ul>
+                  <div>
                     {
-                      this.state.files.map(f => <li>{f.name} - {f.size} bytes</li>)
+                      this.state.files.map(f => <ul className="fileName">{f.name} - {f.size} bytes</ul>)
                     }
-                  </ul>
+                  </div>
                 </aside>
                 <div>
-                  <Dropzone ref={(node) => { dropzoneRef = node; }} onDrop={(accepted, rejected) => { alert(accepted) }} className="dropbox">
+                  <Dropzone ref={(node) => { dropzoneRef = node; }} onDrop={this.onDrop} className="dropbox">
                       <p>Drop files here.</p>
                   </Dropzone>
                   <button type="button" onClick={() => { dropzoneRef.open() }} className="openFileButton">

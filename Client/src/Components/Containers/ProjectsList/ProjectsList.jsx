@@ -24,7 +24,11 @@ class ProjectsList extends Component{
 					<div className="dashboard-title">
 						<h1 className="pull-left">Projects List</h1>
 					</div>
+          <div className="row">
+            <div className="col-sm-12">
               <ProjectForm />
+            </div>
+          </div>
           <div className="projectsListContainer">
             <div>
               {
