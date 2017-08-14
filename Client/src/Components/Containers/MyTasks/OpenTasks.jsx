@@ -61,7 +61,7 @@ class MyTasksComponent extends Component{
             </div>
           </div>
         </div>
-        
+        <hr></hr>
         {/* <div className="tasksListItemTitle" onClick={() => {  props.history.push("/tasksTree")}}>{props.user.username}</div> */}
       </div>
     )

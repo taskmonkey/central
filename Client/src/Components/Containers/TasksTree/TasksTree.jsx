@@ -100,7 +100,7 @@ class TasksTree extends Component{
     }
     var newAssigneeVals = splitStrAndEraseSpaces(assigneeVal);
     var taskDetails = {name: nameVal, assignees: newAssigneeVals, budget_hours: budgetHoursVal, description: descriptionVal, owner: this.props.storeProfile.userid, parentid: this.state.currentNode.id};
-    if (Number(budgetHoursVal) == budgetHoursVal) {
+    if (Number(budgetHoursVal) == budgetHoursVal && budgetHoursVal) {
       axios.post('/addTask', taskDetails)
       .then(res => {
         var newRes = res.data.task;
@@ -131,7 +131,7 @@ class TasksTree extends Component{
     }
   }
   handleCompleteTask(actualHours) {
-    if (Number(actualHours) == actualHours) {
+    if (Number(actualHours) == actualHours && actualHours) {
     axios.put('/updateStatusComplete', {taskid: this.state.currentNode.id, actual_hours: actualHours})
       .then (() => {
         this.state.currentNode.className = 'green-node';
@@ -170,64 +170,64 @@ class TasksTree extends Component{
   					</div>
             <NavTask />
           </div>
-          <div className="taskTreeContainer">
+          <div className="right-col">
             <div className="dashboard-title">
               <h1 className="pull-left">Task Tree</h1>
             </div>
             <div className="custom-container">
               <Tree
-              data={this.props.tree}
-              height={this.state.button}
-              width={1050}
-              animated
-              duration={500}
-              treeClassName='custom'
-              keyProp='id'
-              labelProp = 'name'
-              nodeOffset= {5}
-              nodeRadius = {7}
-              margins={treeMargins}
-              nodeClickHandler={this.onNodeClick}
-              />;
-            </div>
-          </div>
-          <div className="userProfilePeek">
-            <div className="userProfilePeekCircle">
-              <img className="userProfilePeekCirclePic" src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"/>
-            </div>
-            <div className="userProfilePeekNameContainer">
-              <div className="userProfilePeekName"></div>
-            </div>
-            <div className="userProfilePeekTaskContainer">
-              <div className="userProfilePeekTask">{this.state.taskName}</div>
-              <div>
-                {budget}
-              </div>
-              <div>
-                {actual}
+                data={this.props.tree}
+                height={this.state.button}
+                width={1050}
+                animated
+                duration={500}
+                treeClassName='custom'
+                keyProp='id'
+                labelProp = 'name'
+                nodeOffset= {5}
+                nodeRadius = {7}
+                margins={treeMargins}
+                nodeClickHandler={this.onNodeClick}
+              />
+              <div className="userProfilePeek">
+                <div className="userProfilePeekCircle">
+                  <img className="userProfilePeekCirclePic" src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"/>
                 </div>
-              <div className="userProfilePeekName">{node ? node.name : ''}</div>
-              <div className="userProfilePeekDetails">
-                <div>{node ? node.description : ''}</div>
-                <div>{this.state.taskBudget_hours}</div>
-              </div>
-              <Button className="userProfilePeekButtons" bsStyle="success" onClick={()=> {node ? this.toggleModal() : null}}>Add Task</Button>
-              <Button bsStyle="info" onClick={()=>{node && !this.checkChildren(node) ? this.toggleCompleteModal() : null}}>Mark task as complete</Button>
-            </div>
-            <div>
-              <MyModal
-                toggleModal={this.toggleModal}
-                showModal={this.state.showModal}
-                handleChange = {this.handleChange}
-                handleTaskForm = {this.handleTaskForm}
-              />
-            </div>
-            <div>
-              <CompleteModal
-                toggleCompleteModal={this.toggleCompleteModal}
-                showCompleteModal={this.state.showCompleteModal}
-                handleCompleteTask = {this.handleCompleteTask}
-              />
+                <div className="userProfilePeekNameContainer">
+                  <div className="userProfilePeekName"></div>
+                </div>
+                <div className="userProfilePeekTaskContainer">
+                  <div className="userProfilePeekTask">{this.state.taskName}</div>
+                  <div>
+                    {budget}
+                  </div>
+                  <div>
+                    {actual}
+                    </div>
+                  <div className="userProfilePeekName">{node ? node.name : ''}</div>
+                  <div className="userProfilePeekDetails">
+                    <div>{node ? node.description : ''}</div>
+                    <div>{this.state.taskBudget_hours}</div>
+                  </div>
+                  <Button className="userProfilePeekButtons" bsStyle="success" onClick={()=> {node ? this.toggleModal() : null}}>Add Task</Button>
+                  <Button bsStyle="info" onClick={()=>{node && !this.checkChildren(node) ? this.toggleCompleteModal() : null}}>Complete</Button>
+                </div>
+                <div>
+                  <MyModal
+                    toggleModal={this.toggleModal}
+                    showModal={this.state.showModal}
+                    handleChange = {this.handleChange}
+                    handleTaskForm = {this.handleTaskForm}
+                  />
+                </div>
+                <div>
+                  <CompleteModal
+                    toggleCompleteModal={this.toggleCompleteModal}
+                    showCompleteModal={this.state.showCompleteModal}
+                    handleCompleteTask = {this.handleCompleteTask}
+                  />
+                </div>
+              </div> 
             </div>
           </div>
         </div>

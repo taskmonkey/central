@@ -4,6 +4,7 @@ import {Redirect,Link, withRouter} from 'react-router-dom';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import { Button, Modal } from 'react-bootstrap';
 import {projectTree} from '../../../Actions/index.js';
 
 class ProjectsListItem extends Component {
@@ -35,6 +36,7 @@ class ProjectsListItem extends Component {
           <img className="tasksListItemCircleImage" src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"/>
         </div>
         <Link to='/tasksTree'><div className="tasksListItemTitle" onClick={this.getTaskTree}>{this.props.projectsListItem.name}</div></Link>
+        <Button className="projectFormButtons" bsStyle="danger" style={{float: 'right'}}>Delete Project</Button>
       </div>
     )
   }

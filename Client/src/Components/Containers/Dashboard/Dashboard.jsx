@@ -181,10 +181,10 @@ class Dashboard extends Component{
 						<h3>HRLA16</h3>
             <hr></hr>
             <BarGraph allTasksAndUsers={this.props.mappedUsersAndTasks} allTasksUsers={this.props.allTasksUsers} allUsers={this.props.allUsers}/>
-						<h3>Budget Vs Actual Hours</h3>
+						<h3>Budget vs Actual Hours</h3>
             <hr></hr>
-						<div className="row">
-              <div className="col-sm-4" id="budgetvsactual">
+						{/* <div className="row">
+              <div className="col-sm-4 offset-sm-2" id="budgetvsactual">
                 Me
               </div>
               <div className="col-sm-4" id="budgetvsactualteam">
@@ -192,7 +192,7 @@ class Dashboard extends Component{
               </div>
               <div className="col-sm-4">
               </div>
-            </div>
+            </div> */}
             <div className="row">
               <PieGraph budgetVsActual = {this.props.budgetVsActual} />
 						</div>
