@@ -27,9 +27,12 @@ Database hosted on MySQL local database.
 > Set up MySQL database.
 > 
 > 1. Using Homebrew: install MySQL if needed, then load and run it: https://gist.github.com/nrollr/3f57fc15ded7dddddcc4e82fe137b58e
-> 
-> 2. In Terminal (in repo directory?): mysql -u root -p
-> 
+
+> 2. In Terminal (in repo directory?):
+```sh
+mysql -u root -p
+```
+
 > 3. Within SQL Terminal Navigation, create the database, use it, and import schemas/tables:
 
 ```sh
@@ -39,9 +42,10 @@ source Database/database.sql
 ```
 
 > 4. Back in regular terminal, within repo directory, seed the database:
->
-> node seedData/seed.js
-> 
+```sh
+node seedData/seed.js
+```
+
 
 ## Requirements
 
