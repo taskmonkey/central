@@ -117,3 +117,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
 - Dropzone functionality is not implemented to a working state
 - Aside from the seeded users, additional users are entered as 'NULL' into the database (on new logins)
 - Projects and Tasks are seeded into the database, but they're not displayed on the webpage (shows zero projects/tasks. possibly part of the issue where user is logged in as 'NULL')
+- Able to assign tasks to unknown users (maybe this is ok if handled correctly, but currently there is no handling of such info)
