@@ -31,13 +31,13 @@ Database hosted on MySQL local database.
 > 2. In Terminal (in repo directory?): mysql -u root -p
 > 
 > 3. Within SQL Terminal Navigation, create the database, use it, and import schemas/tables:
-> 
-> create database taskmon;
-> 
-> use taskmon;
-> 
-> source Database/database.sql
-> 
+
+```sh
+create database taskmon;
+use taskmon;
+source Database/database.sql
+```
+
 > 4. Back in regular terminal, within repo directory, seed the database:
 >
 > node seedData/seed.js
