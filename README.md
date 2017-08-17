@@ -119,3 +119,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
 - Projects and Tasks are seeded into the database, but they're not displayed on the webpage (shows zero projects/tasks. possibly part of the issue where user is logged in as 'NULL')
 - Able to assign tasks to unknown users (maybe this is ok if handled correctly, but currently there is no handling of such info)
 - Parsing of user data on project tree page may not be compatible with other users aside from seeded users, meaning they won't correctly render on project tree page.
+- Only social logins are accepted? (Github/Google/etc.) (No option to signup directly?)
