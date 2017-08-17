@@ -1,8 +1,6 @@
 # TaskMon
 
-> Legacy for Task Mon
-
-Database hosted on MySQL local database.
+> Legacy Project for TaskMon, a task manager
 
 ## Team
 
@@ -24,7 +22,7 @@ Database hosted on MySQL local database.
 
 > Set up Auth0 (may need to debug)
 > 
-> Set up MySQL database.
+> Set up MySQL database:
 > 
 > 1. Using Homebrew: install MySQL if needed, then load and run it: https://gist.github.com/nrollr/3f57fc15ded7dddddcc4e82fe137b58e
 
@@ -45,7 +43,6 @@ source Database/database.sql
 ```sh
 node seedData/seed.js
 ```
-
 
 ## Requirements
 
@@ -108,7 +105,15 @@ View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
 See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
 
 ## Ideas for Contributions
-- Add more details to user pages
+- Add details to existing user pages, and ability to retreive members for a project based on such additional info.
+- Update database to use a graph structure (instead of a (currently?) tree structure?)
+- Add project details page, containing notes, messages, etc
+- Add tracking of monetary aspect to the budget
+- Add notifications for users on milestones/deadlines/check-ins
+- Add chatting between members of a group
+- Add WebRTC video chat
 
 ## Known Bugs
-- Dropzone functionality is not fully implemented
+- Dropzone functionality is not implemented to a working state
+- Aside from the seeded users, additional users are entered as 'NULL' into the database (on new logins)
+- Projects and Tasks are seeded into the database, but they're not displayed on the webpage (shows zero projects/tasks)
