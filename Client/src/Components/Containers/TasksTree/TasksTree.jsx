@@ -57,6 +57,16 @@ class TasksTree extends Component{
     nodeAssigneeClone.splice(0, quoteIdx + 1);
     quoteIdx = nodeAssigneeClone.indexOf("'");
     let img = nodeAssigneeClone.splice(0, quoteIdx).join('');
+
+    console.log('onNodeClick: node:', node);
+    console.log('onNodeClick: node.assignee[0]:', node.assignee[0]);
+    // let name = '';
+    // let img = '';
+    console.log('onNodeClick: name to use:', name);
+    console.log('onNodeClick: img to use:', img);
+
+    console.log('TasksTree: this.state:', this.state);
+
     this.setState({
       currentNode: node,
       taskBudget_hours: 'Budget hours:  ' + node.budget_hours.toString(),

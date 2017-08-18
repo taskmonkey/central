@@ -73,6 +73,9 @@ router.post('/addProject', (req, res) => {
 
 router.post('/addTask', (req, res)=>{
   //posting a task to the database
+  console.log('Server addTask: req.body', req.body);
+  // console.log('Server addTask: req.query', req.query);
+  // console.log('Server addTask: req.params', req.params);
   tasks.createNewTask(res, req.body);
 
 });
