@@ -20,7 +20,22 @@
 
 ## Usage
 
-> Set up Auth0 (may need to debug)
+> Set up for Auth0 (create account if you haven't already done so):
+- Create a Client (named TaskMon). In its settings, add 'http://localhost:3000/' to Allowed Callback URLs
+- Under Connections -> Social, enable Google (and maybe Github)
+- Under Rules -> Email Domain Whitelist -> make sure this is disabled, or includes email addresses you will be using (such as gmail.com)
+- Go to the Auth.js file in codebase (under client/src/Auth) and update the credentials with your own Auth0 client:
+```sh
+ domain: 'YOUR_DOMAIN_URL',
+clientID: 'YOUR_CLIENT_ID',
+redirectUri: 'http://localhost:3000',
+audience: 'YOUR AUDIENCE',
+responseType: 'token id_token',
+scope: 'openid profile'
+```
+- Note: in the above 'scope', 'profile' is needed for the app to work properly, (even though this is omitted from the normal quick start usage provided by Auth)
+
+> 
 > 
 > Set up MySQL database:
 > 
