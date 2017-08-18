@@ -32,8 +32,8 @@ class ProjectsList extends Component{
           <div className="projectsListContainer">
             <div>
               {
-                this.props.projects.map(project =>
-                  <ProjectsListItem projectsListItem={project}/>
+                this.props.projects.map((project, index) =>
+                  <ProjectsListItem projectsListItem={project} key={index}/>
                 )
               }
               {/* <Link to="/tasksTree"><button className="tasksTreeButton">Tasks Tree</button></Link> */}
