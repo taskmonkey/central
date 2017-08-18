@@ -22,7 +22,7 @@
 
 > Set up for Auth0 (create account if you haven't already done so):
 - Create a Client (named TaskMon). In its settings, add 'http://localhost:3000/' to Allowed Callback URLs
-- Under Connections -> Social, enable Google (and maybe Github)
+- Under Connections -> Social, enable Google (and maybe Github) (Note: app is not configured to use connections via a normal database Username-Password-Authentication setting)
 - Under Rules -> Email Domain Whitelist -> make sure this is disabled, or includes email addresses you will be using (such as gmail.com)
 - Go to the Auth.js file in codebase (under client/src/Auth) and update the credentials with your own Auth0 client:
 ```sh
@@ -37,7 +37,7 @@ scope: 'openid profile'
 
 > 
 > 
-> Set up MySQL database:
+> Set up (local) MySQL database:
 > 
 > 1. Using Homebrew: install MySQL if needed, then load and run it: https://gist.github.com/nrollr/3f57fc15ded7dddddcc4e82fe137b58e
 
@@ -129,9 +129,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
 - Add WebRTC video chat
 
 ## Known Bugs
+- Auth0 is configured only to use Google (and Github, untested) logins. Unexpected behavior may occur if logging in with other means. 
 - Dropzone functionality is not implemented to a working state
 - Aside from the seeded users, additional users are entered as 'NULL' into the database (on new logins)
 - Projects and Tasks are seeded into the database, but they're not displayed on the webpage (shows zero projects/tasks. possibly part of the issue where user is logged in as 'NULL')
 - Able to assign tasks to unknown users (maybe this is ok if handled correctly, but currently there is no handling of such info)
 - Parsing of user data on project tree page may not be compatible with other users aside from seeded users, meaning they won't correctly render on project tree page.
-- Only social logins are accepted? (Github/Google/etc.) (No option to signup directly?)
