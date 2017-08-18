@@ -131,7 +131,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
 ## Known Bugs
 - Auth0 is configured only to use Google (and Github, untested) logins. Unexpected behavior may occur if logging in with other means. 
 - Dropzone functionality is not implemented to a working state
-- Aside from the seeded users, additional users are entered as 'NULL' into the database (on new logins)
-- Projects and Tasks are seeded into the database, but they're not displayed on the webpage (shows zero projects/tasks. possibly part of the issue where user is logged in as 'NULL')
+- (CORRECTED) Aside from the seeded users, additional users are entered as 'NULL' into the database (on new logins) (CORRECTED with Auth0 fix)
+- CORRECTED: Projects and Tasks are seeded into the database, but they're not displayed on the webpage (shows zero projects/tasks. possibly part of the issue where user is logged in as 'NULL') (CORRECTED with Auth0 fix. Note: you are still unable to view projects that you are not a part of, this is normal behavior)
 - Able to assign tasks to unknown users (maybe this is ok if handled correctly, but currently there is no handling of such info)
 - Parsing of user data on project tree page may not be compatible with other users aside from seeded users, meaning they won't correctly render on project tree page. (Currently debugging.. when entering a name into the assignee field, the format must be something like "{username: 'jardini.alex', image: 'https://cdn.bulbagarden.net/upload/c/c4/569Garbodor.png'}" in order to display correctly. See the functions handleTaskForm and onNodeClick in TasksTree.jsx)
