@@ -28,8 +28,14 @@ allTasks = (clientResponse) => {
 }
 
 createNewTask = (clientResponse, taskObj) => {
+    console.log('DB createNewTask: temp: invoked');
     let temp = [taskObj.name, taskObj.description, taskObj.budget_hours, taskObj.owner, taskObj.parentid, taskObj.assignees[0]];
+    // let temp = [taskObj.name, taskObj.description, taskObj.budget_hours, taskObj.owner, taskObj.parentid, JSON.parse(taskObj.assignees)];
+    console.log('DB createNewTask: temp:', temp);
+    console.log('DB createNewTask: temp: assigneestypeof', typeof taskObj.assignees);
+    console.log('DB createNewTask: temp: assignees', taskObj.assignees);
     let sql = `INSERT INTO tasks (name, description, budget_hours, owner, parentid, assignee) VALUES (?, ?, ?, ?, ?, ?);`;
+    console.log('DB createNewTask: insert query', sql);
     db.query(sql, temp, (err, resp) => {
 
         var responseObject = {};

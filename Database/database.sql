@@ -12,6 +12,8 @@ CREATE TABLE users (
     id int NOT NULL AUTO_INCREMENT,
     username VARCHAR(255) UNIQUE,
     image VARCHAR(255) DEFAULT "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg",
+    title VARCHAR(255) DEFAULT "Task Monkey",
+    status VARCHAR(255) DEFAULT "Active",
     PRIMARY KEY (id)
 
 );

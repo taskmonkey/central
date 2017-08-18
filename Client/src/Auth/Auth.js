@@ -6,10 +6,10 @@ import history from '../history';
 export default class Auth {
   constructor() {
     this.auth0 = new auth0.WebAuth({
-      domain: 'austenwma.auth0.com',
+      domain: ClientID.DOMAIN,
       clientID: ClientID.CLIENT_ID,
-      redirectUri: 'http://localhost:3000/',
-      audience: 'https://austenwma.auth0.com/userinfo',
+      redirectUri: 'http://localhost:3000',
+      audience: ClientID.AUDIENCE,
       responseType: 'token id_token',
       scope: 'openid profile',
     });

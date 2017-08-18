@@ -61,8 +61,8 @@ class MyTasks extends Component{
             <div className="row">
               <div className="col-sm-12">
               {
-                this.props.tasksByUser.map(task =>
-                  <MyTasksComponent task={task}/>
+                this.props.tasksByUser.map((task, index) =>
+                  <MyTasksComponent task={task} key={index}/>
                 )
               }
             </div>
